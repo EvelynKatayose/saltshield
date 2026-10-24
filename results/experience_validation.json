@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "checks": [
+    "experience_is_the_default_and_uses_the_linked_model",
+    "comparison_map_matches_exact_current_assignments",
+    "funding_mode_switch_changes_real_model_metrics",
+    "experience_budget_updates_the_workspace_and_optimizer",
+    "workspace_changes_update_the_experience_in_both_directions",
+    "snow_salt_and_water_interactions_do_not_change_quantitative_inputs",
+    "illustration_reset_clears_all_interaction_particles",
+    "map_comparison_supports_native_slider_and_divider_drag",
+    "town_highlight_works_with_keyboard_focus",
+    "motion_pause_cancels_animation_and_resumes_one_loop",
+    "animation_sleeps_outside_experience_and_when_document_is_hidden",
+    "invalid_inputs_clear_stale_visuals_and_zero_budget_is_supported",
+    "reduced_motion_preference_is_respected_by_default",
+    "canvas_unavailable_keeps_static_illustration_and_planner_functional",
+    "particle_state_is_deterministic_bounded_and_finite_after_runoff",
+    "cursor_gust_changes_local_snow_motion"
+  ],
+  "shipped_report_bytes": 4213904,
+  "report_sha256": "fd7048d4f2ffeda8ce41aa5a7a0122b5a0b43887e676b8947fa73aa576220fa2",
+  "source_sha256": {
+    "experience.html": "452ac4a7b8042d2956a69447cfc6219368d315493419c4fe663e783be1abbbd1",
+    "experience.css": "28822b2076d7c63bde12b719fe54bc53310d13f7f714be6119523cbf386448eb",
+    "experience.js": "f64ca31de372a854bf1a194510ef59872ae91448453ac559f2908036e23aa9b7",
+    "winter_scene.js": "6ee4d4d5d53e7d079ebb06bb2ea4acf657269a01fe292da9996b224f0c906e8d",
+    "assets/winter-reservoir.jpg": "837398dc46de26ef4102c3e5c88d96aef776b32fdd5f45b137b8a7ecb902e743"
+  },
+  "test_kind": "Shipped scripts with mock DOM and recording Canvas; deterministic particle tests",
+  "browser_checks": [
+    "Chrome: immersive local file loads with functioning winter scene and populated capacity-linked planning metrics",
+    "Chrome: Snow/Salt/Water scene, snowfall slider, salt scatter, water ripples and fish layer visually inspected",
+    "Chrome: native UI state reflects live changes to snowfall intensity, funding mode, map split and budget"
+  ],
+  "verification_limits": [
+    "Narrow-screen layout and real mobile/touch hardware were not visually reverified.",
+    "Embedded Codex preview and local HTTP server were unavailable; desktop Chrome file:// preview was used.",
+    "Particle paths and generated landscape are illustrations, not measured routes, salt mass or water-quality predictions."
+  ]
+}

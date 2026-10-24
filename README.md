@@ -28,6 +28,7 @@ node test_planning.cjs  # Python/JavaScript numerical parity; needs python3
 node test_joint.cjs  # linked equipment/cell numerical parity
 node build_joint_brief.cjs  # optional: saved-input standalone English brief
 node test_joint_brief.cjs
+node test_experience.cjs
 ```
 
 Open `results/SaltShield_Wachusett.html`. For a fresh source snapshot, run
@@ -479,3 +480,54 @@ metrics, provenance, changed-budget behavior and text escaping. Cross-language
 validation also compares reach cases for both objectives, low budgets, disabled
 towns and zero reach. Narrow-screen and print pagination require visual review
 before using the brief as a final publication.
+
+## Immersive winter experience
+
+The default entry is now `#experience`: a full-width environmental story that
+leads into the existing planning workspace. The SaltShield brand link returns
+to the experience; Overview, Investments, Road Coverage and Evidence retain
+their calculations, scenario editing and exports.
+
+The experience includes an original winter landscape, mouse-responsive snow,
+a scroll-guided Snow / Salt / Water scene, salt scattering, animated water
+connections and ripples. Stage buttons, snowfall range, Add salt, Make a ripple,
+Reset and Pause motion provide explicit controls. Snowfall and particle counts
+are visual only; the illustration never supplies weather, baseline application,
+hydrologic transport or concentration inputs. The generated landscape is not a
+geographic photograph of Wachusett. Its provenance is in
+`assets/visual_sources.json`.
+
+The live planning section uses the existing capacity-linked engine. Its budget
+slider updates the same budget used in Investments; objective, costs, effects,
+coverage, enablement and reach edits continue to apply. Independent / Shared
+buttons show the corresponding measured assigned lengths and simulated avoided
+application. Two synchronized maps display actual selected cell IDs; use the
+native range control or drag the divider to compare. Hover or keyboard-focus a
+town to highlight its cells. Capital actually selected and equal-actual-spend
+comparisons remain visible, so a larger purchase is not mistaken for a free
+efficiency gain. Invalid workspace inputs clear the live comparison.
+
+Animations target roughly 30 frames per second, cap device pixel ratio at two,
+and use bounded particle arrays. They stop when the document is hidden or the
+visitor leaves the experience. Offscreen canvases sleep when IntersectionObserver
+is available. Reduced-motion preferences pause motion by default; visitors can
+explicitly resume. Without Canvas, a static illustration and the quantitative
+planner remain available. Layouts include a narrow-screen version, with native
+touch/keyboard range controls and page scrolling preserved.
+
+`experience.html`, `experience.css`, `experience.js` and `winter_scene.js` are
+embedded by `build_report.py`; the JPEG is embedded as a data URL. The complete
+report remains a self-contained offline file, with no CDN, framework, font or
+animation-service dependency. Rebuild the report after editing these assets,
+then use `node build_joint_brief.cjs` if refreshing the saved brief as well.
+`test_experience.cjs` executes the shipped scripts with a recording canvas and
+checks two-way model updates, exact assigned-cell membership, comparison drag,
+keyboard highlighting, illustration isolation, reset, pause, visibility,
+reduced-motion and no-Canvas behavior, and bounded deterministic particle state.
+
+Design research used the public [Apple Environment](https://www.apple.com/environment/)
+page (large environmental imagery and staged explanations),
+[Tesla Megapack](https://www.tesla.com/megapack) (full-screen product framing and
+clear next actions), and [Passage of Water](https://experiments.withgoogle.com/passage-of-water)
+(an interactive water-resource narrative). References were reviewed on
+2026-10-24. No reference-site images, code or branding were copied into the app.

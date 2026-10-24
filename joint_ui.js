@@ -48,6 +48,7 @@
       currentJoint=null;reference=null;$('joint-error').textContent=err.message;$('joint-error').hidden=false;$('joint-output').hidden=true;$('joint-json').disabled=true;$('joint-csv').disabled=true;$('joint-brief').disabled=true;clearMap();
     }
     renderReach();
+    globalThis.SaltShieldExperience?.sync(currentJoint);
   }
   function download(content,type,name){const url=URL.createObjectURL(new Blob([content],{type})),link=document.createElement('a');link.href=url;link.download=name;link.click();URL.revokeObjectURL(url);}
   $('joint-policy').addEventListener('change',updateJoint);
@@ -89,5 +90,5 @@
     const draft=JSON.parse(localStorage.getItem(key)??'null');
     if(draft&&SaltShieldJoint.matches(draft.source_sha256,data.source_sha256)&&draft.capacities&&Object.keys(draft.capacities).length===originalProjects.length&&originalProjects.every(p=>typeof draft.capacities[p.project_id]==='number'&&Number.isFinite(draft.capacities[p.project_id])&&draft.capacities[p.project_id]>=0))originalProjects.forEach(p=>reachInput(p).value=draft.capacities[p.project_id]);
   }catch{/* Fresh saved assumptions remain in place. */}
-  globalThis.SaltShieldJointUI={update:updateJoint};updateJoint();
+  globalThis.SaltShieldJointUI={update:updateJoint,getState:()=>currentJoint};updateJoint();
 })();

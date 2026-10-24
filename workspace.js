@@ -2,7 +2,7 @@
 (() => {
   const get=id=>document.getElementById(id);
   const views=['overview','investments','coverage','evidence'];
-  const titles={overview:'Overview',investments:'Investments',coverage:'Road Coverage',evidence:'Evidence'};
+  const titles={experience:'Experience',overview:'Overview',investments:'Investments',coverage:'Road Coverage',evidence:'Evidence'};
   const policies={participation:'Shared funding · a project in every town',pooled:'Shared funding · unrestricted allocation',independent:'Independent town budgets',greedy:'Benefit / cost heuristic',statusQuo:'No new investment'};
   const spatialLabels={integer:'Whole-cell optimum',greedy:'Ratio heuristic',uniform:'Uniform coverage',fractional_bound:'Fractional upper bound'};
   let briefHtml='';
@@ -17,8 +17,10 @@
     }catch{get('draft-status').textContent='Draft storage unavailable';}
   }
   function showView(view,focus=false) {
-    if(!views.includes(view))view='overview';
-    for(const name of views)get(name+'-view').hidden=name!==view;
+    if(!['experience',...views].includes(view))view='overview';
+    for(const name of ['experience',...views])get(name+'-view').hidden=name!==view;
+    document.documentElement.dataset.view=view;
+    globalThis.SaltShieldExperience?.visibility(view==='experience');
     for(const button of document.querySelectorAll('[data-view]')) {
       const active=button.dataset.view===view;button.classList.toggle('active',active);
       if(active)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current');
@@ -41,7 +43,7 @@
   }
   for(const button of document.querySelectorAll('[data-go]'))button.addEventListener('click',()=>showView(button.dataset.go,true));
   globalThis.addEventListener?.('hashchange',()=>showView(globalThis.location.hash.slice(1)));
-  showView(globalThis.location?.hash.slice(1)||'overview');
+  showView(globalThis.location?.hash.slice(1)||'experience');
 
   let appearance='light', followsSystem=true;
   const media=globalThis.matchMedia?.('(prefers-color-scheme: dark)');

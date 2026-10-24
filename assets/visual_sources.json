@@ -1,0 +1,25 @@
+{
+  "asset": "winter-reservoir.jpg",
+  "sha256": "837398dc46de26ef4102c3e5c88d96aef776b32fdd5f45b137b8a7ecb902e743",
+  "origin": "Original generated illustration for SaltShield",
+  "created_date": "2026-10-24",
+  "description": "Imagined New England winter reservoir, shoreline road and forest. Not a geographic photograph of Wachusett.",
+  "encoding": "JPEG for embedded offline delivery; content unchanged from generated artwork",
+  "design_references": [
+    {
+      "title": "Apple Environment",
+      "url": "https://www.apple.com/environment/",
+      "use": "Environmental imagery, spacious typography and staged explanations; no assets copied"
+    },
+    {
+      "title": "Tesla Megapack",
+      "url": "https://www.tesla.com/megapack",
+      "use": "Full-screen framing and clear calls to action; no assets copied"
+    },
+    {
+      "title": "Passage of Water",
+      "url": "https://experiments.withgoogle.com/passage-of-water",
+      "use": "Interactive water-resource storytelling; no assets copied"
+    }
+  ]
+}

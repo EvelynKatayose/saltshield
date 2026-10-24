@@ -21,6 +21,7 @@ async function run() {
   const get = id => elements.get(id);
   for(const id of ['objective','ind-benefit-label','pool-benefit-label','comparison-export','baseline-totals','baseline-comparison','baseline-comparison-note','decision-policy','project-decisions','stability-summary','project-stability','sensitivity-export'])elements.set(id,element());
   get('objective').value='zoneA';get('decision-policy').value='pooled';
+  elements.set('experience-view',element());elements.set('experience-heading',element());
   for(const id of ['joint-policy','joint-json','joint-csv','joint-reset','joint-draft-status','joint-capacity-editor','joint-error','joint-output','joint-benefit-label','joint-cost','joint-unspent','joint-length','joint-capacity','joint-benefit','joint-summary','joint-assignments','joint-uniform','joint-benchmark','joint-comparison'])elements.set(id,element());
   get('joint-policy').value='pooled';
   for(const id of ['joint-brief','joint-map','joint-reach-review','joint-reach-run','joint-reach-csv','joint-reach-status','joint-reach-output','joint-reach-table','joint-reach-selection'])elements.set(id,element());

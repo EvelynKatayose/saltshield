@@ -181,13 +181,20 @@ def report(a):
         a={**a,'joint':joint}
         capacity_rows=''.join('<tr><th>'+html.escape(r['town_id'].title()+' / '+r['project_id'].rsplit('_',1)[1])+'</th><td><input id="joint-reach-'+r['project_id']+'" type="number" min="0" step="1" value="'+str(r['max_road_km_per_winter'])+'" aria-label="'+html.escape(r['project_id']+' simulated service reach')+'"></td></tr>' for r in joint['capacities'])
         linked_panel=(ROOT/'joint_panel.html').read_text().replace('__CAPACITY_ROWS__',capacity_rows).replace('__JOINT_MAP__',priority_svg().replace('class="priority-cell"','class="joint-cell"'))
+        experience=(ROOT/'experience.html').read_text()
+        for policy in ['independent','pooled']:
+            experience=experience.replace('__EXPERIENCE_MAP_'+policy.upper()+'__',priority_svg().replace('class="priority-cell"','class="experience-cell experience-cell-'+policy+'"'))
+        experience=experience.replace('>173</strong>','>'+str(len(joint['cells']))+'</strong>')
+        template=template.replace('__EXPERIENCE_PANEL__',experience)
         template=template.replace('__WEATHER_PANEL__',panels['weather']).replace('__SPATIAL_PANEL__',linked_panel+panels['spatial'])
     else:
         raise ValueError('Build weather and spatial outputs before creating the workspace.')
     maximum=max(s['within_watershed_centerline_km'] for s in a['summary'])
     town_cards=''.join(f'<div class="town-detail"><div class="town-name"><span>{s["town"].title()}</span><span>{num(s["within_watershed_centerline_km"])} <em>km</em></span></div><div class="town-strip"><span style="width:{s["within_watershed_centerline_km"]/maximum*100:.2f}%"></span></div><small>{num(s["eligible_municipal_paved_zone_a_km"])} km of eligible Zone A roads</small></div>' for s in a['summary'])
-    replacements={'__MAP__':svg_map(),'__MEASURED_ROWS__':measured,'__OWNER_ROWS__':ownership,'__SOURCES__':sources,'__ANALYSIS_JSON__':json.dumps(a,ensure_ascii=False).replace('</','<\\/'),'__SOLVER_JS__':(ROOT/'simulation.js').read_text()+'\n'+(ROOT/'planning_v1.js').read_text()+'\n'+(ROOT/'joint_planning.js').read_text()+'\n'+(ROOT/'joint_brief.js').read_text(),
-                  '__WORKSPACE_CSS__':(ROOT/'workspace.css').read_text(),'__PLANNER_JS__':(ROOT/'phase2_ui.js').read_text()+'\n'+(ROOT/'planning_ui.js').read_text(),'__SPATIAL_JS__':(ROOT/'phase3_ui.js').read_text()+'\n'+(ROOT/'joint_ui.js').read_text(),'__WORKSPACE_JS__':(ROOT/'workspace.js').read_text(),
+    hero=base64.b64encode((ROOT/'assets/winter-reservoir.jpg').read_bytes()).decode()
+    experience_css=(ROOT/'experience.css').read_text()+'\n:root{--winter-hero:url("data:image/jpeg;base64,'+hero+'");}'
+    replacements={'__MAP__':svg_map(),'__MEASURED_ROWS__':measured,'__OWNER_ROWS__':ownership,'__SOURCES__':sources,'__ANALYSIS_JSON__':json.dumps(a,ensure_ascii=False).replace('</','<\\/'),'__SOLVER_JS__':(ROOT/'simulation.js').read_text()+'\n'+(ROOT/'planning_v1.js').read_text()+'\n'+(ROOT/'joint_planning.js').read_text()+'\n'+(ROOT/'joint_brief.js').read_text()+'\n'+(ROOT/'winter_scene.js').read_text(),
+                  '__WORKSPACE_CSS__':(ROOT/'workspace.css').read_text()+'\n'+experience_css,'__PLANNER_JS__':(ROOT/'phase2_ui.js').read_text()+'\n'+(ROOT/'planning_ui.js').read_text(),'__SPATIAL_JS__':(ROOT/'phase3_ui.js').read_text()+'\n'+(ROOT/'joint_ui.js').read_text(),'__WORKSPACE_JS__':(ROOT/'workspace.js').read_text()+'\n'+(ROOT/'experience.js').read_text(),
                   '__TOWN_CARDS__':town_cards,'__TOTAL_ROADS__':num(sum(s['within_watershed_centerline_km'] for s in a['summary'])),'__ELIGIBLE_A__':num(sum(s['eligible_municipal_paved_zone_a_km'] for s in a['summary']))}
     for key,value in replacements.items():template=template.replace(key,value)
     (OUT/'SaltShield_Wachusett.html').write_text(template)
