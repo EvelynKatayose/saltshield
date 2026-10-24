@@ -2,9 +2,11 @@
   "status": "PASS",
   "checks": [
     "experience_is_the_default_and_uses_the_linked_model",
+    "comparison_cards_show_both_actual_spending_and_towns_and_select_the_current_plan",
     "comparison_map_matches_exact_current_assignments",
     "funding_mode_switch_changes_real_model_metrics",
     "experience_budget_updates_the_workspace_and_optimizer",
+    "comparison_cards_follow_equal_spending_and_the_participation_tradeoff",
     "workspace_changes_update_the_experience_in_both_directions",
     "snow_salt_and_water_interactions_do_not_change_quantitative_inputs",
     "illustration_reset_clears_all_interaction_particles",
@@ -13,23 +15,24 @@
     "motion_pause_cancels_animation_and_resumes_one_loop",
     "animation_sleeps_outside_experience_and_when_document_is_hidden",
     "invalid_inputs_clear_stale_visuals_and_zero_budget_is_supported",
+    "zero_budget_comparison_has_no_invalid_bars_or_funded_towns",
     "reduced_motion_preference_is_respected_by_default",
     "canvas_unavailable_keeps_static_illustration_and_planner_functional",
     "particle_state_is_deterministic_bounded_and_finite_after_runoff",
     "cursor_gust_changes_local_snow_motion"
   ],
-  "shipped_report_bytes": 4224559,
-  "report_sha256": "ed041856e9b70d5aa8da3aeb5d6656fc97ddf381aea24bc06984cf3141842ca3",
+  "shipped_report_bytes": 4228601,
+  "report_sha256": "6fa5250130a136f6d3f9536a0e1bb5fe405ddf51a8014526144ee5fca975c3b0",
   "source_sha256": {
-    "experience.html": "3915d59f0d6881b18b16db98d94dbc3fb6c17843f9a2622d0f98d18a9f9b53ed",
+    "experience.html": "43279b0ee1167e53bc6d002e46b37e59f8dc6d7a185753cadac7d569afdf205c",
     "experience.css": "bdc2c96708cebabe6375a4a16f6a6a731a8a976c7c8b856d0cad5042c62eed29",
-    "experience.js": "4f56632889b5bcb1bb619d44c83d66478c18f672cd38f1bfcee8a454b824677f",
+    "experience.js": "7df6cc6e6e06f43a1bed108306eb22c2685a4ac2ebb3ed861dc951b36a9dd54a",
     "winter_scene.js": "6ee4d4d5d53e7d079ebb06bb2ea4acf657269a01fe292da9996b224f0c906e8d",
     "assets/winter-reservoir.jpg": "837398dc46de26ef4102c3e5c88d96aef776b32fdd5f45b137b8a7ecb902e743",
     "demo_mode.js": "b6861131d5408be877fae18c5d4918676daf400f5b06d398111fcdc4b76eeee0",
     "routing.js": "996a65b60a0c11aa590d0bcb4eed654def909ed6d90538eb34cf947459758504",
     "workspace.js": "2ac278f81cc9c690b94ae226a9528af26d14201019a4b4b0a3df366473bdb846",
-    "experience_live.css": "ae2c997f90c3af55d292af1ed5f80c765f4b6a3cfd7466d3094212ea4c2f81d0"
+    "experience_live.css": "e4bfffd6cc3ccfc7eb93c0cc223e280a876338418f14107590ce2fc64ec0bb58"
   },
   "test_kind": "Shipped scripts with mock DOM and recording Canvas; deterministic particle tests",
   "browser_checks": [
@@ -43,10 +46,9 @@
     "Phone dimensions were tested in browser emulation; physical touch hardware was not tested."
   ],
   "layout_checks": [
-    "Public desktop viewport 1265 x 720: complete map, budget slider, presets and modeled results visible together",
-    "Explore the map aligns the workbench below the fixed header",
-    "Phone viewport 375 x 844: complete map and budget controls visible together; no horizontal document overflow",
-    "Phone budget preset and Independent toggle reproduce 20.15 t at 45000",
-    "Temporary viewport override reset"
-  ]
+    "Desktop map and control panel use equal width and height",
+    "Comparison cards show both modeled benefits, actual spending and funded-town counts",
+    "Comparison bars handle zero budget and follow the selected objective"
+  ],
+  "layout_browser_verification": "pending"
 }

@@ -67,7 +67,7 @@
     "linked_zero_investment_brief_is_valid"
   ],
   "parameter_fingerprint": "a20be0c85fe29462b20d0ef9c9f4735a70940e22893473e6e5297a9b24c8b368",
-  "report_sha256": "ed041856e9b70d5aa8da3aeb5d6656fc97ddf381aea24bc06984cf3141842ca3",
+  "report_sha256": "6fa5250130a136f6d3f9536a0e1bb5fe405ddf51a8014526144ee5fca975c3b0",
   "unit_basis": "CENTERLINE_KM_PER_WINTER",
   "real_browser_checks": [
     "Chrome: offline file loads and restores the saved draft",

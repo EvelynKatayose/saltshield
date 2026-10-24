@@ -47,10 +47,20 @@
     for(const policy of ['independent','pooled']){const selected=new Set(scenario.plans[policy].selected_cell_ids);for(const el of document.querySelectorAll('.experience-cell-'+policy))el.style.fill=selected.has(el.dataset.cell)?(policy==='pooled'?'#87debf':'#8babb8'):'#173943';}
     $('x-town-plans').innerHTML=i.towns.map(t=>{const p=result.selected.find(p=>p.town===t),a=p?.allocation,share=a&&a.capacity_km?a.covered_road_km/a.capacity_km:0;return '<button class="x-town-row" data-x-town="'+escapeHtml(t)+'"><span class="x-town-top"><span>'+escapeHtml(niceTown(t))+'</span><strong>'+money(p?.capital_cost_usd??0)+'</strong></span><span class="x-town-detail"><span>'+(p?escapeHtml(p.project_type)+' · '+a.selected_cell_ids.length+' cells':'No package selected')+'</span><span>'+(a?a.covered_road_km.toFixed(2)+' / '+a.capacity_km.toFixed(0)+' km':'—')+'</span></span><span class="x-capacity-track"><i style="width:'+(share*100).toFixed(2)+'%"></i></span></button>';}).join('');
     for(const button of document.querySelectorAll('[data-x-town]')){for(const event of ['pointerenter','focus'])button.addEventListener(event,()=>highlight(button.dataset.xTown));for(const event of ['pointerleave','blur'])button.addEventListener(event,()=>highlight(null));}
-    const ind=scenario.plans.independent,pool=scenario.plans.pooled,difference=pool[i.objective]-ind[i.objective];$('x-result-comparison').textContent='At the same '+money(i.budget)+' total ceiling, sharing models '+tonnes(difference)+' more avoided application on the selected objective, with '+money(pool.cost-ind.cost)+' more selected capital.';
+    const ind=scenario.plans.independent,pool=scenario.plans.pooled,difference=pool[i.objective]-ind[i.objective],costDifference=pool.cost-ind.cost;
+    const maximum=Math.max(ind[i.objective],pool[i.objective],0);
+    $('x-compare-scope').textContent=(i.objective==='zoneA'?'Zone A':'A/B/C')+' · simulated t / winter';
+    for(const policy of ['independent','pooled']){
+      const plan=scenario.plans[policy];
+      $('x-compare-'+policy+'-benefit').textContent=tonnes(plan[i.objective]);
+      $('x-compare-'+policy+'-bar').style.width=(maximum?100*plan[i.objective]/maximum:0).toFixed(2)+'%';
+      $('x-compare-'+policy+'-detail').textContent=money(plan.cost)+' selected capital · '+plan.townsSelected+' of '+i.towns.length+' towns funded';
+    }
+    $('x-result-comparison').textContent='Sharing models '+tonnes(difference)+' more avoided application'+(costDifference===0?' at the same actual spending.':', with '+money(Math.abs(costDifference))+' '+(costDifference>0?'more':'less')+' selected capital.');
     const equal=scenario.plans.equalSpend;$('x-equal-spend').textContent='At the independent plan’s actual spending of '+money(ind.cost)+', sharing models '+tonnes(equal[i.objective])+' across '+equal.townsSelected+' towns, compared with '+tonnes(ind[i.objective])+' independently. Buying additional equipment and reallocating the same spending are different comparisons.';
   }
-  for(const value of ['independent','pooled'])$('x-mode-'+value).addEventListener('click',()=>{mode=value;for(const v of ['independent','pooled'])$('x-mode-'+v).setAttribute('aria-pressed',String(v===value));renderPlan();});
+  function choosePlan(value){mode=value;for(const v of ['independent','pooled'])for(const prefix of ['x-mode-','x-compare-'])$(prefix+v).setAttribute('aria-pressed',String(v===value));renderPlan();}
+  for(const value of ['independent','pooled'])for(const prefix of ['x-mode-','x-compare-'])$(prefix+value).addEventListener('click',()=>choosePlan(value));
   $('x-budget').addEventListener('input',()=>{$('budget').value=$('x-budget').value;$('budget').dispatchEvent(new Event('input'));});
   function split(){const value=Math.max(0,Math.min(100,Number($('x-map-split').value)));$('x-map-pooled').style.clipPath='inset(0 0 0 '+value+'%)';$('x-map-divider').style.left=value+'%';}
   $('x-map-split').addEventListener('input',split);split();
