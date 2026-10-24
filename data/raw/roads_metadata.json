@@ -1,0 +1,2363 @@
+{
+  "currentVersion": 12,
+  "id": 0,
+  "name": "MassDOT Roads",
+  "type": "Feature Layer",
+  "serviceItemId": "b06138b158694703a97d038be9a89610",
+  "cacheMaxAge": 30,
+  "displayField": "STREETNAME",
+  "description": "This layer represents all the public and many of the private roadways in Massachusetts, including designations for Interstate, U.S. and State routes.Formerly known as the Massachusetts Highway Department (MHD) Roads, then the Executive Office of Transportation - Office of Transportation Planning (EOT-OTP) Roads, the MassGIS-MassDOT Roads layer includes linework from the 1:5,000 road and rail centerlines data that were interpreted as part of the 1990's Aerial Imagery project. The Massachusetts Department of Transportation - Office of Transportation Planning, which maintains the primary source for this layer, continued to add linework from municipal and other sources and update existing linework using the most recent aerial ortho imagery as a base. The attribute table includes many \"road inventory\" fields maintained in MassDOT's linear referencing system. See the Attributes section below for more details.The current MassGIS-MassDOT hybrid data layer was first published in November 2018, based on the MassDOT 2017 year-end Road Inventory layer and results of a 2014-2015 MassDOT-Central Transportation Planning Staff project to conflate street names and other attributes from MassGIS' \"base streets\" to the MassDOT Road Inventory linework. The base streets are continually maintained by MassGIS as part of the NextGen 911 and Master Address Database (MAD) projects. MassGIS staff reviewed the conflated layer and added many base street arcs digitized after the completion of the conflation work. MassGIS added several fields to support legacy symbology and labeling. Other edits included modifying some linework in areas of recent construction and roadway reconfiguration to align to 2017-2018 Google ortho imagery, and making minor fixes to attributes and linework.MassGIS continues to modify the geometry and add linework as needed using the most recent aerial imagery and update attributes and add linework from the MAD base streets. Latest update published in January 2026.This layer is named EOTROADS_ARC.From this data layer MassGIS extracted the Major Roads and Major Highway Routes layers.",
+  "copyrightText": "Massachusetts Department of Transportation (MassDOT), MassGIS",
+  "defaultVisibility": true,
+  "editingInfo": {
+    "lastEditDate": 1770183546908,
+    "schemaLastEditDate": 1770183545159,
+    "dataLastEditDate": 1770183451747
+  },
+  "relationships": [],
+  "isDataVersioned": false,
+  "hasContingentValuesDefinition": false,
+  "supportsAppend": true,
+  "supportsCalculate": true,
+  "supportsASyncCalculate": true,
+  "supportsTruncate": false,
+  "supportsAttachmentsByUploadId": true,
+  "supportsAttachmentsResizing": true,
+  "supportsRollbackOnFailureParameter": true,
+  "supportsStatistics": true,
+  "supportsExceedsLimitStatistics": true,
+  "supportsAdvancedQueries": true,
+  "supportsValidateSql": true,
+  "supportsCoordinatesQuantization": true,
+  "supportsLayerOverrides": true,
+  "supportsTilesAndBasicQueriesMode": true,
+  "supportsFieldDescriptionProperty": true,
+  "supportsQuantizationEditMode": true,
+  "supportsColumnStoreIndex": true,
+  "supportsApplyEditsWithGlobalIds": true,
+  "supportsMultiScaleGeometry": true,
+  "supportsReturningQueryGeometry": true,
+  "enableNullGeometry": false,
+  "hasGeometryProperties": true,
+  "geometryProperties": {
+    "shapeLengthFieldName": "Shape__Length",
+    "units": "esriMeters"
+  },
+  "advancedQueryCapabilities": {
+    "supportsPagination": true,
+    "supportsPaginationOnAggregatedQueries": true,
+    "supportsQueryRelatedPagination": true,
+    "supportsQueryWithDistance": true,
+    "supportsOutDistance": true,
+    "supportsReturningQueryExtent": true,
+    "supportsStatistics": true,
+    "supportsOrderBy": true,
+    "supportsDistinct": true,
+    "supportsQueryWithResultType": true,
+    "supportsSqlExpression": true,
+    "supportsTimeRelation": true,
+    "supportsAdvancedQueryRelated": true,
+    "supportsCountDistinct": true,
+    "supportsPercentileStatistics": true,
+    "supportsApproxPercentileStatistics": true,
+    "supportsSpatialAggregationStatistics": true,
+    "supportsTrueCurve": true,
+    "supportedSpatialAggregationStatistics": [
+      "EnvelopeAggregate",
+      "CentroidAggregate",
+      "ConvexHullAggregate"
+    ],
+    "supportsLod": true,
+    "supportsQueryWithLodSR": false,
+    "supportedLodTypes": [
+      "geohash"
+    ],
+    "supportsReturningGeometryCentroid": false,
+    "supportsReturningGeometryEnvelope": true,
+    "supportsReturningGeometryProperties": true,
+    "supportsQueryWithDatumTransformation": true,
+    "supportsCurrentUserQueries": true,
+    "supportsHavingClause": true,
+    "supportsOutFieldSQLExpression": true,
+    "supportsMaxRecordCountFactor": true,
+    "supportsTopFeaturesQuery": true,
+    "supportsDisjointSpatialRel": true,
+    "supportsQueryWithCacheHint": true,
+    "supportedOperationsWithCacheHint": [
+      "query",
+      "queryTopFilter",
+      "queryAnalytics",
+      "queryAttachments",
+      "queryRelated",
+      "queryBins",
+      "queryPivot"
+    ],
+    "supportsQueryAnalytic": true,
+    "supportsQueryPivot": true,
+    "supportsQueryBins": true,
+    "supportsDefaultSR": true,
+    "supportsTranslations": false,
+    "supportsAggIds": true,
+    "supportsQueryWithCollation": true,
+    "supportsISODOW": true,
+    "supportsISOWeek": true,
+    "supportsFullTextSearch": true,
+    "fullTextSearchCapabilities": {
+      "supportsAccentSensitivity": true,
+      "supportsStopWords": true,
+      "supportsSearchOperator": true,
+      "supportsOperator": true
+    }
+  },
+  "advancedQueryAnalyticCapabilities": {
+    "supportsLinearRegression": true,
+    "supportsTrendlineRegression": true,
+    "supportsAsync": true,
+    "supportsPercentileAnalytic": true
+  },
+  "queryBinsCapabilities": {
+    "supportsAsync": true,
+    "supportsAutoIntervalBin": true,
+    "supportsFixedIntervalBin": true,
+    "supportsFixedBoundariesBin": true,
+    "supportsDateBin": true,
+    "supportsClassificationBin": true,
+    "supportsStackBy": true,
+    "supportsSplitBy": true,
+    "supportsFirstDayOfWeek": true,
+    "supportsSnapToData": true,
+    "supportsReturnFullIntervalBin": true,
+    "supportsReturnStackValueRange": true,
+    "supportsNormalization": true,
+    "supportedStatisticTypes": [
+      "COUNT",
+      "SUM",
+      "AVG",
+      "VAR",
+      "STDDEV",
+      "MIN",
+      "MAX",
+      "PERCENTILE_CONT",
+      "PERCENTILE_DISC",
+      "APPROX_PERCENTILE_CONT",
+      "APPROX_PERCENTILE_DISC",
+      "CentroidAggregate",
+      "EnvelopeAggregate",
+      "ConvexHullAggregate"
+    ],
+    "supportedNormalizationTypes": [
+      "boxCox",
+      "field",
+      "inverse",
+      "log",
+      "naturalLog",
+      "percentOfTotal",
+      "squareRoot"
+    ]
+  },
+  "supportedOperationsWithCollation": "query,addField,updateField",
+  "advancedEditingCapabilities": {
+    "supportedSqlFormatsInCalculate": [
+      "standard"
+    ],
+    "supportsAsyncApplyEdits": true,
+    "supportsReturnEditResults": true,
+    "supportsApplyEditsbyUploadID": true,
+    "supportedApplyEditsUploadIDFormats": "JSON,PBF",
+    "supportsTranslation": false,
+    "supportsMaxTranslations": 10
+  },
+  "infoInEstimates": [
+    "extent",
+    "count"
+  ],
+  "useStandardizedQueries": true,
+  "geometryType": "esriGeometryPolyline",
+  "minScale": 0,
+  "maxScale": 0,
+  "extent": {
+    "xmin": 34847.15600000322,
+    "ymin": 777674.6251000017,
+    "xmax": 330613.52660000324,
+    "ymax": 959742.9598999992,
+    "spatialReference": {
+      "wkid": 26986,
+      "latestWkid": 26986
+    }
+  },
+  "spatialReference": {
+    "wkid": 26986,
+    "latestWkid": 26986
+  },
+  "drawingInfo": {
+    "renderer": {
+      "type": "simple",
+      "symbol": {
+        "type": "esriSLS",
+        "style": "esriSLSSolid",
+        "color": [
+          130,
+          130,
+          130,
+          255
+        ],
+        "width": 1
+      }
+    },
+    "scaleSymbols": true,
+    "transparency": 0,
+    "labelingInfo": null
+  },
+  "allowGeometryUpdates": true,
+  "trueCurveSupportMode": "OGC",
+  "supportedCurveTypes": [
+    "esriGeometryCircularArc"
+  ],
+  "supportedTrueCurvePbfFeatureEncodings": [
+    "esriCompressedShapeBuffer",
+    "esriDefault"
+  ],
+  "allowTrueCurvesUpdates": true,
+  "onlyAllowTrueCurveUpdatesByTrueCurveClients": true,
+  "hasAttachments": false,
+  "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+  "hasMetadata": true,
+  "hasM": false,
+  "hasZ": false,
+  "objectIdField": "OBJECTID",
+  "uniqueIdField": {
+    "name": "OBJECTID",
+    "isSystemMaintained": true
+  },
+  "globalIdField": "GlobalID",
+  "typeIdField": "",
+  "collation": {
+    "locale": "neutral",
+    "caseSensitive": false,
+    "accentSensitive": true
+  },
+  "fields": [
+    {
+      "name": "OBJECTID",
+      "type": "esriFieldTypeOID",
+      "alias": "OBJECTID",
+      "sqlType": "sqlTypeOther",
+      "nullable": false,
+      "editable": false,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "STREETNAME",
+      "type": "esriFieldTypeString",
+      "alias": "Street Name",
+      "sqlType": "sqlTypeOther",
+      "length": 100,
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "CLASS",
+      "type": "esriFieldTypeInteger",
+      "alias": "Road Class",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dMassDOTRoads_RDTYPE",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "codedValues": [
+          {
+            "name": "Limited Access Highway",
+            "code": 1
+          },
+          {
+            "name": "Multi-lane Highway, not limited access",
+            "code": 2
+          },
+          {
+            "name": "Other numbered route",
+            "code": 3
+          },
+          {
+            "name": "Major road - arterials and collectors",
+            "code": 4
+          },
+          {
+            "name": "Local Road",
+            "code": 5
+          },
+          {
+            "name": "Local Road (w/o Inventory information)",
+            "code": 6
+          },
+          {
+            "name": "Ramp",
+            "code": 7
+          },
+          {
+            "name": "Tunnel",
+            "code": 8
+          },
+          {
+            "name": "Tunnel - Limited Access Highway",
+            "code": 9
+          },
+          {
+            "name": "Tunnel - Multi-lane Highway, not limited access",
+            "code": 10
+          },
+          {
+            "name": "Tunnel - Other Numbered Route",
+            "code": 11
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "RDTYPE",
+      "type": "esriFieldTypeInteger",
+      "alias": "Road Type",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dMassDOTRoads_RDTYPE",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "codedValues": [
+          {
+            "name": "Limited Access Highway",
+            "code": 1
+          },
+          {
+            "name": "Multi-lane Highway, not limited access",
+            "code": 2
+          },
+          {
+            "name": "Other numbered route",
+            "code": 3
+          },
+          {
+            "name": "Major road - arterials and collectors",
+            "code": 4
+          },
+          {
+            "name": "Local Road",
+            "code": 5
+          },
+          {
+            "name": "Local Road (w/o Inventory information)",
+            "code": 6
+          },
+          {
+            "name": "Ramp",
+            "code": 7
+          },
+          {
+            "name": "Tunnel",
+            "code": 8
+          },
+          {
+            "name": "Tunnel - Limited Access Highway",
+            "code": 9
+          },
+          {
+            "name": "Tunnel - Multi-lane Highway, not limited access",
+            "code": 10
+          },
+          {
+            "name": "Tunnel - Other Numbered Route",
+            "code": 11
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "ADMIN_TYPE",
+      "type": "esriFieldTypeInteger",
+      "alias": "Administrative Type",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "RdsAdminType",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "codedValues": [
+          {
+            "name": "Interstate",
+            "code": 1
+          },
+          {
+            "name": "U.S. Route",
+            "code": 2
+          },
+          {
+            "name": "State Route",
+            "code": 3
+          },
+          {
+            "name": "Not a numbered route",
+            "code": 0
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "RT_NUMBER",
+      "type": "esriFieldTypeString",
+      "alias": "Route Number",
+      "sqlType": "sqlTypeOther",
+      "length": 4,
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "ALTRTNUM1",
+      "type": "esriFieldTypeString",
+      "alias": "Alternate Route Number 1",
+      "sqlType": "sqlTypeOther",
+      "length": 4,
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "ALTRTNUM2",
+      "type": "esriFieldTypeString",
+      "alias": "Alternate Route Number 2",
+      "sqlType": "sqlTypeOther",
+      "length": 4,
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "ALTRTNUM3",
+      "type": "esriFieldTypeString",
+      "alias": "Alternate Route Number 3",
+      "sqlType": "sqlTypeOther",
+      "length": 4,
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "ALTRTNUM4",
+      "type": "esriFieldTypeString",
+      "alias": "Alternate Route Number 4",
+      "sqlType": "sqlTypeOther",
+      "length": 4,
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "ALTRT1TYPE",
+      "type": "esriFieldTypeInteger",
+      "alias": "Alternate Route Number 1 Administrative Type",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "RdsAdminType",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "codedValues": [
+          {
+            "name": "Interstate",
+            "code": 1
+          },
+          {
+            "name": "U.S. Route",
+            "code": 2
+          },
+          {
+            "name": "State Route",
+            "code": 3
+          },
+          {
+            "name": "Not a numbered route",
+            "code": 0
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "ROUTE_ID",
+      "type": "esriFieldTypeString",
+      "alias": "Route ID",
+      "sqlType": "sqlTypeOther",
+      "length": 255,
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "ROUTE_SYSTEM",
+      "type": "esriFieldTypeString",
+      "alias": "Route System",
+      "sqlType": "sqlTypeOther",
+      "length": 3,
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dRouteSystem",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "codedValues": [
+          {
+            "name": "Interstate",
+            "code": "I"
+          },
+          {
+            "name": "US Highway",
+            "code": "US"
+          },
+          {
+            "name": "State Route",
+            "code": "SR"
+          },
+          {
+            "name": "Ramp",
+            "code": "R"
+          },
+          {
+            "name": "Local Road",
+            "code": "L"
+          },
+          {
+            "name": "Bicycle",
+            "code": "B"
+          },
+          {
+            "name": "Miscellaneous",
+            "code": "M"
+          },
+          {
+            "name": "Not a numbered route (Arterial and Collector)",
+            "code": "N"
+          },
+          {
+            "name": "Transit",
+            "code": "T"
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "ROUTE_NUMBER",
+      "type": "esriFieldTypeString",
+      "alias": "Route Number",
+      "sqlType": "sqlTypeOther",
+      "length": 10,
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "ROUTE_DIRECTION",
+      "type": "esriFieldTypeString",
+      "alias": "Route Direction",
+      "sqlType": "sqlTypeOther",
+      "length": 3,
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "RD_SEG_ID",
+      "type": "esriFieldTypeInteger",
+      "alias": "Road Segment ID",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "STREET_NAME",
+      "type": "esriFieldTypeString",
+      "alias": "Street Name",
+      "sqlType": "sqlTypeOther",
+      "length": 100,
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "FM_ST_NAME",
+      "type": "esriFieldTypeString",
+      "alias": "From Street Name",
+      "sqlType": "sqlTypeOther",
+      "length": 100,
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "TO_ST_NAME",
+      "type": "esriFieldTypeString",
+      "alias": "To Street Name",
+      "sqlType": "sqlTypeOther",
+      "length": 100,
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "FACILITY",
+      "type": "esriFieldTypeInteger",
+      "alias": "Facility Type",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dFacilityType_1",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "description": "MassDOT Roads Facility Type",
+        "codedValues": [
+          {
+            "name": "Mainline roadway",
+            "code": 1
+          },
+          {
+            "name": "Tunnel",
+            "code": 3
+          },
+          {
+            "name": "Doubledeck",
+            "code": 4
+          },
+          {
+            "name": "Rotary",
+            "code": 5
+          },
+          {
+            "name": "Causeway",
+            "code": 6
+          },
+          {
+            "name": "Collector - Distributor",
+            "code": 10
+          },
+          {
+            "name": "Ramp - NB/EB",
+            "code": 8
+          },
+          {
+            "name": "Ramp - SB/WB",
+            "code": 9
+          },
+          {
+            "name": "Simple Ramp - Tunnel",
+            "code": 11
+          },
+          {
+            "name": "Roundabout",
+            "code": 2
+          },
+          {
+            "name": "Commercial",
+            "code": 13
+          },
+          {
+            "name": "Private Way",
+            "code": 14
+          },
+          {
+            "name": "Bicycle/ Pedestrian",
+            "code": 12
+          },
+          {
+            "name": "Simple Ramp/ Turning Lane",
+            "code": 7
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "F_CLASS",
+      "type": "esriFieldTypeInteger",
+      "alias": "Functional Class",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dStateFunctionalClass_2",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "description": "MassDOT Roads State Functional Class",
+        "codedValues": [
+          {
+            "name": "Local",
+            "code": 0
+          },
+          {
+            "name": "Interstate",
+            "code": 1
+          },
+          {
+            "name": "Rural or urban principal arterial",
+            "code": 2
+          },
+          {
+            "name": "Rural minor arterial or urban principal arterial",
+            "code": 3
+          },
+          {
+            "name": "Urban minor arterial or rural major collector",
+            "code": 5
+          },
+          {
+            "name": "Urban collector or rural minor collector",
+            "code": 6
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "URBAN_AREA",
+      "type": "esriFieldTypeString",
+      "alias": "Urbanized Area",
+      "sqlType": "sqlTypeOther",
+      "length": 5,
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dUrbanizedArea",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDuplicate",
+        "codedValues": [
+          {
+            "name": "RURAL",
+            "code": "0"
+          },
+          {
+            "name": "Athol",
+            "code": "03790"
+          },
+          {
+            "name": "Great Barrington",
+            "code": "34678"
+          },
+          {
+            "name": "Greenfield",
+            "code": "34975"
+          },
+          {
+            "name": "Lee",
+            "code": "48745"
+          },
+          {
+            "name": "Nantucket",
+            "code": "61003"
+          },
+          {
+            "name": "North Adams (MA-VT)",
+            "code": "63460"
+          },
+          {
+            "name": "North Brookfield",
+            "code": "63568"
+          },
+          {
+            "name": "Provincetown",
+            "code": "72532"
+          },
+          {
+            "name": "Stafford (CT-MA)",
+            "code": "84169"
+          },
+          {
+            "name": "Vineyard Haven",
+            "code": "90757"
+          },
+          {
+            "name": "Ware",
+            "code": "91756"
+          },
+          {
+            "name": "New Bedford",
+            "code": "61786"
+          },
+          {
+            "name": "Leominster-Fitchburg",
+            "code": "49096"
+          },
+          {
+            "name": "Pittsfield",
+            "code": "69778"
+          },
+          {
+            "name": "Nashua (NH-MA)",
+            "code": "61165"
+          },
+          {
+            "name": "Providence (RI-MA)",
+            "code": "72505"
+          },
+          {
+            "name": "Barnstable Town",
+            "code": "05167"
+          },
+          {
+            "name": "Springfield (MA-CT)",
+            "code": "83926"
+          },
+          {
+            "name": "Worcester (MA-CT)",
+            "code": "97291"
+          },
+          {
+            "name": "South Deerfield",
+            "code": "83156"
+          },
+          {
+            "name": "Boston (MA-NH-RI)",
+            "code": "09271"
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "URBAN_TYPE",
+      "type": "esriFieldTypeInteger",
+      "alias": "Urban Type",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dUrbanType",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "codedValues": [
+          {
+            "name": "Rural",
+            "code": 5
+          },
+          {
+            "name": "Large Urbanized Area",
+            "code": 1
+          },
+          {
+            "name": "Small Urbanized Area",
+            "code": 2
+          },
+          {
+            "name": "Large Urban Cluster",
+            "code": 3
+          },
+          {
+            "name": "Small Urban Cluster",
+            "code": 4
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "F_F_CLASS",
+      "type": "esriFieldTypeInteger",
+      "alias": "Federal Functional Class",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dFederalFunctionalClass",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "codedValues": [
+          {
+            "name": "Interstate",
+            "code": 1
+          },
+          {
+            "name": "Principal Arterial - Other Freeways or Expressways",
+            "code": 2
+          },
+          {
+            "name": "Principal Arterial - Other",
+            "code": 3
+          },
+          {
+            "name": "Minor Arterial",
+            "code": 4
+          },
+          {
+            "name": "Major Collector",
+            "code": 5
+          },
+          {
+            "name": "Minor Collector",
+            "code": 6
+          },
+          {
+            "name": "Local",
+            "code": 7
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "JURISDICTN",
+      "type": "esriFieldTypeString",
+      "alias": "Jurisdiction",
+      "sqlType": "sqlTypeOther",
+      "length": 1,
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dJurisdiction",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "codedValues": [
+          {
+            "name": "City or Town accepted road",
+            "code": "2"
+          },
+          {
+            "name": "State Park or Forest",
+            "code": "6"
+          },
+          {
+            "name": "State Institutional",
+            "code": "7"
+          },
+          {
+            "name": "Federal Park or Forest",
+            "code": "8"
+          },
+          {
+            "name": "Unaccepted by city or town",
+            "code": "0"
+          },
+          {
+            "name": "State college or university",
+            "code": "B"
+          },
+          {
+            "name": "US Army Corps of Engineers",
+            "code": "D"
+          },
+          {
+            "name": "Federal Institutional",
+            "code": "E"
+          },
+          {
+            "name": "Other Federal",
+            "code": "F"
+          },
+          {
+            "name": "Federal Bureau of Indian Affairs",
+            "code": "G"
+          },
+          {
+            "name": "Private",
+            "code": "H"
+          },
+          {
+            "name": "Department of Conservation and Recreation",
+            "code": "3"
+          },
+          {
+            "name": "Massachusetts Port Authority",
+            "code": "5"
+          },
+          {
+            "name": "US Army",
+            "code": "I"
+          },
+          {
+            "name": "US Navy",
+            "code": "J"
+          },
+          {
+            "name": "County Institutional",
+            "code": "9"
+          },
+          {
+            "name": "Massachusetts Department of Transportation",
+            "code": "1"
+          },
+          {
+            "name": "US Air Force",
+            "code": "C"
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "NHS",
+      "type": "esriFieldTypeInteger",
+      "alias": "National Highway System Status\n",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "NHSStatus",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "description": "Description",
+        "codedValues": [
+          {
+            "name": "Not on NHS",
+            "code": 0
+          },
+          {
+            "name": "NHS - Strategic Defense Highway System (STRAHNET)",
+            "code": 2
+          },
+          {
+            "name": "NHS - STRAHNET Connector",
+            "code": 3
+          },
+          {
+            "name": "NHS - Other - One-way pair",
+            "code": 4
+          },
+          {
+            "name": "NHS - Other truck route exclusion",
+            "code": 5
+          },
+          {
+            "name": "NHS - Major Airport",
+            "code": 6
+          },
+          {
+            "name": "NHS - Major Port Facility",
+            "code": 7
+          },
+          {
+            "name": "NHS - Major Amtrak Station",
+            "code": 8
+          },
+          {
+            "name": "NHS - Major Rail/Truck terminal",
+            "code": 9
+          },
+          {
+            "name": "NHS - Major Intercity Bus Terminal",
+            "code": 10
+          },
+          {
+            "name": "NHS - Major Public Transit or Multi-Modal Passenger Terminal",
+            "code": 11
+          },
+          {
+            "name": "NHS - Major Pipeline Terminal",
+            "code": 12
+          },
+          {
+            "name": "NHS - Major Ferry Terminal",
+            "code": 13
+          },
+          {
+            "name": "NHS - Other (not in above categories)",
+            "code": 14
+          },
+          {
+            "name": "NHS - Interstate",
+            "code": 1
+          },
+          {
+            "name": "NHS - Principal Arterial (MAP-21)",
+            "code": 15
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "FD_AID_RTE",
+      "type": "esriFieldTypeString",
+      "alias": "Federal Aid Route Number",
+      "sqlType": "sqlTypeOther",
+      "length": 4,
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "FD_AID_RD",
+      "type": "esriFieldTypeInteger",
+      "alias": "Federal Aid Eligible Road",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dFedAidRoad",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "codedValues": [
+          {
+            "name": "Not Eligible",
+            "code": 0
+          },
+          {
+            "name": "Interstate - NHS",
+            "code": 1
+          },
+          {
+            "name": "Other Road - NHS",
+            "code": 2
+          },
+          {
+            "name": "STP Eligible",
+            "code": 3
+          },
+          {
+            "name": "STP Road - C15",
+            "code": 4
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "CONTROL",
+      "type": "esriFieldTypeInteger",
+      "alias": "Access Control",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dAccessControl",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "codedValues": [
+          {
+            "name": "Full Access Control",
+            "code": 1
+          },
+          {
+            "name": "Partial Access Control",
+            "code": 2
+          },
+          {
+            "name": "No Access Control",
+            "code": 0
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "NUM_LANES",
+      "type": "esriFieldTypeInteger",
+      "alias": "Number of Travel Lanes",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "OPP_LANES",
+      "type": "esriFieldTypeInteger",
+      "alias": "Opposite Number of Travel Lanes",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "SURFACE_TP",
+      "type": "esriFieldTypeInteger",
+      "alias": "Surface Type",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dSurfaceType",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDuplicate",
+        "codedValues": [
+          {
+            "name": "Unimproved, graded earth, or soil surface road",
+            "code": 1
+          },
+          {
+            "name": "Gravel or stone road",
+            "code": 2
+          },
+          {
+            "name": "Brick road",
+            "code": 3
+          },
+          {
+            "name": "Block road",
+            "code": 4
+          },
+          {
+            "name": "Surface-treated road",
+            "code": 5
+          },
+          {
+            "name": "Bituminous concrete road",
+            "code": 6
+          },
+          {
+            "name": "Portland cement concrete road",
+            "code": 7
+          },
+          {
+            "name": "Composite road; flexible over rigid",
+            "code": 8
+          },
+          {
+            "name": "Composite road; rigid over flexible or rigid over rigid (\"white topping\")",
+            "code": 9
+          },
+          {
+            "name": "Stone Dust",
+            "code": 10
+          },
+          {
+            "name": "Boardwalk",
+            "code": 11
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "SURFACE_WD",
+      "type": "esriFieldTypeDouble",
+      "alias": "Surface Width",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "SHLDR_RT_W",
+      "type": "esriFieldTypeDouble",
+      "alias": "Shoulder Width Right",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "SHLDR_RT_T",
+      "type": "esriFieldTypeInteger",
+      "alias": "Shoulder Type Right",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dShoulderType",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "codedValues": [
+          {
+            "name": "No Shoulder",
+            "code": 0
+          },
+          {
+            "name": "Stable - Unruttable compacted subgrade",
+            "code": 1
+          },
+          {
+            "name": "Unstable shoulder",
+            "code": 2
+          },
+          {
+            "name": "Hardened bituminous mix or penetration",
+            "code": 3
+          },
+          {
+            "name": "Combination shoulder",
+            "code": 4
+          },
+          {
+            "name": "Earth Shoulder Exists",
+            "code": 5
+          },
+          {
+            "name": "Barrier curb exists; no shoulder in front of curb",
+            "code": 6
+          },
+          {
+            "name": "Surface shoulder exists - Portland Cement Concrete surface",
+            "code": 7
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "SHLDR_LT_W",
+      "type": "esriFieldTypeDouble",
+      "alias": "Shoulder Width Left",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "SHLDR_LT_T",
+      "type": "esriFieldTypeInteger",
+      "alias": "Shoulder Type Left",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dShoulderType",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "codedValues": [
+          {
+            "name": "No Shoulder",
+            "code": 0
+          },
+          {
+            "name": "Stable - Unruttable compacted subgrade",
+            "code": 1
+          },
+          {
+            "name": "Unstable shoulder",
+            "code": 2
+          },
+          {
+            "name": "Hardened bituminous mix or penetration",
+            "code": 3
+          },
+          {
+            "name": "Combination shoulder",
+            "code": 4
+          },
+          {
+            "name": "Earth Shoulder Exists",
+            "code": 5
+          },
+          {
+            "name": "Barrier curb exists; no shoulder in front of curb",
+            "code": 6
+          },
+          {
+            "name": "Surface shoulder exists - Portland Cement Concrete surface",
+            "code": 7
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "SHLDR_UL_W",
+      "type": "esriFieldTypeDouble",
+      "alias": "Undivided Shoulder Width Left",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "SHLDR_UL_T",
+      "type": "esriFieldTypeInteger",
+      "alias": "Undivided Shoulder Type Left",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dfedShoulderType",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "codedValues": [
+          {
+            "name": "None or Inadequate",
+            "code": 1
+          },
+          {
+            "name": "Surfaced shoulder exists – bituminous concrete (AC)",
+            "code": 2
+          },
+          {
+            "name": "Surfaced shoulder exists – Portland Cement Concrete surface (PCC)",
+            "code": 3
+          },
+          {
+            "name": "Stabilized shoulder exists",
+            "code": 4
+          },
+          {
+            "name": "Combination shoulder exists",
+            "code": 5
+          },
+          {
+            "name": "Earth shoulder exists",
+            "code": 6
+          },
+          {
+            "name": "Barrier curb exists; no shoulder in front of curb",
+            "code": 7
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "MED_WIDTH",
+      "type": "esriFieldTypeDouble",
+      "alias": "Median Width",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "MED_TYPE",
+      "type": "esriFieldTypeInteger",
+      "alias": "Median Type",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dMedianType",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "codedValues": [
+          {
+            "name": "Continuous Center Turn Lane",
+            "code": 8
+          },
+          {
+            "name": "None",
+            "code": 0
+          },
+          {
+            "name": "Unprotected",
+            "code": 3
+          },
+          {
+            "name": "Curbed-Raised",
+            "code": 1
+          },
+          {
+            "name": "Positive Barrier - unspecified",
+            "code": 2
+          },
+          {
+            "name": "Positive Barrier – flexible",
+            "code": 4
+          },
+          {
+            "name": "Positive Barrier – semi-rigid",
+            "code": 5
+          },
+          {
+            "name": "Positive Barrier – rigid",
+            "code": 6
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "CURB",
+      "type": "esriFieldTypeInteger",
+      "alias": "Curb",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dCurb",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "codedValues": [
+          {
+            "name": "None",
+            "code": 0
+          },
+          {
+            "name": "Left side only",
+            "code": 1
+          },
+          {
+            "name": "Right side only",
+            "code": 2
+          },
+          {
+            "name": "Both sides",
+            "code": 3
+          },
+          {
+            "name": "Along median only",
+            "code": 4
+          },
+          {
+            "name": "All curbs (divided highway)",
+            "code": 5
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "LT_SIDEWLK",
+      "type": "esriFieldTypeInteger",
+      "alias": "Left Sidewalk Width",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "RT_SIDEWLK",
+      "type": "esriFieldTypeInteger",
+      "alias": "Right Sidewalk Width",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "OPERATION",
+      "type": "esriFieldTypeInteger",
+      "alias": "Street Operation",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dStreetOperation",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "codedValues": [
+          {
+            "name": "One-way traffic",
+            "code": 1
+          },
+          {
+            "name": "Two-way traffic",
+            "code": 2
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "SPEED_LIM",
+      "type": "esriFieldTypeInteger",
+      "alias": "Posted Speed Limit",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "OP_DIR_SL",
+      "type": "esriFieldTypeInteger",
+      "alias": "Posted Speed Limit Opposing Direction",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "TRUCK",
+      "type": "esriFieldTypeString",
+      "alias": "Truck",
+      "sqlType": "sqlTypeOther",
+      "length": 50,
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "T_EXC_TYPE",
+      "type": "esriFieldTypeInteger",
+      "alias": "Truck Exclusion Type",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dTruckExclusionType",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDuplicate",
+        "codedValues": [
+          {
+            "name": "Open to all vehicles",
+            "code": 1
+          },
+          {
+            "name": "All vehicles over 2.5 tons excluded",
+            "code": 2
+          },
+          {
+            "name": "All vehicles over 3 tons excluded",
+            "code": 3
+          },
+          {
+            "name": "All vehicles over 5 tons excluded",
+            "code": 4
+          },
+          {
+            "name": "All vehicles over 10 tons excluded",
+            "code": 5
+          },
+          {
+            "name": "All vehicles over 2000 pounds excluded",
+            "code": 6
+          },
+          {
+            "name": "All vehicles over 28 feet in length excluded",
+            "code": 7
+          },
+          {
+            "name": "Gross vehicle weight over 18 tons and greater than 2 axles excluded",
+            "code": 8
+          },
+          {
+            "name": "Gross vehicle weight over 30 tons and greater than 4 axles excluded",
+            "code": 9
+          },
+          {
+            "name": "Commercial vehicles over 5 tons carry capacity excluded",
+            "code": 10
+          },
+          {
+            "name": "All vehicles over 20 tons excluded",
+            "code": 11
+          },
+          {
+            "name": "Hazardous Truck Route",
+            "code": 12
+          },
+          {
+            "name": "Cambridge Overnight Exclusions",
+            "code": 13
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "T_EXC_TIME",
+      "type": "esriFieldTypeInteger",
+      "alias": "Truck Exclusion Time",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dTruckExclusionTime",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDuplicate",
+        "codedValues": [
+          {
+            "name": "6AM to 6PM, 7 Days",
+            "code": 4
+          },
+          {
+            "name": "6AM to 7PM, 7 Days",
+            "code": 5
+          },
+          {
+            "name": "6AM to 10PM, 7 Days",
+            "code": 6
+          },
+          {
+            "name": "7AM to 6PM, 7 Days",
+            "code": 7
+          },
+          {
+            "name": "7AM to 11PM, 7 Days",
+            "code": 8
+          },
+          {
+            "name": "4PM to 6PM",
+            "code": 9
+          },
+          {
+            "name": "6PM to 6AM, 7 Days",
+            "code": 10
+          },
+          {
+            "name": "7PM to 7AM, 7 Days",
+            "code": 11
+          },
+          {
+            "name": "8PM to 6AM, 7 Days",
+            "code": 12
+          },
+          {
+            "name": "8PM to 7AM, 7 Days",
+            "code": 13
+          },
+          {
+            "name": "9PM to 6AM, 7 Days",
+            "code": 14
+          },
+          {
+            "name": "9PM to 7AM, 7 Days",
+            "code": 15
+          },
+          {
+            "name": "10PM to 6AM, 7 Days",
+            "code": 16
+          },
+          {
+            "name": "None",
+            "code": 1
+          },
+          {
+            "name": "24 Hours, 7 Days",
+            "code": 2
+          },
+          {
+            "name": "5AM to 8PM, 7 Days",
+            "code": 3
+          },
+          {
+            "name": "11PM to 6AM, 7 Days",
+            "code": 17
+          },
+          {
+            "name": "11PM to 6AM, NB Only, 7 Days",
+            "code": 18
+          },
+          {
+            "name": "11PM to 7AM, 7 Days",
+            "code": 19
+          },
+          {
+            "name": "8AM to 930AM and 2PM to 330PM, School Days Only",
+            "code": 20
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "TRK_NETWRK",
+      "type": "esriFieldTypeInteger",
+      "alias": "Truck Network",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dTruckNetwork",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "codedValues": [
+          {
+            "name": "Section is on the National Network (NN)",
+            "code": 1
+          },
+          {
+            "name": "Other State-designated truck route (optional)",
+            "code": 2
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "TRUCK_RTE",
+      "type": "esriFieldTypeInteger",
+      "alias": "Truck Route",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dTruckRoute",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDuplicate",
+        "codedValues": [
+          {
+            "name": "Not a parkway - not on a designated truck route",
+            "code": 0
+          },
+          {
+            "name": "Designated truck route under Federal Authority in 23 CFR 658 Available to STAA vehicles (Twin 28' Semitrailer-trailer and 48' Semitrailer combinations)",
+            "code": 1
+          },
+          {
+            "name": "Designated truck route ONLY under State Authority.  Fully available to both types of STAA vehicles described above",
+            "code": 2
+          },
+          {
+            "name": "DCR Parkway - Recreational Vehicles Only",
+            "code": 3
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "ROW_WIDTH",
+      "type": "esriFieldTypeDouble",
+      "alias": "Right Of Way Width",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "STRUCT_CND",
+      "type": "esriFieldTypeInteger",
+      "alias": "Structural Condition",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dStructuralCondition",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "codedValues": [
+          {
+            "name": "Good",
+            "code": 1
+          },
+          {
+            "name": "Fair",
+            "code": 2
+          },
+          {
+            "name": "Deficient",
+            "code": 3
+          },
+          {
+            "name": "Intolerable",
+            "code": 4
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "TERRAIN",
+      "type": "esriFieldTypeInteger",
+      "alias": "Terrain Type",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dTerrainType",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "codedValues": [
+          {
+            "name": "N/A",
+            "code": 0
+          },
+          {
+            "name": "Level Terrain",
+            "code": 1
+          },
+          {
+            "name": "Rolling Terrain",
+            "code": 2
+          },
+          {
+            "name": "Mountainous Terrain",
+            "code": 3
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "TOLL_ROAD",
+      "type": "esriFieldTypeInteger",
+      "alias": "Toll Road",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "TollRoad",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "description": "Toll status in MassDOT Roads",
+        "codedValues": [
+          {
+            "name": "No tool charged",
+            "code": 0
+          },
+          {
+            "name": "Toll charged in both directions",
+            "code": 1
+          },
+          {
+            "name": "Toll charged in one direction only",
+            "code": 2
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "MHS",
+      "type": "esriFieldTypeInteger",
+      "alias": "Metropolitian Highway System",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "dMHS",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDuplicate",
+        "codedValues": [
+          {
+            "name": "Not on MHS",
+            "code": 0
+          },
+          {
+            "name": "MHS",
+            "code": 1
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "MGIS_TOWN",
+      "type": "esriFieldTypeString",
+      "alias": "Municipality",
+      "sqlType": "sqlTypeOther",
+      "length": 25,
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "CITY",
+      "type": "esriFieldTypeInteger",
+      "alias": "Town ID",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "COUNTY",
+      "type": "esriFieldTypeInteger",
+      "alias": "County",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": {
+        "type": "codedValue",
+        "name": "County_LongInt",
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue",
+        "description": "Counties from a 1- or 2-digit code",
+        "codedValues": [
+          {
+            "name": "Barnstable",
+            "code": 1
+          },
+          {
+            "name": "Berkshire",
+            "code": 3
+          },
+          {
+            "name": "Bristol",
+            "code": 5
+          },
+          {
+            "name": "Dukes",
+            "code": 7
+          },
+          {
+            "name": "Essex",
+            "code": 9
+          },
+          {
+            "name": "Franklin",
+            "code": 11
+          },
+          {
+            "name": "Hampden",
+            "code": 13
+          },
+          {
+            "name": "Hampshire",
+            "code": 15
+          },
+          {
+            "name": "Middlesex",
+            "code": 17
+          },
+          {
+            "name": "Nantucket",
+            "code": 19
+          },
+          {
+            "name": "Norfolk",
+            "code": 21
+          },
+          {
+            "name": "Plymouth",
+            "code": 23
+          },
+          {
+            "name": "Suffolk",
+            "code": 25
+          },
+          {
+            "name": "Worcester",
+            "code": 27
+          }
+        ]
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "HWY_DIST",
+      "type": "esriFieldTypeInteger",
+      "alias": "MassDOT Highway District",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "MPO",
+      "type": "esriFieldTypeString",
+      "alias": "Metropolitan Planning Organization",
+      "sqlType": "sqlTypeOther",
+      "length": 50,
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "RPA",
+      "type": "esriFieldTypeString",
+      "alias": "Regional Planning Agency",
+      "sqlType": "sqlTypeOther",
+      "length": 50,
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "RTA",
+      "type": "esriFieldTypeString",
+      "alias": "Regional Transit Authority",
+      "sqlType": "sqlTypeOther",
+      "length": 50,
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "MILE_COUNT",
+      "type": "esriFieldTypeInteger",
+      "alias": "Mileage Counted",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "AADT",
+      "type": "esriFieldTypeInteger",
+      "alias": "AADT",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "AADT_YEAR",
+      "type": "esriFieldTypeInteger",
+      "alias": "AADT Year",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "AADT_DERIV",
+      "type": "esriFieldTypeInteger",
+      "alias": "AADT Derivation",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "LENGTH_MI",
+      "type": "esriFieldTypeDouble",
+      "alias": "Length in Miles",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "LENGTH_FT",
+      "type": "esriFieldTypeDouble",
+      "alias": "Length in Feet",
+      "sqlType": "sqlTypeOther",
+      "nullable": true,
+      "editable": true,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "GlobalID",
+      "type": "esriFieldTypeGlobalID",
+      "alias": "GlobalID",
+      "sqlType": "sqlTypeOther",
+      "length": 38,
+      "nullable": false,
+      "editable": false,
+      "domain": null,
+      "defaultValue": null
+    },
+    {
+      "name": "Shape__Length",
+      "type": "esriFieldTypeDouble",
+      "alias": "Shape__Length",
+      "sqlType": "sqlTypeDouble",
+      "nullable": true,
+      "editable": false,
+      "domain": null,
+      "defaultValue": null
+    }
+  ],
+  "indexes": [
+    {
+      "name": "PK__MASSDOTR__F4B70D850419FA28",
+      "fields": "OBJECTID",
+      "isAscending": true,
+      "isUnique": true,
+      "description": "",
+      "indexType": "Attribute"
+    },
+    {
+      "name": "user_12897.MASSDOTROADS_GDB_MASSDOT_ROADS_Shape_sidx",
+      "fields": "SHAPE",
+      "isAscending": true,
+      "isUnique": false,
+      "description": "",
+      "indexType": "Spatial"
+    },
+    {
+      "name": "I30CITY",
+      "fields": "CITY",
+      "isAscending": true,
+      "isUnique": false,
+      "description": "",
+      "indexType": "Attribute"
+    },
+    {
+      "name": "Shape__Length_Index",
+      "fields": "Shape__Length",
+      "isAscending": true,
+      "isUnique": false,
+      "description": "",
+      "indexType": "Attribute"
+    },
+    {
+      "name": "GlobalID_idx",
+      "fields": "GlobalID",
+      "isAscending": true,
+      "isUnique": true,
+      "description": "",
+      "indexType": "Attribute"
+    }
+  ],
+  "dateFieldsTimeReference": {
+    "timeZone": "UTC",
+    "timeZoneIANA": "Etc/UTC",
+    "respectsDaylightSaving": false
+  },
+  "preferredTimeReference": null,
+  "types": [],
+  "templates": [
+    {
+      "name": "MassDOT Roads",
+      "description": "",
+      "drawingTool": "esriFeatureEditToolLine",
+      "prototype": {
+        "attributes": {
+          "LENGTH_FT": null,
+          "STREETNAME": null,
+          "CLASS": null,
+          "RDTYPE": null,
+          "ADMIN_TYPE": null,
+          "RT_NUMBER": null,
+          "ALTRTNUM1": null,
+          "ALTRTNUM2": null,
+          "ALTRTNUM3": null,
+          "ALTRTNUM4": null,
+          "ALTRT1TYPE": null,
+          "ROUTE_ID": null,
+          "ROUTE_SYSTEM": null,
+          "ROUTE_NUMBER": null,
+          "ROUTE_DIRECTION": null,
+          "RD_SEG_ID": null,
+          "STREET_NAME": null,
+          "FM_ST_NAME": null,
+          "TO_ST_NAME": null,
+          "FACILITY": null,
+          "F_CLASS": null,
+          "URBAN_AREA": null,
+          "URBAN_TYPE": null,
+          "F_F_CLASS": null,
+          "JURISDICTN": null,
+          "NHS": null,
+          "FD_AID_RTE": null,
+          "FD_AID_RD": null,
+          "CONTROL": null,
+          "NUM_LANES": null,
+          "OPP_LANES": null,
+          "SURFACE_TP": null,
+          "SURFACE_WD": null,
+          "SHLDR_RT_W": null,
+          "SHLDR_RT_T": null,
+          "SHLDR_LT_W": null,
+          "SHLDR_LT_T": null,
+          "SHLDR_UL_W": null,
+          "SHLDR_UL_T": null,
+          "MED_WIDTH": null,
+          "MED_TYPE": null,
+          "CURB": null,
+          "LT_SIDEWLK": null,
+          "RT_SIDEWLK": null,
+          "OPERATION": null,
+          "SPEED_LIM": null,
+          "OP_DIR_SL": null,
+          "TRUCK": null,
+          "T_EXC_TYPE": null,
+          "T_EXC_TIME": null,
+          "TRK_NETWRK": null,
+          "TRUCK_RTE": null,
+          "ROW_WIDTH": null,
+          "STRUCT_CND": null,
+          "TERRAIN": null,
+          "TOLL_ROAD": null,
+          "MHS": null,
+          "MGIS_TOWN": null,
+          "CITY": null,
+          "COUNTY": null,
+          "HWY_DIST": null,
+          "MPO": null,
+          "RPA": null,
+          "RTA": null,
+          "MILE_COUNT": null,
+          "AADT": null,
+          "AADT_YEAR": null,
+          "AADT_DERIV": null,
+          "LENGTH_MI": null
+        }
+      }
+    }
+  ],
+  "supportedQueryFormats": "JSON, geoJSON, PBF",
+  "supportedAppendFormats": "sqlite,geoPackage,shapefile,filegdb,featureCollection,geojson,csv,excel,jsonl,featureService,pbf",
+  "supportedAppendSourceFilterFormats": "sqlite,geoPackage,shapefile,filegdb,featureService",
+  "supportedExportFormats": "csv,shapefile,sqlite,geoPackage,filegdb,featureCollection,geojson,kml,excel,parquet",
+  "supportedConvertFileFormats": "JSON,PBF,Parquet",
+  "supportedConvertContentFormats": "LayerEditCollection,FeatureCollection",
+  "supportedSpatialRelationships": [
+    "esriSpatialRelIntersects",
+    "esriSpatialRelContains",
+    "esriSpatialRelCrosses",
+    "esriSpatialRelEnvelopeIntersects",
+    "esriSpatialRelIndexIntersects",
+    "esriSpatialRelOverlaps",
+    "esriSpatialRelTouches",
+    "esriSpatialRelWithin",
+    "esriSpatialRelDisjoint",
+    "esriSpatialRelRelation"
+  ],
+  "guidFormat": "",
+  "supportsContingentValues": true,
+  "supportsEditingContingentValues": true,
+  "supportedContingentValuesFormats": "JSON, PBF",
+  "supportsFieldGroups": true,
+  "supportedSyncDataOptions": 260,
+  "hasStaticData": true,
+  "maxRecordCount": 2000,
+  "standardMaxRecordCount": 2000,
+  "maxIdsCount": 1000000,
+  "standardMaxRecordCountNoGeometry": 32000,
+  "tileMaxRecordCount": 4000,
+  "maxRecordCountFactor": 1,
+  "capabilities": "Query,Extract,Sync"
+}

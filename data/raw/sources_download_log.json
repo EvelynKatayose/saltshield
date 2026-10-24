@@ -1,0 +1,76 @@
+[
+  {
+    "dataset": "towns",
+    "url": "https://services1.arcgis.com/hGdibHYSPO59RG1h/ArcGIS/rest/services/Massachusetts_Municipalities_Hosted/FeatureServer/0/query?f=geojson&outFields=*&returnGeometry=true&outSR=4326&where=TOWN+IN+%28%27HOLDEN%27%2C%27STERLING%27%2C%27WEST+BOYLSTON%27%29",
+    "count": 3,
+    "retrieved_at": "2026-10-24T18:45:20.872Z"
+  },
+  {
+    "dataset": "watershed",
+    "url": "https://arcgisserver.digital.mass.gov/arcgisserver/rest/services/AGOL/Surface_Water_Supply_Watersheds/FeatureServer/0/query",
+    "params": {
+      "f": "geojson",
+      "outFields": "*",
+      "returnGeometry": "true",
+      "outSR": "4326",
+      "where": "SOURCE_ID = '6000000-01S' AND SITE_NAME = 'WACHUSETT RESERVOIR'"
+    },
+    "count": 1,
+    "retrieved_at": "2026-10-24T18:46:09.608Z"
+  },
+  {
+    "dataset": "zone_A",
+    "url": "https://arcgisserver.digital.mass.gov/arcgisserver/rest/services/AGOL/ZoneABC/FeatureServer/0/query",
+    "params": {
+      "f": "geojson",
+      "outFields": "*",
+      "returnGeometry": "true",
+      "outSR": "4326",
+      "where": "SOURCE_ID = '6000000-01S'"
+    },
+    "count": 1,
+    "retrieved_at": "2026-10-24T18:46:08.524Z"
+  },
+  {
+    "dataset": "zone_B",
+    "url": "https://arcgisserver.digital.mass.gov/arcgisserver/rest/services/AGOL/ZoneABC/FeatureServer/1/query",
+    "params": {
+      "f": "geojson",
+      "outFields": "*",
+      "returnGeometry": "true",
+      "outSR": "4326",
+      "where": "SOURCE_ID = '6000000-01S'"
+    },
+    "count": 1,
+    "retrieved_at": "2026-10-24T18:46:08.637Z"
+  },
+  {
+    "dataset": "zone_C",
+    "url": "https://arcgisserver.digital.mass.gov/arcgisserver/rest/services/AGOL/ZoneABC/FeatureServer/2/query",
+    "params": {
+      "f": "geojson",
+      "outFields": "*",
+      "returnGeometry": "true",
+      "outSR": "4326",
+      "where": "SOURCE_ID = '6000000-01S'"
+    },
+    "count": 1,
+    "retrieved_at": "2026-10-24T18:46:09.549Z"
+  },
+  {
+    "dataset": "roads",
+    "service": "https://services1.arcgis.com/hGdibHYSPO59RG1h/arcgis/rest/services/MassDOTRoads_gdb/FeatureServer/0",
+    "selection": "bbox of full three town boundaries",
+    "bbox": [
+      -71.9288596367102,
+      42.2865444778017,
+      -71.718361971729,
+      42.4921862879701
+    ],
+    "id_query": "https://services1.arcgis.com/hGdibHYSPO59RG1h/arcgis/rest/services/MassDOTRoads_gdb/FeatureServer/0/query?f=json&where=1%3D1&geometry=-71.9288596367102%2C42.2865444778017%2C-71.718361971729%2C42.4921862879701&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&returnIdsOnly=true",
+    "expected_count": 6388,
+    "count": 6388,
+    "retrieved_at": "2026-10-24T18:46:35.161Z",
+    "query_method": "POST objectIds batches of 500, f=geojson, outFields=*, outSR=4326"
+  }
+]

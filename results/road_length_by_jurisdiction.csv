@@ -1,0 +1,13 @@
+﻿town,jurisdiction_code,jurisdiction_label,watershed_centerline_km,protected_centerline_km
+HOLDEN,0,Unaccepted by city or town,44.459415146396005,41.54749906969577
+HOLDEN,1,Massachusetts Department of Transportation,16.919189574760914,16.919189574760914
+HOLDEN,2,City or Town accepted road,141.9280253839007,140.69591365554012
+HOLDEN,UNKNOWN,Unknown or missing jurisdiction,5.000264010153459,5.000264010153459
+STERLING,0,Unaccepted by city or town,24.498658446558114,24.498658446558114
+STERLING,1,Massachusetts Department of Transportation,22.58595649599869,22.551777780993852
+STERLING,2,City or Town accepted road,89.51574464942871,89.50529832272086
+STERLING,UNKNOWN,Unknown or missing jurisdiction,0.5468479135525255,0.5468479135525255
+WEST BOYLSTON,0,Unaccepted by city or town,21.724199847219374,21.724199847219374
+WEST BOYLSTON,1,Massachusetts Department of Transportation,22.753269332484486,22.736817273940144
+WEST BOYLSTON,2,City or Town accepted road,75.9760089224765,75.91386093949035
+WEST BOYLSTON,UNKNOWN,Unknown or missing jurisdiction,1.0029537958050223,1.0029537958050223

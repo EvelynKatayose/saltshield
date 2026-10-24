@@ -1,0 +1,6 @@
+{
+  "roads": "https://www.mass.gov/info-details/massgis-data-massgis-massdot-roads",
+  "towns": "https://www.mass.gov/info-details/massgis-data-municipalities",
+  "watershed": "https://www.mass.gov/info-details/massgis-data-surface-water-supply-watersheds",
+  "protection_zones": "https://www.mass.gov/info-details/massgis-data-surface-water-supply-protection-areas-zone-a-b-c"
+}

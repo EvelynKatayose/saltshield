@@ -1,0 +1,402 @@
+{
+  "isCoGoEnabled": false,
+  "extent": {
+    "ymin": 813440.5,
+    "xmin": 35396.233099997,
+    "ymax": 957583.741099998,
+    "xmax": 275306.5625,
+    "spatialReference": {
+      "falseM": -100000,
+      "xyTolerance": 0.00022282209520103902,
+      "mUnits": 10000,
+      "zUnits": 1,
+      "latestWkid": 26986,
+      "zTolerance": 2,
+      "wkid": 26986,
+      "xyUnits": 122610652.81195112,
+      "mTolerance": 2,
+      "falseX": -36530900,
+      "falseY": -28803200,
+      "falseZ": 0
+    }
+  },
+  "isDataBranchVersioned": false,
+  "supportsApplyEditsWithGlobalIds": false,
+  "maxRecordCount": 2000,
+  "infoInEstimates": [
+    "extent",
+    "count"
+  ],
+  "datesInUnknownTimezone": false,
+  "ownershipBasedAccessControlForFeatures": null,
+  "type": "Feature Layer",
+  "onlyAllowTrueCurveUpdatesByTrueCurveClients": true,
+  "relationships": [],
+  "cimVersion": "3.7.0",
+  "isDataArchived": false,
+  "id": 2,
+  "archivingInfo": {
+    "startArchivingMoment": -1,
+    "supportsQueryWithHistoricMoment": false
+  },
+  "spatialReference": {
+    "falseM": -100000,
+    "xyTolerance": 0.00022282209520103902,
+    "mUnits": 10000,
+    "zUnits": 1,
+    "latestWkid": 26986,
+    "zTolerance": 2,
+    "wkid": 26986,
+    "xyUnits": 122610652.81195112,
+    "mTolerance": 2,
+    "falseX": -36530900,
+    "falseY": -28803200,
+    "falseZ": 0
+  },
+  "supportsStatistics": true,
+  "supportedExportFormats": "sqlite,filegdb,shapefile,csv,geojson,kml,excel,featureCollection",
+  "hasLastEditTime": false,
+  "standardMaxRecordCount": 4000,
+  "isDataVersioned": false,
+  "hasGeometryProperties": true,
+  "templates": [
+    {
+      "name": "Surface Water Protection Areas - Zone C",
+      "description": "",
+      "drawingTool": "esriFeatureEditToolPolygon",
+      "prototype": {
+        "attributes": {
+          "SOURCE_ID": null,
+          "DELINYEAR": null,
+          "SWPZONE": null,
+          "DELINTYPE": null,
+          "PWSID": null,
+          "COMMENTS": null,
+          "ACRES": null,
+          "SITE_NAME": null,
+          "SUPPLIER": null
+        }
+      }
+    }
+  ],
+  "supportsAdvancedQueries": true,
+  "parentLayer": null,
+  "currentVersion": 12.1,
+  "canScaleSymbols": false,
+  "hasZ": false,
+  "advancedEditingCapabilities": {
+    "supportsSessionBasedAddAttachments": true,
+    "supportsAsyncApplyEdits": true,
+    "supportsApplyEditsbyUploadID": true,
+    "supportsSessionBasedUpdateFeatures": true,
+    "supportsSessionBasedDeleteAttachments": true,
+    "supportsDivideCombineGroupedObjects": true,
+    "supportsDeleteAssociations": true,
+    "supportsSessionBasedUpdateAttachments": true,
+    "supportedSqlFormatsInCalculate": [
+      "standard"
+    ],
+    "supportedApplyEditsUploadIDFormats": "JSON,PBF",
+    "supportsSessionBasedDeleteFeatures": true,
+    "supportsSessionBasedAddFeatures": true
+  },
+  "supportsQuantizationEditMode": true,
+  "objectIdField": "OBJECTID",
+  "name": "Surface Water Protection Areas - Zone C",
+  "allowTrueCurvesUpdates": true,
+  "displayField": "SOURCE_ID",
+  "supportsCalculate": true,
+  "fields": [
+    {
+      "modelName": "OBJECTID",
+      "nullable": false,
+      "editable": false,
+      "defaultValue": null,
+      "domain": null,
+      "name": "OBJECTID",
+      "alias": "OBJECTID",
+      "type": "esriFieldTypeOID"
+    },
+    {
+      "modelName": "SOURCE_ID",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "SOURCE_ID",
+      "length": 11,
+      "alias": "SOURCE_ID",
+      "type": "esriFieldTypeString"
+    },
+    {
+      "modelName": "SWPZONE",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "SWPZONE",
+      "length": 8,
+      "alias": "SWPZONE",
+      "type": "esriFieldTypeString"
+    },
+    {
+      "modelName": "ACRES",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "ACRES",
+      "alias": "ACRES",
+      "type": "esriFieldTypeDouble"
+    },
+    {
+      "modelName": "SITE_NAME",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "SITE_NAME",
+      "length": 40,
+      "alias": "SITE_NAME",
+      "type": "esriFieldTypeString"
+    },
+    {
+      "modelName": "PWSID",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "PWSID",
+      "length": 7,
+      "alias": "PWSID",
+      "type": "esriFieldTypeString"
+    },
+    {
+      "modelName": "SUPPLIER",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "SUPPLIER",
+      "length": 40,
+      "alias": "SUPPLIER",
+      "type": "esriFieldTypeString"
+    },
+    {
+      "modelName": "DELINYEAR",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "DELINYEAR",
+      "alias": "DELINYEAR",
+      "type": "esriFieldTypeSmallInteger"
+    },
+    {
+      "modelName": "DELINTYPE",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "DELINTYPE",
+      "length": 15,
+      "alias": "DELINTYPE",
+      "type": "esriFieldTypeString"
+    },
+    {
+      "modelName": "COMMENTS",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "COMMENTS",
+      "length": 80,
+      "alias": "COMMENTS",
+      "type": "esriFieldTypeString"
+    },
+    {
+      "modelName": "SHAPE.AREA",
+      "nullable": true,
+      "editable": false,
+      "defaultValue": null,
+      "domain": null,
+      "name": "Shape__Area",
+      "alias": "SHAPE.AREA",
+      "type": "esriFieldTypeDouble",
+      "required": true
+    },
+    {
+      "modelName": "SHAPE.LEN",
+      "nullable": true,
+      "editable": false,
+      "defaultValue": null,
+      "domain": null,
+      "name": "Shape__Length",
+      "alias": "SHAPE.LEN",
+      "type": "esriFieldTypeDouble",
+      "required": true
+    }
+  ],
+  "maxRecordCountFactor": 1,
+  "dateFieldsTimeReference": {
+    "timeZoneIANA": "Etc/UTC",
+    "respectsDaylightSaving": false,
+    "timeZone": "UTC"
+  },
+  "bigIntegerRestrictedTo53Bits": true,
+  "hasM": false,
+  "allowGeometryUpdates": false,
+  "preferredTimeReference": null,
+  "useStandardizedQueries": true,
+  "sourceSpatialReference": {
+    "falseM": 0,
+    "xyTolerance": 0.001,
+    "mUnits": 1,
+    "zUnits": 1,
+    "latestWkid": 26986,
+    "zTolerance": 0.001,
+    "wkid": 26986,
+    "xyUnits": 10000,
+    "mTolerance": 0.001,
+    "falseX": -36530900,
+    "falseY": -28803200,
+    "falseZ": 0
+  },
+  "globalIdField": "",
+  "description": "",
+  "syncCanReturnChanges": false,
+  "supportedSpatialRelationships": [
+    "esriSpatialRelIntersects",
+    "esriSpatialRelContains",
+    "esriSpatialRelCrosses",
+    "esriSpatialRelEnvelopeIntersects",
+    "esriSpatialRelIndexIntersects",
+    "esriSpatialRelOverlaps",
+    "esriSpatialRelTouches",
+    "esriSpatialRelWithin",
+    "esriSpatialRelRelation"
+  ],
+  "geometryProperties": {
+    "shapeAreaFieldName": "Shape__Area",
+    "shapeLengthFieldName": "Shape__Length",
+    "units": "esriMeters"
+  },
+  "supportsRollbackOnFailureParameter": true,
+  "isDataReplicaTracked": false,
+  "standardMaxRecordCountNoGeometry": 32000,
+  "indexes": [
+    {
+      "name": "R968790_SDE_ROWID_UK",
+      "isUnique": true,
+      "description": "",
+      "isAscending": true,
+      "fields": "OBJECTID"
+    },
+    {
+      "name": "A36988_IX1",
+      "isUnique": true,
+      "description": "",
+      "isAscending": true,
+      "fields": "SHAPE"
+    }
+  ],
+  "editFieldsInfo": null,
+  "supportsDatumTransformation": true,
+  "htmlPopupType": "esriServerHTMLPopupTypeNone",
+  "minScale": 600000,
+  "hasAttachments": false,
+  "advancedQueryCapabilities": {
+    "supportsSqlExpression": true,
+    "supportsQueryWithResultType": true,
+    "supportsUseEstimateForExceedsLimit": true,
+    "supportsQueryRelatedPagination": true,
+    "supportsQueryWithCacheHint": false,
+    "supportsQueryWithDatumTransformation": true,
+    "supportsCurrentUserQueries": true,
+    "fullTextSearchCapabilities": {
+      "supportsSqlExpressionInFullText": true,
+      "supportsOperator": false,
+      "supportsSearchOperator": true
+    },
+    "supportsQueryWithLodSR": false,
+    "supportsPagination": true,
+    "supportsMaxRecordCountFactor": false,
+    "fullTextSearchableFields": [],
+    "supportsStatistics": true,
+    "supportsTrueCurve": true,
+    "supportsOrderBy": true,
+    "supportsFullTextSearch": true,
+    "supportsQueryWithDistance": true,
+    "supportsLod": false,
+    "supportsCountDistinct": true,
+    "supportsAdvancedQueryRelated": true,
+    "supportsReturningQueryExtent": true,
+    "supportsReturningGeometryEnvelope": true,
+    "supportedCurveTypes": [
+      "esriGeometryCircularArc",
+      "esriGeometryEllipticArc",
+      "esriGeometryBezier3Curve"
+    ],
+    "supportsDistinct": true,
+    "supportsReturningGeometryCentroid": true,
+    "supportsQueryAnalytic": true,
+    "supportsPercentileStatistics": true,
+    "supportsHavingClause": true
+  },
+  "subtypeField": "",
+  "supportsValidateSQL": true,
+  "serviceItemId": "",
+  "supportsCoordinatesQuantization": true,
+  "types": [],
+  "capabilities": "Query",
+  "maxScale": 0,
+  "supportsAppend": true,
+  "supportsExceedsLimitStatistics": true,
+  "defaultVisibility": true,
+  "advancedQueryAnalyticCapabilities": {
+    "supportsAsync": true,
+    "supportsLinearRegression": true,
+    "supportsPercentileAnalytic": true
+  },
+  "supportedTrueCurvePbfFeatureEncodings": [
+    "esriCompressedShapeBuffer",
+    "esriDefault"
+  ],
+  "hasMetadata": true,
+  "supportedAppendFormats": "FILEGDB,PBF,CSV",
+  "tileMaxRecordCount": 4000,
+  "typeIdField": "",
+  "supportsASyncCalculate": true,
+  "supportedQueryFormats": "JSON, geoJSON, PBF",
+  "drawingInfo": {
+    "renderer": {
+      "symbol": {
+        "outline": null,
+        "color": [
+          255,
+          166,
+          166,
+          255
+        ],
+        "style": "esriSFSSolid",
+        "type": "esriSFS"
+      },
+      "type": "simple"
+    },
+    "scaleSymbols": true,
+    "transparency": 0,
+    "labelingInfo": null
+  },
+  "geometryField": {
+    "modelName": "Shape",
+    "nullable": true,
+    "editable": false,
+    "defaultValue": null,
+    "domain": null,
+    "name": "SHAPE",
+    "alias": "Shape",
+    "type": "esriFieldTypeGeometry"
+  },
+  "copyrightText": "",
+  "geometryType": "esriGeometryPolygon"
+}

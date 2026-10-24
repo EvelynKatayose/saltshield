@@ -1,0 +1,86 @@
+{
+  "total": 1,
+  "start": 1,
+  "num": 10,
+  "nextStart": -1,
+  "results": [
+    {
+      "id": "b06138b158694703a97d038be9a89610",
+      "owner": "MassGIS",
+      "created": 1610065686000,
+      "modified": 1770183548000,
+      "guid": null,
+      "name": "MassDOTRoads_gdb",
+      "title": "MassGIS-MassDOT Roads",
+      "type": "Feature Service",
+      "typeKeywords": [
+        "ArcGIS Server",
+        "Data",
+        "Feature Access",
+        "Feature Service",
+        "Metadata",
+        "Service",
+        "Hosted Service"
+      ],
+      "description": "<div style='text-align:Left;'><p>Formerly known as the Massachusetts Highway Department (MHD) Roads, then the Executive Office of Transportation - Office of Transportation Planning (EOT-OTP) Roads, the MassGIS-MassDOT Roads layer includes linework from the 1:5,000 road and rail centerlines data that were interpreted as part of the 1990's Aerial Imagery project. The Massachusetts Department of Transportation - Office of Transportation Planning, which maintains the primary source for this layer, continues to add linework from municipal and other sources and update existing linework using the most recent aerial ortho imagery as a base. The attribute table includes many &quot;road inventory&quot; fields maintained in MassDOT's linear referencing system.</p><p><span>The current MassGIS-MassDOT hybrid data layer was first published in November 2018, based on the MassDOT 2017 year-end Road Inventory layer and results of a 2014-2015 MassDOT-Central Transportation Planning Staff project to conflate street names and other attributes from MassGIS' &quot;base streets&quot; to the MassDOT Road Inventory linework. The base streets are continually maintained by MassGIS as part of the NextGen 911 and Master Address Database (MAD) projects. MassGIS staff reviewed the conflated layer and added many base street arcs digitized after the completion of the conflation work. MassGIS added several fields to support legacy symbology and labeling. Other edits included modifying some linework in areas of recent construction and roadway reconfiguration to align to 2017-2018 Google ortho imagery, and making minor fixes to attributes and linework. MassGIS continues to modify the layer as needed, modifying the linework using the latest aerial imagery and adding line features from the base street arcs.</span></p><p><span>From this data layer MassGIS extracted Major Roads and Major Highway Routes layers.</span></p><p><a href='https://www.mass.gov/info-details/massgis-data-massgis-massdot-roads' target='_blank' rel='nofollow ugc noopener noreferrer'>See full metadata</a><br /></p></div>",
+      "tags": [
+        "Transportation",
+        "MassDOT",
+        "MassGIS",
+        "Massachusetts",
+        "Street",
+        "Road",
+        "Highway",
+        "Master Address Database",
+        "Route",
+        "infrastructure"
+      ],
+      "snippet": "This hosted feature layer is the official state-maintained street transportation dataset available from MassGIS. The layer is a hybrid set of linework, most coming from MassDOT with some additional attributes and linework added by MassGIS. This layer represents all the public and many of the private roadways in Massachusetts as known at the time of publication, including designations for Interstate, U.S. and State routes.",
+      "thumbnail": "thumbnail/thumbnail.png",
+      "documentation": null,
+      "extent": [
+        [
+          -73.52128815461107,
+          41.231997636789046
+        ],
+        [
+          -69.90132418573893,
+          42.888319618638356
+        ]
+      ],
+      "categories": [],
+      "spatialReference": "26986",
+      "accessInformation": "Massachusetts Department of Transportation (MassDOT), MassGIS",
+      "classification": null,
+      "licenseInfo": "<div style='text-align:Left;'><p><span style='font-family:&quot;Avenir Next W01&quot;, &quot;Avenir Next W00&quot;, &quot;Avenir Next&quot;, Avenir, &quot;Helvetica Neue&quot;, sans-serif;font-size:16px;'>This GIS web service is a public resource and may be used by anyone for their purposes. The data are public records and are based on the most up to date information at the time of publication. The information contained in this service is NOT to be construed or used as a \"legal description.\" MassGIS, EOTSS and the Commonwealth of Massachusetts are not liable for errors, inaccuracies or omissions and shall be held harmless from and against all damage, loss or liability arising from any use of geospatial data that is shared. When using MassGIS data on maps or in digital applications, source credit should be stated as \"MassGIS (Bureau of Geographic Information), Commonwealth of Massachusetts EOTSS\".</span><br /></p></div>",
+      "culture": "en-us",
+      "properties": {
+        "indexJobId": ""
+      },
+      "advancedSettings": null,
+      "url": "https://services1.arcgis.com/hGdibHYSPO59RG1h/arcgis/rest/services/MassDOTRoads_gdb/FeatureServer",
+      "proxyFilter": null,
+      "access": "public",
+      "size": -1,
+      "subInfo": 0,
+      "appCategories": [],
+      "industries": [],
+      "languages": [],
+      "largeThumbnail": null,
+      "banner": null,
+      "screenshots": [],
+      "listed": false,
+      "numComments": 0,
+      "numRatings": 1,
+      "avgRating": 3.75,
+      "numViews": 432498,
+      "scoreCompleteness": 100,
+      "groupDesignations": null,
+      "apiToken1ExpirationDate": -1,
+      "apiToken2ExpirationDate": -1,
+      "lastViewed": 1792864800000,
+      "source": "MassGIS - Bureau of Geographic Information",
+      "licenseConstraintId": "custom"
+    }
+  ]
+}

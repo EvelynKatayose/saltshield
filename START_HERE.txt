@@ -1,0 +1,19 @@
+SaltShield 已完成首轮真实数据与模拟投资分析。
+
+先打开 results/SaltShield_Wachusett.html，可离线查看地图、切换道路类别、修改总预算与效果情景，并导出当前比较。
+
+真实数据：四类官方图层及原始下载记录。三个城镇在汇水区内的道路记录长度合计约466.91 km；其中约462.64 km匹配该水源A/B/C保护区。长度为中心线长度，不是车道公里。
+
+结果表：results/town_road_summary.csv；results/road_length_by_jurisdiction.csv；results/road_length_by_jurisdiction_and_zone.csv。逐分段结果在data/processed。
+
+模拟设备：每镇两个互斥方案，共六个，位于results/simulated_equipment_projects.csv。价格、效果、覆盖和基准用盐强度全部为模拟。
+
+默认预算上限均为75000美元。独立模式各镇25000美元上限，实际选45000美元项目，Zone A模拟减少施盐41.54吨；共享模式选75000美元项目，模拟84.84吨。
+
+等实际投入45000美元核查：共享配置模拟52.56吨，但有一个城镇没有项目。不能将预算利用率差异或资金集中直接解释为算法优越或公平。
+
+原始道路记录约78.8米几何重叠，保留来源分类并报告；4.27公里道路未匹配保护区，未强行归为Zone C。
+
+重跑：按README.md安装requirements.txt，运行python run_analysis.py，再运行python build_report.py。分析可离线进行；download_data.py用于联网重新下载。
+
+这不是实测减盐量、水质浓度预测、实时撒盐控制或已部署市政系统。

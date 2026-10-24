@@ -1,0 +1,11 @@
+{
+  "total_budget_usd": 75000,
+  "independent_budget_usd_per_town": 25000,
+  "baseline_tonnes_per_centerline_km_per_season": 5.0,
+  "objective": "maximize_simulated_avoided_salt_application_on_Zone_A_municipal_paved_roads",
+  "baseline_status": "SIMULATED uniform application intensity, not observed usage",
+  "project_coverage": "all mapped municipal paved road sections in the selected town and watershed",
+  "scope_limit": "Three-town subset, not the entire Wachusett watershed",
+  "cost_horizon": "one-time capital budget; operating costs and equipment life not modeled",
+  "safety": "Investment screening only; no treatment rates or road-safety performance recommendations"
+}

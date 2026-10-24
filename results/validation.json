@@ -1,0 +1,24 @@
+{
+  "raw_road_count": 6388,
+  "road_id_count": 6388,
+  "selected_watershed_source_id": "6000000-01S",
+  "watershed_area_km2": 237.2668164907504,
+  "selected_town_watershed_area_km2": 149.90790600227493,
+  "clipped_input_length_km": 466.9105335275729,
+  "segmented_output_length_km": 466.9105335187349,
+  "length_conservation_difference_m": -8.83801476447843e-06,
+  "source_geometric_overlap_length_km": 0.07878387128045006,
+  "unassigned_zone_road_length_km": 4.267252888303983,
+  "unique_segment_ids": true,
+  "projects_per_town": {
+    "HOLDEN": 2,
+    "STERLING": 2,
+    "WEST BOYLSTON": 2
+  },
+  "zone_partition_area_difference_m2": -8.940696716308594e-08,
+  "pooled_weakly_dominates_independent_on_same_objective": true,
+  "zero_budget_selects_nothing": true,
+  "all_projects_zero_effect_tie_break_prefers_no_spending": true,
+  "all_reported_lengths_are_centerline_lengths_not_lane_km": true,
+  "jurisdiction_is_source_classification_not_verified_snow_maintenance_contract": true
+}

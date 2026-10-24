@@ -1,0 +1,21 @@
+# Local Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+
+# Credentials and local-only configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Dependency discovery metadata, not GIS source data
+data/raw/pyproj_metadata.json
+data/raw/shapely_metadata.json
+data/raw/watershed_search_metadata.json

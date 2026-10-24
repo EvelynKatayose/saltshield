@@ -1,0 +1,38 @@
+﻿town,jurisdiction_code,jurisdiction_label,zone,centerline_km
+HOLDEN,0,Unaccepted by city or town,A,12.310668014227339
+HOLDEN,0,Unaccepted by city or town,C,29.23683105546841
+HOLDEN,0,Unaccepted by city or town,UNZONED,2.9119160767002312
+HOLDEN,1,Massachusetts Department of Transportation,A,9.680654994417578
+HOLDEN,1,Massachusetts Department of Transportation,C,7.238534580343345
+HOLDEN,2,City or Town accepted road,A,32.86323924855171
+HOLDEN,2,City or Town accepted road,C,107.83267440698833
+HOLDEN,2,City or Town accepted road,UNZONED,1.232111728360566
+HOLDEN,UNKNOWN,Unknown or missing jurisdiction,A,0.36200275993903397
+HOLDEN,UNKNOWN,Unknown or missing jurisdiction,C,4.638261250214425
+STERLING,0,Unaccepted by city or town,A,6.807721251560717
+STERLING,0,Unaccepted by city or town,B,2.9022338963780205
+STERLING,0,Unaccepted by city or town,C,14.788703298619385
+STERLING,1,Massachusetts Department of Transportation,A,6.533203994322945
+STERLING,1,Massachusetts Department of Transportation,B,7.575705609166426
+STERLING,1,Massachusetts Department of Transportation,C,8.442868177504481
+STERLING,1,Massachusetts Department of Transportation,UNZONED,0.03417871500483663
+STERLING,2,City or Town accepted road,A,26.91543262305257
+STERLING,2,City or Town accepted road,B,7.24308287724421
+STERLING,2,City or Town accepted road,C,55.34678282242411
+STERLING,2,City or Town accepted road,UNZONED,0.010446326707855402
+STERLING,UNKNOWN,Unknown or missing jurisdiction,A,0.052808230539577415
+STERLING,UNKNOWN,Unknown or missing jurisdiction,C,0.49403968301294804
+WEST BOYLSTON,0,Unaccepted by city or town,A,5.733422281736156
+WEST BOYLSTON,0,Unaccepted by city or town,B,7.504213201944246
+WEST BOYLSTON,0,Unaccepted by city or town,C,8.486564363538983
+WEST BOYLSTON,1,Massachusetts Department of Transportation,A,12.60369941821579
+WEST BOYLSTON,1,Massachusetts Department of Transportation,B,2.07793021271208
+WEST BOYLSTON,1,Massachusetts Department of Transportation,C,8.055187643012262
+WEST BOYLSTON,1,Massachusetts Department of Transportation,UNZONED,0.016452058544340575
+WEST BOYLSTON,2,City or Town accepted road,A,25.93190097376081
+WEST BOYLSTON,2,City or Town accepted road,B,18.827122115641455
+WEST BOYLSTON,2,City or Town accepted road,C,31.154837850088057
+WEST BOYLSTON,2,City or Town accepted road,UNZONED,0.0621479829861534
+WEST BOYLSTON,UNKNOWN,Unknown or missing jurisdiction,A,0.09594057860102358
+WEST BOYLSTON,UNKNOWN,Unknown or missing jurisdiction,B,0.3481778345479722
+WEST BOYLSTON,UNKNOWN,Unknown or missing jurisdiction,C,0.5588353826560265

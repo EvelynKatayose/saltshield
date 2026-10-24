@@ -1,0 +1,64 @@
+{
+  "independent": {
+    "budget_cap_usd": 75000,
+    "spent_usd": 45000,
+    "unspent_usd": 30000,
+    "avoided_zone_a_tonnes_simulated": 41.53630144502182,
+    "avoided_all_zones_tonnes_simulated": 146.96730418352013,
+    "selected_project_ids": [
+      "HOLDEN_CAL",
+      "STERLING_CAL",
+      "WEST_BOYLSTON_CAL"
+    ],
+    "allocations_usd": {
+      "HOLDEN": 15000,
+      "STERLING": 15000,
+      "WEST BOYLSTON": 15000
+    },
+    "feasible_combinations": 8,
+    "optimizer": "exact enumeration of all 27 mutually exclusive project combinations"
+  },
+  "pooled": {
+    "budget_cap_usd": 75000,
+    "spent_usd": 75000,
+    "unspent_usd": 0,
+    "avoided_zone_a_tonnes_simulated": 84.83698870754958,
+    "avoided_all_zones_tonnes_simulated": 313.3388034809064,
+    "selected_project_ids": [
+      "HOLDEN_BRINE",
+      "STERLING_BRINE",
+      "WEST_BOYLSTON_CAL"
+    ],
+    "allocations_usd": {
+      "HOLDEN": 30000,
+      "STERLING": 30000,
+      "WEST BOYLSTON": 15000
+    },
+    "feasible_combinations": 26,
+    "optimizer": "exact enumeration of all 27 mutually exclusive project combinations"
+  },
+  "difference": {
+    "additional_avoided_zone_a_tonnes_simulated": 43.30068726252776,
+    "relative_improvement_pct_simulated": 104.24781638259563,
+    "additional_spending_usd": 30000,
+    "interpretation": "Equal budget ceilings, not equal actual spending. Pooling can use stranded local funds and reallocate them. This is a simulated funding-rule comparison, not causal evidence of field efficacy or algorithm superiority."
+  },
+  "pooled_at_independent_actual_spend": {
+    "budget_cap_usd": 45000,
+    "spent_usd": 45000,
+    "unspent_usd": 0,
+    "avoided_zone_a_tonnes_simulated": 52.55559462459062,
+    "avoided_all_zones_tonnes_simulated": 212.8647565802562,
+    "selected_project_ids": [
+      "HOLDEN_BRINE",
+      "STERLING_CAL"
+    ],
+    "allocations_usd": {
+      "HOLDEN": 30000,
+      "STERLING": 15000,
+      "WEST BOYLSTON": 0
+    },
+    "feasible_combinations": 17,
+    "optimizer": "exact enumeration of all 27 mutually exclusive project combinations"
+  }
+}

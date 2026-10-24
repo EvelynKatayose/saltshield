@@ -1,0 +1,808 @@
+{
+  "parameters": {
+    "total_budget_usd": 75000,
+    "independent_budget_usd_per_town": 25000,
+    "baseline_tonnes_per_centerline_km_per_season": 5.0,
+    "objective": "maximize_simulated_avoided_salt_application_on_Zone_A_municipal_paved_roads",
+    "baseline_status": "SIMULATED uniform application intensity, not observed usage",
+    "project_coverage": "all mapped municipal paved road sections in the selected town and watershed",
+    "scope_limit": "Three-town subset, not the entire Wachusett watershed",
+    "cost_horizon": "one-time capital budget; operating costs and equipment life not modeled",
+    "safety": "Investment screening only; no treatment rates or road-safety performance recommendations"
+  },
+  "summary": [
+    {
+      "town": "HOLDEN",
+      "full_town_mapped_centerline_km": 275.2885906377858,
+      "within_watershed_centerline_km": 208.3068941152115,
+      "protected_centerline_km": 204.1628663101507,
+      "zone_a_centerline_km": 55.21656501713571,
+      "zone_b_centerline_km": 0,
+      "zone_c_centerline_km": 148.94630129301467,
+      "zone_unzoned_centerline_km": 4.144027805060797,
+      "municipal_accepted_centerline_km": 141.9280253839007,
+      "massdot_centerline_km": 16.919189574760914,
+      "unaccepted_centerline_km": 44.459415146396005,
+      "unknown_jurisdiction_centerline_km": 5.000264010153459,
+      "eligible_municipal_paved_centerline_km": 137.16601001546996,
+      "eligible_municipal_paved_protected_centerline_km": 135.93389828710934,
+      "eligible_municipal_paved_zone_a_km": 31.584626377207258,
+      "segment_count": 1526
+    },
+    {
+      "town": "STERLING",
+      "full_town_mapped_centerline_km": 233.50803251701106,
+      "within_watershed_centerline_km": 137.1472075055381,
+      "protected_centerline_km": 137.1025824638254,
+      "zone_a_centerline_km": 40.309166099475824,
+      "zone_b_centerline_km": 17.72102238278865,
+      "zone_c_centerline_km": 79.07239398156092,
+      "zone_unzoned_centerline_km": 0.044625041712692035,
+      "municipal_accepted_centerline_km": 89.51574464942871,
+      "massdot_centerline_km": 22.58595649599869,
+      "unaccepted_centerline_km": 24.498658446558114,
+      "unknown_jurisdiction_centerline_km": 0.5468479135525255,
+      "eligible_municipal_paved_centerline_km": 85.90521376944695,
+      "eligible_municipal_paved_protected_centerline_km": 85.8947674427391,
+      "eligible_municipal_paved_zone_a_km": 26.149623306163097,
+      "segment_count": 939
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "full_town_mapped_centerline_km": 135.97179603982093,
+      "within_watershed_centerline_km": 121.45643189798545,
+      "protected_centerline_km": 121.37783185645496,
+      "zone_a_centerline_km": 44.364963252313814,
+      "zone_b_centerline_km": 28.75744336484576,
+      "zone_c_centerline_km": 48.25542523929531,
+      "zone_unzoned_centerline_km": 0.07860004153049398,
+      "municipal_accepted_centerline_km": 75.9760089224765,
+      "massdot_centerline_km": 22.753269332484486,
+      "unaccepted_centerline_km": 21.724199847219374,
+      "unknown_jurisdiction_centerline_km": 1.0029537958050223,
+      "eligible_municipal_paved_centerline_km": 72.16809062017794,
+      "eligible_municipal_paved_protected_centerline_km": 72.10594263719179,
+      "eligible_municipal_paved_zone_a_km": 25.33835320667329,
+      "segment_count": 998
+    }
+  ],
+  "owners": [
+    {
+      "town": "HOLDEN",
+      "jurisdiction_code": "0",
+      "jurisdiction_label": "Unaccepted by city or town",
+      "watershed_centerline_km": 44.459415146396005,
+      "protected_centerline_km": 41.54749906969577
+    },
+    {
+      "town": "HOLDEN",
+      "jurisdiction_code": "1",
+      "jurisdiction_label": "Massachusetts Department of Transportation",
+      "watershed_centerline_km": 16.919189574760914,
+      "protected_centerline_km": 16.919189574760914
+    },
+    {
+      "town": "HOLDEN",
+      "jurisdiction_code": "2",
+      "jurisdiction_label": "City or Town accepted road",
+      "watershed_centerline_km": 141.9280253839007,
+      "protected_centerline_km": 140.69591365554012
+    },
+    {
+      "town": "HOLDEN",
+      "jurisdiction_code": "UNKNOWN",
+      "jurisdiction_label": "Unknown or missing jurisdiction",
+      "watershed_centerline_km": 5.000264010153459,
+      "protected_centerline_km": 5.000264010153459
+    },
+    {
+      "town": "STERLING",
+      "jurisdiction_code": "0",
+      "jurisdiction_label": "Unaccepted by city or town",
+      "watershed_centerline_km": 24.498658446558114,
+      "protected_centerline_km": 24.498658446558114
+    },
+    {
+      "town": "STERLING",
+      "jurisdiction_code": "1",
+      "jurisdiction_label": "Massachusetts Department of Transportation",
+      "watershed_centerline_km": 22.58595649599869,
+      "protected_centerline_km": 22.551777780993852
+    },
+    {
+      "town": "STERLING",
+      "jurisdiction_code": "2",
+      "jurisdiction_label": "City or Town accepted road",
+      "watershed_centerline_km": 89.51574464942871,
+      "protected_centerline_km": 89.50529832272086
+    },
+    {
+      "town": "STERLING",
+      "jurisdiction_code": "UNKNOWN",
+      "jurisdiction_label": "Unknown or missing jurisdiction",
+      "watershed_centerline_km": 0.5468479135525255,
+      "protected_centerline_km": 0.5468479135525255
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "jurisdiction_code": "0",
+      "jurisdiction_label": "Unaccepted by city or town",
+      "watershed_centerline_km": 21.724199847219374,
+      "protected_centerline_km": 21.724199847219374
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "jurisdiction_code": "1",
+      "jurisdiction_label": "Massachusetts Department of Transportation",
+      "watershed_centerline_km": 22.753269332484486,
+      "protected_centerline_km": 22.736817273940144
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "jurisdiction_code": "2",
+      "jurisdiction_label": "City or Town accepted road",
+      "watershed_centerline_km": 75.9760089224765,
+      "protected_centerline_km": 75.91386093949035
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "jurisdiction_code": "UNKNOWN",
+      "jurisdiction_label": "Unknown or missing jurisdiction",
+      "watershed_centerline_km": 1.0029537958050223,
+      "protected_centerline_km": 1.0029537958050223
+    }
+  ],
+  "owner_zone": [
+    {
+      "town": "HOLDEN",
+      "jurisdiction_code": "0",
+      "jurisdiction_label": "Unaccepted by city or town",
+      "zone": "A",
+      "centerline_km": 12.310668014227339
+    },
+    {
+      "town": "HOLDEN",
+      "jurisdiction_code": "0",
+      "jurisdiction_label": "Unaccepted by city or town",
+      "zone": "C",
+      "centerline_km": 29.23683105546841
+    },
+    {
+      "town": "HOLDEN",
+      "jurisdiction_code": "0",
+      "jurisdiction_label": "Unaccepted by city or town",
+      "zone": "UNZONED",
+      "centerline_km": 2.9119160767002312
+    },
+    {
+      "town": "HOLDEN",
+      "jurisdiction_code": "1",
+      "jurisdiction_label": "Massachusetts Department of Transportation",
+      "zone": "A",
+      "centerline_km": 9.680654994417578
+    },
+    {
+      "town": "HOLDEN",
+      "jurisdiction_code": "1",
+      "jurisdiction_label": "Massachusetts Department of Transportation",
+      "zone": "C",
+      "centerline_km": 7.238534580343345
+    },
+    {
+      "town": "HOLDEN",
+      "jurisdiction_code": "2",
+      "jurisdiction_label": "City or Town accepted road",
+      "zone": "A",
+      "centerline_km": 32.86323924855171
+    },
+    {
+      "town": "HOLDEN",
+      "jurisdiction_code": "2",
+      "jurisdiction_label": "City or Town accepted road",
+      "zone": "C",
+      "centerline_km": 107.83267440698833
+    },
+    {
+      "town": "HOLDEN",
+      "jurisdiction_code": "2",
+      "jurisdiction_label": "City or Town accepted road",
+      "zone": "UNZONED",
+      "centerline_km": 1.232111728360566
+    },
+    {
+      "town": "HOLDEN",
+      "jurisdiction_code": "UNKNOWN",
+      "jurisdiction_label": "Unknown or missing jurisdiction",
+      "zone": "A",
+      "centerline_km": 0.36200275993903397
+    },
+    {
+      "town": "HOLDEN",
+      "jurisdiction_code": "UNKNOWN",
+      "jurisdiction_label": "Unknown or missing jurisdiction",
+      "zone": "C",
+      "centerline_km": 4.638261250214425
+    },
+    {
+      "town": "STERLING",
+      "jurisdiction_code": "0",
+      "jurisdiction_label": "Unaccepted by city or town",
+      "zone": "A",
+      "centerline_km": 6.807721251560717
+    },
+    {
+      "town": "STERLING",
+      "jurisdiction_code": "0",
+      "jurisdiction_label": "Unaccepted by city or town",
+      "zone": "B",
+      "centerline_km": 2.9022338963780205
+    },
+    {
+      "town": "STERLING",
+      "jurisdiction_code": "0",
+      "jurisdiction_label": "Unaccepted by city or town",
+      "zone": "C",
+      "centerline_km": 14.788703298619385
+    },
+    {
+      "town": "STERLING",
+      "jurisdiction_code": "1",
+      "jurisdiction_label": "Massachusetts Department of Transportation",
+      "zone": "A",
+      "centerline_km": 6.533203994322945
+    },
+    {
+      "town": "STERLING",
+      "jurisdiction_code": "1",
+      "jurisdiction_label": "Massachusetts Department of Transportation",
+      "zone": "B",
+      "centerline_km": 7.575705609166426
+    },
+    {
+      "town": "STERLING",
+      "jurisdiction_code": "1",
+      "jurisdiction_label": "Massachusetts Department of Transportation",
+      "zone": "C",
+      "centerline_km": 8.442868177504481
+    },
+    {
+      "town": "STERLING",
+      "jurisdiction_code": "1",
+      "jurisdiction_label": "Massachusetts Department of Transportation",
+      "zone": "UNZONED",
+      "centerline_km": 0.03417871500483663
+    },
+    {
+      "town": "STERLING",
+      "jurisdiction_code": "2",
+      "jurisdiction_label": "City or Town accepted road",
+      "zone": "A",
+      "centerline_km": 26.91543262305257
+    },
+    {
+      "town": "STERLING",
+      "jurisdiction_code": "2",
+      "jurisdiction_label": "City or Town accepted road",
+      "zone": "B",
+      "centerline_km": 7.24308287724421
+    },
+    {
+      "town": "STERLING",
+      "jurisdiction_code": "2",
+      "jurisdiction_label": "City or Town accepted road",
+      "zone": "C",
+      "centerline_km": 55.34678282242411
+    },
+    {
+      "town": "STERLING",
+      "jurisdiction_code": "2",
+      "jurisdiction_label": "City or Town accepted road",
+      "zone": "UNZONED",
+      "centerline_km": 0.010446326707855402
+    },
+    {
+      "town": "STERLING",
+      "jurisdiction_code": "UNKNOWN",
+      "jurisdiction_label": "Unknown or missing jurisdiction",
+      "zone": "A",
+      "centerline_km": 0.052808230539577415
+    },
+    {
+      "town": "STERLING",
+      "jurisdiction_code": "UNKNOWN",
+      "jurisdiction_label": "Unknown or missing jurisdiction",
+      "zone": "C",
+      "centerline_km": 0.49403968301294804
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "jurisdiction_code": "0",
+      "jurisdiction_label": "Unaccepted by city or town",
+      "zone": "A",
+      "centerline_km": 5.733422281736156
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "jurisdiction_code": "0",
+      "jurisdiction_label": "Unaccepted by city or town",
+      "zone": "B",
+      "centerline_km": 7.504213201944246
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "jurisdiction_code": "0",
+      "jurisdiction_label": "Unaccepted by city or town",
+      "zone": "C",
+      "centerline_km": 8.486564363538983
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "jurisdiction_code": "1",
+      "jurisdiction_label": "Massachusetts Department of Transportation",
+      "zone": "A",
+      "centerline_km": 12.60369941821579
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "jurisdiction_code": "1",
+      "jurisdiction_label": "Massachusetts Department of Transportation",
+      "zone": "B",
+      "centerline_km": 2.07793021271208
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "jurisdiction_code": "1",
+      "jurisdiction_label": "Massachusetts Department of Transportation",
+      "zone": "C",
+      "centerline_km": 8.055187643012262
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "jurisdiction_code": "1",
+      "jurisdiction_label": "Massachusetts Department of Transportation",
+      "zone": "UNZONED",
+      "centerline_km": 0.016452058544340575
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "jurisdiction_code": "2",
+      "jurisdiction_label": "City or Town accepted road",
+      "zone": "A",
+      "centerline_km": 25.93190097376081
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "jurisdiction_code": "2",
+      "jurisdiction_label": "City or Town accepted road",
+      "zone": "B",
+      "centerline_km": 18.827122115641455
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "jurisdiction_code": "2",
+      "jurisdiction_label": "City or Town accepted road",
+      "zone": "C",
+      "centerline_km": 31.154837850088057
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "jurisdiction_code": "2",
+      "jurisdiction_label": "City or Town accepted road",
+      "zone": "UNZONED",
+      "centerline_km": 0.0621479829861534
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "jurisdiction_code": "UNKNOWN",
+      "jurisdiction_label": "Unknown or missing jurisdiction",
+      "zone": "A",
+      "centerline_km": 0.09594057860102358
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "jurisdiction_code": "UNKNOWN",
+      "jurisdiction_label": "Unknown or missing jurisdiction",
+      "zone": "B",
+      "centerline_km": 0.3481778345479722
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "jurisdiction_code": "UNKNOWN",
+      "jurisdiction_label": "Unknown or missing jurisdiction",
+      "zone": "C",
+      "centerline_km": 0.5588353826560265
+    }
+  ],
+  "projects": [
+    {
+      "project_id": "HOLDEN_CAL",
+      "town": "HOLDEN",
+      "project_type": "CAL",
+      "label": "Illustrative spreader calibration and controls package",
+      "capital_cost_usd": 15000,
+      "reduction_fraction": 0.1,
+      "reduction_low": 0.05,
+      "reduction_high": 0.15,
+      "covered_centerline_km_measured": 137.16601001546996,
+      "covered_protected_km_measured": 135.93389828710934,
+      "covered_zone_a_km_measured": 31.584626377207258,
+      "baseline_tonnes_simulated": 685.8300500773498,
+      "avoided_all_zones_tonnes_simulated": 67.96694914355467,
+      "avoided_zone_a_tonnes_simulated": 15.792313188603629,
+      "exclusive_group": "HOLDEN",
+      "coverage_fraction_assumed": 1.0,
+      "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+      "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction"
+    },
+    {
+      "project_id": "HOLDEN_BRINE",
+      "town": "HOLDEN",
+      "project_type": "BRINE",
+      "label": "Illustrative brine and pre-wetting equipment package",
+      "capital_cost_usd": 30000,
+      "reduction_fraction": 0.25,
+      "reduction_low": 0.15,
+      "reduction_high": 0.35,
+      "covered_centerline_km_measured": 137.16601001546996,
+      "covered_protected_km_measured": 135.93389828710934,
+      "covered_zone_a_km_measured": 31.584626377207258,
+      "baseline_tonnes_simulated": 685.8300500773498,
+      "avoided_all_zones_tonnes_simulated": 169.91737285888667,
+      "avoided_zone_a_tonnes_simulated": 39.48078297150907,
+      "exclusive_group": "HOLDEN",
+      "coverage_fraction_assumed": 1.0,
+      "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+      "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction"
+    },
+    {
+      "project_id": "STERLING_CAL",
+      "town": "STERLING",
+      "project_type": "CAL",
+      "label": "Illustrative spreader calibration and controls package",
+      "capital_cost_usd": 15000,
+      "reduction_fraction": 0.1,
+      "reduction_low": 0.05,
+      "reduction_high": 0.15,
+      "covered_centerline_km_measured": 85.90521376944695,
+      "covered_protected_km_measured": 85.8947674427391,
+      "covered_zone_a_km_measured": 26.149623306163097,
+      "baseline_tonnes_simulated": 429.52606884723474,
+      "avoided_all_zones_tonnes_simulated": 42.94738372136955,
+      "avoided_zone_a_tonnes_simulated": 13.074811653081548,
+      "exclusive_group": "STERLING",
+      "coverage_fraction_assumed": 1.0,
+      "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+      "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction"
+    },
+    {
+      "project_id": "STERLING_BRINE",
+      "town": "STERLING",
+      "project_type": "BRINE",
+      "label": "Illustrative brine and pre-wetting equipment package",
+      "capital_cost_usd": 30000,
+      "reduction_fraction": 0.25,
+      "reduction_low": 0.15,
+      "reduction_high": 0.35,
+      "covered_centerline_km_measured": 85.90521376944695,
+      "covered_protected_km_measured": 85.8947674427391,
+      "covered_zone_a_km_measured": 26.149623306163097,
+      "baseline_tonnes_simulated": 429.52606884723474,
+      "avoided_all_zones_tonnes_simulated": 107.36845930342386,
+      "avoided_zone_a_tonnes_simulated": 32.68702913270387,
+      "exclusive_group": "STERLING",
+      "coverage_fraction_assumed": 1.0,
+      "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+      "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction"
+    },
+    {
+      "project_id": "WEST_BOYLSTON_CAL",
+      "town": "WEST BOYLSTON",
+      "project_type": "CAL",
+      "label": "Illustrative spreader calibration and controls package",
+      "capital_cost_usd": 15000,
+      "reduction_fraction": 0.1,
+      "reduction_low": 0.05,
+      "reduction_high": 0.15,
+      "covered_centerline_km_measured": 72.16809062017794,
+      "covered_protected_km_measured": 72.10594263719179,
+      "covered_zone_a_km_measured": 25.33835320667329,
+      "baseline_tonnes_simulated": 360.8404531008897,
+      "avoided_all_zones_tonnes_simulated": 36.052971318595894,
+      "avoided_zone_a_tonnes_simulated": 12.669176603336645,
+      "exclusive_group": "WEST BOYLSTON",
+      "coverage_fraction_assumed": 1.0,
+      "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+      "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction"
+    },
+    {
+      "project_id": "WEST_BOYLSTON_BRINE",
+      "town": "WEST BOYLSTON",
+      "project_type": "BRINE",
+      "label": "Illustrative brine and pre-wetting equipment package",
+      "capital_cost_usd": 30000,
+      "reduction_fraction": 0.25,
+      "reduction_low": 0.15,
+      "reduction_high": 0.35,
+      "covered_centerline_km_measured": 72.16809062017794,
+      "covered_protected_km_measured": 72.10594263719179,
+      "covered_zone_a_km_measured": 25.33835320667329,
+      "baseline_tonnes_simulated": 360.8404531008897,
+      "avoided_all_zones_tonnes_simulated": 90.13242829648973,
+      "avoided_zone_a_tonnes_simulated": 31.672941508341612,
+      "exclusive_group": "WEST BOYLSTON",
+      "coverage_fraction_assumed": 1.0,
+      "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+      "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction"
+    }
+  ],
+  "comparison": {
+    "independent": {
+      "budget_cap_usd": 75000,
+      "spent_usd": 45000,
+      "unspent_usd": 30000,
+      "avoided_zone_a_tonnes_simulated": 41.53630144502182,
+      "avoided_all_zones_tonnes_simulated": 146.96730418352013,
+      "selected_project_ids": [
+        "HOLDEN_CAL",
+        "STERLING_CAL",
+        "WEST_BOYLSTON_CAL"
+      ],
+      "allocations_usd": {
+        "HOLDEN": 15000,
+        "STERLING": 15000,
+        "WEST BOYLSTON": 15000
+      },
+      "feasible_combinations": 8,
+      "optimizer": "exact enumeration of all 27 mutually exclusive project combinations"
+    },
+    "pooled": {
+      "budget_cap_usd": 75000,
+      "spent_usd": 75000,
+      "unspent_usd": 0,
+      "avoided_zone_a_tonnes_simulated": 84.83698870754958,
+      "avoided_all_zones_tonnes_simulated": 313.3388034809064,
+      "selected_project_ids": [
+        "HOLDEN_BRINE",
+        "STERLING_BRINE",
+        "WEST_BOYLSTON_CAL"
+      ],
+      "allocations_usd": {
+        "HOLDEN": 30000,
+        "STERLING": 30000,
+        "WEST BOYLSTON": 15000
+      },
+      "feasible_combinations": 26,
+      "optimizer": "exact enumeration of all 27 mutually exclusive project combinations"
+    },
+    "difference": {
+      "additional_avoided_zone_a_tonnes_simulated": 43.30068726252776,
+      "relative_improvement_pct_simulated": 104.24781638259563,
+      "additional_spending_usd": 30000,
+      "interpretation": "Equal budget ceilings, not equal actual spending. Pooling can use stranded local funds and reallocate them. This is a simulated funding-rule comparison, not causal evidence of field efficacy or algorithm superiority."
+    },
+    "pooled_at_independent_actual_spend": {
+      "budget_cap_usd": 45000,
+      "spent_usd": 45000,
+      "unspent_usd": 0,
+      "avoided_zone_a_tonnes_simulated": 52.55559462459062,
+      "avoided_all_zones_tonnes_simulated": 212.8647565802562,
+      "selected_project_ids": [
+        "HOLDEN_BRINE",
+        "STERLING_CAL"
+      ],
+      "allocations_usd": {
+        "HOLDEN": 30000,
+        "STERLING": 15000,
+        "WEST BOYLSTON": 0
+      },
+      "feasible_combinations": 17,
+      "optimizer": "exact enumeration of all 27 mutually exclusive project combinations"
+    }
+  },
+  "budget_sensitivity": [
+    {
+      "total_cap_usd": 30000,
+      "independent_spent_usd": 0,
+      "pooled_spent_usd": 30000,
+      "independent_zone_a_avoided_t_simulated": 0,
+      "pooled_zone_a_avoided_t_simulated": 39.48078297150907
+    },
+    {
+      "total_cap_usd": 45000,
+      "independent_spent_usd": 45000,
+      "pooled_spent_usd": 45000,
+      "independent_zone_a_avoided_t_simulated": 41.53630144502182,
+      "pooled_zone_a_avoided_t_simulated": 52.55559462459062
+    },
+    {
+      "total_cap_usd": 60000,
+      "independent_spent_usd": 45000,
+      "pooled_spent_usd": 60000,
+      "independent_zone_a_avoided_t_simulated": 41.53630144502182,
+      "pooled_zone_a_avoided_t_simulated": 72.16781210421294
+    },
+    {
+      "total_cap_usd": 75000,
+      "independent_spent_usd": 45000,
+      "pooled_spent_usd": 75000,
+      "independent_zone_a_avoided_t_simulated": 41.53630144502182,
+      "pooled_zone_a_avoided_t_simulated": 84.83698870754958
+    },
+    {
+      "total_cap_usd": 90000,
+      "independent_spent_usd": 90000,
+      "pooled_spent_usd": 90000,
+      "independent_zone_a_avoided_t_simulated": 103.84075361255455,
+      "pooled_zone_a_avoided_t_simulated": 103.84075361255455
+    },
+    {
+      "total_cap_usd": 105000,
+      "independent_spent_usd": 90000,
+      "pooled_spent_usd": 90000,
+      "independent_zone_a_avoided_t_simulated": 103.84075361255455,
+      "pooled_zone_a_avoided_t_simulated": 103.84075361255455
+    },
+    {
+      "total_cap_usd": 120000,
+      "independent_spent_usd": 90000,
+      "pooled_spent_usd": 90000,
+      "independent_zone_a_avoided_t_simulated": 103.84075361255455,
+      "pooled_zone_a_avoided_t_simulated": 103.84075361255455
+    }
+  ],
+  "effect_sensitivity": [
+    {
+      "effect_scenario": "low",
+      "independent": {
+        "budget_cap_usd": 75000,
+        "spent_usd": 45000,
+        "unspent_usd": 30000,
+        "avoided_zone_a_tonnes_simulated": 20.76815072251091,
+        "avoided_all_zones_tonnes_simulated": 73.48365209176006,
+        "selected_project_ids": [
+          "HOLDEN_CAL",
+          "STERLING_CAL",
+          "WEST_BOYLSTON_CAL"
+        ],
+        "allocations_usd": {
+          "HOLDEN": 15000,
+          "STERLING": 15000,
+          "WEST BOYLSTON": 15000
+        },
+        "feasible_combinations": 8,
+        "optimizer": "exact enumeration of all 27 mutually exclusive project combinations"
+      },
+      "pooled": {
+        "budget_cap_usd": 75000,
+        "spent_usd": 75000,
+        "unspent_usd": 0,
+        "avoided_zone_a_tonnes_simulated": 49.63527556419608,
+        "avoided_all_zones_tonnes_simulated": 184.39798495668427,
+        "selected_project_ids": [
+          "HOLDEN_BRINE",
+          "STERLING_BRINE",
+          "WEST_BOYLSTON_CAL"
+        ],
+        "allocations_usd": {
+          "HOLDEN": 30000,
+          "STERLING": 30000,
+          "WEST BOYLSTON": 15000
+        },
+        "feasible_combinations": 26,
+        "optimizer": "exact enumeration of all 27 mutually exclusive project combinations"
+      }
+    },
+    {
+      "effect_scenario": "central",
+      "independent": {
+        "budget_cap_usd": 75000,
+        "spent_usd": 45000,
+        "unspent_usd": 30000,
+        "avoided_zone_a_tonnes_simulated": 41.53630144502182,
+        "avoided_all_zones_tonnes_simulated": 146.96730418352013,
+        "selected_project_ids": [
+          "HOLDEN_CAL",
+          "STERLING_CAL",
+          "WEST_BOYLSTON_CAL"
+        ],
+        "allocations_usd": {
+          "HOLDEN": 15000,
+          "STERLING": 15000,
+          "WEST BOYLSTON": 15000
+        },
+        "feasible_combinations": 8,
+        "optimizer": "exact enumeration of all 27 mutually exclusive project combinations"
+      },
+      "pooled": {
+        "budget_cap_usd": 75000,
+        "spent_usd": 75000,
+        "unspent_usd": 0,
+        "avoided_zone_a_tonnes_simulated": 84.83698870754958,
+        "avoided_all_zones_tonnes_simulated": 313.3388034809064,
+        "selected_project_ids": [
+          "HOLDEN_BRINE",
+          "STERLING_BRINE",
+          "WEST_BOYLSTON_CAL"
+        ],
+        "allocations_usd": {
+          "HOLDEN": 30000,
+          "STERLING": 30000,
+          "WEST BOYLSTON": 15000
+        },
+        "feasible_combinations": 26,
+        "optimizer": "exact enumeration of all 27 mutually exclusive project combinations"
+      }
+    },
+    {
+      "effect_scenario": "high",
+      "independent": {
+        "budget_cap_usd": 75000,
+        "spent_usd": 45000,
+        "unspent_usd": 30000,
+        "avoided_zone_a_tonnes_simulated": 62.30445216753272,
+        "avoided_all_zones_tonnes_simulated": 220.45095627528016,
+        "selected_project_ids": [
+          "HOLDEN_CAL",
+          "STERLING_CAL",
+          "WEST_BOYLSTON_CAL"
+        ],
+        "allocations_usd": {
+          "HOLDEN": 15000,
+          "STERLING": 15000,
+          "WEST BOYLSTON": 15000
+        },
+        "feasible_combinations": 8,
+        "optimizer": "exact enumeration of all 27 mutually exclusive project combinations"
+      },
+      "pooled": {
+        "budget_cap_usd": 75000,
+        "spent_usd": 75000,
+        "unspent_usd": 0,
+        "avoided_zone_a_tonnes_simulated": 120.0387018509031,
+        "avoided_all_zones_tonnes_simulated": 442.2796220051285,
+        "selected_project_ids": [
+          "HOLDEN_BRINE",
+          "STERLING_BRINE",
+          "WEST_BOYLSTON_CAL"
+        ],
+        "allocations_usd": {
+          "HOLDEN": 30000,
+          "STERLING": 30000,
+          "WEST BOYLSTON": 15000
+        },
+        "feasible_combinations": 26,
+        "optimizer": "exact enumeration of all 27 mutually exclusive project combinations"
+      }
+    }
+  ],
+  "qa": {
+    "raw_road_count": 6388,
+    "road_id_count": 6388,
+    "selected_watershed_source_id": "6000000-01S",
+    "watershed_area_km2": 237.2668164907504,
+    "selected_town_watershed_area_km2": 149.90790600227493,
+    "clipped_input_length_km": 466.9105335275729,
+    "segmented_output_length_km": 466.9105335187349,
+    "length_conservation_difference_m": -8.83801476447843e-06,
+    "source_geometric_overlap_length_km": 0.07878387128045006,
+    "unassigned_zone_road_length_km": 4.267252888303983,
+    "unique_segment_ids": true,
+    "projects_per_town": {
+      "HOLDEN": 2,
+      "STERLING": 2,
+      "WEST BOYLSTON": 2
+    },
+    "zone_partition_area_difference_m2": -8.940696716308594e-08,
+    "pooled_weakly_dominates_independent_on_same_objective": true,
+    "zero_budget_selects_nothing": true,
+    "all_projects_zero_effect_tie_break_prefers_no_spending": true,
+    "all_reported_lengths_are_centerline_lengths_not_lane_km": true,
+    "jurisdiction_is_source_classification_not_verified_snow_maintenance_contract": true
+  },
+  "official_sources": {
+    "roads": "https://www.mass.gov/info-details/massgis-data-massgis-massdot-roads",
+    "towns": "https://www.mass.gov/info-details/massgis-data-municipalities",
+    "watershed": "https://www.mass.gov/info-details/massgis-data-surface-water-supply-watersheds",
+    "protection_zones": "https://www.mass.gov/info-details/massgis-data-surface-water-supply-protection-areas-zone-a-b-c"
+  }
+}

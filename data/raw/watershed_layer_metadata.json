@@ -1,0 +1,880 @@
+{
+  "isCoGoEnabled": false,
+  "extent": {
+    "ymin": 813440.5,
+    "xmin": 35396.233099997,
+    "ymax": 967053.6875,
+    "xmax": 275306.5625,
+    "spatialReference": {
+      "falseM": -100000,
+      "xyTolerance": 0.00020000000949949002,
+      "mUnits": 10000,
+      "zUnits": 1,
+      "latestWkid": 26986,
+      "zTolerance": 2,
+      "wkid": 26986,
+      "xyUnits": 122610652.81195112,
+      "mTolerance": 2,
+      "falseX": -36530900,
+      "falseY": -28803200,
+      "falseZ": 0
+    }
+  },
+  "isDataBranchVersioned": false,
+  "supportsApplyEditsWithGlobalIds": false,
+  "maxRecordCount": 2000,
+  "infoInEstimates": [
+    "extent",
+    "count"
+  ],
+  "datesInUnknownTimezone": false,
+  "ownershipBasedAccessControlForFeatures": null,
+  "type": "Feature Layer",
+  "onlyAllowTrueCurveUpdatesByTrueCurveClients": true,
+  "relationships": [],
+  "cimVersion": "3.7.0",
+  "isDataArchived": false,
+  "id": 0,
+  "archivingInfo": {
+    "startArchivingMoment": -1,
+    "supportsQueryWithHistoricMoment": false
+  },
+  "spatialReference": {
+    "falseM": -100000,
+    "xyTolerance": 0.00020000000949949002,
+    "mUnits": 10000,
+    "zUnits": 1,
+    "latestWkid": 26986,
+    "zTolerance": 2,
+    "wkid": 26986,
+    "xyUnits": 122610652.81195112,
+    "mTolerance": 2,
+    "falseX": -36530900,
+    "falseY": -28803200,
+    "falseZ": 0
+  },
+  "supportsStatistics": true,
+  "supportedExportFormats": "sqlite,filegdb,shapefile,csv,geojson,kml,excel,featureCollection",
+  "hasLastEditTime": false,
+  "standardMaxRecordCount": 4000,
+  "isDataVersioned": false,
+  "hasGeometryProperties": true,
+  "templates": [],
+  "supportsAdvancedQueries": true,
+  "parentLayer": null,
+  "currentVersion": 12.1,
+  "canScaleSymbols": false,
+  "hasZ": false,
+  "advancedEditingCapabilities": {
+    "supportsSessionBasedAddAttachments": true,
+    "supportsAsyncApplyEdits": true,
+    "supportsApplyEditsbyUploadID": true,
+    "supportsSessionBasedUpdateFeatures": true,
+    "supportsSessionBasedDeleteAttachments": true,
+    "supportsDivideCombineGroupedObjects": true,
+    "supportsDeleteAssociations": true,
+    "supportsSessionBasedUpdateAttachments": true,
+    "supportedSqlFormatsInCalculate": [
+      "standard"
+    ],
+    "supportedApplyEditsUploadIDFormats": "JSON,PBF",
+    "supportsSessionBasedDeleteFeatures": true,
+    "supportsSessionBasedAddFeatures": true
+  },
+  "supportsQuantizationEditMode": true,
+  "objectIdField": "OBJECTID",
+  "name": "Surface Water Supply Watersheds",
+  "allowTrueCurvesUpdates": true,
+  "displayField": "SITE_NAME",
+  "supportsCalculate": true,
+  "fields": [
+    {
+      "modelName": "OBJECTID",
+      "nullable": false,
+      "editable": false,
+      "defaultValue": null,
+      "domain": null,
+      "name": "OBJECTID",
+      "alias": "OBJECTID",
+      "type": "esriFieldTypeOID"
+    },
+    {
+      "modelName": "SOURCE_ID",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "SOURCE_ID",
+      "length": 11,
+      "alias": "SOURCE_ID",
+      "type": "esriFieldTypeString"
+    },
+    {
+      "modelName": "TYPE",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "TYPE",
+      "length": 4,
+      "alias": "TYPE",
+      "type": "esriFieldTypeString"
+    },
+    {
+      "modelName": "SITE_NAME",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "SITE_NAME",
+      "length": 40,
+      "alias": "SITE_NAME",
+      "type": "esriFieldTypeString"
+    },
+    {
+      "modelName": "WSHEDACRES",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "WSHEDACRES",
+      "alias": "WSHEDACRES",
+      "type": "esriFieldTypeDouble"
+    },
+    {
+      "modelName": "RESVRACRES",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "RESVRACRES",
+      "alias": "RESVRACRES",
+      "type": "esriFieldTypeDouble"
+    },
+    {
+      "modelName": "ZONEAACRES",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "ZONEAACRES",
+      "alias": "ZONEAACRES",
+      "type": "esriFieldTypeDouble"
+    },
+    {
+      "modelName": "ZONEBACRES",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "ZONEBACRES",
+      "alias": "ZONEBACRES",
+      "type": "esriFieldTypeDouble"
+    },
+    {
+      "modelName": "ZONECACRES",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "ZONECACRES",
+      "alias": "ZONECACRES",
+      "type": "esriFieldTypeDouble"
+    },
+    {
+      "modelName": "SUPPLIER",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "SUPPLIER",
+      "length": 40,
+      "alias": "SUPPLIER",
+      "type": "esriFieldTypeString"
+    },
+    {
+      "modelName": "TOWN",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "TOWN",
+      "length": 25,
+      "alias": "TOWN",
+      "type": "esriFieldTypeString"
+    },
+    {
+      "modelName": "REG_OBJ_ID",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "REG_OBJ_ID",
+      "alias": "REG_OBJ_ID",
+      "type": "esriFieldTypeDouble"
+    },
+    {
+      "modelName": "MA_ACRES",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "MA_ACRES",
+      "alias": "MA_ACRES",
+      "type": "esriFieldTypeInteger"
+    },
+    {
+      "modelName": "SHAPE.AREA",
+      "nullable": true,
+      "editable": false,
+      "defaultValue": null,
+      "domain": null,
+      "name": "Shape__Area",
+      "alias": "SHAPE.AREA",
+      "type": "esriFieldTypeDouble",
+      "required": true
+    },
+    {
+      "modelName": "SHAPE.LEN",
+      "nullable": true,
+      "editable": false,
+      "defaultValue": null,
+      "domain": null,
+      "name": "Shape__Length",
+      "alias": "SHAPE.LEN",
+      "type": "esriFieldTypeDouble",
+      "required": true
+    }
+  ],
+  "maxRecordCountFactor": 1,
+  "dateFieldsTimeReference": {
+    "timeZoneIANA": "Etc/UTC",
+    "respectsDaylightSaving": false,
+    "timeZone": "UTC"
+  },
+  "bigIntegerRestrictedTo53Bits": true,
+  "hasM": false,
+  "allowGeometryUpdates": false,
+  "preferredTimeReference": null,
+  "useStandardizedQueries": true,
+  "sourceSpatialReference": {
+    "falseM": 0,
+    "xyTolerance": 0.001,
+    "mUnits": 1,
+    "zUnits": 1,
+    "latestWkid": 26986,
+    "zTolerance": 0.001,
+    "wkid": 26986,
+    "xyUnits": 10000,
+    "mTolerance": 0.001,
+    "falseX": -36530900,
+    "falseY": -28803200,
+    "falseZ": 0
+  },
+  "globalIdField": "",
+  "description": "",
+  "syncCanReturnChanges": false,
+  "supportedSpatialRelationships": [
+    "esriSpatialRelIntersects",
+    "esriSpatialRelContains",
+    "esriSpatialRelCrosses",
+    "esriSpatialRelEnvelopeIntersects",
+    "esriSpatialRelIndexIntersects",
+    "esriSpatialRelOverlaps",
+    "esriSpatialRelTouches",
+    "esriSpatialRelWithin",
+    "esriSpatialRelRelation"
+  ],
+  "geometryProperties": {
+    "shapeAreaFieldName": "Shape__Area",
+    "shapeLengthFieldName": "Shape__Length",
+    "units": "esriMeters"
+  },
+  "supportsRollbackOnFailureParameter": true,
+  "isDataReplicaTracked": false,
+  "standardMaxRecordCountNoGeometry": 32000,
+  "indexes": [
+    {
+      "name": "R968789_SDE_ROWID_UK",
+      "isUnique": true,
+      "description": "",
+      "isAscending": true,
+      "fields": "OBJECTID"
+    },
+    {
+      "name": "A36987_IX1",
+      "isUnique": true,
+      "description": "",
+      "isAscending": true,
+      "fields": "SHAPE"
+    }
+  ],
+  "editFieldsInfo": null,
+  "supportsDatumTransformation": true,
+  "htmlPopupType": "esriServerHTMLPopupTypeNone",
+  "minScale": 3000000,
+  "hasAttachments": false,
+  "advancedQueryCapabilities": {
+    "supportsSqlExpression": true,
+    "supportsQueryWithResultType": true,
+    "supportsUseEstimateForExceedsLimit": true,
+    "supportsQueryRelatedPagination": true,
+    "supportsQueryWithCacheHint": false,
+    "supportsQueryWithDatumTransformation": true,
+    "supportsCurrentUserQueries": true,
+    "fullTextSearchCapabilities": {
+      "supportsSqlExpressionInFullText": true,
+      "supportsOperator": false,
+      "supportsSearchOperator": true
+    },
+    "supportsQueryWithLodSR": false,
+    "supportsPagination": true,
+    "supportsMaxRecordCountFactor": false,
+    "fullTextSearchableFields": [],
+    "supportsStatistics": true,
+    "supportsTrueCurve": true,
+    "supportsOrderBy": true,
+    "supportsFullTextSearch": true,
+    "supportsQueryWithDistance": true,
+    "supportsLod": false,
+    "supportsCountDistinct": true,
+    "supportsAdvancedQueryRelated": true,
+    "supportsReturningQueryExtent": true,
+    "supportsReturningGeometryEnvelope": true,
+    "supportedCurveTypes": [
+      "esriGeometryCircularArc",
+      "esriGeometryEllipticArc",
+      "esriGeometryBezier3Curve"
+    ],
+    "supportsDistinct": true,
+    "supportsReturningGeometryCentroid": true,
+    "supportsQueryAnalytic": true,
+    "supportsPercentileStatistics": true,
+    "supportsHavingClause": true
+  },
+  "subtypeField": "",
+  "supportsValidateSQL": true,
+  "serviceItemId": "",
+  "supportsCoordinatesQuantization": true,
+  "types": [
+    {
+      "templates": [
+        {
+          "name": "Surface Water (Active or Inactive)",
+          "description": "",
+          "drawingTool": "esriFeatureEditToolPolygon",
+          "prototype": {
+            "attributes": {
+              "RESVRACRES": null,
+              "ZONEAACRES": null,
+              "REG_OBJ_ID": null,
+              "SOURCE_ID": null,
+              "ZONEBACRES": null,
+              "ZONECACRES": null,
+              "TOWN": null,
+              "WSHEDACRES": null,
+              "MA_ACRES": null,
+              "TYPE": "SW",
+              "SITE_NAME": null,
+              "SUPPLIER": null
+            }
+          }
+        }
+      ],
+      "name": "Surface Water (Active or Inactive)",
+      "domains": {},
+      "id": "SW"
+    },
+    {
+      "templates": [
+        {
+          "name": "Emergency Surface Water",
+          "description": "",
+          "drawingTool": "esriFeatureEditToolPolygon",
+          "prototype": {
+            "attributes": {
+              "RESVRACRES": null,
+              "ZONEAACRES": null,
+              "REG_OBJ_ID": null,
+              "SOURCE_ID": null,
+              "ZONEBACRES": null,
+              "ZONECACRES": null,
+              "TOWN": null,
+              "WSHEDACRES": null,
+              "MA_ACRES": null,
+              "TYPE": "ESW",
+              "SITE_NAME": null,
+              "SUPPLIER": null
+            }
+          }
+        }
+      ],
+      "name": "Emergency Surface Water",
+      "domains": {},
+      "id": "ESW"
+    },
+    {
+      "templates": [
+        {
+          "name": "Rhode Island Source",
+          "description": "",
+          "drawingTool": "esriFeatureEditToolPolygon",
+          "prototype": {
+            "attributes": {
+              "RESVRACRES": null,
+              "ZONEAACRES": null,
+              "REG_OBJ_ID": null,
+              "SOURCE_ID": null,
+              "ZONEBACRES": null,
+              "ZONECACRES": null,
+              "TOWN": null,
+              "WSHEDACRES": null,
+              "MA_ACRES": null,
+              "TYPE": "RI",
+              "SITE_NAME": null,
+              "SUPPLIER": null
+            }
+          }
+        }
+      ],
+      "name": "Rhode Island Source",
+      "domains": {},
+      "id": "RI"
+    }
+  ],
+  "capabilities": "Query",
+  "maxScale": 0,
+  "supportsAppend": true,
+  "supportsExceedsLimitStatistics": true,
+  "defaultVisibility": true,
+  "advancedQueryAnalyticCapabilities": {
+    "supportsAsync": true,
+    "supportsLinearRegression": true,
+    "supportsPercentileAnalytic": true
+  },
+  "supportedTrueCurvePbfFeatureEncodings": [
+    "esriCompressedShapeBuffer",
+    "esriDefault"
+  ],
+  "hasMetadata": true,
+  "supportedAppendFormats": "FILEGDB,PBF,CSV",
+  "tileMaxRecordCount": 4000,
+  "typeIdField": "TYPE",
+  "supportsASyncCalculate": true,
+  "supportedQueryFormats": "JSON, geoJSON, PBF",
+  "drawingInfo": {
+    "renderer": {
+      "uniqueValueGroups": [
+        {
+          "heading": "",
+          "classes": []
+        },
+        {
+          "heading": "Type",
+          "classes": [
+            {
+              "symbol": {
+                "outline": {
+                  "color": [
+                    102,
+                    153,
+                    77,
+                    255
+                  ],
+                  "width": 0.4,
+                  "style": "esriSLSSolid",
+                  "type": "esriSLS"
+                },
+                "color": [
+                  129,
+                  179,
+                  104,
+                  255
+                ],
+                "style": "esriSFSSolid",
+                "type": "esriSFS"
+              },
+              "values": [
+                [
+                  "SW"
+                ]
+              ],
+              "description": "Surface Water (Active or Inactive)",
+              "label": "Surface Water (Active or Inactive)"
+            },
+            {
+              "symbol": {
+                "outline": {
+                  "color": [
+                    136,
+                    82,
+                    163,
+                    255
+                  ],
+                  "width": 0.4,
+                  "style": "esriSLSSolid",
+                  "type": "esriSLS"
+                },
+                "color": [
+                  146,
+                  97,
+                  171,
+                  255
+                ],
+                "style": "esriSFSSolid",
+                "type": "esriSFS"
+              },
+              "values": [
+                [
+                  "ESW"
+                ]
+              ],
+              "description": "Emergency Surface Water",
+              "label": "Emergency Surface Water"
+            },
+            {
+              "symbol": {
+                "outline": {
+                  "color": [
+                    168,
+                    84,
+                    84,
+                    255
+                  ],
+                  "width": 0.4,
+                  "style": "esriSLSSolid",
+                  "type": "esriSLS"
+                },
+                "color": [
+                  217,
+                  121,
+                  121,
+                  255
+                ],
+                "style": "esriSFSSolid",
+                "type": "esriSFS"
+              },
+              "values": [
+                [
+                  "RI"
+                ]
+              ],
+              "description": "Rhode Island Source",
+              "label": "Rhode Island Source"
+            }
+          ]
+        }
+      ],
+      "field1": "TYPE",
+      "authoringInfo": {
+        "colorRamp": {
+          "colorRamps": [
+            {
+              "toColor": [
+                180,
+                167,
+                207,
+                255
+              ],
+              "fromColor": [
+                180,
+                167,
+                207,
+                255
+              ],
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm"
+            },
+            {
+              "toColor": [
+                153,
+                207,
+                156,
+                255
+              ],
+              "fromColor": [
+                153,
+                207,
+                156,
+                255
+              ],
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm"
+            },
+            {
+              "toColor": [
+                207,
+                173,
+                147,
+                255
+              ],
+              "fromColor": [
+                207,
+                173,
+                147,
+                255
+              ],
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm"
+            },
+            {
+              "toColor": [
+                148,
+                198,
+                209,
+                255
+              ],
+              "fromColor": [
+                148,
+                198,
+                209,
+                255
+              ],
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm"
+            },
+            {
+              "toColor": [
+                204,
+                149,
+                171,
+                255
+              ],
+              "fromColor": [
+                204,
+                149,
+                171,
+                255
+              ],
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm"
+            },
+            {
+              "toColor": [
+                199,
+                207,
+                176,
+                255
+              ],
+              "fromColor": [
+                199,
+                207,
+                176,
+                255
+              ],
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm"
+            },
+            {
+              "toColor": [
+                204,
+                147,
+                202,
+                255
+              ],
+              "fromColor": [
+                204,
+                147,
+                202,
+                255
+              ],
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm"
+            },
+            {
+              "toColor": [
+                138,
+                194,
+                174,
+                255
+              ],
+              "fromColor": [
+                138,
+                194,
+                174,
+                255
+              ],
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm"
+            },
+            {
+              "toColor": [
+                210,
+                212,
+                150,
+                255
+              ],
+              "fromColor": [
+                210,
+                212,
+                150,
+                255
+              ],
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm"
+            },
+            {
+              "toColor": [
+                212,
+                178,
+                189,
+                255
+              ],
+              "fromColor": [
+                212,
+                178,
+                189,
+                255
+              ],
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm"
+            },
+            {
+              "toColor": [
+                141,
+                163,
+                196,
+                255
+              ],
+              "fromColor": [
+                141,
+                163,
+                196,
+                255
+              ],
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm"
+            },
+            {
+              "toColor": [
+                158,
+                147,
+                207,
+                255
+              ],
+              "fromColor": [
+                158,
+                147,
+                207,
+                255
+              ],
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm"
+            },
+            {
+              "toColor": [
+                209,
+                155,
+                153,
+                255
+              ],
+              "fromColor": [
+                209,
+                155,
+                153,
+                255
+              ],
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm"
+            }
+          ],
+          "type": "multipart"
+        }
+      },
+      "uniqueValueInfos": [
+        {
+          "symbol": {
+            "outline": {
+              "color": [
+                102,
+                153,
+                77,
+                255
+              ],
+              "width": 0.4,
+              "style": "esriSLSSolid",
+              "type": "esriSLS"
+            },
+            "color": [
+              129,
+              179,
+              104,
+              255
+            ],
+            "style": "esriSFSSolid",
+            "type": "esriSFS"
+          },
+          "label": "Surface Water (Active or Inactive)",
+          "value": "SW"
+        },
+        {
+          "symbol": {
+            "outline": {
+              "color": [
+                136,
+                82,
+                163,
+                255
+              ],
+              "width": 0.4,
+              "style": "esriSLSSolid",
+              "type": "esriSLS"
+            },
+            "color": [
+              146,
+              97,
+              171,
+              255
+            ],
+            "style": "esriSFSSolid",
+            "type": "esriSFS"
+          },
+          "label": "Emergency Surface Water",
+          "value": "ESW"
+        },
+        {
+          "symbol": {
+            "outline": {
+              "color": [
+                168,
+                84,
+                84,
+                255
+              ],
+              "width": 0.4,
+              "style": "esriSLSSolid",
+              "type": "esriSLS"
+            },
+            "color": [
+              217,
+              121,
+              121,
+              255
+            ],
+            "style": "esriSFSSolid",
+            "type": "esriSFS"
+          },
+          "label": "Rhode Island Source",
+          "value": "RI"
+        }
+      ],
+      "type": "uniqueValue",
+      "fieldDelimiter": ","
+    },
+    "scaleSymbols": true,
+    "transparency": 0,
+    "labelingInfo": null
+  },
+  "geometryField": {
+    "modelName": "Shape",
+    "nullable": true,
+    "editable": false,
+    "defaultValue": null,
+    "domain": null,
+    "name": "SHAPE",
+    "alias": "Shape",
+    "type": "esriFieldTypeGeometry"
+  },
+  "copyrightText": "",
+  "geometryType": "esriGeometryPolygon"
+}

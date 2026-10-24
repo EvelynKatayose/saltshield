@@ -1,0 +1,125 @@
+[
+  {
+    "effect_scenario": "low",
+    "independent": {
+      "budget_cap_usd": 75000,
+      "spent_usd": 45000,
+      "unspent_usd": 30000,
+      "avoided_zone_a_tonnes_simulated": 20.76815072251091,
+      "avoided_all_zones_tonnes_simulated": 73.48365209176006,
+      "selected_project_ids": [
+        "HOLDEN_CAL",
+        "STERLING_CAL",
+        "WEST_BOYLSTON_CAL"
+      ],
+      "allocations_usd": {
+        "HOLDEN": 15000,
+        "STERLING": 15000,
+        "WEST BOYLSTON": 15000
+      },
+      "feasible_combinations": 8,
+      "optimizer": "exact enumeration of all 27 mutually exclusive project combinations"
+    },
+    "pooled": {
+      "budget_cap_usd": 75000,
+      "spent_usd": 75000,
+      "unspent_usd": 0,
+      "avoided_zone_a_tonnes_simulated": 49.63527556419608,
+      "avoided_all_zones_tonnes_simulated": 184.39798495668427,
+      "selected_project_ids": [
+        "HOLDEN_BRINE",
+        "STERLING_BRINE",
+        "WEST_BOYLSTON_CAL"
+      ],
+      "allocations_usd": {
+        "HOLDEN": 30000,
+        "STERLING": 30000,
+        "WEST BOYLSTON": 15000
+      },
+      "feasible_combinations": 26,
+      "optimizer": "exact enumeration of all 27 mutually exclusive project combinations"
+    }
+  },
+  {
+    "effect_scenario": "central",
+    "independent": {
+      "budget_cap_usd": 75000,
+      "spent_usd": 45000,
+      "unspent_usd": 30000,
+      "avoided_zone_a_tonnes_simulated": 41.53630144502182,
+      "avoided_all_zones_tonnes_simulated": 146.96730418352013,
+      "selected_project_ids": [
+        "HOLDEN_CAL",
+        "STERLING_CAL",
+        "WEST_BOYLSTON_CAL"
+      ],
+      "allocations_usd": {
+        "HOLDEN": 15000,
+        "STERLING": 15000,
+        "WEST BOYLSTON": 15000
+      },
+      "feasible_combinations": 8,
+      "optimizer": "exact enumeration of all 27 mutually exclusive project combinations"
+    },
+    "pooled": {
+      "budget_cap_usd": 75000,
+      "spent_usd": 75000,
+      "unspent_usd": 0,
+      "avoided_zone_a_tonnes_simulated": 84.83698870754958,
+      "avoided_all_zones_tonnes_simulated": 313.3388034809064,
+      "selected_project_ids": [
+        "HOLDEN_BRINE",
+        "STERLING_BRINE",
+        "WEST_BOYLSTON_CAL"
+      ],
+      "allocations_usd": {
+        "HOLDEN": 30000,
+        "STERLING": 30000,
+        "WEST BOYLSTON": 15000
+      },
+      "feasible_combinations": 26,
+      "optimizer": "exact enumeration of all 27 mutually exclusive project combinations"
+    }
+  },
+  {
+    "effect_scenario": "high",
+    "independent": {
+      "budget_cap_usd": 75000,
+      "spent_usd": 45000,
+      "unspent_usd": 30000,
+      "avoided_zone_a_tonnes_simulated": 62.30445216753272,
+      "avoided_all_zones_tonnes_simulated": 220.45095627528016,
+      "selected_project_ids": [
+        "HOLDEN_CAL",
+        "STERLING_CAL",
+        "WEST_BOYLSTON_CAL"
+      ],
+      "allocations_usd": {
+        "HOLDEN": 15000,
+        "STERLING": 15000,
+        "WEST BOYLSTON": 15000
+      },
+      "feasible_combinations": 8,
+      "optimizer": "exact enumeration of all 27 mutually exclusive project combinations"
+    },
+    "pooled": {
+      "budget_cap_usd": 75000,
+      "spent_usd": 75000,
+      "unspent_usd": 0,
+      "avoided_zone_a_tonnes_simulated": 120.0387018509031,
+      "avoided_all_zones_tonnes_simulated": 442.2796220051285,
+      "selected_project_ids": [
+        "HOLDEN_BRINE",
+        "STERLING_BRINE",
+        "WEST_BOYLSTON_CAL"
+      ],
+      "allocations_usd": {
+        "HOLDEN": 30000,
+        "STERLING": 30000,
+        "WEST BOYLSTON": 15000
+      },
+      "feasible_combinations": 26,
+      "optimizer": "exact enumeration of all 27 mutually exclusive project combinations"
+    }
+  }
+]

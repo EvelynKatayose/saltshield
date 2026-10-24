@@ -1,0 +1,193 @@
+{
+  "supportsReturnServiceEditsOption": false,
+  "supportsApplyEditsWithGlobalIds": false,
+  "maxRecordCount": 2000,
+  "datesInUnknownTimezone": false,
+  "supportsQueryDomains": true,
+  "infoInEstimates": [
+    "extent",
+    "count"
+  ],
+  "onlyAllowTrueCurveUpdatesByTrueCurveClients": true,
+  "syncEnabled": false,
+  "relationships": [],
+  "tables": [],
+  "cimVersion": "3.7.0",
+  "layers": [
+    {
+      "subLayerIds": null,
+      "maxScale": 0,
+      "name": "Surface Water Protection Areas - Zone A",
+      "defaultVisibility": true,
+      "id": 0,
+      "minScale": 600000,
+      "type": "Feature Layer",
+      "parentLayerId": -1,
+      "geometryType": "esriGeometryPolygon"
+    },
+    {
+      "subLayerIds": null,
+      "maxScale": 0,
+      "name": "Surface Water Protection Areas - Zone B",
+      "defaultVisibility": true,
+      "id": 1,
+      "minScale": 600000,
+      "type": "Feature Layer",
+      "parentLayerId": -1,
+      "geometryType": "esriGeometryPolygon"
+    },
+    {
+      "subLayerIds": null,
+      "maxScale": 0,
+      "name": "Surface Water Protection Areas - Zone C",
+      "defaultVisibility": true,
+      "id": 2,
+      "minScale": 600000,
+      "type": "Feature Layer",
+      "parentLayerId": -1,
+      "geometryType": "esriGeometryPolygon"
+    }
+  ],
+  "spatialReference": {
+    "falseM": -100000,
+    "xyTolerance": 0.00022282209520103902,
+    "mUnits": 10000,
+    "zUnits": 1,
+    "latestWkid": 26986,
+    "zTolerance": 2,
+    "wkid": 26986,
+    "xyUnits": 122610652.81195112,
+    "mTolerance": 2,
+    "falseX": -36530900,
+    "falseY": -28803200,
+    "falseZ": 0
+  },
+  "fullExtent": {
+    "ymin": 813440.5,
+    "xmin": 35396.233099997,
+    "ymax": 957583.741099998,
+    "xmax": 275306.5625,
+    "spatialReference": {
+      "falseM": -100000,
+      "xyTolerance": 0.00022282209520103902,
+      "mUnits": 10000,
+      "zUnits": 1,
+      "latestWkid": 26986,
+      "zTolerance": 2,
+      "wkid": 26986,
+      "xyUnits": 122610652.81195112,
+      "mTolerance": 2,
+      "falseX": -36530900,
+      "falseY": -28803200,
+      "falseZ": 0
+    }
+  },
+  "supportedExportFormats": "sqlite,filegdb,shapefile,csv,geojson,kml,excel,featureCollection",
+  "syncCapabilities": {
+    "supportsSyncDirectionControl": true,
+    "supportsRegisterReplicaForServer": true,
+    "supportsAttachmentsSyncDirection": true,
+    "supportsDurableUrlForSyncModelNone": false,
+    "supportsPerLayerSync": true,
+    "supportsSyncModelNone": true,
+    "supportsExportDomainDescription": true,
+    "supportsPerReplicaSync": true
+  },
+  "supportsDisconnectedEditing": false,
+  "extractChangesCapabilities": {
+    "supportsFeatureReturn": false,
+    "supportsReturnHasGeometryUpdates": false,
+    "supportsLayerQueries": false,
+    "supportsReturnAttachments": false,
+    "supportsReturnIdsOnly": false,
+    "supportsServerGens": false,
+    "supportsFieldsToCompare": false,
+    "supportsGeometry": false,
+    "supportsReturnExtentOnly": false
+  },
+  "currentVersion": 12.1,
+  "hasBranchVersionedData": false,
+  "referenceScale": 0,
+  "advancedEditingCapabilities": {
+    "supportsMultipatchOptionForServiceEdits": true,
+    "supportsAsyncApplyEdits": true,
+    "supportsApplyEditsbyUploadID": true,
+    "supportsDivideCombineGroupedObjects": true,
+    "supportsSessionBasedUpdateAttachments": true,
+    "supportsSessionBasedAddAttachments": true,
+    "supportsSplit": false,
+    "supportedApplyEditsOptions": {
+      "supportedEditingOptions": 0
+    },
+    "supportsSessionBasedUpdateFeatures": true,
+    "supportsSessionBasedDeleteAttachments": true,
+    "supportsReturnServiceEditsInSourceSR": true,
+    "supportsDeleteAssociations": true,
+    "supportedApplyEditsUploadIDFormats": "JSON,PBF",
+    "supportsSessionBasedDeleteFeatures": true,
+    "supportsSessionBasedAddFeatures": true
+  },
+  "initialExtent": {
+    "ymin": 799899.258956986,
+    "xmin": 23534.882082584256,
+    "ymax": 971180.1183430157,
+    "xmax": 286290.3804174187,
+    "spatialReference": {
+      "falseM": -100000,
+      "xyTolerance": 0.00022282209520103902,
+      "mUnits": 10000,
+      "zUnits": 1,
+      "latestWkid": 26986,
+      "zTolerance": 2,
+      "wkid": 26986,
+      "xyUnits": 122610652.81195112,
+      "mTolerance": 2,
+      "falseX": -36530900,
+      "falseY": -28803200,
+      "falseZ": 0
+    }
+  },
+  "allowTrueCurvesUpdates": true,
+  "supportedCurveTypes": [
+    "esriGeometryCircularArc",
+    "esriGeometryEllipticArc",
+    "esriGeometryBezier3Curve"
+  ],
+  "maxRecordCountFactor": 1,
+  "hasArchivedData": false,
+  "documentInfo": {
+    "Category": "",
+    "Keywords": "Surface Water Supply Protection Areas,Zone A,Zone B,Zone C,MassDEP,MassGIS,Massachusetts",
+    "Comments": "These Surface Water Supply Protection Areas delineate those areas included in 310 CMR 22.00, the Massachusetts Drinking Water Regulations, as Surface Water Supply Protection Zones:\n\n - ZONEA: represents a) the land area between the surface water source and the upper boundary of the bank; b) the land area within a 400 foot lateral distance from the upper boundary of the bank of a Class A surface water source, as defined in 314 CMR 4.05(3)(a); and c) the land area within a 200 foot lateral distance from the upper boundary of the bank of a tributary or associated surface water body.\n\n - ZONEB: represents the land area within one-half mile of the upper boundary of the bank of a Class A surface water source, as defined in 314 CMR 4.05(3)(a), or edge of watershed, whichever is less. Zone B always includes the land area within a 400 ft lateral distance from the upper boundary of the bank of a Class A surface water source.\n\n - ZONEC: represents the land area not designated as Zone A or B within the watershed of a Class A surface water source, as defined in 314 CMR 4.05(3)(a).\n\nPlease see http://www.mass.gov/anf/research-and-tech/it-serv-and-support/application-serv/office-of-geographic-information-massgis/datalayers/swp.html for full details.",
+    "Title": "ZoneABC.aprx",
+    "Author": "",
+    "Subject": "Surface Water Supply Protection Areas (ZONE A, B, C)"
+  },
+  "supportsUseEstimateForExceedsLimit": true,
+  "allowGeometryUpdates": false,
+  "supportsQueryContingentValues": true,
+  "description": "These Surface Water Supply Protection Areas delineate those areas included in 310 CMR 22.00, the Massachusetts Drinking Water Regulations, as Surface Water Supply Protection Zones:\n\n - ZONEA: represents a) the land area between the surface water source and the upper boundary of the bank; b) the land area within a 400 foot lateral distance from the upper boundary of the bank of a Class A surface water source, as defined in 314 CMR 4.05(3)(a); and c) the land area within a 200 foot lateral distance from the upper boundary of the bank of a tributary or associated surface water body.\n\n - ZONEB: represents the land area within one-half mile of the upper boundary of the bank of a Class A surface water source, as defined in 314 CMR 4.05(3)(a), or edge of watershed, whichever is less. Zone B always includes the land area within a 400 ft lateral distance from the upper boundary of the bank of a Class A surface water source.\n\n - ZONEC: represents the land area not designated as Zone A or B within the watershed of a Class A surface water source, as defined in 314 CMR 4.05(3)(a).\n\nPlease see http://www.mass.gov/anf/research-and-tech/it-serv-and-support/application-serv/office-of-geographic-information-massgis/datalayers/swp.html for full details.",
+  "units": "esriMeters",
+  "hasVersionedData": false,
+  "supportsDatumTransformation": true,
+  "supportsQueryDataElements": true,
+  "returnServiceEditsHaveSR": true,
+  "supportsRelationshipsResource": true,
+  "supportsSharedTemplates": true,
+  "enableZDefaults": false,
+  "allowUpdateWithoutMValues": false,
+  "capabilities": "Query",
+  "supportsTrueCurve": true,
+  "supportsAppend": true,
+  "supportsSharedTemplatesRelationshipId": true,
+  "supportedTrueCurvePbfFeatureEncodings": [
+    "esriCompressedShapeBuffer",
+    "esriDefault"
+  ],
+  "supportedAppendFormats": "FILEGDB,PBF",
+  "supportsVCSProjection": true,
+  "supportedQueryFormats": "JSON",
+  "serviceDescription": "These Surface Water Supply Protection Areas delineate those areas included in 310 CMR 22.00, the Massachusetts Drinking Water Regulations, as Surface Water Supply Protection Zones:\n\n - ZONEA: represents a) the land area between the surface water source and the upper boundary of the bank; b) the land area within a 400 foot lateral distance from the upper boundary of the bank of a Class A surface water source, as defined in 314 CMR 4.05(3)(a); and c) the land area within a 200 foot lateral distance from the upper boundary of the bank of a tributary or associated surface water body.\n\n - ZONEB: represents the land area within one-half mile of the upper boundary of the bank of a Class A surface water source, as defined in 314 CMR 4.05(3)(a), or edge of watershed, whichever is less. Zone B always includes the land area within a 400 ft lateral distance from the upper boundary of the bank of a Class A surface water source.\n\n - ZONEC: represents the land area not designated as Zone A or B within the watershed of a Class A surface water source, as defined in 314 CMR 4.05(3)(a).\n\nPlease see http://www.mass.gov/anf/research-and-tech/it-serv-and-support/application-serv/office-of-geographic-information-massgis/datalayers/swp.html for full details.",
+  "copyrightText": "MassDEP, MassGIS",
+  "hasSharedTemplates": true
+}
