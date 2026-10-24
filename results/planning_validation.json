@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "python_tests": 34,
+  "python_tests": 42,
   "parity": {
     "status": "PASS",
     "matched_cases": 152,
@@ -44,10 +44,21 @@
     "sensitivity_csv_contains_189_policy_cases",
     "objective_and_assessment_export_roundtrip",
     "changed_parameter_snapshot_import_rejected",
-    "current_state_brief_supported"
+    "current_state_brief_supported",
+    "joint_default_map_and_saved_input_benchmark",
+    "reach_changes_plan_and_invalidates_benchmark",
+    "linked_export_contains_current_inputs_without_stale_certificate",
+    "linked_csv_matches_assigned_cells",
+    "invalid_reach_clears_stale_plan_and_map",
+    "zero_reach_cannot_satisfy_participation",
+    "investment_budget_change_invalidates_joint_certificate",
+    "invalid_investments_clear_joint_outputs",
+    "uncertified_objective_stays_available_without_optimality_claim",
+    "reach_restores_from_valid_device_draft",
+    "linked_panel_has_no_unresolved_placeholders"
   ],
   "parameter_fingerprint": "a20be0c85fe29462b20d0ef9c9f4735a70940e22893473e6e5297a9b24c8b368",
-  "report_sha256": "2004c8b21147bef0727d46e690764e7b54167f3ac48901a04a66ac98e963d925",
+  "report_sha256": "4c74f97b77656f186e4b615abadeac0cd6488d896da6d71323964613c644c45c",
   "unit_basis": "CENTERLINE_KM_PER_WINTER",
   "real_browser_checks": [
     "Chrome: offline file loads and restores the saved draft",
@@ -58,5 +69,6 @@
   "verification_limits": [
     "Final narrow-screen layout and print-preview pagination were not reverified.",
     "Application rates, project prices and effects remain simulated; no chloride concentration or verified safety outcome is inferred."
-  ]
+  ],
+  "capacity_linked_validation": "joint_validation.json"
 }

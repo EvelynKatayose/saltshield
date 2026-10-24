@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "language": "en",
-  "python_tests": 34,
+  "python_tests": 42,
   "embedded_ui_checks": [
     "default_results",
     "coverage_updates_results",
@@ -37,9 +37,20 @@
     "sensitivity_csv_contains_189_policy_cases",
     "objective_and_assessment_export_roundtrip",
     "changed_parameter_snapshot_import_rejected",
-    "current_state_brief_supported"
+    "current_state_brief_supported",
+    "joint_default_map_and_saved_input_benchmark",
+    "reach_changes_plan_and_invalidates_benchmark",
+    "linked_export_contains_current_inputs_without_stale_certificate",
+    "linked_csv_matches_assigned_cells",
+    "invalid_reach_clears_stale_plan_and_map",
+    "zero_reach_cannot_satisfy_participation",
+    "investment_budget_change_invalidates_joint_certificate",
+    "invalid_investments_clear_joint_outputs",
+    "uncertified_objective_stays_available_without_optimality_claim",
+    "reach_restores_from_valid_device_draft",
+    "linked_panel_has_no_unresolved_placeholders"
   ],
-  "report_sha256": "2004c8b21147bef0727d46e690764e7b54167f3ac48901a04a66ac98e963d925",
+  "report_sha256": "4c74f97b77656f186e4b615abadeac0cd6488d896da6d71323964613c644c45c",
   "real_browser_checks": [
     "Chrome: English Overview, Investments and Road Coverage sections render with default results",
     "Chrome: light and dark appearance visually inspected",
@@ -48,7 +59,8 @@
   ],
   "verification_limits": [
     "Final narrow-screen layout and print-preview pagination were not reverified.",
-    "Application rates, project prices and effects remain simulated; no chloride concentration or verified safety outcome is inferred."
+    "Application rates, project prices and effects remain simulated; no chloride concentration or verified safety outcome is inferred.",
+    "Saved A/B/C unrounded MILP benchmark did not certify within the per-package time limit; rounded DP results remain available and the UI makes no unrounded optimality claim."
   ],
   "runtime_dependencies": "Self-contained HTML; no remote fonts, assets, framework or model calls.",
   "parameter_fingerprint": "a20be0c85fe29462b20d0ef9c9f4735a70940e22893473e6e5297a9b24c8b368",
@@ -57,5 +69,28 @@
     "Chrome: current-state, independent, ratio heuristic and pooled table shows the expected default values",
     "Chrome: project counterfactual reasons and 27-case selection frequencies are present",
     "Chrome: new comparison table visually inspected in the existing macOS-style workspace"
-  ]
+  ],
+  "capacity_linked_browser_checks": [
+    "Chrome: linked model renders $75,000, 124.57 km and 60.68 simulated Zone A tonnes at saved inputs",
+    "Chrome: setting Sterling BRINE reach to zero changes portfolio, assignments and modeled benefits, and deactivates the saved-input benchmark",
+    "Chrome: Reset reach restores the default plan and certificate",
+    "Chrome: assigned-cell map and per-town equipment/capacity table visually inspected"
+  ],
+  "capacity_linked_parity": {
+    "status": "PASS",
+    "cases": 14,
+    "policy_checks": 88,
+    "profile_checks": 84,
+    "max_browser_engine_ms": 182,
+    "method": "Conservative 10 m whole-cell DP, checked against Python; saved-input unrounded SciPy comparisons are separate",
+    "source_sha256": {
+      "results/planning_v1.json": "57302a0ac7db1441e50ca7c5fa3d899dc7fc1e18923a6384419dc065b1bdaaf9",
+      "results/spatial_priority.json": "bb36790ed4e3600f6c68eccc0c81c3d81aec7e9a4f5a902be96879f74d18daa0",
+      "data/processed/planning_cells.geojson": "79732a6a43f47f8b52a8848a77577b4eb38e9ddcee917e46f51b414fb8423042",
+      "data/parameters/project_capacity.csv": "c871be206e2b667488dee04150fb0bb50643498f041fec5f94d3ca121de0ae28",
+      "data/parameters/operations_baseline.csv": "82c020689703155f45ee5dbd6c186e2a2ca872ccf7a17c95b79cdafe3ca8827f",
+      "data/parameters/project_options.csv": "b8764b50fce68adfb3dbcbc37ca699ad777b3f1271c959ebce916bc0a9226479",
+      "data/parameters/scenario_config.json": "a3f4a8226893df8379f425703aeb036834e08941e5367d5102a71ba47c7090d6"
+    }
+  }
 }

@@ -1,0 +1,7 @@
+﻿project_id,town_id,max_road_km_per_winter,unit_basis,data_status,source
+HOLDEN_CAL,HOLDEN,25,CENTERLINE_KM_PER_WINTER,SIMULATED,Illustrative road reach only; not a measured fleet capacity or verified service route
+HOLDEN_BRINE,HOLDEN,50,CENTERLINE_KM_PER_WINTER,SIMULATED,Illustrative road reach only; not a measured fleet capacity or verified service route
+STERLING_CAL,STERLING,25,CENTERLINE_KM_PER_WINTER,SIMULATED,Illustrative road reach only; not a measured fleet capacity or verified service route
+STERLING_BRINE,STERLING,50,CENTERLINE_KM_PER_WINTER,SIMULATED,Illustrative road reach only; not a measured fleet capacity or verified service route
+WEST_BOYLSTON_CAL,WEST BOYLSTON,25,CENTERLINE_KM_PER_WINTER,SIMULATED,Illustrative road reach only; not a measured fleet capacity or verified service route
+WEST_BOYLSTON_BRINE,WEST BOYLSTON,50,CENTERLINE_KM_PER_WINTER,SIMULATED,Illustrative road reach only; not a measured fleet capacity or verified service route

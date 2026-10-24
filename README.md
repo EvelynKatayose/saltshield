@@ -20,10 +20,12 @@ python prepare_parameters.py
 python planning_v1.py
 python build_weather.py
 python spatial_priority.py
+python joint_planning.py
 python build_report.py
-python -m unittest test_phase2 test_phase3 test_planning_v1 -v
+python -m unittest test_phase2 test_phase3 test_planning_v1 test_joint_planning -v
 node test_ui.cjs  # optional Node.js verification of embedded report scripts
 node test_planning.cjs  # Python/JavaScript numerical parity; needs python3
+node test_joint.cjs  # linked equipment/cell numerical parity
 ```
 
 Open `results/SaltShield_Wachusett.html`. For a fresh source snapshot, run
@@ -31,7 +33,7 @@ Open `results/SaltShield_Wachusett.html`. For a fresh source snapshot, run
 official ArcGIS services; no API keys are needed for these public queries.
 
 To refresh the historical funding source, run `python download_evidence.py`,
-then rebuild the evidence, phase 2 analysis and report. Extraction deliberately
+then rebuild the evidence, phase 2 analysis, V1 evaluation, linked planning and report. Extraction deliberately
 stops if the frozen 18-record source changes, so new entries require review.
 
 ## Phase 2 evidence and configurable planning
@@ -106,7 +108,8 @@ The three first-version input files are in `data/parameters`:
 | `scenario_config.json` | Frozen study scope, total/local budget ceilings, objective, effect and sensitivity rules. |
 
 `prepare_parameters.py` initializes these files once and retains existing edits.
-Edit the tables, run `python planning_v1.py`, then `python build_report.py`.
+Edit the tables, run `python planning_v1.py`, `python joint_planning.py`,
+then `python build_report.py`.
 The evaluator validates IDs, scope, numerical bounds, matching road groups,
 mutual exclusivity, explicit simulated status and provenance. The report rejects
 stale parameters using their hashes and the base-geography checksum. The
@@ -257,7 +260,7 @@ already close to the optimum; the larger difference against uniform coverage
 must not be attributed solely to using an integer solver. Uniform and upper
 bound cases allow partial cells and are not executable whole-cell plans.
 
-The spatial planner is separate from the equipment budget editor. It does not
+This standalone spatial experiment is separate from the equipment budget editor. It does not
 convert geometry coverage into new avoided-application tonnes, equipment costs,
 route schedules or measured fleet capacity. Grid cells are not validated snow
 maintenance routes. Travel links, concurrent weather response, staffing,
@@ -376,3 +379,57 @@ To move from a demonstrator to deployment, obtain town equipment inventories,
 road service requirements, actual salt application logs, vendor costs, fleet
 capacity and project-specific effects. Water concentration forecasts additionally
 need calibrated transport and flow data plus independent monitoring validation.
+
+## Linked equipment and whole-cell planning
+
+Road Coverage now has a separate capacity-linked model. Each of the six
+hypothetical packages has a `max_road_km_per_winter` in
+`data/parameters/project_capacity.csv`: CAL starts at 25 km and BRINE at 50 km.
+These are explicitly simulated unique road reaches, not measured fleet
+throughput, treatment-pass mileage, verified routes or procurement claims.
+The effective limit is the smaller of that reach and the project's coverage
+fraction times its town's eligible road length. Coverage is a ceiling here;
+it is not multiplied into the reduction a second time.
+
+For each package, the browser chooses whole measured 1 km planning cells.
+Cell road demand rounds up to 10 m; available reach rounds down to 10 m.
+Dynamic programming maximizes the selected protection objective, then the
+other protected-length metric, then prefers less road length. It is exact for
+this conservative rounded model, not the unrounded road-length problem.
+Each package's selected measured road lengths are multiplied by its town's
+assumed application baseline and the package's assumed reduction effect.
+The seven funding rules then enumerate equipment portfolios with at most one
+package per town. This prevents overlapping projects from claiming the same
+cells twice. Participation requires nonempty cell coverage in every town.
+
+The same-equipment uniform reference spreads each selected package's full
+effective reach fraction across its town's roads. It is a fractional reference,
+not a separately optimized uniform equipment portfolio. Whole cells may leave
+capacity unused and are not guaranteed to beat this reference. The linked
+model's equal-spend ceiling is its own independent actual spending.
+
+`joint_planning.py` also attempts unrounded SciPy MILP primary-objective benchmarks
+for both saved objectives, with a five-second limit per package. The saved
+Zone A case is certified; the saved A/B/C case times out and is explicitly
+marked `NOT_CERTIFIED`, with no unrounded optimality claim. A timeout does not
+invalidate the conservative rounded-model result. Certified checks validate primary benefits, not identical cell
+assignments or secondary tie-breaking. The interface only shows the benchmark
+while budget, local ceilings, rates, effects, costs, coverage, enablement and
+reach match the saved inputs. Changed inputs deactivate the claim. Greedy and
+equal-spend policies are shown without a rounding-gap claim, since their
+ordering or actual-spend ceiling can change with allocation.
+
+Exports are `results/joint_planning.json`, `joint_policy_comparison.csv`,
+`joint_cell_allocations.csv`, and `joint_exact_benchmarks.csv`. Live linked JSON
+and cell CSV downloads include current inputs or capacity metadata and source
+hashes. Reach controls have their own validated browser-local draft. The
+existing investment JSON and overview brief still describe the uniform
+investment model; linked exports carry the equipment/cell result separately.
+
+The report rejects stale linked source hashes. After changing V1 parameter
+tables, rebuild `planning_v1.py`, `joint_planning.py` and `build_report.py` in
+that order. Capacity-only edits need the latter two. The capacity initializer
+retains existing edits. Validation includes rounded DP against brute force,
+capacity and uniqueness checks, no double application of coverage, zero reach,
+participation infeasibility, Python/JavaScript parity on measured cells and
+UI checks for stale certificates and exports.

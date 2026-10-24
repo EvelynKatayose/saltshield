@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "cases": 14,
+  "policy_checks": 88,
+  "profile_checks": 84,
+  "max_browser_engine_ms": 182,
+  "method": "Conservative 10 m whole-cell DP, checked against Python; saved-input unrounded SciPy comparisons are separate",
+  "source_sha256": {
+    "results/planning_v1.json": "57302a0ac7db1441e50ca7c5fa3d899dc7fc1e18923a6384419dc065b1bdaaf9",
+    "results/spatial_priority.json": "bb36790ed4e3600f6c68eccc0c81c3d81aec7e9a4f5a902be96879f74d18daa0",
+    "data/processed/planning_cells.geojson": "79732a6a43f47f8b52a8848a77577b4eb38e9ddcee917e46f51b414fb8423042",
+    "data/parameters/project_capacity.csv": "c871be206e2b667488dee04150fb0bb50643498f041fec5f94d3ca121de0ae28",
+    "data/parameters/operations_baseline.csv": "82c020689703155f45ee5dbd6c186e2a2ca872ccf7a17c95b79cdafe3ca8827f",
+    "data/parameters/project_options.csv": "b8764b50fce68adfb3dbcbc37ca699ad777b3f1271c959ebce916bc0a9226479",
+    "data/parameters/scenario_config.json": "a3f4a8226893df8379f425703aeb036834e08941e5367d5102a71ba47c7090d6"
+  }
+}

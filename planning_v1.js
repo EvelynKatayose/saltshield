@@ -69,5 +69,5 @@
     for(const value of Object.values(totals))number(value,'baseline total');
     return {objective,baseline_rates:rates,baseline_totals_t_simulated:totals,local_caps:caps,plans,project_decisions:explain(plans,active,budget,towns,objective,caps,trace),greedy_trace:trace,sensitivity:includeSensitivity?sensitivity(projects,budget,towns,rates,objective,caps):null};
   }
-  globalThis.SaltShieldV1={assess,evaluate};
+  globalThis.SaltShieldV1={assess,evaluate,greedyPlan};
 })();

@@ -5,7 +5,7 @@ Open results/SaltShield_Wachusett.html in a browser. Everything needed to run th
 Overview: watershed map, town inventory and the live decision brief.
 Investments: edit budget, salt baseline, project costs, coverage and enablement; compare independent and shared funding.
 Investments also compares no new investment, independent optimization, benefit/cost ordering and the pooled optimum. Choose Zone A or all A/B/C roads as the objective. Inspect each project's selection reason and its selection across 27 assumed cases; export comparison and sensitivity CSVs.
-Road Coverage: compare four allocation methods at 25%, 50%, 75% or 100% illustrative capacity.
+Road Coverage: link equipment purchases to whole road cells under a simulated service-reach limit. Edit six reach assumptions, compare funding rules, inspect assignments and export linked JSON or cell CSV. The standalone four-method capacity experiment remains below it.
 Evidence: DCR historical grants, five winters of regional weather and GIS measurement rules.
 
 Download brief creates a standalone English HTML summary of the selected funding rule and current coverage case. Print brief prints only that summary. Valid settings are saved on this browser/device when local storage is available. JSON scenario import/export remains available in Investments.
@@ -28,14 +28,18 @@ python prepare_parameters.py
 python planning_v1.py
 python build_weather.py
 python spatial_priority.py
+python joint_planning.py
 python build_report.py
 
 Verification:
-python -m unittest test_phase2 test_phase3 test_planning_v1 -v
+python -m unittest test_phase2 test_phase3 test_planning_v1 test_joint_planning -v
 node test_ui.cjs
 node test_planning.cjs
+node test_joint.cjs
 
-Editable saved inputs: data/parameters/operations_baseline.csv, project_options.csv, and scenario_config.json. The initializer retains existing edits. After changing these tables, rerun planning_v1.py and build_report.py. Per-lane rates, application counts and operating-cost changes remain blank because they are not verified or modeled. Parameter fingerprints prevent stale report builds and mismatched scenario imports.
+Editable saved inputs: data/parameters/operations_baseline.csv, project_options.csv, scenario_config.json, and project_capacity.csv. The initializers retain existing edits. After changing the first three tables, rerun planning_v1.py, joint_planning.py and build_report.py. For capacity-only edits, rerun joint_planning.py and build_report.py. Per-lane rates, application counts and operating-cost changes remain blank because they are not verified or modeled. Parameter fingerprints prevent stale report builds and mismatched scenario imports.
+
+Linked planning: CAL defaults to 25 km and BRINE to 50 km of unique eligible road centerline per winter; neither is a measured service capacity. Coverage percentage is an additional reach ceiling. Whole-cell demand rounds up to 10 m and capacity rounds down. Reductions use selected measured lengths, town baseline and project effect once. Every-town participation requires nonempty coverage. Reach settings save separately on this device. SciPy benchmarks apply only while all live inputs match the saved inputs. The overview decision brief continues to describe the uniform investment model and standalone coverage case; use the linked exports for equipment/cell decisions.
 
 Source refresh (requires internet): download_data.py, download_evidence.py, download_weather.py. Rebuild all affected outputs afterward. See README.md for exact definitions and limitations.
 

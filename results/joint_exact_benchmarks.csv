@@ -1,0 +1,15 @@
+﻿objective,policy,conservative_objective_t,benchmark_objective_t,benchmark_status,benchmark_note,comparison_scope
+zoneA,statusQuo,0,0,CERTIFIED_PRIMARY_OBJECTIVE,,Equal total ceiling
+zoneA,independent,20.145779924889933,20.23775427902254,CERTIFIED_PRIMARY_OBJECTIVE,,Equal total ceiling
+zoneA,greedy,60.68073844116333,60.82614631363551,CERTIFIED_PRIMARY_OBJECTIVE,,Equal total ceiling
+zoneA,pooled,60.68073844116333,60.82614631363552,CERTIFIED_PRIMARY_OBJECTIVE,,Equal total ceiling
+zoneA,participation,60.68073844116333,60.82614631363552,CERTIFIED_PRIMARY_OBJECTIVE,,Equal total ceiling
+zoneA,equalSpend,34.352496202715564,34.43424664680407,CERTIFIED_PRIMARY_OBJECTIVE,,Each model uses its own independent actual spending
+zoneA,equalSpendParticipation,20.145779924889933,20.23775427902254,CERTIFIED_PRIMARY_OBJECTIVE,,Each model uses its own independent actual spending
+all,statusQuo,0,,NOT_CERTIFIED,Exact capacity benchmark not certified: Time limit reached. (HiGHS Status 13: Time limit reached),Equal total ceiling
+all,independent,37.48131681288801,,NOT_CERTIFIED,Exact capacity benchmark not certified: Time limit reached. (HiGHS Status 13: Time limit reached),Equal total ceiling
+all,greedy,137.38567756016144,,NOT_CERTIFIED,Exact capacity benchmark not certified: Time limit reached. (HiGHS Status 13: Time limit reached),Equal total ceiling
+all,pooled,137.3856775601614,,NOT_CERTIFIED,Exact capacity benchmark not certified: Time limit reached. (HiGHS Status 13: Time limit reached),Equal total ceiling
+all,participation,137.3856775601614,,NOT_CERTIFIED,Exact capacity benchmark not certified: Time limit reached. (HiGHS Status 13: Time limit reached),Equal total ceiling
+all,equalSpend,74.96597111697955,,NOT_CERTIFIED,Exact capacity benchmark not certified: Time limit reached. (HiGHS Status 13: Time limit reached),Each model uses its own independent actual spending
+all,equalSpendParticipation,37.48131681288801,,NOT_CERTIFIED,Exact capacity benchmark not certified: Time limit reached. (HiGHS Status 13: Time limit reached),Each model uses its own independent actual spending

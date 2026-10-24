@@ -68,6 +68,7 @@ function update() {
     current = null; currentInputs = null; currentAssessment=null; error.textContent = err.message; error.hidden = false; output.hidden = true; document.getElementById('export').disabled = true;
   }
   globalThis.SaltShieldEvaluationUI?.render();
+  globalThis.SaltShieldJointUI?.update();
   globalThis.SaltShieldWorkspace?.refresh();
 }
 for (const id of ['budget', 'intensity']) document.getElementById(id).addEventListener('input', update);
