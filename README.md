@@ -13,12 +13,66 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python run_analysis.py
+python build_evidence.py
+python phase2_model.py
 python build_report.py
+python -m unittest test_phase2 -v
 ```
 
 Open `results/SaltShield_Wachusett.html`. For a fresh source snapshot, run
 `python download_data.py` first while connected to the internet. Downloads use
 official ArcGIS services; no API keys are needed for these public queries.
+
+To refresh the historical funding source, run `python download_evidence.py`,
+then rebuild the evidence, phase 2 analysis and report. Extraction deliberately
+stops if the frozen 18-record source changes, so new entries require review.
+
+## Phase 2 evidence and configurable planning
+
+The report now includes 13 official historical awards for the three study towns
+from FY2021 through FY2026, totaling $188,251 in grants. The saved DCR webpage,
+its checksum, exact fiscal-year/town locators, and structured records are in
+`data/evidence`. Holden has five records totaling $84,000; Sterling has four
+totaling $66,168; West Boylston has four totaling $38,083.
+
+Grant awards are not equipment prices. The Holden FY2023 entry separately
+describes a $150,000 brine production/storage project and a $20,000 grant.
+Neither amount is treated as a current quote. Prior funded purposes do not
+verify installation, spare capacity, current availability, or road coverage.
+All six hypothetical future investments retain simulated prices and effects.
+
+The offline editor can change each project's capital cost, coverage fraction,
+and enabled status, together with baseline intensity and effect scenario.
+Coverage is a uniform share of that project's mapped eligible road sections,
+not measured route or fleet capacity. Changing coverage affects benefits but
+does not automatically scale a fixed equipment purchase cost.
+
+Five comparisons are available: independent budgets, pooled budgets, pooled
+with at least one selected project per town, pooled at the independent plan's
+actual spending, and that same-spend case with the participation constraint.
+Infeasible participation requirements are reported explicitly, not converted
+into a zero-cost or empty feasible plan. Selecting a project in every town is
+a participation rule, not proof of environmental or distributive equity.
+
+At the original $45,000 actual spending, unconstrained pooling gives 52.56
+simulated tonnes of avoided Zone A application while selecting projects in
+only two towns. Requiring one project in every town returns 41.54 tonnes.
+This exposes a resource-allocation tradeoff rather than claiming free gains.
+
+Scenario JSON can be exported and re-imported. Only operational controls are
+imported; source geometry and evidence stay fixed. Imports require a matching
+evidence checksum and the original project ID set. Current numeric inputs are
+validated, and invalid inputs hide results to avoid displaying stale outputs.
+The report checks that its phase 2 results match the underlying analysis file.
+
+`results/phase2_policy_comparison.csv` contains 120 rows across eight budgets,
+three effect scenarios and five funding rules. The Python tests cover evidence
+extraction, missing costs, project enablement, participation infeasibility,
+coverage, budget constraints and zero-effect behavior. Browser/Python agreement
+is recorded separately in `results/phase2_validation.json` after verification.
+With Node.js installed, run `node test_ui.cjs` for offline UI-state validation
+and scenario import/export round-trip tests. These are unit tests, not a
+substitute for visual browser inspection.
 
 ## Real data and geographic scope
 

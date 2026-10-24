@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "budget_effect_cases": 24,
+  "policy_outputs_checked": 120,
+  "invalid_input_cases": 4,
+  "checks": "Python and JavaScript agree on feasibility, costs, outcomes, selections and feasible-combination counts. Generated scripts compile.",
+  "ui_state_tests": {
+    "status": "PASS",
+    "checks": [
+      "default_results",
+      "coverage_updates_results",
+      "invalid_input_hides_stale_results",
+      "reset_restores_defaults",
+      "disabled_town_infeasibility_visible",
+      "participation_tradeoff_visible",
+      "export_contains_evidence_and_inputs",
+      "import_roundtrip_ignores_geometry_tampering",
+      "wrong_evidence_snapshot_rejected",
+      "incomplete_project_import_rejected"
+    ]
+  }
+}

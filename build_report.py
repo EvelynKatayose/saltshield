@@ -2,6 +2,7 @@
 import base64
 import csv
 import html
+import hashlib
 import json
 from pathlib import Path
 
@@ -141,6 +142,27 @@ def report(a):
     ownership=''.join(f"<tr><td>{r['town'].title()}</td><td>{html.escape(r['jurisdiction_label'])}</td><td>{num(r['protected_centerline_km'])}</td></tr>" for r in a['owners'])
     sources=''.join(f'<li><a href="{u}" target="_blank" rel="noreferrer">{k.replace("_"," ").title()}</a></li>' for k,u in a['official_sources'].items())
     template=(ROOT/'report_template.html').read_text()
+    phase2_path=OUT/'phase2_analysis.json'
+    if phase2_path.exists():
+        a={**a,'phase2':json.loads(phase2_path.read_text())}
+        phase2=a['phase2']
+        if phase2['base_analysis_sha256'] != hashlib.sha256((OUT/'analysis.json').read_bytes()).hexdigest():
+            raise ValueError('Phase 2 inputs are stale. Run phase2_model.py after run_analysis.py.')
+        evidence=phase2['evidence']
+        summary_rows=''.join(f"<tr><th>{s['town'].title()}</th><td>{s['award_count']}</td><td>${s['historical_grant_total_usd']:,}</td><td>FY{s['latest_award_fiscal_year']}</td></tr>" for s in evidence['town_summary'])
+        categories={'spreader_controls':'撒盐控制器','brine_production':'盐水制备','brine_application':'盐水施用','plow_blades':'铲雪刀片','storage_or_facility':'仓储或设施','temperature_sensors':'路温传感器'}
+        award_rows=''.join('<tr><td>FY'+str(r['fiscal_year'])+' / '+r['town'].title()+'</td><td>'+html.escape(' / '.join(categories[x] for x in r['equipment_categories']))+'</td><td>$'+format(r['grant_award_usd'],',')+'</td><td>'+('$'+format(r['reported_historical_project_total_usd'],',') if r['reported_historical_project_total_usd'] is not None else '未记载')+'</td><td><a href="'+html.escape(r['source_url'],quote=True)+'" target="_blank" rel="noreferrer">DCR</a></td></tr>' for r in evidence['records'])
+        editor_rows=''.join('<tr data-project="'+p['project_id']+'"><th>'+p['town'].title()+' / '+p['project_type']+'</th><td><input type="checkbox" checked data-field="enabled" aria-label="'+p['town'].title()+' '+p['project_type']+' 启用"></td><td><input type="number" min="0" step="1000" value="'+str(p['capital_cost_usd'])+'" data-field="cost" aria-label="'+p['town'].title()+' '+p['project_type']+' 模拟成本"></td><td><input type="number" min="0" max="100" step="10" value="100" data-field="coverage" aria-label="'+p['town'].title()+' '+p['project_type']+' 模拟覆盖率"></td><td>'+str(round(p['reduction_low']*100))+'% / '+str(round(p['reduction_fraction']*100))+'% / '+str(round(p['reduction_high']*100))+'%</td></tr>' for p in phase2['projects'])
+        panel=(ROOT/'phase2_panel.html').read_text().replace('__AWARD_SUMMARY_ROWS__',summary_rows).replace('__AWARD_RECORD_ROWS__',award_rows).replace('__PROJECT_EDITOR_ROWS__',editor_rows)
+        start=template.index('<section class="panel"><h2>同一预算上限')
+        end=template.index('<section class="panel"><h2>保护区内道路',start)
+        template=template[:start]+panel+'\n'+template[end:]
+        script_start=template.index('<script>\nconst ANALYSIS=')
+        template=template[:script_start]+'<script>\nconst ANALYSIS=__ANALYSIS_JSON__;\n'+(ROOT/'phase2_ui.js').read_text()+'\n</script></body></html>\n'
+        template=template.replace('明确标注的模拟投资','13 条历史资助 · 模拟投资')
+        template=template.replace('本轮设备项目','默认模拟项目参数').replace('假设覆盖其在本汇水区内所有可纳入的市镇铺装道路。','初始覆盖率为 100%，可在第二阶段编辑器中调整。')
+        extra_style='\n#project-editor input[type=number]{width:130px}#planner-error{color:#9a3628;background:#fff0eb;padding:12px}button:disabled{opacity:.5;cursor:default}details{margin-top:14px}summary{padding:8px 0}#evidence-panel table td{vertical-align:middle} [hidden]{display:none!important}\n'
+        template=template.replace('</style>',extra_style+'</style>')
     replacements={'__MAP__':svg_map(),'__MEASURED_ROWS__':measured,'__OWNER_ROWS__':ownership,'__SOURCES__':sources,'__ANALYSIS_JSON__':json.dumps(a,ensure_ascii=False).replace('</','<\\/'),'__SOLVER_JS__':(ROOT/'simulation.js').read_text()}
     for key,value in replacements.items():template=template.replace(key,value)
     (OUT/'SaltShield_Wachusett.html').write_text(template)

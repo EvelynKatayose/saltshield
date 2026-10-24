@@ -1,0 +1,295 @@
+{
+  "source": {
+    "url": "https://www.mass.gov/info-details/dcr-watershed-system-salt-reduction",
+    "retrieved_at": "2026-10-24T19:03:48.339265+00:00",
+    "sha256": "ced4b339c52b0b8711faec144ede69b8e4c2c2728faa8878e250c0f251acfb32",
+    "record_scope": "Historical awards FY2021–FY2026 listed by DCR",
+    "interpretation": "Award amount is not total equipment cost; award purpose is not proof of installation or current capacity."
+  },
+  "all_watershed_award_count": 18,
+  "three_town_award_count": 13,
+  "three_town_historical_grant_total_usd": 188251,
+  "records": [
+    {
+      "record_id": "DCR_FY2026_STERLING",
+      "fiscal_year": 2026,
+      "town": "STERLING",
+      "grant_award_usd": 19585,
+      "reported_historical_project_total_usd": null,
+      "equipment_categories": [
+        "brine_application",
+        "plow_blades"
+      ],
+      "source_url": "https://www.mass.gov/info-details/dcr-watershed-system-salt-reduction#sterling",
+      "source_locator": "FY26 / Sterling",
+      "record_kind": "OFFICIAL_HISTORICAL_AWARD",
+      "grant_is_equipment_price": false,
+      "current_quote_available": false,
+      "installation_verified": false,
+      "road_coverage_verified": false
+    },
+    {
+      "record_id": "DCR_FY2026_WEST_BOYLSTON",
+      "fiscal_year": 2026,
+      "town": "WEST BOYLSTON",
+      "grant_award_usd": 6350,
+      "reported_historical_project_total_usd": null,
+      "equipment_categories": [
+        "brine_application",
+        "plow_blades"
+      ],
+      "source_url": "https://www.mass.gov/info-details/dcr-watershed-system-salt-reduction#west-boylston",
+      "source_locator": "FY26 / West Boylston",
+      "record_kind": "OFFICIAL_HISTORICAL_AWARD",
+      "grant_is_equipment_price": false,
+      "current_quote_available": false,
+      "installation_verified": false,
+      "road_coverage_verified": false
+    },
+    {
+      "record_id": "DCR_FY2025_HOLDEN",
+      "fiscal_year": 2025,
+      "town": "HOLDEN",
+      "grant_award_usd": 20000,
+      "reported_historical_project_total_usd": null,
+      "equipment_categories": [
+        "spreader_controls"
+      ],
+      "source_url": "https://www.mass.gov/info-details/dcr-watershed-system-salt-reduction#holden",
+      "source_locator": "FY25 / Holden",
+      "record_kind": "OFFICIAL_HISTORICAL_AWARD",
+      "grant_is_equipment_price": false,
+      "current_quote_available": false,
+      "installation_verified": false,
+      "road_coverage_verified": false
+    },
+    {
+      "record_id": "DCR_FY2025_STERLING",
+      "fiscal_year": 2025,
+      "town": "STERLING",
+      "grant_award_usd": 16583,
+      "reported_historical_project_total_usd": null,
+      "equipment_categories": [
+        "spreader_controls",
+        "plow_blades"
+      ],
+      "source_url": "https://www.mass.gov/info-details/dcr-watershed-system-salt-reduction#sterling-1",
+      "source_locator": "FY25 / Sterling",
+      "record_kind": "OFFICIAL_HISTORICAL_AWARD",
+      "grant_is_equipment_price": false,
+      "current_quote_available": false,
+      "installation_verified": false,
+      "road_coverage_verified": false
+    },
+    {
+      "record_id": "DCR_FY2024_HOLDEN",
+      "fiscal_year": 2024,
+      "town": "HOLDEN",
+      "grant_award_usd": 10000,
+      "reported_historical_project_total_usd": null,
+      "equipment_categories": [
+        "spreader_controls",
+        "storage_or_facility"
+      ],
+      "source_url": "https://www.mass.gov/info-details/dcr-watershed-system-salt-reduction#holden-1",
+      "source_locator": "FY24 / Holden",
+      "record_kind": "OFFICIAL_HISTORICAL_AWARD",
+      "grant_is_equipment_price": false,
+      "current_quote_available": false,
+      "installation_verified": false,
+      "road_coverage_verified": false
+    },
+    {
+      "record_id": "DCR_FY2024_STERLING",
+      "fiscal_year": 2024,
+      "town": "STERLING",
+      "grant_award_usd": 20000,
+      "reported_historical_project_total_usd": null,
+      "equipment_categories": [
+        "spreader_controls"
+      ],
+      "source_url": "https://www.mass.gov/info-details/dcr-watershed-system-salt-reduction#sterling-2",
+      "source_locator": "FY24 / Sterling",
+      "record_kind": "OFFICIAL_HISTORICAL_AWARD",
+      "grant_is_equipment_price": false,
+      "current_quote_available": false,
+      "installation_verified": false,
+      "road_coverage_verified": false
+    },
+    {
+      "record_id": "DCR_FY2023_HOLDEN",
+      "fiscal_year": 2023,
+      "town": "HOLDEN",
+      "grant_award_usd": 20000,
+      "reported_historical_project_total_usd": 150000,
+      "equipment_categories": [
+        "brine_production",
+        "brine_application",
+        "storage_or_facility"
+      ],
+      "source_url": "https://www.mass.gov/info-details/dcr-watershed-system-salt-reduction#holden-2",
+      "source_locator": "FY23 / Holden",
+      "record_kind": "OFFICIAL_HISTORICAL_AWARD",
+      "grant_is_equipment_price": false,
+      "current_quote_available": false,
+      "installation_verified": false,
+      "road_coverage_verified": false
+    },
+    {
+      "record_id": "DCR_FY2023_STERLING",
+      "fiscal_year": 2023,
+      "town": "STERLING",
+      "grant_award_usd": 10000,
+      "reported_historical_project_total_usd": null,
+      "equipment_categories": [
+        "plow_blades"
+      ],
+      "source_url": "https://www.mass.gov/info-details/dcr-watershed-system-salt-reduction#sterling-3",
+      "source_locator": "FY23 / Sterling",
+      "record_kind": "OFFICIAL_HISTORICAL_AWARD",
+      "grant_is_equipment_price": false,
+      "current_quote_available": false,
+      "installation_verified": false,
+      "road_coverage_verified": false
+    },
+    {
+      "record_id": "DCR_FY2023_WEST_BOYLSTON",
+      "fiscal_year": 2023,
+      "town": "WEST BOYLSTON",
+      "grant_award_usd": 2588,
+      "reported_historical_project_total_usd": null,
+      "equipment_categories": [
+        "storage_or_facility"
+      ],
+      "source_url": "https://www.mass.gov/info-details/dcr-watershed-system-salt-reduction#west-boylston-1",
+      "source_locator": "FY23 / West Boylston",
+      "record_kind": "OFFICIAL_HISTORICAL_AWARD",
+      "grant_is_equipment_price": false,
+      "current_quote_available": false,
+      "installation_verified": false,
+      "road_coverage_verified": false
+    },
+    {
+      "record_id": "DCR_FY2022_HOLDEN",
+      "fiscal_year": 2022,
+      "town": "HOLDEN",
+      "grant_award_usd": 14000,
+      "reported_historical_project_total_usd": null,
+      "equipment_categories": [
+        "plow_blades"
+      ],
+      "source_url": "https://www.mass.gov/info-details/dcr-watershed-system-salt-reduction#holden-3",
+      "source_locator": "FY22 / Holden",
+      "record_kind": "OFFICIAL_HISTORICAL_AWARD",
+      "grant_is_equipment_price": false,
+      "current_quote_available": false,
+      "installation_verified": false,
+      "road_coverage_verified": false
+    },
+    {
+      "record_id": "DCR_FY2022_WEST_BOYLSTON",
+      "fiscal_year": 2022,
+      "town": "WEST BOYLSTON",
+      "grant_award_usd": 10553,
+      "reported_historical_project_total_usd": null,
+      "equipment_categories": [
+        "plow_blades",
+        "storage_or_facility"
+      ],
+      "source_url": "https://www.mass.gov/info-details/dcr-watershed-system-salt-reduction#west-boylston-2",
+      "source_locator": "FY22 / West Boylston",
+      "record_kind": "OFFICIAL_HISTORICAL_AWARD",
+      "grant_is_equipment_price": false,
+      "current_quote_available": false,
+      "installation_verified": false,
+      "road_coverage_verified": false
+    },
+    {
+      "record_id": "DCR_FY2021_HOLDEN",
+      "fiscal_year": 2021,
+      "town": "HOLDEN",
+      "grant_award_usd": 20000,
+      "reported_historical_project_total_usd": null,
+      "equipment_categories": [
+        "plow_blades"
+      ],
+      "source_url": "https://www.mass.gov/info-details/dcr-watershed-system-salt-reduction#holden-4",
+      "source_locator": "FY21 / Holden",
+      "record_kind": "OFFICIAL_HISTORICAL_AWARD",
+      "grant_is_equipment_price": false,
+      "current_quote_available": false,
+      "installation_verified": false,
+      "road_coverage_verified": false
+    },
+    {
+      "record_id": "DCR_FY2021_WEST_BOYLSTON",
+      "fiscal_year": 2021,
+      "town": "WEST BOYLSTON",
+      "grant_award_usd": 18592,
+      "reported_historical_project_total_usd": null,
+      "equipment_categories": [
+        "spreader_controls",
+        "plow_blades",
+        "temperature_sensors"
+      ],
+      "source_url": "https://www.mass.gov/info-details/dcr-watershed-system-salt-reduction#west-boylston-3",
+      "source_locator": "FY21 / West Boylston",
+      "record_kind": "OFFICIAL_HISTORICAL_AWARD",
+      "grant_is_equipment_price": false,
+      "current_quote_available": false,
+      "installation_verified": false,
+      "road_coverage_verified": false
+    }
+  ],
+  "town_summary": [
+    {
+      "town": "HOLDEN",
+      "award_count": 5,
+      "historical_grant_total_usd": 84000,
+      "latest_award_fiscal_year": 2025,
+      "categories_in_prior_awards": [
+        "brine_application",
+        "brine_production",
+        "plow_blades",
+        "spreader_controls",
+        "storage_or_facility"
+      ],
+      "asset_status": "Prior funding documented; installed equipment and spare capacity unverified"
+    },
+    {
+      "town": "STERLING",
+      "award_count": 4,
+      "historical_grant_total_usd": 66168,
+      "latest_award_fiscal_year": 2026,
+      "categories_in_prior_awards": [
+        "brine_application",
+        "plow_blades",
+        "spreader_controls"
+      ],
+      "asset_status": "Prior funding documented; installed equipment and spare capacity unverified"
+    },
+    {
+      "town": "WEST BOYLSTON",
+      "award_count": 4,
+      "historical_grant_total_usd": 38083,
+      "latest_award_fiscal_year": 2026,
+      "categories_in_prior_awards": [
+        "brine_application",
+        "plow_blades",
+        "spreader_controls",
+        "storage_or_facility",
+        "temperature_sensors"
+      ],
+      "asset_status": "Prior funding documented; installed equipment and spare capacity unverified"
+    }
+  ],
+  "current_procurement_costs_verified": false,
+  "equipment_capacity_verified": false,
+  "observed_local_salt_savings_available": false,
+  "evidence_rules": [
+    "Historical awards are evidence of funding, not current equipment quotes.",
+    "Reported historical total costs are separate from grant awards and are not inflation-adjusted current prices.",
+    "A funded purpose does not prove installation, availability, or road coverage.",
+    "Prior award totals do not determine current grant eligibility or budget allocations."
+  ]
+}

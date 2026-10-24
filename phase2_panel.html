@@ -1,0 +1,32 @@
+<section class="panel" id="evidence-panel">
+  <h2>第二阶段　把历史证据接入投资规划</h2>
+  <p>已核对三个城镇 FY2021–FY2026 的 <strong>13 条官方资助记录</strong>，补助合计 <strong>$188,251</strong>。这些是历史资助事实，未来投资仍需报价、安装核验和设备容量资料。</p>
+  <table><thead><tr><th>城镇</th><th>记录数</th><th>历史补助合计</th><th>最近获资助财年</th></tr></thead><tbody>__AWARD_SUMMARY_ROWS__</tbody></table>
+  <p class="small note">Holden FY2023：补助 $20,000；官方另记载盐水制作与存储项目总价约 $150,000。两者分别记录，均不自动替换本轮模拟成本。已有资助用途不等于已核验设备安装或可共享容量。</p>
+  <details><summary>查看 13 条历史记录与原始出处</summary><div class="scroll"><table><thead><tr><th>财年／城镇</th><th>项目类别</th><th>补助金额</th><th>另行记载的历史总价</th><th>出处</th></tr></thead><tbody>__AWARD_RECORD_ROWS__</tbody></table></div></details>
+</section>
+<section class="panel" id="planner-panel">
+  <h2>调整项目，再比较资金分配</h2>
+  <p class="sub">比较独立投资、共享投资，以及“每镇至少选择一个项目”的约束。目标仍是最大化 Zone A 内模拟减少施盐量。</p>
+  <div class="controls">
+    <label>三镇总预算上限（美元）<input id="budget" type="number" min="0" step="15000" value="75000"></label>
+    <label>模拟效果情景<select id="effect"><option value="central">中央效果</option><option value="low">保守效果</option><option value="high">乐观效果</option></select></label>
+    <label>模拟基准施盐强度（t／中心线 km／冬季）<input id="intensity" type="number" min="0" step="0.5" value="5"></label>
+    <button id="export" type="button">导出当前方案 JSON</button>
+    <button id="reset-scenario" type="button">恢复默认情景</button>
+  </div>
+  <details id="editor"><summary>编辑六个项目的模拟成本、覆盖率和启用状态</summary>
+    <p class="small">价格和覆盖率是规划输入。停用可能重复采购的设备后，系统会重新计算。覆盖率表示所选市镇铺装路段的均匀覆盖比例，尚无路线级覆盖资料。</p>
+    <div class="scroll"><table id="project-editor"><thead><tr><th>城镇／方案</th><th>启用</th><th>模拟成本（美元）</th><th>模拟覆盖率（%）</th><th>保守／中央／乐观减盐率</th></tr></thead><tbody>__PROJECT_EDITOR_ROWS__</tbody></table></div>
+    <label class="small">导入此前导出的情景 JSON <input id="import-scenario" type="file" accept="application/json,.json"></label>
+    <p class="small" id="import-status" aria-live="polite"></p>
+  </details>
+  <p id="planner-error" role="alert" hidden></p>
+  <div id="result-output">
+    <p id="caps" class="small"></p>
+    <div class="two"><div><h3>各镇独立投资</h3><div class="metrics"><div><div class="small">模拟 Zone A 减少施盐</div><div class="value" id="ind-benefit"></div></div><div><div class="small">选中的模拟投入</div><div class="value" id="ind-cost"></div></div></div><div class="bar-track"><div id="ind-bar" class="bar independent"></div></div><div id="ind-projects"></div></div><div><h3>共享预算投资</h3><div class="metrics"><div><div class="small">模拟 Zone A 减少施盐</div><div class="value" id="pool-benefit"></div></div><div><div class="small">选中的模拟投入</div><div class="value" id="pool-cost"></div></div></div><div class="bar-track"><div id="pool-bar" class="bar"></div></div><div id="pool-projects"></div></div></div>
+    <p class="note" id="explanation" aria-live="polite"></p>
+    <div class="two"><div class="detail"><h3>共享预算　每镇至少一个项目</h3><p id="participation-summary"></p><div id="participation-projects"></div><p class="small">这是参与规则，不能直接解释为社会公平、均等水质改善或道路安全保证。</p></div><div class="detail"><h3>相同实际投入核查</h3><p id="equal-spend"></p><p id="equal-spend-participation"></p><p class="small">同时展示未用预算与参与城镇数，避免把更多支出带来的收益误归为算法提升。</p></div></div>
+    <p class="small note">所有减少施盐量都是情景计算。价格、覆盖率、减盐率、基准强度仍未由当前报价和当地撒盐记录验证。历史资助额不进入这些收益公式；结果不是水中氯化物浓度。</p>
+  </div>
+</section>

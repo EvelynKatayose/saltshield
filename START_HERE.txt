@@ -1,5 +1,9 @@
 SaltShield 已完成首轮真实数据与模拟投资分析。
 
+第二阶段已完成：结果页新增13条DCR官方历史资助记录（FY2021至FY2026，合计188251美元），可以编辑设备模拟成本、覆盖率和启用状态，比较“每镇至少一个项目”的参与约束，并导入导出情景。历史资助不是设备当前报价或已安装证明。
+
+第二阶段重跑顺序：python build_evidence.py；python phase2_model.py；python build_report.py。验证：python -m unittest test_phase2 -v；如有Node.js，再运行node test_ui.cjs。
+
 先打开 results/SaltShield_Wachusett.html，可离线查看地图、切换道路类别、修改总预算与效果情景，并导出当前比较。
 
 真实数据：四类官方图层及原始下载记录。三个城镇在汇水区内的道路记录长度合计约466.91 km；其中约462.64 km匹配该水源A/B/C保护区。长度为中心线长度，不是车道公里。
