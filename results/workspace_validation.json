@@ -30,14 +30,16 @@
     "reload_restores_draft_without_geometry_mutation",
     "draft_from_other_evidence_snapshot_rejected"
   ],
-  "report_sha256": "27d3d740b1d426c895708cf44cc090b6fc320c0feecba06d5e558fb3e6374c3c",
+  "report_sha256": "73282f41f7c91dbcb74795a9f9c06c0527eafc62252e5607d85a940d9ce37e05",
   "real_browser_checks": [
     "Chrome: English Overview, Investments and Road Coverage sections render with default results",
     "Chrome: light and dark appearance visually inspected",
-    "Chrome: local draft status visible after reload"
+    "Chrome: local draft status visible after reload",
+    "Chrome: final file:// report loads offline with populated live brief and saved-draft status"
   ],
   "verification_limits": [
-    "Narrow-screen layout and the print dialog were not visually inspected. Print handler, export content and draft restoration were verified with embedded-script UI checks."
+    "A 400px preview exposed horizontal overflow; navigation, grid minimum sizes and mobile form layout were revised. The final narrow-screen layout was not visually reverified.",
+    "Print handler and exported brief content pass UI-state checks; print-preview pagination was not verified."
   ],
   "runtime_dependencies": "Self-contained HTML; no remote fonts, assets, framework or model calls."
 }
