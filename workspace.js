@@ -3,14 +3,14 @@
   const get=id=>document.getElementById(id);
   const views=['overview','investments','coverage','evidence'];
   const titles={overview:'Overview',investments:'Investments',coverage:'Road Coverage',evidence:'Evidence'};
-  const policies={participation:'Shared funding · a project in every town',pooled:'Shared funding · unrestricted allocation',independent:'Independent town budgets'};
+  const policies={participation:'Shared funding · a project in every town',pooled:'Shared funding · unrestricted allocation',independent:'Independent town budgets',greedy:'Benefit / cost heuristic',statusQuo:'No new investment'};
   const spatialLabels={integer:'Whole-cell optimum',greedy:'Ratio heuristic',uniform:'Uniform coverage',fractional_bound:'Fractional upper bound'};
   let briefHtml='';
   let restorationNotice='';
   function saveDraft() {
     if(!current||!currentInputs){get('draft-status').textContent='Check investment inputs';return;}
     try{
-      const draft={schema_version:2,evidence_sha256:ANALYSIS.phase2.evidence.source.sha256,inputs:{budget:currentInputs.budget,intensity:currentInputs.intensity,effect:currentInputs.effect,projects:currentInputs.projects.map(p=>({project_id:p.project_id,capital_cost_usd:p.capital_cost_usd,coverage_fraction_assumed:p.coverage_fraction_assumed,enabled:p.enabled}))},coverage:{fraction:String(Number(get('spatial-fraction').value)),method:get('spatial-method').value},brief_policy:get('brief-policy').value};
+      const draft={schema_version:2,evidence_sha256:ANALYSIS.phase2.evidence.source.sha256,parameter_fingerprint:ANALYSIS.planning.parameter_fingerprint,inputs:{budget:currentInputs.budget,intensity:currentInputs.intensity,effect:currentInputs.effect,objective:currentInputs.objective,projects:currentInputs.projects.map(p=>({project_id:p.project_id,capital_cost_usd:p.capital_cost_usd,coverage_fraction_assumed:p.coverage_fraction_assumed,enabled:p.enabled}))},coverage:{fraction:String(Number(get('spatial-fraction').value)),method:get('spatial-method').value},brief_policy:get('brief-policy').value};
       if(!globalThis.localStorage)throw Error('Storage unavailable');
       globalThis.localStorage.setItem('saltshield-draft',JSON.stringify(draft));
       get('draft-status').textContent=restorationNotice||'Saved on this device';restorationNotice='';
@@ -63,11 +63,14 @@
     const uniform=cases.reduce((s,c)=>s+c.plans.uniform.covered_zone_a_km,0);
     const projectRows=towns.map(t=>{const p=plan.selected.find(x=>x.town===t);return '<tr><td>'+escapeHtml(niceTown(t))+'</td><td>'+(p?(p.project_type==='CAL'?'Calibration / controls':'Brine / pre-wetting'):'No project')+'</td><td>'+money(p?.capital_cost_usd||0)+'</td><td>'+(p?(p.coverage_fraction_assumed*100).toFixed(0)+'%':'—')+'</td></tr>';}).join('');
     const metric=(label,value,note)=>'<div class="brief-metric"><span>'+label+'</span><strong>'+value+'</strong><small>'+note+'</small></div>';
-    briefHtml='<p class="small" style="margin-bottom:21px">'+policies[policy]+' · '+escapeHtml(currentInputs.effect)+' assumptions</p><div class="brief-metrics">'+metric('Selected capital',money(plan.cost),'of '+money(currentInputs.budget)+' ceiling')+metric('Modeled Zone A reduction',tonnes(plan.zoneA),'avoided application per winter')+metric('Towns with a project',plan.townsSelected+' / '+towns.length,money(plan.unspent)+' budget unused')+'</div>'+
+    const objective=currentInputs.objective,scope=objective==='all'?'A/B/C':'Zone A';
+    const stability=currentAssessment.sensitivity.selection.filter(r=>r.policy===policy&&plan.selected.some(p=>p.project_id===r.project_id)).map(r=>escapeHtml(r.project_id)+': selected in '+r.selected_cases+' / '+r.feasible_cases+' feasible cases').join('; ')||'No equipment selected in this case';
+    briefHtml='<p class="small" style="margin-bottom:21px">'+policies[policy]+' · '+escapeHtml(currentInputs.effect)+' assumptions · '+scope+' objective</p><div class="brief-metrics">'+metric('Selected capital',money(plan.cost),'of '+money(currentInputs.budget)+' ceiling')+metric('Modeled '+scope+' reduction',tonnes(plan[objective]),'avoided application per winter')+metric('Towns with a project',plan.townsSelected+' / '+towns.length,money(plan.unspent)+' budget unused')+'</div>'+
       '<table><thead><tr><th>Town</th><th>Equipment package</th><th>Capital</th><th>Coverage</th></tr></thead><tbody>'+projectRows+'</tbody></table>'+
-      '<div class="brief-section"><h3>The budget check</h3><p>At the independent plan\'s actual spending of '+money(current.independent.cost)+', unrestricted pooling models '+tonnes(current.equalSpend.zoneA)+' of avoided Zone A application across '+current.equalSpend.townsSelected+' funded towns. '+(current.equalSpendParticipation?'Requiring a project in every town at that spending models '+tonnes(current.equalSpendParticipation.zoneA)+'.':'Funding every town at that spending is infeasible.')+'</p></div>'+
+      '<div class="brief-section"><h3>The budget check</h3><p>At the independent plan\'s actual spending of '+money(current.independent.cost)+', unrestricted pooling models '+tonnes(current.equalSpend[objective])+' of avoided '+scope+' application across '+current.equalSpend.townsSelected+' funded towns. '+(current.equalSpendParticipation?'Requiring a project in every town at that spending models '+tonnes(current.equalSpendParticipation[objective])+'.':'Funding every town at that spending is infeasible.')+' At the full ceiling, the ratio heuristic models '+tonnes(current.greedy[objective])+' and the pooled optimum '+tonnes(current.pooled[objective])+'.</p></div>'+
+      '<div class="brief-section"><h3>Parameter sensitivity</h3><p>'+stability+'. Tested 27 assumed cases across costs, baseline intensity and effect bounds. These counts are not confidence probabilities.</p></div>'+
       '<div class="brief-section"><h3>Road coverage, considered separately</h3><p>'+spatialLabels[method]+' · '+(fraction*100).toFixed(0)+'% capacity per town. Covers '+spatialTotal('covered_zone_a_km').toFixed(2)+' km of Zone A roads versus '+uniform.toFixed(2)+' km under uniform coverage, using '+spatialTotal('covered_road_km').toFixed(2)+' of '+spatialTotal('capacity_km').toFixed(2)+' km capacity. '+(method==='uniform'||method==='fractional_bound'?'This benchmark permits partial cells. ':'Whole cells are selected. ')+'Planning cells are not validated maintenance routes.</p></div>'+
-      '<div class="brief-section"><h3>Assumptions and next checks</h3><p>Baseline salt: '+currentInputs.intensity+' t / centerline km / winter. Project prices, coverage and reduction rates are illustrative. Verify town salt logs, existing equipment, service requirements and current vendor quotes before procurement. Results do not predict water concentrations or safe road service.</p></div>'+
+      '<div class="brief-section"><h3>Assumptions and next checks</h3><p>Mean baseline salt: '+currentInputs.intensity+' t / centerline km / winter. Town profiles scale together. Project prices, coverage and reduction rates are illustrative. Verify town salt logs, existing equipment, service requirements and current vendor quotes before procurement. Results do not predict water concentrations or safe road service.</p></div>'+
       '<div class="brief-section"><p>Sources: MassGIS / MassDOT / MassDEP geometry; <a href="https://www.mass.gov/info-details/dcr-watershed-system-salt-reduction">DCR historical awards</a> (13 grants; $188,251); ERA5 regional context (five winters; 18,144 hours). Weather does not calibrate these benefits. Evidence snapshot: <code>'+ANALYSIS.phase2.evidence.source.sha256.slice(0,12)+'</code>.</p></div>';
     get('brief-content').innerHTML=briefHtml;
   }
@@ -87,14 +90,16 @@
       if(raw.length>2000000)throw Error('Oversized draft');
       const draft=JSON.parse(raw), input=draft.inputs;
       if(draft.schema_version!==2||draft.evidence_sha256!==ANALYSIS.phase2.evidence.source.sha256)throw Error('Different evidence snapshot');
+      if(draft.parameter_fingerprint!==undefined&&draft.parameter_fingerprint!==ANALYSIS.planning.parameter_fingerprint)throw Error('Different parameter snapshot');
+      const objective=input?.objective??'zoneA';if(!['zoneA','all'].includes(objective))throw Error('Invalid planning objective');
       if(typeof input?.budget!=='number'||typeof input?.intensity!=='number'||!['low','central','high'].includes(input?.effect)||!Array.isArray(input?.projects)||input.projects.length!==originalProjects.length)throw Error('Invalid inputs');
       const pp=new Map(input.projects.map(p=>[p.project_id,p]));
       if(pp.size!==originalProjects.length||originalProjects.some(p=>!pp.has(p.project_id)))throw Error('Invalid project IDs');
       const restored=originalProjects.map(p=>{const q=pp.get(p.project_id);if(typeof q.enabled!=='boolean'||typeof q.capital_cost_usd!=='number'||typeof q.coverage_fraction_assumed!=='number')throw Error('Invalid project controls');return {...p,enabled:q.enabled,capital_cost_usd:q.capital_cost_usd,coverage_fraction_assumed:q.coverage_fraction_assumed};});
-      SaltShield.compare(restored,input.budget,towns,input.effect,input.intensity);
+      SaltShieldV1.evaluate(restored,input.budget,towns,input.effect,effectiveRates(input.intensity),objective,policyCaps(input.budget));
       if(!['0.25','0.5','0.75','1'].includes(draft.coverage?.fraction)||!Object.keys(spatialLabels).includes(draft.coverage?.method)||!Object.keys(policies).includes(draft.brief_policy))throw Error('Invalid coverage or policy');
       for(const p of restored){const row=document.querySelector('[data-project="'+p.project_id+'"]');row.querySelector('[data-field="cost"]').value=p.capital_cost_usd;row.querySelector('[data-field="coverage"]').value=p.coverage_fraction_assumed*100;row.querySelector('[data-field="enabled"]').checked=p.enabled;}
-      get('budget').value=input.budget;get('intensity').value=input.intensity;get('effect').value=input.effect;
+      get('budget').value=input.budget;get('intensity').value=input.intensity;get('effect').value=input.effect;get('objective').value=objective;
       get('spatial-fraction').value=draft.coverage.fraction;get('spatial-method').value=draft.coverage.method;get('brief-policy').value=draft.brief_policy;
       get('spatial-fraction').dispatchEvent(new Event('change'));update();
       restorationNotice='Draft restored on this device';

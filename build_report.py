@@ -142,6 +142,14 @@ def report(a):
     ownership=''.join(f"<tr><td>{r['town'].title()}</td><td>{html.escape(r['jurisdiction_label'])}</td><td>{num(r['protected_centerline_km'])}</td></tr>" for r in a['owners'])
     sources=''.join(f'<li><a href="{u}" target="_blank" rel="noreferrer">{k.replace("_"," ").title()}</a></li>' for k,u in a['official_sources'].items())
     template=(ROOT/'report_template.html').read_text()
+    from planning_v1 import parameter_hashes
+    planning=json.loads((OUT/'planning_v1.json').read_text())
+    if planning['base_analysis_sha256']!=hashlib.sha256((OUT/'analysis.json').read_bytes()).hexdigest() or planning['parameter_sha256']!=parameter_hashes():
+        raise ValueError('Planning inputs changed. Run planning_v1.py before building the report.')
+    a={**a,'planning':planning}
+    operations_rows=''.join('<tr><th>'+html.escape(r['town_id'].title())+'</th><td>'+html.escape(r['baseline_t_per_centerline_km_per_winter'])+'</td><td>'+html.escape(r['data_status'])+'</td><td>'+html.escape(r['source'])+'</td></tr>' for r in planning['operations'])
+    parameter_project_rows=''.join('<tr><th>'+html.escape(p['town'].title()+' / '+p['project_type'])+'</th><td>'+format(p['capital_cost_usd'],',.0f')+'</td><td>'+str(round(p['reduction_low']*100))+'% / '+str(round(p['reduction_fraction']*100))+'% / '+str(round(p['reduction_high']*100))+'%</td><td>'+html.escape(p['input_source'])+'</td></tr>' for p in planning['projects'])
+    template=template.replace('__PARAMETER_PANEL__',(ROOT/'parameter_panel.html').read_text().replace('__OPERATIONS_ROWS__',operations_rows).replace('__PARAMETER_PROJECT_ROWS__',parameter_project_rows).replace('__PARAMETER_FINGERPRINT__',planning['parameter_fingerprint'][:16]))
     phase2_path=OUT/'phase2_analysis.json'
     if phase2_path.exists():
         a={**a,'phase2':json.loads(phase2_path.read_text())}
@@ -152,8 +160,10 @@ def report(a):
         summary_rows=''.join(f"<tr><th>{s['town'].title()}</th><td>{s['award_count']}</td><td>${s['historical_grant_total_usd']:,}</td><td>FY{s['latest_award_fiscal_year']}</td></tr>" for s in evidence['town_summary'])
         categories={'spreader_controls':'Spreader controls','brine_production':'Brine production','brine_application':'Brine application','plow_blades':'Plow blades','storage_or_facility':'Storage / facilities','temperature_sensors':'Temperature sensors'}
         award_rows=''.join('<tr><td>FY'+str(r['fiscal_year'])+' / '+r['town'].title()+'</td><td>'+html.escape(' / '.join(categories[x] for x in r['equipment_categories']))+'</td><td>$'+format(r['grant_award_usd'],',')+'</td><td>'+('$'+format(r['reported_historical_project_total_usd'],',') if r['reported_historical_project_total_usd'] is not None else 'Not reported')+'</td><td><a href="'+html.escape(r['source_url'],quote=True)+'" target="_blank" rel="noreferrer">DCR</a></td></tr>' for r in evidence['records'])
-        editor_rows=''.join('<tr data-project="'+p['project_id']+'"><th>'+p['town'].title()+' / '+p['project_type']+'</th><td><input type="checkbox" checked data-field="enabled" aria-label="Include '+p['town'].title()+' '+p['project_type']+'"></td><td><input type="number" min="0" step="1000" value="'+str(p['capital_cost_usd'])+'" data-field="cost" aria-label="'+p['town'].title()+' '+p['project_type']+' assumed cost"></td><td><input type="number" min="0" max="100" step="10" value="100" data-field="coverage" aria-label="'+p['town'].title()+' '+p['project_type']+' assumed coverage"></td><td>'+str(round(p['reduction_low']*100))+'% / '+str(round(p['reduction_fraction']*100))+'% / '+str(round(p['reduction_high']*100))+'%</td></tr>' for p in phase2['projects'])
-        template=template.replace('__PLANNER_PANEL__',(ROOT/'phase2_panel.html').read_text().replace('__PROJECT_EDITOR_ROWS__',editor_rows))
+        editor_rows=''.join('<tr data-project="'+p['project_id']+'"><th>'+p['town'].title()+' / '+p['project_type']+'</th><td><input type="checkbox" '+('checked ' if p['enabled'] else '')+'data-field="enabled" aria-label="Include '+p['town'].title()+' '+p['project_type']+'"></td><td><input type="number" min="0" step="1000" value="'+str(p['capital_cost_usd'])+'" data-field="cost" aria-label="'+p['town'].title()+' '+p['project_type']+' assumed cost"></td><td><input type="number" min="0" max="100" step="10" value="'+str(p['coverage_fraction_assumed']*100)+'" data-field="coverage" aria-label="'+p['town'].title()+' '+p['project_type']+' assumed coverage"></td><td>'+str(round(p['reduction_low']*100))+'% / '+str(round(p['reduction_fraction']*100))+'% / '+str(round(p['reduction_high']*100))+'%</td></tr>' for p in planning['projects'])
+        planner=(ROOT/'phase2_panel.html').read_text().replace('__PROJECT_EDITOR_ROWS__',editor_rows).replace('value="75000"','value="'+str(planning['config']['total_budget_usd'])+'"').replace('value="5"','value="'+str(planning['baseline_reference_mean'])+'"')
+        for value in [planning['config']['objective'],planning['config']['effect']]:planner=planner.replace('value="'+value+'">','value="'+value+'" selected>')
+        template=template.replace('__PLANNER_PANEL__',planner)
         template=template.replace('__EVIDENCE_PANEL__',(ROOT/'evidence_panel.html').read_text().replace('__AWARD_SUMMARY_ROWS__',summary_rows).replace('__AWARD_RECORD_ROWS__',award_rows))
     else:
         raise ValueError('Build evidence and phase2_model.py before creating the workspace.')
@@ -169,8 +179,8 @@ def report(a):
         raise ValueError('Build weather and spatial outputs before creating the workspace.')
     maximum=max(s['within_watershed_centerline_km'] for s in a['summary'])
     town_cards=''.join(f'<div class="town-detail"><div class="town-name"><span>{s["town"].title()}</span><span>{num(s["within_watershed_centerline_km"])} <em>km</em></span></div><div class="town-strip"><span style="width:{s["within_watershed_centerline_km"]/maximum*100:.2f}%"></span></div><small>{num(s["eligible_municipal_paved_zone_a_km"])} km of eligible Zone A roads</small></div>' for s in a['summary'])
-    replacements={'__MAP__':svg_map(),'__MEASURED_ROWS__':measured,'__OWNER_ROWS__':ownership,'__SOURCES__':sources,'__ANALYSIS_JSON__':json.dumps(a,ensure_ascii=False).replace('</','<\\/'),'__SOLVER_JS__':(ROOT/'simulation.js').read_text(),
-                  '__WORKSPACE_CSS__':(ROOT/'workspace.css').read_text(),'__PLANNER_JS__':(ROOT/'phase2_ui.js').read_text(),'__SPATIAL_JS__':(ROOT/'phase3_ui.js').read_text(),'__WORKSPACE_JS__':(ROOT/'workspace.js').read_text(),
+    replacements={'__MAP__':svg_map(),'__MEASURED_ROWS__':measured,'__OWNER_ROWS__':ownership,'__SOURCES__':sources,'__ANALYSIS_JSON__':json.dumps(a,ensure_ascii=False).replace('</','<\\/'),'__SOLVER_JS__':(ROOT/'simulation.js').read_text()+'\n'+(ROOT/'planning_v1.js').read_text(),
+                  '__WORKSPACE_CSS__':(ROOT/'workspace.css').read_text(),'__PLANNER_JS__':(ROOT/'phase2_ui.js').read_text()+'\n'+(ROOT/'planning_ui.js').read_text(),'__SPATIAL_JS__':(ROOT/'phase3_ui.js').read_text(),'__WORKSPACE_JS__':(ROOT/'workspace.js').read_text(),
                   '__TOWN_CARDS__':town_cards,'__TOTAL_ROADS__':num(sum(s['within_watershed_centerline_km'] for s in a['summary'])),'__ELIGIBLE_A__':num(sum(s['eligible_municipal_paved_zone_a_km'] for s in a['summary']))}
     for key,value in replacements.items():template=template.replace(key,value)
     (OUT/'SaltShield_Wachusett.html').write_text(template)

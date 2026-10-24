@@ -1,0 +1,7 @@
+﻿project_id,town_id,project_type,capital_cost_usd,annual_cost_change_usd,reduction_low,reduction_mid,reduction_high,coverage_group_id,coverage_fraction,exclusive_group,enabled,data_status,source
+HOLDEN_CAL,HOLDEN,CAL,15000,,0.05,0.1,0.15,HOLDEN_MUNICIPAL_PAVED,1,HOLDEN,true,SIMULATED,Demonstration package; not a vendor quote or measured effect
+HOLDEN_BRINE,HOLDEN,BRINE,30000,,0.15,0.25,0.35,HOLDEN_MUNICIPAL_PAVED,1,HOLDEN,true,SIMULATED,Demonstration package; not a vendor quote or measured effect
+STERLING_CAL,STERLING,CAL,15000,,0.05,0.1,0.15,STERLING_MUNICIPAL_PAVED,1,STERLING,true,SIMULATED,Demonstration package; not a vendor quote or measured effect
+STERLING_BRINE,STERLING,BRINE,30000,,0.15,0.25,0.35,STERLING_MUNICIPAL_PAVED,1,STERLING,true,SIMULATED,Demonstration package; not a vendor quote or measured effect
+WEST_BOYLSTON_CAL,WEST BOYLSTON,CAL,15000,,0.05,0.1,0.15,WEST_BOYLSTON_MUNICIPAL_PAVED,1,WEST BOYLSTON,true,SIMULATED,Demonstration package; not a vendor quote or measured effect
+WEST_BOYLSTON_BRINE,WEST BOYLSTON,BRINE,30000,,0.15,0.25,0.35,WEST_BOYLSTON_MUNICIPAL_PAVED,1,WEST BOYLSTON,true,SIMULATED,Demonstration package; not a vendor quote or measured effect

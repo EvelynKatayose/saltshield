@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "python_tests": 34,
+  "parity": {
+    "status": "PASS",
+    "matched_cases": 152,
+    "matched_policy_results": 1064,
+    "full_sensitivity_cases": 54,
+    "invalid_cases": 7,
+    "assessment_runtime_ms": 3
+  },
+  "ui_checks": [
+    "default_results",
+    "coverage_updates_results",
+    "invalid_input_hides_stale_results",
+    "reset_restores_defaults",
+    "disabled_town_infeasibility_visible",
+    "participation_tradeoff_visible",
+    "export_contains_evidence_and_inputs",
+    "import_roundtrip_ignores_geometry_tampering",
+    "wrong_evidence_snapshot_rejected",
+    "incomplete_project_import_rejected",
+    "spatial_default_and_map_render",
+    "spatial_full_capacity_covers_all",
+    "uniform_map_uses_fractional_shading",
+    "spatial_csv_matches_active_case",
+    "workspace_navigation_and_keyboard",
+    "appearance_switch_persists",
+    "brief_tracks_investment_inputs",
+    "brief_tracks_spatial_case",
+    "downloadable_brief_matches_selected_policy",
+    "print_uses_current_brief",
+    "invalid_inputs_clear_brief",
+    "infeasible_policy_cannot_export_brief",
+    "entire_offline_report_is_english",
+    "autosave_keeps_last_valid_inputs",
+    "reload_restores_draft_without_geometry_mutation",
+    "draft_from_other_evidence_snapshot_rejected",
+    "four_baselines_and_no_false_gain_claim",
+    "project_exclusion_reasons_visible",
+    "sensitivity_selection_patterns_visible",
+    "objective_switch_updates_cards_and_brief",
+    "four_baseline_comparison_csv_export",
+    "sensitivity_csv_contains_189_policy_cases",
+    "objective_and_assessment_export_roundtrip",
+    "changed_parameter_snapshot_import_rejected",
+    "current_state_brief_supported"
+  ],
+  "parameter_fingerprint": "a20be0c85fe29462b20d0ef9c9f4735a70940e22893473e6e5297a9b24c8b368",
+  "report_sha256": "2004c8b21147bef0727d46e690764e7b54167f3ac48901a04a66ac98e963d925",
+  "unit_basis": "CENTERLINE_KM_PER_WINTER",
+  "real_browser_checks": [
+    "Chrome: offline file loads and restores the saved draft",
+    "Chrome: current-state, independent, ratio heuristic and pooled table shows the expected default values",
+    "Chrome: project counterfactual reasons and 27-case selection frequencies are present",
+    "Chrome: new comparison table visually inspected in the existing macOS-style workspace"
+  ],
+  "verification_limits": [
+    "Final narrow-screen layout and print-preview pagination were not reverified.",
+    "Application rates, project prices and effects remain simulated; no chloride concentration or verified safety outcome is inferred."
+  ]
+}

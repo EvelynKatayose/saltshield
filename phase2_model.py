@@ -38,22 +38,36 @@ def materialize(projects, towns, effect='central', baseline_intensity=5):
             number(q[k], k)
         if q['covered_zone_a_km_measured'] > q['covered_protected_km_measured'] + 1e-8:
             raise ValueError('Zone A coverage exceeds all protected roads')
+        centerline = number(q.get('covered_centerline_km_measured', q['covered_protected_km_measured']), 'eligible length')
+        if q['covered_protected_km_measured'] > centerline + 1e-8:
+            raise ValueError('Protected coverage exceeds eligible roads')
         factor = baseline_intensity * q['coverage_fraction_assumed'] * q[field]
         q['active_reduction'] = q[field]
         q['avoided_zone_a_tonnes_simulated'] = q['covered_zone_a_km_measured'] * factor
         q['avoided_all_zones_tonnes_simulated'] = q['covered_protected_km_measured'] * factor
+        q['avoided_all_eligible_tonnes_simulated'] = centerline * factor
+        q['baseline_tonnes_simulated'] = centerline * baseline_intensity * q['coverage_fraction_assumed']
+        for field_name in ['baseline_tonnes_simulated','avoided_zone_a_tonnes_simulated','avoided_all_zones_tonnes_simulated','avoided_all_eligible_tonnes_simulated']:
+            number(q[field_name],'derived mass')
         output.append(q)
     return output
 
 
-def plan(projects, budget, towns, local_caps=None, require_each_town=False):
+def plan(projects, budget, towns, local_caps=None, require_each_town=False, objective='zoneA', force_project_id=None):
     number(budget, 'budget')
+    if objective not in ('zoneA', 'all'):
+        raise ValueError('Unknown objective')
     if len(set(towns)) != len(towns) or not towns:
         raise ValueError('Towns must be unique and nonempty')
     if local_caps is not None:
         for town in towns:
             number(local_caps[town], 'local cap')
     options = [[None] + [p for p in projects if p['town'] == t and p.get('enabled', True)] for t in towns]
+    if force_project_id is not None:
+        forced = next((p for p in projects if p['project_id'] == force_project_id and p.get('enabled', True)), None)
+        if forced is None:
+            return None
+        options[towns.index(forced['town'])] = [forced]
     best = None; feasible = 0
     for choices in itertools.product(*options):
         selected = [p for p in choices if p is not None]
@@ -67,21 +81,21 @@ def plan(projects, budget, towns, local_caps=None, require_each_town=False):
         zone_a = sum(p['avoided_zone_a_tonnes_simulated'] for p in selected)
         all_zones = sum(p['avoided_all_zones_tonnes_simulated'] for p in selected)
         feasible += 1
-        key = (zone_a, all_zones, -cost)
+        key = (zone_a, all_zones, -cost) if objective == 'zoneA' else (all_zones, zone_a, -cost)
         if best is None or key > best[0]:
-            best = (key, {'cost': cost, 'zoneA': zone_a, 'all': all_zones, 'selected': selected, 'unspent': budget - cost, 'townsSelected': len(selected)})
+            best = (key, {'cost': cost, 'zoneA': zone_a, 'all': all_zones, 'eligible': sum(p.get('avoided_all_eligible_tonnes_simulated', p['avoided_all_zones_tonnes_simulated']) for p in selected), 'selected': selected, 'unspent': budget - cost, 'townsSelected': len(selected)})
     if best is None:
         return None
     return {**best[1], 'feasibleCombinations': feasible}
 
 
-def compare(projects, budget, towns, effect='central', baseline_intensity=5):
+def compare(projects, budget, towns, effect='central', baseline_intensity=5, objective='zoneA'):
     active = materialize(projects, towns, effect, baseline_intensity)
-    independent = plan(active, budget, towns, {t: budget / len(towns) for t in towns})
-    pooled = plan(active, budget, towns)
-    participation = plan(active, budget, towns, require_each_town=True)
-    same_spend = plan(active, independent['cost'], towns)
-    same_spend_participation = plan(active, independent['cost'], towns, require_each_town=True)
+    independent = plan(active, budget, towns, {t: budget / len(towns) for t in towns}, objective=objective)
+    pooled = plan(active, budget, towns, objective=objective)
+    participation = plan(active, budget, towns, require_each_town=True, objective=objective)
+    same_spend = plan(active, independent['cost'], towns, objective=objective)
+    same_spend_participation = plan(active, independent['cost'], towns, require_each_town=True, objective=objective)
     return {'independent': independent, 'pooled': pooled, 'participation': participation, 'equalSpend': same_spend, 'equalSpendParticipation': same_spend_participation}
 
 

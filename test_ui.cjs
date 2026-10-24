@@ -8,6 +8,7 @@ async function run() {
   const root = __dirname;
   const analysis = JSON.parse(fs.readFileSync(path.join(root, 'results/analysis.json'), 'utf8'));
   analysis.phase2 = JSON.parse(fs.readFileSync(path.join(root, 'results/phase2_analysis.json'), 'utf8'));
+  analysis.planning=JSON.parse(fs.readFileSync(path.join(root,'results/planning_v1.json'),'utf8'));
   const spatial = JSON.parse(fs.readFileSync(path.join(root, 'results/spatial_priority.json'), 'utf8'));
   const elements = new Map();
   function element(value = '') {
@@ -17,6 +18,8 @@ async function run() {
   }
   for (const id of ['budget','intensity','effect','planner-error','result-output','export','caps','ind-benefit','ind-cost','ind-projects','ind-bar','pool-benefit','pool-cost','pool-projects','pool-bar','explanation','participation-summary','participation-projects','equal-spend','equal-spend-participation','project-editor','reset-scenario','import-status','import-scenario']) elements.set(id, element());
   const get = id => elements.get(id);
+  for(const id of ['objective','ind-benefit-label','pool-benefit-label','comparison-export','baseline-totals','baseline-comparison','baseline-comparison-note','decision-policy','project-decisions','stability-summary','project-stability','sensitivity-export'])elements.set(id,element());
+  get('objective').value='zoneA';get('decision-policy').value='pooled';
   const viewNames=['overview','investments','coverage','evidence'];
   for(const id of ['view-title','brief-policy','brief-content','download-brief','print-brief','appearance','draft-status',...viewNames.map(v=>v+'-view'),...viewNames.map(v=>v+'-heading')])elements.set(id,element());
   get('brief-policy').value='participation';
@@ -146,6 +149,19 @@ async function run() {
   assert.equal(get('budget').value,'60000');assert.equal(get('spatial-fraction').value,'0.5');assert.match(get('brief-content').innerHTML,/63\.62 km/);assert.ok(!get('brief-content').innerHTML.includes('999999'));checks.push('reload_restores_draft_without_geometry_mutation');
   const wrongDraft=JSON.parse(JSON.stringify(savedDraft));wrongDraft.evidence_sha256='wrong';reload(wrongDraft);
   assert.equal(get('budget').value,'75000');assert.match(get('draft-status').textContent,/not restored/);checks.push('draft_from_other_evidence_snapshot_rejected');
+
+  assert.match(get('baseline-comparison').innerHTML,/No new investment/);assert.match(get('baseline-comparison').innerHTML,/Benefit \/ cost heuristic/);
+  assert.match(get('baseline-comparison-note').textContent,/same objective/);assert.match(get('baseline-totals').textContent,/1,?476\.20 t|1476\.20 t/);checks.push('four_baselines_and_no_false_gain_claim');
+  get('decision-policy').value='independent';get('decision-policy').listeners.change();assert.match(get('project-decisions').innerHTML,/independent budget ceiling/);checks.push('project_exclusion_reasons_visible');
+  assert.match(get('stability-summary').textContent,/27 assumed cases/);assert.match(get('project-stability').innerHTML,/Changes with assumptions|Selected in every|Never selected/);checks.push('sensitivity_selection_patterns_visible');
+
+  get('objective').value='all';get('objective').listeners.change();assert.equal(get('pool-benefit-label').textContent,'Modeled A/B/C reduction');assert.match(get('brief-content').innerHTML,/A\/B\/C objective/);checks.push('objective_switch_updates_cards_and_brief');
+  get('comparison-export').listeners.click();const comparisonCsv=await exported.text();assert.ok(comparisonCsv.includes('"statusQuo"'));assert.ok(comparisonCsv.includes('"greedy"'));assert.ok(comparisonCsv.includes('parameter_fingerprint'));checks.push('four_baseline_comparison_csv_export');
+  get('sensitivity-export').listeners.click();const sensitivityCsv=await exported.text();assert.equal(sensitivityCsv.trim().split('\n').length,190);checks.push('sensitivity_csv_contains_189_policy_cases');
+  get('export').listeners.click();const allScenario=JSON.parse(await exported.text());assert.equal(allScenario.inputs.objective,'all');assert.equal(allScenario.assessment.sensitivity.case_count,27);assert.equal(allScenario.parameter_fingerprint,analysis.planning.parameter_fingerprint);
+  get('reset-scenario').listeners.click();await load(allScenario);assert.equal(get('objective').value,'all');checks.push('objective_and_assessment_export_roundtrip');
+  allScenario.parameter_fingerprint='wrong';await load(allScenario);assert.match(get('import-status').textContent,/parameter snapshot does not match/);checks.push('changed_parameter_snapshot_import_rejected');
+  get('brief-policy').value='statusQuo';get('brief-policy').listeners.change();assert.match(get('brief-content').innerHTML,/No equipment selected/);assert.ok(!get('download-brief').disabled);checks.push('current_state_brief_supported');
   return { status: 'PASS', checks };
 }
 

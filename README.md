@@ -16,11 +16,14 @@ pip install -r requirements.txt
 python run_analysis.py
 python build_evidence.py
 python phase2_model.py
+python prepare_parameters.py
+python planning_v1.py
 python build_weather.py
 python spatial_priority.py
 python build_report.py
-python -m unittest test_phase2 test_phase3 -v
+python -m unittest test_phase2 test_phase3 test_planning_v1 -v
 node test_ui.cjs  # optional Node.js verification of embedded report scripts
+node test_planning.cjs  # Python/JavaScript numerical parity; needs python3
 ```
 
 Open `results/SaltShield_Wachusett.html`. For a fresh source snapshot, run
@@ -77,6 +80,90 @@ is recorded separately in `results/phase2_validation.json` after verification.
 With Node.js installed, run `node test_ui.cjs` for offline UI-state validation
 and scenario import/export round-trip tests. These are unit tests, not a
 substitute for visual browser inspection.
+
+## V1 project evaluation and editable input tables
+
+The Investments section now compares four baselines under a common total
+capital ceiling: no new investment, independently optimized town budgets, a
+benefit/cost ratio heuristic, and the pooled optimum. It also retains pooled
+participation and equal-actual-spend checks. Reported avoided-application tonnes
+are split into all eligible roads, protection zones A/B/C, and Zone A. The
+current-state baseline has positive assumed application and zero avoided
+application. The user can optimize Zone A priority or all protected roads;
+the selected objective is carried into the headline metrics, brief and exports.
+
+At the original $75,000/central/Zone-A case, both the ratio heuristic and pooled
+optimum select $75,000 of equipment and model 84.84 t of avoided Zone A
+application. The interface explicitly reports this tie. Independent optimization
+selects $45,000 and models 41.54 t; spending differences remain visible.
+
+The three first-version input files are in `data/parameters`:
+
+| File | Current role |
+| --- | --- |
+| `operations_baseline.csv` | One simulated winter salt-intensity profile per town and its fixed eligible municipal road group. |
+| `project_options.csv` | Six equipment alternatives with capital cost, reduction bounds, coverage, exclusivity, enablement and source. |
+| `scenario_config.json` | Frozen study scope, total/local budget ceilings, objective, effect and sensitivity rules. |
+
+`prepare_parameters.py` initializes these files once and retains existing edits.
+Edit the tables, run `python planning_v1.py`, then `python build_report.py`.
+The evaluator validates IDs, scope, numerical bounds, matching road groups,
+mutual exclusivity, explicit simulated status and provenance. The report rejects
+stale parameters using their hashes and the base-geography checksum. The
+Evidence section shows the saved defaults and links to their source files;
+live browser edits are separately labeled unverified scenario inputs.
+
+This version uses tonnes per **centerline km per winter**. Per-lane rates,
+application counts and annual operating-cost changes remain blank. They are not
+filled with guessed lanes, converted to per-event doses, or assumed to be zero.
+Supplying unsupported per-lane/event or operating-cost inputs stops evaluation
+instead of silently ignoring them. The initial loader accepts explicitly
+simulated operational/project records; integrating verified records requires
+review of their units and scope first.
+
+Local budget shares come from the config and scale proportionally when the
+browser total changes. Baseline town profiles come from the operations table;
+the browser mean-baseline control scales these profiles together. Source
+geometry, profiles and effect bounds cannot be overridden by scenario imports.
+New JSON exports/drafts contain a parameter fingerprint as well as the evidence
+fingerprint; mismatched parameter snapshots are rejected. Legacy schema-2
+scenarios without an objective default to Zone A priority.
+
+Project explanations distinguish disabled projects, unaffordable local/total
+cost, participation infeasibility, mutually exclusive heuristic choices,
+remaining heuristic budget and objective tradeoffs. For exact plans, an
+unselected but affordable project's best forced-in portfolio is re-enumerated
+and its objective loss is reported. A tie is identified as a primary-objective
+tie, with secondary benefit, capital cost and input-order tie breakers retained.
+One package per town prevents double counting the same road group.
+
+Sensitivity uses 27 deterministic cases: costs at 75%, 100% and 125% of the
+entered values, baseline intensities at those same multipliers, and low,
+central/high effect bounds. The selected-case counts use feasible scenarios
+as their denominator and are **not confidence probabilities**. A common positive
+baseline multiplier rescales tonnes without changing project ranking. The
+interface flags changing selection and selection observed only under the
+optimistic effect bound. It does not claim empirical robustness or effectiveness.
+
+Offline outputs are `results/planning_v1.json`, `investment_baselines.csv`,
+`project_decisions.csv`, `project_stability.csv`, and `investment_sensitivity.csv`.
+The sensitivity CSV contains 189 rows: 27 cases times seven funding checks.
+Browser CSV exports recompute from the current controls, and the decision brief
+includes the current objective and selected-project sensitivity. Earlier phase
+2 CSVs retain the original demonstration input snapshot for compatibility.
+
+`test_planning_v1.py` includes hand-checkable portfolios where ratio ordering
+fails and where changing the protection objective changes the recommendation,
+plus free-project, zero-baseline, no-double-counting and input-boundary tests.
+`node test_planning.cjs` independently compares JavaScript against Python for
+152 scenarios / 1,064 policy results, including explanations and both full
+sensitivity grids. Set `PYTHON` if the desired Python executable is not named
+`python3`. Validation metadata is in `results/planning_validation.json`.
+
+This remains investment planning. Budget pooling does not assert that a truck
+can physically serve multiple towns during the same storm. The separate road
+cell planner is not linked to measured equipment capacity, dispatch, pavement
+safety requirements or a calibrated chloride-transport model.
 
 ## English planning workspace
 

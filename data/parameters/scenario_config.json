@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "watershed_id": "6000000-01S",
+  "towns": [
+    "HOLDEN",
+    "STERLING",
+    "WEST BOYLSTON"
+  ],
+  "total_budget_usd": 75000,
+  "local_budget_usd": {
+    "HOLDEN": 25000,
+    "STERLING": 25000,
+    "WEST BOYLSTON": 25000
+  },
+  "effect": "central",
+  "objective": "zoneA",
+  "unit_basis": "CENTERLINE_KM_PER_WINTER",
+  "base_analysis_sha256": "124cb9286dc80f7687da0332a1f34f9cec559cddfcc9d0ecdcb9f1362a371ee5",
+  "fairness_rule": "One selected project per town in the participation case; not a social-equity guarantee",
+  "sensitivity": {
+    "cost_multipliers": [
+      0.75,
+      1,
+      1.25
+    ],
+    "baseline_multipliers": [
+      0.75,
+      1,
+      1.25
+    ],
+    "effects": [
+      "low",
+      "central",
+      "high"
+    ]
+  },
+  "cost_scope": "One-time capital only; unknown annual operating costs remain blank and are not assumed zero",
+  "coverage_rule": "One mutually exclusive package per town; covered municipal paved road groups are disjoint by town",
+  "limitation": "No verified lane-km, event-level salt logs, vendor prices, installed capacity, hydrologic response or shared-equipment dispatch"
+}

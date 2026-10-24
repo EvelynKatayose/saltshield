@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "language": "en",
-  "python_tests": 23,
+  "python_tests": 34,
   "embedded_ui_checks": [
     "default_results",
     "coverage_updates_results",
@@ -28,9 +28,18 @@
     "entire_offline_report_is_english",
     "autosave_keeps_last_valid_inputs",
     "reload_restores_draft_without_geometry_mutation",
-    "draft_from_other_evidence_snapshot_rejected"
+    "draft_from_other_evidence_snapshot_rejected",
+    "four_baselines_and_no_false_gain_claim",
+    "project_exclusion_reasons_visible",
+    "sensitivity_selection_patterns_visible",
+    "objective_switch_updates_cards_and_brief",
+    "four_baseline_comparison_csv_export",
+    "sensitivity_csv_contains_189_policy_cases",
+    "objective_and_assessment_export_roundtrip",
+    "changed_parameter_snapshot_import_rejected",
+    "current_state_brief_supported"
   ],
-  "report_sha256": "73282f41f7c91dbcb74795a9f9c06c0527eafc62252e5607d85a940d9ce37e05",
+  "report_sha256": "2004c8b21147bef0727d46e690764e7b54167f3ac48901a04a66ac98e963d925",
   "real_browser_checks": [
     "Chrome: English Overview, Investments and Road Coverage sections render with default results",
     "Chrome: light and dark appearance visually inspected",
@@ -38,8 +47,15 @@
     "Chrome: final file:// report loads offline with populated live brief and saved-draft status"
   ],
   "verification_limits": [
-    "A 400px preview exposed horizontal overflow; navigation, grid minimum sizes and mobile form layout were revised. The final narrow-screen layout was not visually reverified.",
-    "Print handler and exported brief content pass UI-state checks; print-preview pagination was not verified."
+    "Final narrow-screen layout and print-preview pagination were not reverified.",
+    "Application rates, project prices and effects remain simulated; no chloride concentration or verified safety outcome is inferred."
   ],
-  "runtime_dependencies": "Self-contained HTML; no remote fonts, assets, framework or model calls."
+  "runtime_dependencies": "Self-contained HTML; no remote fonts, assets, framework or model calls.",
+  "parameter_fingerprint": "a20be0c85fe29462b20d0ef9c9f4735a70940e22893473e6e5297a9b24c8b368",
+  "current_planning_browser_checks": [
+    "Chrome: offline file loads and restores the saved draft",
+    "Chrome: current-state, independent, ratio heuristic and pooled table shows the expected default values",
+    "Chrome: project counterfactual reasons and 27-case selection frequencies are present",
+    "Chrome: new comparison table visually inspected in the existing macOS-style workspace"
+  ]
 }

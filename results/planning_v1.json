@@ -1,0 +1,4008 @@
+{
+  "schema_version": 1,
+  "base_analysis_sha256": "124cb9286dc80f7687da0332a1f34f9cec559cddfcc9d0ecdcb9f1362a371ee5",
+  "parameter_sha256": {
+    "operations_baseline.csv": "82c020689703155f45ee5dbd6c186e2a2ca872ccf7a17c95b79cdafe3ca8827f",
+    "project_options.csv": "b8764b50fce68adfb3dbcbc37ca699ad777b3f1271c959ebce916bc0a9226479",
+    "scenario_config.json": "a3f4a8226893df8379f425703aeb036834e08941e5367d5102a71ba47c7090d6"
+  },
+  "config": {
+    "schema_version": 1,
+    "watershed_id": "6000000-01S",
+    "towns": [
+      "HOLDEN",
+      "STERLING",
+      "WEST BOYLSTON"
+    ],
+    "total_budget_usd": 75000,
+    "local_budget_usd": {
+      "HOLDEN": 25000,
+      "STERLING": 25000,
+      "WEST BOYLSTON": 25000
+    },
+    "effect": "central",
+    "objective": "zoneA",
+    "unit_basis": "CENTERLINE_KM_PER_WINTER",
+    "base_analysis_sha256": "124cb9286dc80f7687da0332a1f34f9cec559cddfcc9d0ecdcb9f1362a371ee5",
+    "fairness_rule": "One selected project per town in the participation case; not a social-equity guarantee",
+    "sensitivity": {
+      "cost_multipliers": [
+        0.75,
+        1,
+        1.25
+      ],
+      "baseline_multipliers": [
+        0.75,
+        1,
+        1.25
+      ],
+      "effects": [
+        "low",
+        "central",
+        "high"
+      ]
+    },
+    "cost_scope": "One-time capital only; unknown annual operating costs remain blank and are not assumed zero",
+    "coverage_rule": "One mutually exclusive package per town; covered municipal paved road groups are disjoint by town",
+    "limitation": "No verified lane-km, event-level salt logs, vendor prices, installed capacity, hydrologic response or shared-equipment dispatch"
+  },
+  "projects": [
+    {
+      "project_id": "HOLDEN_CAL",
+      "town": "HOLDEN",
+      "project_type": "CAL",
+      "label": "Illustrative spreader calibration and controls package",
+      "capital_cost_usd": 15000.0,
+      "reduction_fraction": 0.1,
+      "reduction_low": 0.05,
+      "reduction_high": 0.15,
+      "covered_centerline_km_measured": 137.16601001546996,
+      "covered_protected_km_measured": 135.93389828710934,
+      "covered_zone_a_km_measured": 31.584626377207258,
+      "baseline_tonnes_simulated": 685.8300500773498,
+      "avoided_all_zones_tonnes_simulated": 67.96694914355467,
+      "avoided_zone_a_tonnes_simulated": 15.792313188603629,
+      "exclusive_group": "HOLDEN",
+      "coverage_fraction_assumed": 1.0,
+      "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+      "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+      "enabled": true,
+      "input_source": "Demonstration package; not a vendor quote or measured effect"
+    },
+    {
+      "project_id": "HOLDEN_BRINE",
+      "town": "HOLDEN",
+      "project_type": "BRINE",
+      "label": "Illustrative brine and pre-wetting equipment package",
+      "capital_cost_usd": 30000.0,
+      "reduction_fraction": 0.25,
+      "reduction_low": 0.15,
+      "reduction_high": 0.35,
+      "covered_centerline_km_measured": 137.16601001546996,
+      "covered_protected_km_measured": 135.93389828710934,
+      "covered_zone_a_km_measured": 31.584626377207258,
+      "baseline_tonnes_simulated": 685.8300500773498,
+      "avoided_all_zones_tonnes_simulated": 169.91737285888667,
+      "avoided_zone_a_tonnes_simulated": 39.48078297150907,
+      "exclusive_group": "HOLDEN",
+      "coverage_fraction_assumed": 1.0,
+      "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+      "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+      "enabled": true,
+      "input_source": "Demonstration package; not a vendor quote or measured effect"
+    },
+    {
+      "project_id": "STERLING_CAL",
+      "town": "STERLING",
+      "project_type": "CAL",
+      "label": "Illustrative spreader calibration and controls package",
+      "capital_cost_usd": 15000.0,
+      "reduction_fraction": 0.1,
+      "reduction_low": 0.05,
+      "reduction_high": 0.15,
+      "covered_centerline_km_measured": 85.90521376944695,
+      "covered_protected_km_measured": 85.8947674427391,
+      "covered_zone_a_km_measured": 26.149623306163097,
+      "baseline_tonnes_simulated": 429.52606884723474,
+      "avoided_all_zones_tonnes_simulated": 42.94738372136955,
+      "avoided_zone_a_tonnes_simulated": 13.074811653081548,
+      "exclusive_group": "STERLING",
+      "coverage_fraction_assumed": 1.0,
+      "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+      "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+      "enabled": true,
+      "input_source": "Demonstration package; not a vendor quote or measured effect"
+    },
+    {
+      "project_id": "STERLING_BRINE",
+      "town": "STERLING",
+      "project_type": "BRINE",
+      "label": "Illustrative brine and pre-wetting equipment package",
+      "capital_cost_usd": 30000.0,
+      "reduction_fraction": 0.25,
+      "reduction_low": 0.15,
+      "reduction_high": 0.35,
+      "covered_centerline_km_measured": 85.90521376944695,
+      "covered_protected_km_measured": 85.8947674427391,
+      "covered_zone_a_km_measured": 26.149623306163097,
+      "baseline_tonnes_simulated": 429.52606884723474,
+      "avoided_all_zones_tonnes_simulated": 107.36845930342386,
+      "avoided_zone_a_tonnes_simulated": 32.68702913270387,
+      "exclusive_group": "STERLING",
+      "coverage_fraction_assumed": 1.0,
+      "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+      "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+      "enabled": true,
+      "input_source": "Demonstration package; not a vendor quote or measured effect"
+    },
+    {
+      "project_id": "WEST_BOYLSTON_CAL",
+      "town": "WEST BOYLSTON",
+      "project_type": "CAL",
+      "label": "Illustrative spreader calibration and controls package",
+      "capital_cost_usd": 15000.0,
+      "reduction_fraction": 0.1,
+      "reduction_low": 0.05,
+      "reduction_high": 0.15,
+      "covered_centerline_km_measured": 72.16809062017794,
+      "covered_protected_km_measured": 72.10594263719179,
+      "covered_zone_a_km_measured": 25.33835320667329,
+      "baseline_tonnes_simulated": 360.8404531008897,
+      "avoided_all_zones_tonnes_simulated": 36.052971318595894,
+      "avoided_zone_a_tonnes_simulated": 12.669176603336645,
+      "exclusive_group": "WEST BOYLSTON",
+      "coverage_fraction_assumed": 1.0,
+      "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+      "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+      "enabled": true,
+      "input_source": "Demonstration package; not a vendor quote or measured effect"
+    },
+    {
+      "project_id": "WEST_BOYLSTON_BRINE",
+      "town": "WEST BOYLSTON",
+      "project_type": "BRINE",
+      "label": "Illustrative brine and pre-wetting equipment package",
+      "capital_cost_usd": 30000.0,
+      "reduction_fraction": 0.25,
+      "reduction_low": 0.15,
+      "reduction_high": 0.35,
+      "covered_centerline_km_measured": 72.16809062017794,
+      "covered_protected_km_measured": 72.10594263719179,
+      "covered_zone_a_km_measured": 25.33835320667329,
+      "baseline_tonnes_simulated": 360.8404531008897,
+      "avoided_all_zones_tonnes_simulated": 90.13242829648973,
+      "avoided_zone_a_tonnes_simulated": 31.672941508341612,
+      "exclusive_group": "WEST BOYLSTON",
+      "coverage_fraction_assumed": 1.0,
+      "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+      "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+      "enabled": true,
+      "input_source": "Demonstration package; not a vendor quote or measured effect"
+    }
+  ],
+  "baseline_intensity_by_town": {
+    "HOLDEN": 5.0,
+    "STERLING": 5.0,
+    "WEST BOYLSTON": 5.0
+  },
+  "baseline_reference_mean": 5.0,
+  "default": {
+    "objective": "zoneA",
+    "baseline_rates": {
+      "HOLDEN": 5.0,
+      "STERLING": 5.0,
+      "WEST BOYLSTON": 5.0
+    },
+    "baseline_totals_t_simulated": {
+      "eligible": 1476.1965720254743,
+      "all": 1469.6730418352008,
+      "zoneA": 415.3630144502182
+    },
+    "local_caps": {
+      "HOLDEN": 25000,
+      "STERLING": 25000,
+      "WEST BOYLSTON": 25000
+    },
+    "plans": {
+      "statusQuo": {
+        "cost": 0,
+        "zoneA": 0,
+        "all": 0,
+        "eligible": 0,
+        "selected": [],
+        "unspent": 75000,
+        "townsSelected": 0,
+        "feasibleCombinations": 1
+      },
+      "independent": {
+        "cost": 45000.0,
+        "zoneA": 41.53630144502182,
+        "all": 146.96730418352013,
+        "eligible": 147.61965720254744,
+        "selected": [
+          {
+            "project_id": "HOLDEN_CAL",
+            "town": "HOLDEN",
+            "project_type": "CAL",
+            "label": "Illustrative spreader calibration and controls package",
+            "capital_cost_usd": 15000.0,
+            "reduction_fraction": 0.1,
+            "reduction_low": 0.05,
+            "reduction_high": 0.15,
+            "covered_centerline_km_measured": 137.16601001546996,
+            "covered_protected_km_measured": 135.93389828710934,
+            "covered_zone_a_km_measured": 31.584626377207258,
+            "baseline_tonnes_simulated": 685.8300500773498,
+            "avoided_all_zones_tonnes_simulated": 67.96694914355467,
+            "avoided_zone_a_tonnes_simulated": 15.792313188603629,
+            "exclusive_group": "HOLDEN",
+            "coverage_fraction_assumed": 1.0,
+            "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+            "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+            "enabled": true,
+            "input_source": "Demonstration package; not a vendor quote or measured effect",
+            "active_reduction": 0.1,
+            "avoided_all_eligible_tonnes_simulated": 68.58300500773498
+          },
+          {
+            "project_id": "STERLING_CAL",
+            "town": "STERLING",
+            "project_type": "CAL",
+            "label": "Illustrative spreader calibration and controls package",
+            "capital_cost_usd": 15000.0,
+            "reduction_fraction": 0.1,
+            "reduction_low": 0.05,
+            "reduction_high": 0.15,
+            "covered_centerline_km_measured": 85.90521376944695,
+            "covered_protected_km_measured": 85.8947674427391,
+            "covered_zone_a_km_measured": 26.149623306163097,
+            "baseline_tonnes_simulated": 429.52606884723474,
+            "avoided_all_zones_tonnes_simulated": 42.94738372136955,
+            "avoided_zone_a_tonnes_simulated": 13.074811653081548,
+            "exclusive_group": "STERLING",
+            "coverage_fraction_assumed": 1.0,
+            "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+            "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+            "enabled": true,
+            "input_source": "Demonstration package; not a vendor quote or measured effect",
+            "active_reduction": 0.1,
+            "avoided_all_eligible_tonnes_simulated": 42.95260688472347
+          },
+          {
+            "project_id": "WEST_BOYLSTON_CAL",
+            "town": "WEST BOYLSTON",
+            "project_type": "CAL",
+            "label": "Illustrative spreader calibration and controls package",
+            "capital_cost_usd": 15000.0,
+            "reduction_fraction": 0.1,
+            "reduction_low": 0.05,
+            "reduction_high": 0.15,
+            "covered_centerline_km_measured": 72.16809062017794,
+            "covered_protected_km_measured": 72.10594263719179,
+            "covered_zone_a_km_measured": 25.33835320667329,
+            "baseline_tonnes_simulated": 360.8404531008897,
+            "avoided_all_zones_tonnes_simulated": 36.052971318595894,
+            "avoided_zone_a_tonnes_simulated": 12.669176603336645,
+            "exclusive_group": "WEST BOYLSTON",
+            "coverage_fraction_assumed": 1.0,
+            "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+            "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+            "enabled": true,
+            "input_source": "Demonstration package; not a vendor quote or measured effect",
+            "active_reduction": 0.1,
+            "avoided_all_eligible_tonnes_simulated": 36.08404531008897
+          }
+        ],
+        "unspent": 30000.0,
+        "townsSelected": 3,
+        "feasibleCombinations": 8
+      },
+      "greedy": {
+        "cost": 75000.0,
+        "zoneA": 84.83698870754958,
+        "all": 313.3388034809064,
+        "eligible": 314.9230750412351,
+        "selected": [
+          {
+            "project_id": "HOLDEN_BRINE",
+            "town": "HOLDEN",
+            "project_type": "BRINE",
+            "label": "Illustrative brine and pre-wetting equipment package",
+            "capital_cost_usd": 30000.0,
+            "reduction_fraction": 0.25,
+            "reduction_low": 0.15,
+            "reduction_high": 0.35,
+            "covered_centerline_km_measured": 137.16601001546996,
+            "covered_protected_km_measured": 135.93389828710934,
+            "covered_zone_a_km_measured": 31.584626377207258,
+            "baseline_tonnes_simulated": 685.8300500773498,
+            "avoided_all_zones_tonnes_simulated": 169.91737285888667,
+            "avoided_zone_a_tonnes_simulated": 39.48078297150907,
+            "exclusive_group": "HOLDEN",
+            "coverage_fraction_assumed": 1.0,
+            "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+            "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+            "enabled": true,
+            "input_source": "Demonstration package; not a vendor quote or measured effect",
+            "active_reduction": 0.25,
+            "avoided_all_eligible_tonnes_simulated": 171.45751251933746
+          },
+          {
+            "project_id": "STERLING_BRINE",
+            "town": "STERLING",
+            "project_type": "BRINE",
+            "label": "Illustrative brine and pre-wetting equipment package",
+            "capital_cost_usd": 30000.0,
+            "reduction_fraction": 0.25,
+            "reduction_low": 0.15,
+            "reduction_high": 0.35,
+            "covered_centerline_km_measured": 85.90521376944695,
+            "covered_protected_km_measured": 85.8947674427391,
+            "covered_zone_a_km_measured": 26.149623306163097,
+            "baseline_tonnes_simulated": 429.52606884723474,
+            "avoided_all_zones_tonnes_simulated": 107.36845930342386,
+            "avoided_zone_a_tonnes_simulated": 32.68702913270387,
+            "exclusive_group": "STERLING",
+            "coverage_fraction_assumed": 1.0,
+            "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+            "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+            "enabled": true,
+            "input_source": "Demonstration package; not a vendor quote or measured effect",
+            "active_reduction": 0.25,
+            "avoided_all_eligible_tonnes_simulated": 107.38151721180868
+          },
+          {
+            "project_id": "WEST_BOYLSTON_CAL",
+            "town": "WEST BOYLSTON",
+            "project_type": "CAL",
+            "label": "Illustrative spreader calibration and controls package",
+            "capital_cost_usd": 15000.0,
+            "reduction_fraction": 0.1,
+            "reduction_low": 0.05,
+            "reduction_high": 0.15,
+            "covered_centerline_km_measured": 72.16809062017794,
+            "covered_protected_km_measured": 72.10594263719179,
+            "covered_zone_a_km_measured": 25.33835320667329,
+            "baseline_tonnes_simulated": 360.8404531008897,
+            "avoided_all_zones_tonnes_simulated": 36.052971318595894,
+            "avoided_zone_a_tonnes_simulated": 12.669176603336645,
+            "exclusive_group": "WEST BOYLSTON",
+            "coverage_fraction_assumed": 1.0,
+            "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+            "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+            "enabled": true,
+            "input_source": "Demonstration package; not a vendor quote or measured effect",
+            "active_reduction": 0.1,
+            "avoided_all_eligible_tonnes_simulated": 36.08404531008897
+          }
+        ],
+        "unspent": 0.0,
+        "townsSelected": 3,
+        "feasibleCombinations": 1
+      },
+      "pooled": {
+        "cost": 75000.0,
+        "zoneA": 84.83698870754958,
+        "all": 313.3388034809064,
+        "eligible": 314.9230750412351,
+        "selected": [
+          {
+            "project_id": "HOLDEN_BRINE",
+            "town": "HOLDEN",
+            "project_type": "BRINE",
+            "label": "Illustrative brine and pre-wetting equipment package",
+            "capital_cost_usd": 30000.0,
+            "reduction_fraction": 0.25,
+            "reduction_low": 0.15,
+            "reduction_high": 0.35,
+            "covered_centerline_km_measured": 137.16601001546996,
+            "covered_protected_km_measured": 135.93389828710934,
+            "covered_zone_a_km_measured": 31.584626377207258,
+            "baseline_tonnes_simulated": 685.8300500773498,
+            "avoided_all_zones_tonnes_simulated": 169.91737285888667,
+            "avoided_zone_a_tonnes_simulated": 39.48078297150907,
+            "exclusive_group": "HOLDEN",
+            "coverage_fraction_assumed": 1.0,
+            "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+            "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+            "enabled": true,
+            "input_source": "Demonstration package; not a vendor quote or measured effect",
+            "active_reduction": 0.25,
+            "avoided_all_eligible_tonnes_simulated": 171.45751251933746
+          },
+          {
+            "project_id": "STERLING_BRINE",
+            "town": "STERLING",
+            "project_type": "BRINE",
+            "label": "Illustrative brine and pre-wetting equipment package",
+            "capital_cost_usd": 30000.0,
+            "reduction_fraction": 0.25,
+            "reduction_low": 0.15,
+            "reduction_high": 0.35,
+            "covered_centerline_km_measured": 85.90521376944695,
+            "covered_protected_km_measured": 85.8947674427391,
+            "covered_zone_a_km_measured": 26.149623306163097,
+            "baseline_tonnes_simulated": 429.52606884723474,
+            "avoided_all_zones_tonnes_simulated": 107.36845930342386,
+            "avoided_zone_a_tonnes_simulated": 32.68702913270387,
+            "exclusive_group": "STERLING",
+            "coverage_fraction_assumed": 1.0,
+            "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+            "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+            "enabled": true,
+            "input_source": "Demonstration package; not a vendor quote or measured effect",
+            "active_reduction": 0.25,
+            "avoided_all_eligible_tonnes_simulated": 107.38151721180868
+          },
+          {
+            "project_id": "WEST_BOYLSTON_CAL",
+            "town": "WEST BOYLSTON",
+            "project_type": "CAL",
+            "label": "Illustrative spreader calibration and controls package",
+            "capital_cost_usd": 15000.0,
+            "reduction_fraction": 0.1,
+            "reduction_low": 0.05,
+            "reduction_high": 0.15,
+            "covered_centerline_km_measured": 72.16809062017794,
+            "covered_protected_km_measured": 72.10594263719179,
+            "covered_zone_a_km_measured": 25.33835320667329,
+            "baseline_tonnes_simulated": 360.8404531008897,
+            "avoided_all_zones_tonnes_simulated": 36.052971318595894,
+            "avoided_zone_a_tonnes_simulated": 12.669176603336645,
+            "exclusive_group": "WEST BOYLSTON",
+            "coverage_fraction_assumed": 1.0,
+            "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+            "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+            "enabled": true,
+            "input_source": "Demonstration package; not a vendor quote or measured effect",
+            "active_reduction": 0.1,
+            "avoided_all_eligible_tonnes_simulated": 36.08404531008897
+          }
+        ],
+        "unspent": 0.0,
+        "townsSelected": 3,
+        "feasibleCombinations": 26
+      },
+      "participation": {
+        "cost": 75000.0,
+        "zoneA": 84.83698870754958,
+        "all": 313.3388034809064,
+        "eligible": 314.9230750412351,
+        "selected": [
+          {
+            "project_id": "HOLDEN_BRINE",
+            "town": "HOLDEN",
+            "project_type": "BRINE",
+            "label": "Illustrative brine and pre-wetting equipment package",
+            "capital_cost_usd": 30000.0,
+            "reduction_fraction": 0.25,
+            "reduction_low": 0.15,
+            "reduction_high": 0.35,
+            "covered_centerline_km_measured": 137.16601001546996,
+            "covered_protected_km_measured": 135.93389828710934,
+            "covered_zone_a_km_measured": 31.584626377207258,
+            "baseline_tonnes_simulated": 685.8300500773498,
+            "avoided_all_zones_tonnes_simulated": 169.91737285888667,
+            "avoided_zone_a_tonnes_simulated": 39.48078297150907,
+            "exclusive_group": "HOLDEN",
+            "coverage_fraction_assumed": 1.0,
+            "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+            "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+            "enabled": true,
+            "input_source": "Demonstration package; not a vendor quote or measured effect",
+            "active_reduction": 0.25,
+            "avoided_all_eligible_tonnes_simulated": 171.45751251933746
+          },
+          {
+            "project_id": "STERLING_BRINE",
+            "town": "STERLING",
+            "project_type": "BRINE",
+            "label": "Illustrative brine and pre-wetting equipment package",
+            "capital_cost_usd": 30000.0,
+            "reduction_fraction": 0.25,
+            "reduction_low": 0.15,
+            "reduction_high": 0.35,
+            "covered_centerline_km_measured": 85.90521376944695,
+            "covered_protected_km_measured": 85.8947674427391,
+            "covered_zone_a_km_measured": 26.149623306163097,
+            "baseline_tonnes_simulated": 429.52606884723474,
+            "avoided_all_zones_tonnes_simulated": 107.36845930342386,
+            "avoided_zone_a_tonnes_simulated": 32.68702913270387,
+            "exclusive_group": "STERLING",
+            "coverage_fraction_assumed": 1.0,
+            "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+            "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+            "enabled": true,
+            "input_source": "Demonstration package; not a vendor quote or measured effect",
+            "active_reduction": 0.25,
+            "avoided_all_eligible_tonnes_simulated": 107.38151721180868
+          },
+          {
+            "project_id": "WEST_BOYLSTON_CAL",
+            "town": "WEST BOYLSTON",
+            "project_type": "CAL",
+            "label": "Illustrative spreader calibration and controls package",
+            "capital_cost_usd": 15000.0,
+            "reduction_fraction": 0.1,
+            "reduction_low": 0.05,
+            "reduction_high": 0.15,
+            "covered_centerline_km_measured": 72.16809062017794,
+            "covered_protected_km_measured": 72.10594263719179,
+            "covered_zone_a_km_measured": 25.33835320667329,
+            "baseline_tonnes_simulated": 360.8404531008897,
+            "avoided_all_zones_tonnes_simulated": 36.052971318595894,
+            "avoided_zone_a_tonnes_simulated": 12.669176603336645,
+            "exclusive_group": "WEST BOYLSTON",
+            "coverage_fraction_assumed": 1.0,
+            "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+            "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+            "enabled": true,
+            "input_source": "Demonstration package; not a vendor quote or measured effect",
+            "active_reduction": 0.1,
+            "avoided_all_eligible_tonnes_simulated": 36.08404531008897
+          }
+        ],
+        "unspent": 0.0,
+        "townsSelected": 3,
+        "feasibleCombinations": 7
+      },
+      "equalSpend": {
+        "cost": 45000.0,
+        "zoneA": 52.55559462459062,
+        "all": 212.8647565802562,
+        "eligible": 214.41011940406094,
+        "selected": [
+          {
+            "project_id": "HOLDEN_BRINE",
+            "town": "HOLDEN",
+            "project_type": "BRINE",
+            "label": "Illustrative brine and pre-wetting equipment package",
+            "capital_cost_usd": 30000.0,
+            "reduction_fraction": 0.25,
+            "reduction_low": 0.15,
+            "reduction_high": 0.35,
+            "covered_centerline_km_measured": 137.16601001546996,
+            "covered_protected_km_measured": 135.93389828710934,
+            "covered_zone_a_km_measured": 31.584626377207258,
+            "baseline_tonnes_simulated": 685.8300500773498,
+            "avoided_all_zones_tonnes_simulated": 169.91737285888667,
+            "avoided_zone_a_tonnes_simulated": 39.48078297150907,
+            "exclusive_group": "HOLDEN",
+            "coverage_fraction_assumed": 1.0,
+            "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+            "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+            "enabled": true,
+            "input_source": "Demonstration package; not a vendor quote or measured effect",
+            "active_reduction": 0.25,
+            "avoided_all_eligible_tonnes_simulated": 171.45751251933746
+          },
+          {
+            "project_id": "STERLING_CAL",
+            "town": "STERLING",
+            "project_type": "CAL",
+            "label": "Illustrative spreader calibration and controls package",
+            "capital_cost_usd": 15000.0,
+            "reduction_fraction": 0.1,
+            "reduction_low": 0.05,
+            "reduction_high": 0.15,
+            "covered_centerline_km_measured": 85.90521376944695,
+            "covered_protected_km_measured": 85.8947674427391,
+            "covered_zone_a_km_measured": 26.149623306163097,
+            "baseline_tonnes_simulated": 429.52606884723474,
+            "avoided_all_zones_tonnes_simulated": 42.94738372136955,
+            "avoided_zone_a_tonnes_simulated": 13.074811653081548,
+            "exclusive_group": "STERLING",
+            "coverage_fraction_assumed": 1.0,
+            "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+            "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+            "enabled": true,
+            "input_source": "Demonstration package; not a vendor quote or measured effect",
+            "active_reduction": 0.1,
+            "avoided_all_eligible_tonnes_simulated": 42.95260688472347
+          }
+        ],
+        "unspent": 0.0,
+        "townsSelected": 2,
+        "feasibleCombinations": 17
+      },
+      "equalSpendParticipation": {
+        "cost": 45000.0,
+        "zoneA": 41.53630144502182,
+        "all": 146.96730418352013,
+        "eligible": 147.61965720254744,
+        "selected": [
+          {
+            "project_id": "HOLDEN_CAL",
+            "town": "HOLDEN",
+            "project_type": "CAL",
+            "label": "Illustrative spreader calibration and controls package",
+            "capital_cost_usd": 15000.0,
+            "reduction_fraction": 0.1,
+            "reduction_low": 0.05,
+            "reduction_high": 0.15,
+            "covered_centerline_km_measured": 137.16601001546996,
+            "covered_protected_km_measured": 135.93389828710934,
+            "covered_zone_a_km_measured": 31.584626377207258,
+            "baseline_tonnes_simulated": 685.8300500773498,
+            "avoided_all_zones_tonnes_simulated": 67.96694914355467,
+            "avoided_zone_a_tonnes_simulated": 15.792313188603629,
+            "exclusive_group": "HOLDEN",
+            "coverage_fraction_assumed": 1.0,
+            "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+            "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+            "enabled": true,
+            "input_source": "Demonstration package; not a vendor quote or measured effect",
+            "active_reduction": 0.1,
+            "avoided_all_eligible_tonnes_simulated": 68.58300500773498
+          },
+          {
+            "project_id": "STERLING_CAL",
+            "town": "STERLING",
+            "project_type": "CAL",
+            "label": "Illustrative spreader calibration and controls package",
+            "capital_cost_usd": 15000.0,
+            "reduction_fraction": 0.1,
+            "reduction_low": 0.05,
+            "reduction_high": 0.15,
+            "covered_centerline_km_measured": 85.90521376944695,
+            "covered_protected_km_measured": 85.8947674427391,
+            "covered_zone_a_km_measured": 26.149623306163097,
+            "baseline_tonnes_simulated": 429.52606884723474,
+            "avoided_all_zones_tonnes_simulated": 42.94738372136955,
+            "avoided_zone_a_tonnes_simulated": 13.074811653081548,
+            "exclusive_group": "STERLING",
+            "coverage_fraction_assumed": 1.0,
+            "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+            "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+            "enabled": true,
+            "input_source": "Demonstration package; not a vendor quote or measured effect",
+            "active_reduction": 0.1,
+            "avoided_all_eligible_tonnes_simulated": 42.95260688472347
+          },
+          {
+            "project_id": "WEST_BOYLSTON_CAL",
+            "town": "WEST BOYLSTON",
+            "project_type": "CAL",
+            "label": "Illustrative spreader calibration and controls package",
+            "capital_cost_usd": 15000.0,
+            "reduction_fraction": 0.1,
+            "reduction_low": 0.05,
+            "reduction_high": 0.15,
+            "covered_centerline_km_measured": 72.16809062017794,
+            "covered_protected_km_measured": 72.10594263719179,
+            "covered_zone_a_km_measured": 25.33835320667329,
+            "baseline_tonnes_simulated": 360.8404531008897,
+            "avoided_all_zones_tonnes_simulated": 36.052971318595894,
+            "avoided_zone_a_tonnes_simulated": 12.669176603336645,
+            "exclusive_group": "WEST BOYLSTON",
+            "coverage_fraction_assumed": 1.0,
+            "parameter_status": "SIMULATED costs, reduction fraction, salt intensity and full coverage; measured road geometry",
+            "evidence_limit": "Not a vendor quote, fleet capacity assessment, observed savings, or water quality prediction",
+            "enabled": true,
+            "input_source": "Demonstration package; not a vendor quote or measured effect",
+            "active_reduction": 0.1,
+            "avoided_all_eligible_tonnes_simulated": 36.08404531008897
+          }
+        ],
+        "unspent": 0.0,
+        "townsSelected": 3,
+        "feasibleCombinations": 1
+      }
+    },
+    "project_decisions": [
+      {
+        "policy": "statusQuo",
+        "project_id": "HOLDEN_CAL",
+        "town": "HOLDEN",
+        "selected": false,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "NO_NEW_INVESTMENT_BASELINE"
+      },
+      {
+        "policy": "statusQuo",
+        "project_id": "HOLDEN_BRINE",
+        "town": "HOLDEN",
+        "selected": false,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "NO_NEW_INVESTMENT_BASELINE"
+      },
+      {
+        "policy": "statusQuo",
+        "project_id": "STERLING_CAL",
+        "town": "STERLING",
+        "selected": false,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "NO_NEW_INVESTMENT_BASELINE"
+      },
+      {
+        "policy": "statusQuo",
+        "project_id": "STERLING_BRINE",
+        "town": "STERLING",
+        "selected": false,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "NO_NEW_INVESTMENT_BASELINE"
+      },
+      {
+        "policy": "statusQuo",
+        "project_id": "WEST_BOYLSTON_CAL",
+        "town": "WEST BOYLSTON",
+        "selected": false,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "NO_NEW_INVESTMENT_BASELINE"
+      },
+      {
+        "policy": "statusQuo",
+        "project_id": "WEST_BOYLSTON_BRINE",
+        "town": "WEST BOYLSTON",
+        "selected": false,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "NO_NEW_INVESTMENT_BASELINE"
+      },
+      {
+        "policy": "independent",
+        "project_id": "HOLDEN_CAL",
+        "town": "HOLDEN",
+        "selected": true,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "SELECTED"
+      },
+      {
+        "policy": "independent",
+        "project_id": "HOLDEN_BRINE",
+        "town": "HOLDEN",
+        "selected": false,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "PROJECT_EXCEEDS_LOCAL_CEILING"
+      },
+      {
+        "policy": "independent",
+        "project_id": "STERLING_CAL",
+        "town": "STERLING",
+        "selected": true,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "SELECTED"
+      },
+      {
+        "policy": "independent",
+        "project_id": "STERLING_BRINE",
+        "town": "STERLING",
+        "selected": false,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "PROJECT_EXCEEDS_LOCAL_CEILING"
+      },
+      {
+        "policy": "independent",
+        "project_id": "WEST_BOYLSTON_CAL",
+        "town": "WEST BOYLSTON",
+        "selected": true,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "SELECTED"
+      },
+      {
+        "policy": "independent",
+        "project_id": "WEST_BOYLSTON_BRINE",
+        "town": "WEST BOYLSTON",
+        "selected": false,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "PROJECT_EXCEEDS_LOCAL_CEILING"
+      },
+      {
+        "policy": "greedy",
+        "project_id": "HOLDEN_CAL",
+        "town": "HOLDEN",
+        "selected": false,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "rank": 4,
+        "remaining_budget_usd": 15000.0,
+        "code": "EXCLUSIVE_GROUP_SELECTED"
+      },
+      {
+        "policy": "greedy",
+        "project_id": "HOLDEN_BRINE",
+        "town": "HOLDEN",
+        "selected": true,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "SELECTED"
+      },
+      {
+        "policy": "greedy",
+        "project_id": "STERLING_CAL",
+        "town": "STERLING",
+        "selected": false,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "rank": 5,
+        "remaining_budget_usd": 15000.0,
+        "code": "EXCLUSIVE_GROUP_SELECTED"
+      },
+      {
+        "policy": "greedy",
+        "project_id": "STERLING_BRINE",
+        "town": "STERLING",
+        "selected": true,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "SELECTED"
+      },
+      {
+        "policy": "greedy",
+        "project_id": "WEST_BOYLSTON_CAL",
+        "town": "WEST BOYLSTON",
+        "selected": true,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "SELECTED"
+      },
+      {
+        "policy": "greedy",
+        "project_id": "WEST_BOYLSTON_BRINE",
+        "town": "WEST BOYLSTON",
+        "selected": false,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "rank": 3,
+        "remaining_budget_usd": 15000.0,
+        "code": "REMAINING_BUDGET"
+      },
+      {
+        "policy": "pooled",
+        "project_id": "HOLDEN_CAL",
+        "town": "HOLDEN",
+        "selected": false,
+        "counterfactual_objective_t": 80.15228382964911,
+        "objective_loss_t": 4.684704877900472,
+        "code": "LOWER_PORTFOLIO_BENEFIT"
+      },
+      {
+        "policy": "pooled",
+        "project_id": "HOLDEN_BRINE",
+        "town": "HOLDEN",
+        "selected": true,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "SELECTED"
+      },
+      {
+        "policy": "pooled",
+        "project_id": "STERLING_CAL",
+        "town": "STERLING",
+        "selected": false,
+        "counterfactual_objective_t": 84.22853613293223,
+        "objective_loss_t": 0.6084525746173455,
+        "code": "LOWER_PORTFOLIO_BENEFIT"
+      },
+      {
+        "policy": "pooled",
+        "project_id": "STERLING_BRINE",
+        "town": "STERLING",
+        "selected": true,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "SELECTED"
+      },
+      {
+        "policy": "pooled",
+        "project_id": "WEST_BOYLSTON_CAL",
+        "town": "WEST BOYLSTON",
+        "selected": true,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "SELECTED"
+      },
+      {
+        "policy": "pooled",
+        "project_id": "WEST_BOYLSTON_BRINE",
+        "town": "WEST BOYLSTON",
+        "selected": false,
+        "counterfactual_objective_t": 84.22853613293223,
+        "objective_loss_t": 0.6084525746173455,
+        "code": "LOWER_PORTFOLIO_BENEFIT"
+      },
+      {
+        "policy": "participation",
+        "project_id": "HOLDEN_CAL",
+        "town": "HOLDEN",
+        "selected": false,
+        "counterfactual_objective_t": 80.15228382964911,
+        "objective_loss_t": 4.684704877900472,
+        "code": "LOWER_PORTFOLIO_BENEFIT"
+      },
+      {
+        "policy": "participation",
+        "project_id": "HOLDEN_BRINE",
+        "town": "HOLDEN",
+        "selected": true,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "SELECTED"
+      },
+      {
+        "policy": "participation",
+        "project_id": "STERLING_CAL",
+        "town": "STERLING",
+        "selected": false,
+        "counterfactual_objective_t": 84.22853613293223,
+        "objective_loss_t": 0.6084525746173455,
+        "code": "LOWER_PORTFOLIO_BENEFIT"
+      },
+      {
+        "policy": "participation",
+        "project_id": "STERLING_BRINE",
+        "town": "STERLING",
+        "selected": true,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "SELECTED"
+      },
+      {
+        "policy": "participation",
+        "project_id": "WEST_BOYLSTON_CAL",
+        "town": "WEST BOYLSTON",
+        "selected": true,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "SELECTED"
+      },
+      {
+        "policy": "participation",
+        "project_id": "WEST_BOYLSTON_BRINE",
+        "town": "WEST BOYLSTON",
+        "selected": false,
+        "counterfactual_objective_t": 84.22853613293223,
+        "objective_loss_t": 0.6084525746173455,
+        "code": "LOWER_PORTFOLIO_BENEFIT"
+      },
+      {
+        "policy": "equalSpend",
+        "project_id": "HOLDEN_CAL",
+        "town": "HOLDEN",
+        "selected": false,
+        "counterfactual_objective_t": 48.4793423213075,
+        "objective_loss_t": 4.07625230328312,
+        "code": "LOWER_PORTFOLIO_BENEFIT"
+      },
+      {
+        "policy": "equalSpend",
+        "project_id": "HOLDEN_BRINE",
+        "town": "HOLDEN",
+        "selected": true,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "SELECTED"
+      },
+      {
+        "policy": "equalSpend",
+        "project_id": "STERLING_CAL",
+        "town": "STERLING",
+        "selected": true,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "SELECTED"
+      },
+      {
+        "policy": "equalSpend",
+        "project_id": "STERLING_BRINE",
+        "town": "STERLING",
+        "selected": false,
+        "counterfactual_objective_t": 48.4793423213075,
+        "objective_loss_t": 4.07625230328312,
+        "code": "LOWER_PORTFOLIO_BENEFIT"
+      },
+      {
+        "policy": "equalSpend",
+        "project_id": "WEST_BOYLSTON_CAL",
+        "town": "WEST BOYLSTON",
+        "selected": false,
+        "counterfactual_objective_t": 52.14995957484572,
+        "objective_loss_t": 0.4056350497449017,
+        "code": "LOWER_PORTFOLIO_BENEFIT"
+      },
+      {
+        "policy": "equalSpend",
+        "project_id": "WEST_BOYLSTON_BRINE",
+        "town": "WEST BOYLSTON",
+        "selected": false,
+        "counterfactual_objective_t": 47.46525469694524,
+        "objective_loss_t": 5.090339927645381,
+        "code": "LOWER_PORTFOLIO_BENEFIT"
+      },
+      {
+        "policy": "equalSpendParticipation",
+        "project_id": "HOLDEN_CAL",
+        "town": "HOLDEN",
+        "selected": true,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "SELECTED"
+      },
+      {
+        "policy": "equalSpendParticipation",
+        "project_id": "HOLDEN_BRINE",
+        "town": "HOLDEN",
+        "selected": false,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "NO_FEASIBLE_PORTFOLIO_WITH_PROJECT"
+      },
+      {
+        "policy": "equalSpendParticipation",
+        "project_id": "STERLING_CAL",
+        "town": "STERLING",
+        "selected": true,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "SELECTED"
+      },
+      {
+        "policy": "equalSpendParticipation",
+        "project_id": "STERLING_BRINE",
+        "town": "STERLING",
+        "selected": false,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "NO_FEASIBLE_PORTFOLIO_WITH_PROJECT"
+      },
+      {
+        "policy": "equalSpendParticipation",
+        "project_id": "WEST_BOYLSTON_CAL",
+        "town": "WEST BOYLSTON",
+        "selected": true,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "SELECTED"
+      },
+      {
+        "policy": "equalSpendParticipation",
+        "project_id": "WEST_BOYLSTON_BRINE",
+        "town": "WEST BOYLSTON",
+        "selected": false,
+        "counterfactual_objective_t": null,
+        "objective_loss_t": null,
+        "code": "NO_FEASIBLE_PORTFOLIO_WITH_PROJECT"
+      }
+    ],
+    "greedy_trace": [
+      {
+        "project_id": "HOLDEN_BRINE",
+        "code": "SELECTED",
+        "rank": 1,
+        "remaining_budget_usd": 45000.0,
+        "benefit_per_dollar": 0.0013160260990503023
+      },
+      {
+        "project_id": "STERLING_BRINE",
+        "code": "SELECTED",
+        "rank": 2,
+        "remaining_budget_usd": 15000.0,
+        "benefit_per_dollar": 0.0010895676377567956
+      },
+      {
+        "project_id": "WEST_BOYLSTON_BRINE",
+        "code": "REMAINING_BUDGET",
+        "rank": 3,
+        "remaining_budget_usd": 15000.0,
+        "benefit_per_dollar": 0.0010557647169447204
+      },
+      {
+        "project_id": "HOLDEN_CAL",
+        "code": "EXCLUSIVE_GROUP_SELECTED",
+        "rank": 4,
+        "remaining_budget_usd": 15000.0,
+        "benefit_per_dollar": 0.001052820879240242
+      },
+      {
+        "project_id": "STERLING_CAL",
+        "code": "EXCLUSIVE_GROUP_SELECTED",
+        "rank": 5,
+        "remaining_budget_usd": 15000.0,
+        "benefit_per_dollar": 0.0008716541102054366
+      },
+      {
+        "project_id": "WEST_BOYLSTON_CAL",
+        "code": "SELECTED",
+        "rank": 6,
+        "remaining_budget_usd": 0.0,
+        "benefit_per_dollar": 0.0008446117735557763
+      }
+    ],
+    "sensitivity": {
+      "case_count": 27,
+      "cases": [
+        {
+          "cost_multiplier": 0.75,
+          "baseline_multiplier": 0.75,
+          "effect": "low",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 67500.0,
+              "zoneA": 46.728339125649555,
+              "all": 165.33821720646011,
+              "eligible": 166.07211435286587,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "greedy": {
+              "cost": 67500.0,
+              "zoneA": 46.728339125649555,
+              "all": 165.33821720646011,
+              "eligible": 166.07211435286587,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "pooled": {
+              "cost": 67500.0,
+              "zoneA": 46.728339125649555,
+              "all": 165.33821720646011,
+              "eligible": 166.07211435286587,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "participation": {
+              "cost": 67500.0,
+              "zoneA": 46.728339125649555,
+              "all": 165.33821720646011,
+              "eligible": 166.07211435286587,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "equalSpend": {
+              "cost": 67500.0,
+              "zoneA": 46.728339125649555,
+              "all": 165.33821720646011,
+              "eligible": 166.07211435286587,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 67500.0,
+              "zoneA": 46.728339125649555,
+              "all": 165.33821720646011,
+              "eligible": 166.07211435286587,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 0.75,
+          "baseline_multiplier": 0.75,
+          "effect": "central",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 67500.0,
+              "zoneA": 77.88056520941592,
+              "all": 275.5636953441002,
+              "eligible": 276.7868572547764,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "greedy": {
+              "cost": 67500.0,
+              "zoneA": 77.88056520941592,
+              "all": 275.5636953441002,
+              "eligible": 276.7868572547764,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "pooled": {
+              "cost": 67500.0,
+              "zoneA": 77.88056520941592,
+              "all": 275.5636953441002,
+              "eligible": 276.7868572547764,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "participation": {
+              "cost": 67500.0,
+              "zoneA": 77.88056520941592,
+              "all": 275.5636953441002,
+              "eligible": 276.7868572547764,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "equalSpend": {
+              "cost": 67500.0,
+              "zoneA": 77.88056520941592,
+              "all": 275.5636953441002,
+              "eligible": 276.7868572547764,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 67500.0,
+              "zoneA": 77.88056520941592,
+              "all": 275.5636953441002,
+              "eligible": 276.7868572547764,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 0.75,
+          "baseline_multiplier": 0.75,
+          "effect": "high",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 67500.0,
+              "zoneA": 109.03279129318227,
+              "all": 385.7891734817403,
+              "eligible": 387.501600156687,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "greedy": {
+              "cost": 67500.0,
+              "zoneA": 109.03279129318227,
+              "all": 385.7891734817403,
+              "eligible": 387.501600156687,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "pooled": {
+              "cost": 67500.0,
+              "zoneA": 109.03279129318227,
+              "all": 385.7891734817403,
+              "eligible": 387.501600156687,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "participation": {
+              "cost": 67500.0,
+              "zoneA": 109.03279129318227,
+              "all": 385.7891734817403,
+              "eligible": 387.501600156687,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "equalSpend": {
+              "cost": 67500.0,
+              "zoneA": 109.03279129318227,
+              "all": 385.7891734817403,
+              "eligible": 387.501600156687,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 67500.0,
+              "zoneA": 109.03279129318227,
+              "all": 385.7891734817403,
+              "eligible": 387.501600156687,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 0.75,
+          "baseline_multiplier": 1,
+          "effect": "low",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 67500.0,
+              "zoneA": 62.30445216753273,
+              "all": 220.45095627528016,
+              "eligible": 221.4294858038211,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "greedy": {
+              "cost": 67500.0,
+              "zoneA": 62.30445216753273,
+              "all": 220.45095627528016,
+              "eligible": 221.4294858038211,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "pooled": {
+              "cost": 67500.0,
+              "zoneA": 62.30445216753273,
+              "all": 220.45095627528016,
+              "eligible": 221.4294858038211,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "participation": {
+              "cost": 67500.0,
+              "zoneA": 62.30445216753273,
+              "all": 220.45095627528016,
+              "eligible": 221.4294858038211,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "equalSpend": {
+              "cost": 67500.0,
+              "zoneA": 62.30445216753273,
+              "all": 220.45095627528016,
+              "eligible": 221.4294858038211,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 67500.0,
+              "zoneA": 62.30445216753273,
+              "all": 220.45095627528016,
+              "eligible": 221.4294858038211,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 0.75,
+          "baseline_multiplier": 1,
+          "effect": "central",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 67500.0,
+              "zoneA": 103.84075361255455,
+              "all": 367.4182604588002,
+              "eligible": 369.0491430063686,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "greedy": {
+              "cost": 67500.0,
+              "zoneA": 103.84075361255455,
+              "all": 367.4182604588002,
+              "eligible": 369.0491430063686,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "pooled": {
+              "cost": 67500.0,
+              "zoneA": 103.84075361255455,
+              "all": 367.4182604588002,
+              "eligible": 369.0491430063686,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "participation": {
+              "cost": 67500.0,
+              "zoneA": 103.84075361255455,
+              "all": 367.4182604588002,
+              "eligible": 369.0491430063686,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "equalSpend": {
+              "cost": 67500.0,
+              "zoneA": 103.84075361255455,
+              "all": 367.4182604588002,
+              "eligible": 369.0491430063686,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 67500.0,
+              "zoneA": 103.84075361255455,
+              "all": 367.4182604588002,
+              "eligible": 369.0491430063686,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 0.75,
+          "baseline_multiplier": 1,
+          "effect": "high",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 67500.0,
+              "zoneA": 145.3770550575764,
+              "all": 514.3855646423204,
+              "eligible": 516.668800208916,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "greedy": {
+              "cost": 67500.0,
+              "zoneA": 145.3770550575764,
+              "all": 514.3855646423204,
+              "eligible": 516.668800208916,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "pooled": {
+              "cost": 67500.0,
+              "zoneA": 145.3770550575764,
+              "all": 514.3855646423204,
+              "eligible": 516.668800208916,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "participation": {
+              "cost": 67500.0,
+              "zoneA": 145.3770550575764,
+              "all": 514.3855646423204,
+              "eligible": 516.668800208916,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "equalSpend": {
+              "cost": 67500.0,
+              "zoneA": 145.3770550575764,
+              "all": 514.3855646423204,
+              "eligible": 516.668800208916,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 67500.0,
+              "zoneA": 145.3770550575764,
+              "all": 514.3855646423204,
+              "eligible": 516.668800208916,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 0.75,
+          "baseline_multiplier": 1.25,
+          "effect": "low",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 67500.0,
+              "zoneA": 77.88056520941592,
+              "all": 275.5636953441002,
+              "eligible": 276.7868572547764,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "greedy": {
+              "cost": 67500.0,
+              "zoneA": 77.88056520941592,
+              "all": 275.5636953441002,
+              "eligible": 276.7868572547764,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "pooled": {
+              "cost": 67500.0,
+              "zoneA": 77.88056520941592,
+              "all": 275.5636953441002,
+              "eligible": 276.7868572547764,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "participation": {
+              "cost": 67500.0,
+              "zoneA": 77.88056520941592,
+              "all": 275.5636953441002,
+              "eligible": 276.7868572547764,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "equalSpend": {
+              "cost": 67500.0,
+              "zoneA": 77.88056520941592,
+              "all": 275.5636953441002,
+              "eligible": 276.7868572547764,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 67500.0,
+              "zoneA": 77.88056520941592,
+              "all": 275.5636953441002,
+              "eligible": 276.7868572547764,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 0.75,
+          "baseline_multiplier": 1.25,
+          "effect": "central",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 67500.0,
+              "zoneA": 129.8009420156932,
+              "all": 459.2728255735003,
+              "eligible": 461.3114287579607,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "greedy": {
+              "cost": 67500.0,
+              "zoneA": 129.8009420156932,
+              "all": 459.2728255735003,
+              "eligible": 461.3114287579607,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "pooled": {
+              "cost": 67500.0,
+              "zoneA": 129.8009420156932,
+              "all": 459.2728255735003,
+              "eligible": 461.3114287579607,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "participation": {
+              "cost": 67500.0,
+              "zoneA": 129.8009420156932,
+              "all": 459.2728255735003,
+              "eligible": 461.3114287579607,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "equalSpend": {
+              "cost": 67500.0,
+              "zoneA": 129.8009420156932,
+              "all": 459.2728255735003,
+              "eligible": 461.3114287579607,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 67500.0,
+              "zoneA": 129.8009420156932,
+              "all": 459.2728255735003,
+              "eligible": 461.3114287579607,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 0.75,
+          "baseline_multiplier": 1.25,
+          "effect": "high",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 67500.0,
+              "zoneA": 181.72131882197047,
+              "all": 642.9819558029005,
+              "eligible": 645.836000261145,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "greedy": {
+              "cost": 67500.0,
+              "zoneA": 181.72131882197047,
+              "all": 642.9819558029005,
+              "eligible": 645.836000261145,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "pooled": {
+              "cost": 67500.0,
+              "zoneA": 181.72131882197047,
+              "all": 642.9819558029005,
+              "eligible": 645.836000261145,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "participation": {
+              "cost": 67500.0,
+              "zoneA": 181.72131882197047,
+              "all": 642.9819558029005,
+              "eligible": 645.836000261145,
+              "unspent": 7500.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "equalSpend": {
+              "cost": 67500.0,
+              "zoneA": 181.72131882197047,
+              "all": 642.9819558029005,
+              "eligible": 645.836000261145,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 67500.0,
+              "zoneA": 181.72131882197047,
+              "all": 642.9819558029005,
+              "eligible": 645.836000261145,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_BRINE"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 1,
+          "baseline_multiplier": 0.75,
+          "effect": "low",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 45000.0,
+              "zoneA": 15.576113041883183,
+              "all": 55.11273906882004,
+              "eligible": 55.35737145095528,
+              "unspent": 30000.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "greedy": {
+              "cost": 75000.0,
+              "zoneA": 37.22645667314707,
+              "all": 138.2984887175132,
+              "eligible": 139.00908037029913,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "pooled": {
+              "cost": 75000.0,
+              "zoneA": 37.22645667314707,
+              "all": 138.2984887175132,
+              "eligible": 139.00908037029913,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "participation": {
+              "cost": 75000.0,
+              "zoneA": 37.22645667314707,
+              "all": 138.2984887175132,
+              "eligible": 139.00908037029913,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "equalSpend": {
+              "cost": 45000.0,
+              "zoneA": 22.66940670708466,
+              "all": 92.56808668201259,
+              "eligible": 93.26310821547315,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 45000.0,
+              "zoneA": 15.576113041883183,
+              "all": 55.11273906882004,
+              "eligible": 55.35737145095528,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 1,
+          "baseline_multiplier": 0.75,
+          "effect": "central",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 45000.0,
+              "zoneA": 31.152226083766365,
+              "all": 110.22547813764008,
+              "eligible": 110.71474290191055,
+              "unspent": 30000.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "greedy": {
+              "cost": 75000.0,
+              "zoneA": 63.62774153066219,
+              "all": 235.00410261067987,
+              "eligible": 236.19230628092635,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "pooled": {
+              "cost": 75000.0,
+              "zoneA": 63.62774153066219,
+              "all": 235.00410261067987,
+              "eligible": 236.19230628092635,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "participation": {
+              "cost": 75000.0,
+              "zoneA": 63.62774153066219,
+              "all": 235.00410261067987,
+              "eligible": 236.19230628092635,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "equalSpend": {
+              "cost": 45000.0,
+              "zoneA": 39.416695968442966,
+              "all": 159.64856743519218,
+              "eligible": 160.8075895530457,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 45000.0,
+              "zoneA": 31.152226083766365,
+              "all": 110.22547813764008,
+              "eligible": 110.71474290191055,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 1,
+          "baseline_multiplier": 0.75,
+          "effect": "high",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 45000.0,
+              "zoneA": 46.728339125649555,
+              "all": 165.33821720646011,
+              "eligible": 166.07211435286587,
+              "unspent": 30000.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "greedy": {
+              "cost": 75000.0,
+              "zoneA": 90.02902638817731,
+              "all": 331.7097165038465,
+              "eligible": 333.3755321915536,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "pooled": {
+              "cost": 75000.0,
+              "zoneA": 90.02902638817731,
+              "all": 331.7097165038465,
+              "eligible": 333.3755321915536,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "participation": {
+              "cost": 75000.0,
+              "zoneA": 90.02902638817731,
+              "all": 331.7097165038465,
+              "eligible": 333.3755321915536,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "equalSpend": {
+              "cost": 45000.0,
+              "zoneA": 56.16398522980127,
+              "all": 226.72904818837173,
+              "eligible": 228.35207089061822,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 45000.0,
+              "zoneA": 46.728339125649555,
+              "all": 165.33821720646011,
+              "eligible": 166.07211435286587,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 1,
+          "baseline_multiplier": 1,
+          "effect": "low",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 45000.0,
+              "zoneA": 20.76815072251091,
+              "all": 73.48365209176006,
+              "eligible": 73.80982860127372,
+              "unspent": 30000.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "greedy": {
+              "cost": 75000.0,
+              "zoneA": 49.63527556419609,
+              "all": 184.39798495668427,
+              "eligible": 185.34544049373216,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "pooled": {
+              "cost": 75000.0,
+              "zoneA": 49.63527556419609,
+              "all": 184.39798495668427,
+              "eligible": 185.34544049373216,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "participation": {
+              "cost": 75000.0,
+              "zoneA": 49.63527556419609,
+              "all": 184.39798495668427,
+              "eligible": 185.34544049373216,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "equalSpend": {
+              "cost": 45000.0,
+              "zoneA": 30.225875609446216,
+              "all": 123.42411557601679,
+              "eligible": 124.35081095396421,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 45000.0,
+              "zoneA": 20.76815072251091,
+              "all": 73.48365209176006,
+              "eligible": 73.80982860127372,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 1,
+          "baseline_multiplier": 1,
+          "effect": "central",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 45000.0,
+              "zoneA": 41.53630144502182,
+              "all": 146.96730418352013,
+              "eligible": 147.61965720254744,
+              "unspent": 30000.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "greedy": {
+              "cost": 75000.0,
+              "zoneA": 84.83698870754958,
+              "all": 313.3388034809064,
+              "eligible": 314.9230750412351,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "pooled": {
+              "cost": 75000.0,
+              "zoneA": 84.83698870754958,
+              "all": 313.3388034809064,
+              "eligible": 314.9230750412351,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "participation": {
+              "cost": 75000.0,
+              "zoneA": 84.83698870754958,
+              "all": 313.3388034809064,
+              "eligible": 314.9230750412351,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "equalSpend": {
+              "cost": 45000.0,
+              "zoneA": 52.55559462459062,
+              "all": 212.8647565802562,
+              "eligible": 214.41011940406094,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 45000.0,
+              "zoneA": 41.53630144502182,
+              "all": 146.96730418352013,
+              "eligible": 147.61965720254744,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 1,
+          "baseline_multiplier": 1,
+          "effect": "high",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 45000.0,
+              "zoneA": 62.30445216753273,
+              "all": 220.45095627528016,
+              "eligible": 221.4294858038211,
+              "unspent": 30000.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "greedy": {
+              "cost": 75000.0,
+              "zoneA": 120.0387018509031,
+              "all": 442.27962200512866,
+              "eligible": 444.50070958873806,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "pooled": {
+              "cost": 75000.0,
+              "zoneA": 120.0387018509031,
+              "all": 442.27962200512866,
+              "eligible": 444.50070958873806,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "participation": {
+              "cost": 75000.0,
+              "zoneA": 120.0387018509031,
+              "all": 442.27962200512866,
+              "eligible": 444.50070958873806,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "equalSpend": {
+              "cost": 45000.0,
+              "zoneA": 74.88531363973502,
+              "all": 302.3053975844957,
+              "eligible": 304.46942785415763,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 45000.0,
+              "zoneA": 62.30445216753273,
+              "all": 220.45095627528016,
+              "eligible": 221.4294858038211,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 1,
+          "baseline_multiplier": 1.25,
+          "effect": "low",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 45000.0,
+              "zoneA": 25.960188403138638,
+              "all": 91.85456511470005,
+              "eligible": 92.26228575159215,
+              "unspent": 30000.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "greedy": {
+              "cost": 75000.0,
+              "zoneA": 62.04409445524511,
+              "all": 230.49748119585536,
+              "eligible": 231.6818006171652,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "pooled": {
+              "cost": 75000.0,
+              "zoneA": 62.04409445524511,
+              "all": 230.49748119585536,
+              "eligible": 231.6818006171652,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "participation": {
+              "cost": 75000.0,
+              "zoneA": 62.04409445524511,
+              "all": 230.49748119585536,
+              "eligible": 231.6818006171652,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "equalSpend": {
+              "cost": 45000.0,
+              "zoneA": 37.78234451180777,
+              "all": 154.28014447002099,
+              "eligible": 155.43851369245527,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 45000.0,
+              "zoneA": 25.960188403138638,
+              "all": 91.85456511470005,
+              "eligible": 92.26228575159215,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 1,
+          "baseline_multiplier": 1.25,
+          "effect": "central",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 45000.0,
+              "zoneA": 51.920376806277275,
+              "all": 183.7091302294001,
+              "eligible": 184.5245715031843,
+              "unspent": 30000.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "greedy": {
+              "cost": 75000.0,
+              "zoneA": 106.046235884437,
+              "all": 391.67350435113303,
+              "eligible": 393.65384380154387,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "pooled": {
+              "cost": 75000.0,
+              "zoneA": 106.046235884437,
+              "all": 391.67350435113303,
+              "eligible": 393.65384380154387,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "participation": {
+              "cost": 75000.0,
+              "zoneA": 106.046235884437,
+              "all": 391.67350435113303,
+              "eligible": 393.65384380154387,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "equalSpend": {
+              "cost": 45000.0,
+              "zoneA": 65.69449328073827,
+              "all": 266.0809457253203,
+              "eligible": 268.01264925507616,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 45000.0,
+              "zoneA": 51.920376806277275,
+              "all": 183.7091302294001,
+              "eligible": 184.5245715031843,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 1,
+          "baseline_multiplier": 1.25,
+          "effect": "high",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 45000.0,
+              "zoneA": 77.88056520941592,
+              "all": 275.5636953441002,
+              "eligible": 276.7868572547764,
+              "unspent": 30000.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "greedy": {
+              "cost": 75000.0,
+              "zoneA": 150.04837731362886,
+              "all": 552.8495275064107,
+              "eligible": 555.6258869859225,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "pooled": {
+              "cost": 75000.0,
+              "zoneA": 150.04837731362886,
+              "all": 552.8495275064107,
+              "eligible": 555.6258869859225,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "participation": {
+              "cost": 75000.0,
+              "zoneA": 150.04837731362886,
+              "all": 552.8495275064107,
+              "eligible": 555.6258869859225,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "equalSpend": {
+              "cost": 45000.0,
+              "zoneA": 93.60664204966878,
+              "all": 377.8817469806196,
+              "eligible": 380.5867848176971,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 45000.0,
+              "zoneA": 77.88056520941592,
+              "all": 275.5636953441002,
+              "eligible": 276.7868572547764,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 1.25,
+          "baseline_multiplier": 0.75,
+          "effect": "low",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 56250.0,
+              "zoneA": 15.576113041883183,
+              "all": 55.11273906882004,
+              "eligible": 55.35737145095528,
+              "unspent": 18750.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "greedy": {
+              "cost": 75000.0,
+              "zoneA": 32.47551544689583,
+              "all": 124.77862447303974,
+              "eligible": 125.47756337901576,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE"
+              ]
+            },
+            "pooled": {
+              "cost": 75000.0,
+              "zoneA": 32.47551544689583,
+              "all": 124.77862447303974,
+              "eligible": 125.47756337901576,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE"
+              ]
+            },
+            "participation": {
+              "cost": 75000.0,
+              "zoneA": 27.420347933335904,
+              "all": 106.08795092648606,
+              "eligible": 106.79462520675652,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "equalSpend": {
+              "cost": 56250.0,
+              "zoneA": 22.66940670708466,
+              "all": 92.56808668201259,
+              "eligible": 93.26310821547315,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 56250.0,
+              "zoneA": 15.576113041883183,
+              "all": 55.11273906882004,
+              "eligible": 55.35737145095528,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 1.25,
+          "baseline_multiplier": 0.75,
+          "effect": "central",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 56250.0,
+              "zoneA": 31.152226083766365,
+              "all": 110.22547813764008,
+              "eligible": 110.71474290191055,
+              "unspent": 18750.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "greedy": {
+              "cost": 75000.0,
+              "zoneA": 54.125859078159706,
+              "all": 207.96437412173293,
+              "eligible": 209.1292722983596,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE"
+              ]
+            },
+            "pooled": {
+              "cost": 75000.0,
+              "zoneA": 54.125859078159706,
+              "all": 207.96437412173293,
+              "eligible": 209.1292722983596,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE"
+              ]
+            },
+            "participation": {
+              "cost": 75000.0,
+              "zoneA": 48.91857842094545,
+              "all": 186.68829592413908,
+              "eligible": 187.87062353561242,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "equalSpend": {
+              "cost": 56250.0,
+              "zoneA": 39.416695968442966,
+              "all": 159.64856743519218,
+              "eligible": 160.8075895530457,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 56250.0,
+              "zoneA": 31.152226083766365,
+              "all": 110.22547813764008,
+              "eligible": 110.71474290191055,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 1.25,
+          "baseline_multiplier": 0.75,
+          "effect": "high",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 56250.0,
+              "zoneA": 46.728339125649555,
+              "all": 165.33821720646011,
+              "eligible": 166.07211435286587,
+              "unspent": 18750.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "greedy": {
+              "cost": 75000.0,
+              "zoneA": 75.77620270942359,
+              "all": 291.1501237704261,
+              "eligible": 292.78098121770347,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE"
+              ]
+            },
+            "pooled": {
+              "cost": 75000.0,
+              "zoneA": 75.77620270942359,
+              "all": 291.1501237704261,
+              "eligible": 292.78098121770347,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE"
+              ]
+            },
+            "participation": {
+              "cost": 75000.0,
+              "zoneA": 70.416808908555,
+              "all": 267.28864092179214,
+              "eligible": 268.9466218644683,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "equalSpend": {
+              "cost": 56250.0,
+              "zoneA": 56.16398522980127,
+              "all": 226.72904818837173,
+              "eligible": 228.35207089061822,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 56250.0,
+              "zoneA": 46.728339125649555,
+              "all": 165.33821720646011,
+              "eligible": 166.07211435286587,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 1.25,
+          "baseline_multiplier": 1,
+          "effect": "low",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 56250.0,
+              "zoneA": 20.76815072251091,
+              "all": 73.48365209176006,
+              "eligible": 73.80982860127372,
+              "unspent": 18750.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "greedy": {
+              "cost": 75000.0,
+              "zoneA": 43.30068726252777,
+              "all": 166.37149929738632,
+              "eligible": 167.30341783868766,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE"
+              ]
+            },
+            "pooled": {
+              "cost": 75000.0,
+              "zoneA": 43.30068726252777,
+              "all": 166.37149929738632,
+              "eligible": 167.30341783868766,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE"
+              ]
+            },
+            "participation": {
+              "cost": 75000.0,
+              "zoneA": 36.56046391111454,
+              "all": 141.45060123531474,
+              "eligible": 142.3928336090087,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "equalSpend": {
+              "cost": 56250.0,
+              "zoneA": 30.225875609446216,
+              "all": 123.42411557601679,
+              "eligible": 124.35081095396421,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 56250.0,
+              "zoneA": 20.76815072251091,
+              "all": 73.48365209176006,
+              "eligible": 73.80982860127372,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 1.25,
+          "baseline_multiplier": 1,
+          "effect": "central",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 56250.0,
+              "zoneA": 41.53630144502182,
+              "all": 146.96730418352013,
+              "eligible": 147.61965720254744,
+              "unspent": 18750.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "greedy": {
+              "cost": 75000.0,
+              "zoneA": 72.16781210421294,
+              "all": 277.2858321623105,
+              "eligible": 278.8390297311461,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE"
+              ]
+            },
+            "pooled": {
+              "cost": 75000.0,
+              "zoneA": 72.16781210421294,
+              "all": 277.2858321623105,
+              "eligible": 278.8390297311461,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE"
+              ]
+            },
+            "participation": {
+              "cost": 75000.0,
+              "zoneA": 65.22477122792726,
+              "all": 248.9177278988521,
+              "eligible": 250.49416471414992,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "equalSpend": {
+              "cost": 56250.0,
+              "zoneA": 52.55559462459062,
+              "all": 212.8647565802562,
+              "eligible": 214.41011940406094,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 56250.0,
+              "zoneA": 41.53630144502182,
+              "all": 146.96730418352013,
+              "eligible": 147.61965720254744,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 1.25,
+          "baseline_multiplier": 1,
+          "effect": "high",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 56250.0,
+              "zoneA": 62.30445216753273,
+              "all": 220.45095627528016,
+              "eligible": 221.4294858038211,
+              "unspent": 18750.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "greedy": {
+              "cost": 75000.0,
+              "zoneA": 101.03493694589812,
+              "all": 388.2001650272348,
+              "eligible": 390.3746416236046,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE"
+              ]
+            },
+            "pooled": {
+              "cost": 75000.0,
+              "zoneA": 101.03493694589812,
+              "all": 388.2001650272348,
+              "eligible": 390.3746416236046,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE"
+              ]
+            },
+            "participation": {
+              "cost": 75000.0,
+              "zoneA": 93.88907854473999,
+              "all": 356.3848545623896,
+              "eligible": 358.5954958192911,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "equalSpend": {
+              "cost": 56250.0,
+              "zoneA": 74.88531363973502,
+              "all": 302.3053975844957,
+              "eligible": 304.46942785415763,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 56250.0,
+              "zoneA": 62.30445216753273,
+              "all": 220.45095627528016,
+              "eligible": 221.4294858038211,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 1.25,
+          "baseline_multiplier": 1.25,
+          "effect": "low",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 56250.0,
+              "zoneA": 25.960188403138638,
+              "all": 91.85456511470005,
+              "eligible": 92.26228575159215,
+              "unspent": 18750.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "greedy": {
+              "cost": 75000.0,
+              "zoneA": 54.125859078159706,
+              "all": 207.96437412173293,
+              "eligible": 209.1292722983596,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE"
+              ]
+            },
+            "pooled": {
+              "cost": 75000.0,
+              "zoneA": 54.125859078159706,
+              "all": 207.96437412173293,
+              "eligible": 209.1292722983596,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE"
+              ]
+            },
+            "participation": {
+              "cost": 75000.0,
+              "zoneA": 45.700579888893174,
+              "all": 176.8132515441434,
+              "eligible": 177.99104201126087,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "equalSpend": {
+              "cost": 56250.0,
+              "zoneA": 37.78234451180777,
+              "all": 154.28014447002099,
+              "eligible": 155.43851369245527,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 56250.0,
+              "zoneA": 25.960188403138638,
+              "all": 91.85456511470005,
+              "eligible": 92.26228575159215,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 1.25,
+          "baseline_multiplier": 1.25,
+          "effect": "central",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 56250.0,
+              "zoneA": 51.920376806277275,
+              "all": 183.7091302294001,
+              "eligible": 184.5245715031843,
+              "unspent": 18750.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "greedy": {
+              "cost": 75000.0,
+              "zoneA": 90.20976513026619,
+              "all": 346.6072902028882,
+              "eligible": 348.5487871639327,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE"
+              ]
+            },
+            "pooled": {
+              "cost": 75000.0,
+              "zoneA": 90.20976513026619,
+              "all": 346.6072902028882,
+              "eligible": 348.5487871639327,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE"
+              ]
+            },
+            "participation": {
+              "cost": 75000.0,
+              "zoneA": 81.53096403490908,
+              "all": 311.14715987356516,
+              "eligible": 313.11770589268735,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "equalSpend": {
+              "cost": 56250.0,
+              "zoneA": 65.69449328073827,
+              "all": 266.0809457253203,
+              "eligible": 268.01264925507616,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 56250.0,
+              "zoneA": 51.920376806277275,
+              "all": 183.7091302294001,
+              "eligible": 184.5245715031843,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            }
+          }
+        },
+        {
+          "cost_multiplier": 1.25,
+          "baseline_multiplier": 1.25,
+          "effect": "high",
+          "plans": {
+            "statusQuo": {
+              "cost": 0,
+              "zoneA": 0,
+              "all": 0,
+              "eligible": 0,
+              "unspent": 75000,
+              "townsSelected": 0,
+              "selected_ids": []
+            },
+            "independent": {
+              "cost": 56250.0,
+              "zoneA": 77.88056520941592,
+              "all": 275.5636953441002,
+              "eligible": 276.7868572547764,
+              "unspent": 18750.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "greedy": {
+              "cost": 75000.0,
+              "zoneA": 126.29367118237265,
+              "all": 485.25020628404343,
+              "eligible": 487.96830202950576,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE"
+              ]
+            },
+            "pooled": {
+              "cost": 75000.0,
+              "zoneA": 126.29367118237265,
+              "all": 485.25020628404343,
+              "eligible": 487.96830202950576,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_BRINE"
+              ]
+            },
+            "participation": {
+              "cost": 75000.0,
+              "zoneA": 117.36134818092499,
+              "all": 445.4810682029869,
+              "eligible": 448.2443697741139,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            },
+            "equalSpend": {
+              "cost": 56250.0,
+              "zoneA": 93.60664204966878,
+              "all": 377.8817469806196,
+              "eligible": 380.5867848176971,
+              "unspent": 0.0,
+              "townsSelected": 2,
+              "selected_ids": [
+                "HOLDEN_BRINE",
+                "STERLING_CAL"
+              ]
+            },
+            "equalSpendParticipation": {
+              "cost": 56250.0,
+              "zoneA": 77.88056520941592,
+              "all": 275.5636953441002,
+              "eligible": 276.7868572547764,
+              "unspent": 0.0,
+              "townsSelected": 3,
+              "selected_ids": [
+                "HOLDEN_CAL",
+                "STERLING_CAL",
+                "WEST_BOYLSTON_CAL"
+              ]
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "policy": "statusQuo",
+          "project_id": "HOLDEN_CAL",
+          "selected_cases": 0,
+          "feasible_cases": 27,
+          "status": "NEVER_SELECTED",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "statusQuo",
+          "project_id": "HOLDEN_BRINE",
+          "selected_cases": 0,
+          "feasible_cases": 27,
+          "status": "NEVER_SELECTED",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "statusQuo",
+          "project_id": "STERLING_CAL",
+          "selected_cases": 0,
+          "feasible_cases": 27,
+          "status": "NEVER_SELECTED",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "statusQuo",
+          "project_id": "STERLING_BRINE",
+          "selected_cases": 0,
+          "feasible_cases": 27,
+          "status": "NEVER_SELECTED",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "statusQuo",
+          "project_id": "WEST_BOYLSTON_CAL",
+          "selected_cases": 0,
+          "feasible_cases": 27,
+          "status": "NEVER_SELECTED",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "statusQuo",
+          "project_id": "WEST_BOYLSTON_BRINE",
+          "selected_cases": 0,
+          "feasible_cases": 27,
+          "status": "NEVER_SELECTED",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "independent",
+          "project_id": "HOLDEN_CAL",
+          "selected_cases": 18,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "independent",
+          "project_id": "HOLDEN_BRINE",
+          "selected_cases": 9,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "independent",
+          "project_id": "STERLING_CAL",
+          "selected_cases": 18,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "independent",
+          "project_id": "STERLING_BRINE",
+          "selected_cases": 9,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "independent",
+          "project_id": "WEST_BOYLSTON_CAL",
+          "selected_cases": 18,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "independent",
+          "project_id": "WEST_BOYLSTON_BRINE",
+          "selected_cases": 9,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "greedy",
+          "project_id": "HOLDEN_CAL",
+          "selected_cases": 0,
+          "feasible_cases": 27,
+          "status": "NEVER_SELECTED",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "greedy",
+          "project_id": "HOLDEN_BRINE",
+          "selected_cases": 27,
+          "feasible_cases": 27,
+          "status": "ALWAYS_SELECTED",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "greedy",
+          "project_id": "STERLING_CAL",
+          "selected_cases": 0,
+          "feasible_cases": 27,
+          "status": "NEVER_SELECTED",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "greedy",
+          "project_id": "STERLING_BRINE",
+          "selected_cases": 27,
+          "feasible_cases": 27,
+          "status": "ALWAYS_SELECTED",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "greedy",
+          "project_id": "WEST_BOYLSTON_CAL",
+          "selected_cases": 9,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "greedy",
+          "project_id": "WEST_BOYLSTON_BRINE",
+          "selected_cases": 9,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "pooled",
+          "project_id": "HOLDEN_CAL",
+          "selected_cases": 0,
+          "feasible_cases": 27,
+          "status": "NEVER_SELECTED",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "pooled",
+          "project_id": "HOLDEN_BRINE",
+          "selected_cases": 27,
+          "feasible_cases": 27,
+          "status": "ALWAYS_SELECTED",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "pooled",
+          "project_id": "STERLING_CAL",
+          "selected_cases": 0,
+          "feasible_cases": 27,
+          "status": "NEVER_SELECTED",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "pooled",
+          "project_id": "STERLING_BRINE",
+          "selected_cases": 27,
+          "feasible_cases": 27,
+          "status": "ALWAYS_SELECTED",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "pooled",
+          "project_id": "WEST_BOYLSTON_CAL",
+          "selected_cases": 9,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "pooled",
+          "project_id": "WEST_BOYLSTON_BRINE",
+          "selected_cases": 9,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "participation",
+          "project_id": "HOLDEN_CAL",
+          "selected_cases": 0,
+          "feasible_cases": 27,
+          "status": "NEVER_SELECTED",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "participation",
+          "project_id": "HOLDEN_BRINE",
+          "selected_cases": 27,
+          "feasible_cases": 27,
+          "status": "ALWAYS_SELECTED",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "participation",
+          "project_id": "STERLING_CAL",
+          "selected_cases": 9,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "participation",
+          "project_id": "STERLING_BRINE",
+          "selected_cases": 18,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "participation",
+          "project_id": "WEST_BOYLSTON_CAL",
+          "selected_cases": 18,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "participation",
+          "project_id": "WEST_BOYLSTON_BRINE",
+          "selected_cases": 9,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "equalSpend",
+          "project_id": "HOLDEN_CAL",
+          "selected_cases": 0,
+          "feasible_cases": 27,
+          "status": "NEVER_SELECTED",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "equalSpend",
+          "project_id": "HOLDEN_BRINE",
+          "selected_cases": 27,
+          "feasible_cases": 27,
+          "status": "ALWAYS_SELECTED",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "equalSpend",
+          "project_id": "STERLING_CAL",
+          "selected_cases": 18,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "equalSpend",
+          "project_id": "STERLING_BRINE",
+          "selected_cases": 9,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "equalSpend",
+          "project_id": "WEST_BOYLSTON_CAL",
+          "selected_cases": 0,
+          "feasible_cases": 27,
+          "status": "NEVER_SELECTED",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "equalSpend",
+          "project_id": "WEST_BOYLSTON_BRINE",
+          "selected_cases": 9,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "equalSpendParticipation",
+          "project_id": "HOLDEN_CAL",
+          "selected_cases": 18,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "equalSpendParticipation",
+          "project_id": "HOLDEN_BRINE",
+          "selected_cases": 9,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "equalSpendParticipation",
+          "project_id": "STERLING_CAL",
+          "selected_cases": 18,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "equalSpendParticipation",
+          "project_id": "STERLING_BRINE",
+          "selected_cases": 9,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "equalSpendParticipation",
+          "project_id": "WEST_BOYLSTON_CAL",
+          "selected_cases": 18,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        },
+        {
+          "policy": "equalSpendParticipation",
+          "project_id": "WEST_BOYLSTON_BRINE",
+          "selected_cases": 9,
+          "feasible_cases": 27,
+          "status": "PARAMETER_SENSITIVE",
+          "selected_only_with_optimistic_effect": false
+        }
+      ],
+      "interpretation": "27 deterministic cases, not probabilities or confidence intervals. Costs and baseline each vary +/-25%; effects use the illustrative low/central/high bounds. A common baseline multiplier rescales benefits without changing ranking when all rates are positive."
+    }
+  },
+  "operations": [
+    {
+      "town_id": "HOLDEN",
+      "road_group_id": "HOLDEN_MUNICIPAL_PAVED",
+      "watershed_id": "6000000-01S",
+      "unit_basis": "CENTERLINE_KM_PER_WINTER",
+      "baseline_t_per_centerline_km_per_winter": "5",
+      "application_rate_kg_per_lane_km": "",
+      "applications_per_season": "",
+      "material_type": "ILLUSTRATIVE_SALT_EQUIVALENT",
+      "data_status": "SIMULATED",
+      "source": "Demonstration input; no town salt log or lane allocation verified"
+    },
+    {
+      "town_id": "STERLING",
+      "road_group_id": "STERLING_MUNICIPAL_PAVED",
+      "watershed_id": "6000000-01S",
+      "unit_basis": "CENTERLINE_KM_PER_WINTER",
+      "baseline_t_per_centerline_km_per_winter": "5",
+      "application_rate_kg_per_lane_km": "",
+      "applications_per_season": "",
+      "material_type": "ILLUSTRATIVE_SALT_EQUIVALENT",
+      "data_status": "SIMULATED",
+      "source": "Demonstration input; no town salt log or lane allocation verified"
+    },
+    {
+      "town_id": "WEST BOYLSTON",
+      "road_group_id": "WEST_BOYLSTON_MUNICIPAL_PAVED",
+      "watershed_id": "6000000-01S",
+      "unit_basis": "CENTERLINE_KM_PER_WINTER",
+      "baseline_t_per_centerline_km_per_winter": "5",
+      "application_rate_kg_per_lane_km": "",
+      "applications_per_season": "",
+      "material_type": "ILLUSTRATIVE_SALT_EQUIVALENT",
+      "data_status": "SIMULATED",
+      "source": "Demonstration input; no town salt log or lane allocation verified"
+    }
+  ],
+  "parameter_fingerprint": "a20be0c85fe29462b20d0ef9c9f4735a70940e22893473e6e5297a9b24c8b368"
+}

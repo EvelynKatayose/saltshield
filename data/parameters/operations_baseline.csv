@@ -1,0 +1,4 @@
+﻿town_id,road_group_id,watershed_id,unit_basis,baseline_t_per_centerline_km_per_winter,application_rate_kg_per_lane_km,applications_per_season,material_type,data_status,source
+HOLDEN,HOLDEN_MUNICIPAL_PAVED,6000000-01S,CENTERLINE_KM_PER_WINTER,5,,,ILLUSTRATIVE_SALT_EQUIVALENT,SIMULATED,Demonstration input; no town salt log or lane allocation verified
+STERLING,STERLING_MUNICIPAL_PAVED,6000000-01S,CENTERLINE_KM_PER_WINTER,5,,,ILLUSTRATIVE_SALT_EQUIVALENT,SIMULATED,Demonstration input; no town salt log or lane allocation verified
+WEST BOYLSTON,WEST_BOYLSTON_MUNICIPAL_PAVED,6000000-01S,CENTERLINE_KM_PER_WINTER,5,,,ILLUSTRATIVE_SALT_EQUIVALENT,SIMULATED,Demonstration input; no town salt log or lane allocation verified
