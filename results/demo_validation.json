@@ -3,7 +3,7 @@
   "report_sha256": "1dc2325a0a0c5465ccbb9a35822520746577c996df68af21b4f23a8dcec9cf31",
   "demo_entry": "https://evelynkatayose.github.io/saltshield/?demo=1",
   "walkthrough_url": "https://evelynkatayose.github.io/saltshield/demo/",
-  "deployment_status": "preparing",
+  "deployment_status": "succeeded",
   "audience": "public",
   "checks": [
     "demo ignores saved budget and reach and starts at 75000",
@@ -23,5 +23,10 @@
     "legacy bookmarks normalize to clean paths",
     "ordinary mode budget shortcuts work",
     "offline navigation remains compatible"
-  ]
+  ],
+  "anonymous_home_status": 200,
+  "anonymous_home_requires_login": false,
+  "anonymous_guide_status": 200,
+  "published_files_match": true,
+  "host_adds_platform_bootstrap": false
 }

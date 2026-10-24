@@ -3,7 +3,13 @@
   "repository": "EvelynKatayose/saltshield",
   "expected_url": "https://evelynkatayose.github.io/saltshield/",
   "base_path": "/saltshield/",
-  "source": {"branch": "main", "path": "/docs"},
+  "source": {
+    "branch": "main",
+    "path": "/docs"
+  },
   "audience": "public",
-  "status": "preparing"
+  "status": "published",
+  "live_url": "https://evelynkatayose.github.io/saltshield/",
+  "hosting_commit_sha": "f737150cda0725dc57726e3fd3cd7db74fc3202b",
+  "workflow_run_id": 40134281202
 }

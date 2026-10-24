@@ -1,0 +1,73 @@
+{
+  "provider": "github-pages",
+  "status": "succeeded",
+  "workflow_run_id": 40134281202,
+  "source_commit": "f737150cda0725dc57726e3fd3cd7db74fc3202b",
+  "verified_at": "2026-10-24T21:29:17.388Z",
+  "routes": [
+    {
+      "route": "home",
+      "status": 200,
+      "url": "https://evelynkatayose.github.io/saltshield/",
+      "exact_file_match": true,
+      "provider_branding": false,
+      "sha256": "99bc34f80dc34039c55f11420cb5148ab352c6a47b7d37b44643d8a2413da4d4"
+    },
+    {
+      "route": "?demo=1",
+      "status": 200,
+      "url": "https://evelynkatayose.github.io/saltshield/?demo=1",
+      "exact_file_match": true,
+      "provider_branding": false,
+      "sha256": "99bc34f80dc34039c55f11420cb5148ab352c6a47b7d37b44643d8a2413da4d4"
+    },
+    {
+      "route": "coverage/",
+      "status": 200,
+      "url": "https://evelynkatayose.github.io/saltshield/coverage/",
+      "exact_file_match": true,
+      "provider_branding": false,
+      "sha256": "99bc34f80dc34039c55f11420cb5148ab352c6a47b7d37b44643d8a2413da4d4"
+    },
+    {
+      "route": "overview/",
+      "status": 200,
+      "url": "https://evelynkatayose.github.io/saltshield/overview/",
+      "exact_file_match": true,
+      "provider_branding": false,
+      "sha256": "99bc34f80dc34039c55f11420cb5148ab352c6a47b7d37b44643d8a2413da4d4"
+    },
+    {
+      "route": "investments/",
+      "status": 200,
+      "url": "https://evelynkatayose.github.io/saltshield/investments/",
+      "exact_file_match": true,
+      "provider_branding": false,
+      "sha256": "99bc34f80dc34039c55f11420cb5148ab352c6a47b7d37b44643d8a2413da4d4"
+    },
+    {
+      "route": "evidence/",
+      "status": 200,
+      "url": "https://evelynkatayose.github.io/saltshield/evidence/",
+      "exact_file_match": true,
+      "provider_branding": false,
+      "sha256": "99bc34f80dc34039c55f11420cb5148ab352c6a47b7d37b44643d8a2413da4d4"
+    },
+    {
+      "route": "demo/",
+      "status": 200,
+      "url": "https://evelynkatayose.github.io/saltshield/demo/",
+      "exact_file_match": true,
+      "provider_branding": false,
+      "sha256": "053d8d4058d3f53e0e13c544fb104306a81b0355f503c61674b2b7ec2e393a4c"
+    }
+  ],
+  "application_scripts_unchanged_by_host": true,
+  "host_adds_platform_bootstrap": false,
+  "browser_checks": [
+    "Chrome public demo opens with a clean address and no platform toolbar",
+    "Explore the map scrolls to the live budget section",
+    "Demo budgets buttons are visible directly below the slider"
+  ],
+  "repository_private": true
+}
