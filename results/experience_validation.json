@@ -46,9 +46,12 @@
     "Phone dimensions were tested in browser emulation; physical touch hardware was not tested."
   ],
   "layout_checks": [
-    "Desktop map and control panel use equal width and height",
-    "Comparison cards show both modeled benefits, actual spending and funded-town counts",
-    "Comparison bars handle zero budget and follow the selected objective"
+    "equal panel width and height",
+    "complete desktop workbench inside viewport",
+    "desktop panel has no overflow at default inputs",
+    "phone map and budget visible together",
+    "no horizontal document overflow at phone width",
+    "live comparison card selects the independent plan at 45000"
   ],
-  "layout_browser_verification": "pending"
+  "layout_browser_verification": "PASS"
 }

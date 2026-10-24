@@ -1,0 +1,100 @@
+{
+  "status": "PASS",
+  "source_commit": "36bc5e7e7603a404453978d3a094ae2c8ec57dd5",
+  "desktop": {
+    "panel": {
+      "clientHeight": 588,
+      "height": 590,
+      "scrollHeight": 588,
+      "width": 559.25
+    },
+    "rects": [
+      {
+        "bottom": 689.9765625,
+        "height": 590,
+        "id": "x-live-workbench",
+        "width": 1138.5,
+        "x": 63.25,
+        "y": 99.9765625
+      },
+      {
+        "bottom": 689.9765625,
+        "height": 590,
+        "id": "x-compare-map",
+        "width": 559.25,
+        "x": 63.25,
+        "y": 99.9765625
+      },
+      {
+        "bottom": 169.9765625,
+        "height": 18,
+        "id": "x-budget",
+        "width": 521.25,
+        "x": 661.5,
+        "y": 151.9765625
+      },
+      {
+        "bottom": 631.421875,
+        "height": 372.9453125,
+        "id": "x-model-output",
+        "width": 521.25,
+        "x": 661.5,
+        "y": 258.4765625
+      },
+      {
+        "bottom": 479.5234375,
+        "height": 79.796875,
+        "id": "x-compare-pooled",
+        "width": 243.625,
+        "x": 926.125,
+        "y": 399.7265625
+      }
+    ],
+    "viewport": {
+      "height": 720,
+      "width": 1265
+    }
+  },
+  "mobile": {
+    "rects": [
+      {
+        "bottom": 587.203125,
+        "height": 360,
+        "id": "x-compare-map",
+        "width": 337.5,
+        "x": 18.75,
+        "y": 227.203125
+      },
+      {
+        "bottom": 138.203125,
+        "height": 18,
+        "id": "x-budget",
+        "width": 311.5,
+        "x": 31.75,
+        "y": 120.203125
+      },
+      {
+        "bottom": 199.453125,
+        "height": 29.5,
+        "id": "demo-budget-presets",
+        "width": 142.375,
+        "x": 31.75,
+        "y": 169.953125
+      }
+    ],
+    "viewport": {
+      "height": 844,
+      "scrollWidth": 375,
+      "width": 375
+    }
+  },
+  "checked_at": "2026-10-24T21:45:28.778Z",
+  "checks": [
+    "equal panel width and height",
+    "complete desktop workbench inside viewport",
+    "desktop panel has no overflow at default inputs",
+    "phone map and budget visible together",
+    "no horizontal document overflow at phone width",
+    "live comparison card selects the independent plan at 45000"
+  ]
+}

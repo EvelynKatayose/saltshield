@@ -171,15 +171,18 @@
       "Phone dimensions were tested in browser emulation; physical touch hardware was not tested."
     ],
     "layout_checks": [
-      "Desktop map and control panel use equal width and height",
-      "Comparison cards show both modeled benefits, actual spending and funded-town counts",
-      "Comparison bars handle zero budget and follow the selected objective"
+      "equal panel width and height",
+      "complete desktop workbench inside viewport",
+      "desktop panel has no overflow at default inputs",
+      "phone map and budget visible together",
+      "no horizontal document overflow at phone width",
+      "live comparison card selects the independent plan at 45000"
     ],
-    "layout_browser_verification": "pending"
+    "layout_browser_verification": "PASS"
   },
   "demo": {
     "status": "PASS",
-    "report_sha256": "ed041856e9b70d5aa8da3aeb5d6656fc97ddf381aea24bc06984cf3141842ca3",
+    "report_sha256": "6fa5250130a136f6d3f9536a0e1bb5fe405ddf51a8014526144ee5fca975c3b0",
     "demo_entry": "https://evelynkatayose.github.io/saltshield/?demo=1",
     "walkthrough_url": "https://evelynkatayose.github.io/saltshield/demo/",
     "deployment_status": "succeeded",
@@ -212,9 +215,9 @@
   "deployment": {
     "provider": "github-pages",
     "status": "succeeded",
-    "workflow_run_id": 40134872853,
-    "source_commit": "0cf90fb7fe5b09dbb790b340953344aecf3c5481",
-    "verified_at": "2026-10-24T21:37:26.263Z",
+    "workflow_run_id": 40135467658,
+    "source_commit": "36bc5e7e7603a404453978d3a094ae2c8ec57dd5",
+    "verified_at": "2026-10-24T21:45:47.738Z",
     "routes": [
       {
         "route": "home",
@@ -222,7 +225,7 @@
         "url": "https://evelynkatayose.github.io/saltshield/",
         "exact_file_match": true,
         "provider_branding": false,
-        "sha256": "b87d8904c92b12256017fa009f2ec7f07f7c1622064a98f57b1c2ad74a6b2d58"
+        "sha256": "b6d2d2e2daed7cd41f16886a6954fe49a99be20caa6886087b54f3208780f05d"
       },
       {
         "route": "coverage/",
@@ -230,7 +233,7 @@
         "url": "https://evelynkatayose.github.io/saltshield/coverage/",
         "exact_file_match": true,
         "provider_branding": false,
-        "sha256": "b87d8904c92b12256017fa009f2ec7f07f7c1622064a98f57b1c2ad74a6b2d58"
+        "sha256": "b6d2d2e2daed7cd41f16886a6954fe49a99be20caa6886087b54f3208780f05d"
       },
       {
         "route": "demo/",
@@ -244,13 +247,114 @@
     "application_scripts_unchanged_by_host": true,
     "host_adds_platform_bootstrap": false,
     "browser_checks": [
-      "Public desktop viewport 1265 x 720: complete map, budget slider, presets and modeled results visible together",
-      "Explore the map aligns the workbench below the fixed header",
-      "Phone viewport 375 x 844: complete map and budget controls visible together; no horizontal document overflow",
-      "Phone budget preset and Independent toggle reproduce 20.15 t at 45000",
-      "Temporary viewport override reset"
+      "equal panel width and height",
+      "complete desktop workbench inside viewport",
+      "desktop panel has no overflow at default inputs",
+      "phone map and budget visible together",
+      "no horizontal document overflow at phone width",
+      "live comparison card selects the independent plan at 45000"
     ],
     "repository_private": true,
     "layout_proof": "results/live_layout.png"
+  },
+  "live_layout": {
+    "status": "PASS",
+    "source_commit": "36bc5e7e7603a404453978d3a094ae2c8ec57dd5",
+    "desktop": {
+      "panel": {
+        "clientHeight": 588,
+        "height": 590,
+        "scrollHeight": 588,
+        "width": 559.25
+      },
+      "rects": [
+        {
+          "bottom": 689.9765625,
+          "height": 590,
+          "id": "x-live-workbench",
+          "width": 1138.5,
+          "x": 63.25,
+          "y": 99.9765625
+        },
+        {
+          "bottom": 689.9765625,
+          "height": 590,
+          "id": "x-compare-map",
+          "width": 559.25,
+          "x": 63.25,
+          "y": 99.9765625
+        },
+        {
+          "bottom": 169.9765625,
+          "height": 18,
+          "id": "x-budget",
+          "width": 521.25,
+          "x": 661.5,
+          "y": 151.9765625
+        },
+        {
+          "bottom": 631.421875,
+          "height": 372.9453125,
+          "id": "x-model-output",
+          "width": 521.25,
+          "x": 661.5,
+          "y": 258.4765625
+        },
+        {
+          "bottom": 479.5234375,
+          "height": 79.796875,
+          "id": "x-compare-pooled",
+          "width": 243.625,
+          "x": 926.125,
+          "y": 399.7265625
+        }
+      ],
+      "viewport": {
+        "height": 720,
+        "width": 1265
+      }
+    },
+    "mobile": {
+      "rects": [
+        {
+          "bottom": 587.203125,
+          "height": 360,
+          "id": "x-compare-map",
+          "width": 337.5,
+          "x": 18.75,
+          "y": 227.203125
+        },
+        {
+          "bottom": 138.203125,
+          "height": 18,
+          "id": "x-budget",
+          "width": 311.5,
+          "x": 31.75,
+          "y": 120.203125
+        },
+        {
+          "bottom": 199.453125,
+          "height": 29.5,
+          "id": "demo-budget-presets",
+          "width": 142.375,
+          "x": 31.75,
+          "y": 169.953125
+        }
+      ],
+      "viewport": {
+        "height": 844,
+        "scrollWidth": 375,
+        "width": 375
+      }
+    },
+    "checked_at": "2026-10-24T21:45:28.778Z",
+    "checks": [
+      "equal panel width and height",
+      "complete desktop workbench inside viewport",
+      "desktop panel has no overflow at default inputs",
+      "phone map and budget visible together",
+      "no horizontal document overflow at phone width",
+      "live comparison card selects the independent plan at 45000"
+    ]
   }
 }
