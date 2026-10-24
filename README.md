@@ -78,6 +78,42 @@ With Node.js installed, run `node test_ui.cjs` for offline UI-state validation
 and scenario import/export round-trip tests. These are unit tests, not a
 substitute for visual browser inspection.
 
+## English planning workspace
+
+The standalone report is now an English application with four sections:
+Overview, Investments, Road Coverage, and Evidence. A system-font interface,
+restrained colors, translucent navigation, compact controls and light/dark
+appearance replace the earlier long-form report layout. Layouts adapt for
+narrow screens, navigation supports arrow keys, and reduced-motion preferences
+are respected. The app uses no remote fonts, UI framework, model calls or
+runtime network requests.
+
+Overview includes a live decision brief. Choose independent funding, unrestricted
+pooling, or pooling with a project in every town. The brief uses the current
+equipment inputs and separately reports the current spatial coverage case.
+It includes an equal-actual-spending check and explicit assumptions. Download
+the brief as standalone English HTML, or use **Print brief** to print only the
+brief from any section. Infeasible selected policies disable brief export;
+invalid inputs clear stale results and disable both printing and download.
+
+Valid controls are saved automatically on the current browser/device through
+localStorage. A reload restores costs, coverage, enablement, budget, baseline,
+effect scenario and spatial case only after full validation against the saved
+evidence fingerprint and fixed project IDs. Source geometry and effect rates
+cannot be changed by a draft. Invalid in-progress edits do not overwrite the
+last valid draft. A rejected draft falls back to defaults with a status message.
+Where browser storage is unavailable, the existing JSON scenario export/import
+remains available. Local files and a local HTTP preview use separate browser
+storage origins; drafts are not synced across devices.
+
+Edit `workspace.css`, `workspace.js`, `report_template.html`, or the English
+panel templates, then rerun `python build_report.py` to embed every asset into
+`results/SaltShield_Wachusett.html`. The generated file remains self-contained.
+`node test_ui.cjs` executes the exact embedded scripts and covers navigation,
+appearance, exports, brief synchronization, draft restoration, evidence mismatch
+rejection and English-only report output, alongside the existing planner tests.
+This redesign does not change the geographic inventory or optimization model.
+
 ## Phase 3 regional context and spatial coverage
 
 Five complete winters, 2021–2022 through 2025–2026, have been retrieved from

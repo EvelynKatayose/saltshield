@@ -1,7 +1,7 @@
 /* Precomputed spatial cases; deliberately independent of equipment controls. */
 (() => {
   const data=ANALYSIS.phase3.spatial;
-  const labels={uniform:'均匀覆盖',greedy:'比例贪心',integer:'整片区最优',fractional_bound:'理论上界'};
+  const labels={uniform:'Uniform coverage',greedy:'Ratio heuristic',integer:'Whole-cell optimum',fractional_bound:'Fractional upper bound'};
   const methods=Object.keys(labels), get=id=>document.getElementById(id), km=v=>v.toFixed(2);
   let active=[];
   function updateSpatial() {
@@ -10,13 +10,14 @@
     if(active.length!==Object.keys(data.town_totals).length||!methods.includes(method))throw Error('Unknown spatial case');
     const total=key=>active.reduce((s,c)=>s+c.plans[method][key],0);
     const uniform=active.reduce((s,c)=>s+c.plans.uniform.covered_zone_a_km,0);
-    get('spatial-summary').textContent=labels[method]+'：道路容量上限 '+km(total('capacity_km'))+' km，实际覆盖 '+km(total('covered_road_km'))+' km，未用容量 '+km(total('unspent_capacity_km'))+' km。覆盖 Zone A '+km(total('covered_zone_a_km'))+' km；均匀基线 '+km(uniform)+' km。';
-    get('spatial-table').innerHTML=active.map(c=>'<tr class="town-row"><th colspan="3">'+c.town+' · 上限 '+km(c.plans[method].capacity_km)+' km</th></tr>'+methods.map(m=>'<tr'+(m===method?' class="selected"':'')+'><td>'+labels[m]+'</td><td>'+km(c.plans[m].covered_road_km)+'</td><td>'+km(c.plans[m].covered_zone_a_km)+'</td></tr>').join('')).join('');
+    get('spatial-summary').textContent=labels[method]+': '+km(total('covered_zone_a_km'))+' km of Zone A roads covered, versus '+km(uniform)+' km with uniform coverage. Road coverage '+km(total('covered_road_km'))+' / '+km(total('capacity_km'))+' km capacity; '+km(total('unspent_capacity_km'))+' km unused.';
+    get('spatial-table').innerHTML=active.map(c=>'<tr class="town-row"><th colspan="3">'+niceTown(c.town)+' · '+km(c.plans[method].capacity_km)+' km ceiling</th></tr>'+methods.map(m=>'<tr'+(m===method?' class="selected"':'')+'><td>'+labels[m]+'</td><td>'+km(c.plans[m].covered_road_km)+'</td><td>'+km(c.plans[m].covered_zone_a_km)+'</td></tr>').join('')).join('');
     const shares=Object.assign({},...active.map(c=>c.plans[method].cell_shares));
     for(const cell of document.querySelectorAll('.priority-cell')) {
       const s=shares[cell.dataset.cell]||0;
       cell.style.fill=s>0?'#176d63':'#e1e6e2'; cell.style.fillOpacity=s>0?String(.18+.82*s):'1';
     }
+    globalThis.SaltShieldWorkspace?.refresh();
   }
   get('spatial-fraction').addEventListener('change',updateSpatial);
   get('spatial-method').addEventListener('change',updateSpatial);

@@ -1,29 +1,36 @@
-SaltShield 已完成首轮真实数据与模拟投资分析。
+SaltShield — Wachusett Planning Workspace
 
-第三阶段已完成：加入2021–2022至2025–2026五个完整冬季、18144小时的ERA5区域天气再分析数据；新增173个1公里规划片区，比较均匀覆盖、比例贪心、整片区最优和允许切分的理论上界。可在结果页切换25%/50%/75%/100%示例覆盖容量，查看地图并导出片区清单。
+Open results/SaltShield_Wachusett.html in a browser. Everything needed to run the app is embedded in that file; no account or network connection is required.
 
-25%容量示例：三镇总道路容量上限73.81公里。整片区最优覆盖73.70公里道路，其中Zone A为39.56公里；均匀覆盖基线为20.77公里Zone A。容量为模拟，片区不是核验路线，结果不是实测减盐量。天气只提供区域背景，不校准设备收益，也不代表路面温度。
+Overview: watershed map, town inventory and the live decision brief.
+Investments: edit budget, salt baseline, project costs, coverage and enablement; compare independent and shared funding.
+Road Coverage: compare four allocation methods at 25%, 50%, 75% or 100% illustrative capacity.
+Evidence: DCR historical grants, five winters of regional weather and GIS measurement rules.
 
-第三阶段离线重跑：python build_weather.py；python spatial_priority.py；python build_report.py。验证：python -m unittest test_phase2 test_phase3 -v；node test_ui.cjs。联网更新天气：python download_weather.py，再按上述顺序重建。
+Download brief creates a standalone English HTML summary of the selected funding rule and current coverage case. Print brief prints only that summary. Valid settings are saved on this browser/device when local storage is available. JSON scenario import/export remains available in Investments.
 
-第二阶段已完成：结果页新增13条DCR官方历史资助记录（FY2021至FY2026，合计188251美元），可以编辑设备模拟成本、覆盖率和启用状态，比较“每镇至少一个项目”的参与约束，并导入导出情景。历史资助不是设备当前报价或已安装证明。
+Measured inventory: 466.91 km of source-record roads in the three-town watershed intersection; 462.64 km in protection zones A/B/C. Lengths are centerline kilometers, not lane-kilometers or contracted service mileage. Source records retain about 78.8 m of coincident linework.
 
-第二阶段重跑顺序：python build_evidence.py；python phase2_model.py；python build_report.py。验证：python -m unittest test_phase2 -v；如有Node.js，再运行node test_ui.cjs。
+Historical evidence: 13 DCR awards from FY2021–FY2026, totaling $188,251. Grants are not current equipment quotes or proof of installation. Weather: 18,144 ERA5 hourly records across five complete winters, 2021–2022 through 2025–2026. Regional weather is context only, not road-surface observations or salt-use calibration.
 
-先打开 results/SaltShield_Wachusett.html，可离线查看地图、切换道路类别、修改总预算与效果情景，并导出当前比较。
+Default investment assumptions: CAL $15,000 / 10% central reduction; BRINE $30,000 / 25%; 5 t of applied salt per centerline km per winter. Prices, effects and equipment coverage are illustrative.
 
-真实数据：四类官方图层及原始下载记录。三个城镇在汇水区内的道路记录长度合计约466.91 km；其中约462.64 km匹配该水源A/B/C保护区。长度为中心线长度，不是车道公里。
+At a $75,000 aggregate ceiling, independent funding selects $45,000 of projects and models 41.54 t of avoided Zone A application. Pooling selects $75,000 and models 84.84 t. At the same $45,000 actual spending, unrestricted pooling models 52.56 t while funding only two towns; requiring every town returns 41.54 t.
 
-结果表：results/town_road_summary.csv；results/road_length_by_jurisdiction.csv；results/road_length_by_jurisdiction_and_zone.csv。逐分段结果在data/processed。
+Spatial planning uses 173 occupied 1 km cells. At 25% capacity per town, the whole-cell optimum covers 39.56 km of Zone A roads versus 20.77 km under uniform coverage. Cells are not validated maintenance routes. Capacity is illustrative, and spatial coverage is computed independently of the investment budget.
 
-模拟设备：每镇两个互斥方案，共六个，位于results/simulated_equipment_projects.csv。价格、效果、覆盖和基准用盐强度全部为模拟。
+Offline rebuild, after installing requirements.txt:
+python run_analysis.py
+python build_evidence.py
+python phase2_model.py
+python build_weather.py
+python spatial_priority.py
+python build_report.py
 
-默认预算上限均为75000美元。独立模式各镇25000美元上限，实际选45000美元项目，Zone A模拟减少施盐41.54吨；共享模式选75000美元项目，模拟84.84吨。
+Verification:
+python -m unittest test_phase2 test_phase3 -v
+node test_ui.cjs
 
-等实际投入45000美元核查：共享配置模拟52.56吨，但有一个城镇没有项目。不能将预算利用率差异或资金集中直接解释为算法优越或公平。
+Source refresh (requires internet): download_data.py, download_evidence.py, download_weather.py. Rebuild all affected outputs afterward. See README.md for exact definitions and limitations.
 
-原始道路记录约78.8米几何重叠，保留来源分类并报告；4.27公里道路未匹配保护区，未强行归为Zone C。
-
-重跑：按README.md安装requirements.txt，运行python run_analysis.py，再运行python build_report.py。分析可离线进行；download_data.py用于联网重新下载。
-
-这不是实测减盐量、水质浓度预测、实时撒盐控制或已部署市政系统。
+Before procurement, verify actual municipal salt logs, equipment inventories and available capacity, service requirements, operating costs and vendor quotes. This is a planning demonstrator, not a deployed municipal system, concentration forecast or verified safety outcome.

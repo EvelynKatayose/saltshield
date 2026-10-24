@@ -150,30 +150,28 @@ def report(a):
             raise ValueError('Phase 2 inputs are stale. Run phase2_model.py after run_analysis.py.')
         evidence=phase2['evidence']
         summary_rows=''.join(f"<tr><th>{s['town'].title()}</th><td>{s['award_count']}</td><td>${s['historical_grant_total_usd']:,}</td><td>FY{s['latest_award_fiscal_year']}</td></tr>" for s in evidence['town_summary'])
-        categories={'spreader_controls':'撒盐控制器','brine_production':'盐水制备','brine_application':'盐水施用','plow_blades':'铲雪刀片','storage_or_facility':'仓储或设施','temperature_sensors':'路温传感器'}
-        award_rows=''.join('<tr><td>FY'+str(r['fiscal_year'])+' / '+r['town'].title()+'</td><td>'+html.escape(' / '.join(categories[x] for x in r['equipment_categories']))+'</td><td>$'+format(r['grant_award_usd'],',')+'</td><td>'+('$'+format(r['reported_historical_project_total_usd'],',') if r['reported_historical_project_total_usd'] is not None else '未记载')+'</td><td><a href="'+html.escape(r['source_url'],quote=True)+'" target="_blank" rel="noreferrer">DCR</a></td></tr>' for r in evidence['records'])
-        editor_rows=''.join('<tr data-project="'+p['project_id']+'"><th>'+p['town'].title()+' / '+p['project_type']+'</th><td><input type="checkbox" checked data-field="enabled" aria-label="'+p['town'].title()+' '+p['project_type']+' 启用"></td><td><input type="number" min="0" step="1000" value="'+str(p['capital_cost_usd'])+'" data-field="cost" aria-label="'+p['town'].title()+' '+p['project_type']+' 模拟成本"></td><td><input type="number" min="0" max="100" step="10" value="100" data-field="coverage" aria-label="'+p['town'].title()+' '+p['project_type']+' 模拟覆盖率"></td><td>'+str(round(p['reduction_low']*100))+'% / '+str(round(p['reduction_fraction']*100))+'% / '+str(round(p['reduction_high']*100))+'%</td></tr>' for p in phase2['projects'])
-        panel=(ROOT/'phase2_panel.html').read_text().replace('__AWARD_SUMMARY_ROWS__',summary_rows).replace('__AWARD_RECORD_ROWS__',award_rows).replace('__PROJECT_EDITOR_ROWS__',editor_rows)
-        start=template.index('<section class="panel"><h2>同一预算上限')
-        end=template.index('<section class="panel"><h2>保护区内道路',start)
-        template=template[:start]+panel+'\n'+template[end:]
-        script_start=template.index('<script>\nconst ANALYSIS=')
-        template=template[:script_start]+'<script>\nconst ANALYSIS=__ANALYSIS_JSON__;\n'+(ROOT/'phase2_ui.js').read_text()+'\n</script></body></html>\n'
-        template=template.replace('明确标注的模拟投资','13 条历史资助 · 模拟投资')
-        template=template.replace('本轮设备项目','默认模拟项目参数').replace('假设覆盖其在本汇水区内所有可纳入的市镇铺装道路。','初始覆盖率为 100%，可在第二阶段编辑器中调整。')
-        extra_style='\n#project-editor input[type=number]{width:130px}#planner-error{color:#9a3628;background:#fff0eb;padding:12px}button:disabled{opacity:.5;cursor:default}details{margin-top:14px}summary{padding:8px 0}#evidence-panel table td{vertical-align:middle} [hidden]{display:none!important}\n'
-        template=template.replace('</style>',extra_style+'</style>')
+        categories={'spreader_controls':'Spreader controls','brine_production':'Brine production','brine_application':'Brine application','plow_blades':'Plow blades','storage_or_facility':'Storage / facilities','temperature_sensors':'Temperature sensors'}
+        award_rows=''.join('<tr><td>FY'+str(r['fiscal_year'])+' / '+r['town'].title()+'</td><td>'+html.escape(' / '.join(categories[x] for x in r['equipment_categories']))+'</td><td>$'+format(r['grant_award_usd'],',')+'</td><td>'+('$'+format(r['reported_historical_project_total_usd'],',') if r['reported_historical_project_total_usd'] is not None else 'Not reported')+'</td><td><a href="'+html.escape(r['source_url'],quote=True)+'" target="_blank" rel="noreferrer">DCR</a></td></tr>' for r in evidence['records'])
+        editor_rows=''.join('<tr data-project="'+p['project_id']+'"><th>'+p['town'].title()+' / '+p['project_type']+'</th><td><input type="checkbox" checked data-field="enabled" aria-label="Include '+p['town'].title()+' '+p['project_type']+'"></td><td><input type="number" min="0" step="1000" value="'+str(p['capital_cost_usd'])+'" data-field="cost" aria-label="'+p['town'].title()+' '+p['project_type']+' assumed cost"></td><td><input type="number" min="0" max="100" step="10" value="100" data-field="coverage" aria-label="'+p['town'].title()+' '+p['project_type']+' assumed coverage"></td><td>'+str(round(p['reduction_low']*100))+'% / '+str(round(p['reduction_fraction']*100))+'% / '+str(round(p['reduction_high']*100))+'%</td></tr>' for p in phase2['projects'])
+        template=template.replace('__PLANNER_PANEL__',(ROOT/'phase2_panel.html').read_text().replace('__PROJECT_EDITOR_ROWS__',editor_rows))
+        template=template.replace('__EVIDENCE_PANEL__',(ROOT/'evidence_panel.html').read_text().replace('__AWARD_SUMMARY_ROWS__',summary_rows).replace('__AWARD_RECORD_ROWS__',award_rows))
+    else:
+        raise ValueError('Build evidence and phase2_model.py before creating the workspace.')
     phase3_files=[OUT/'spatial_priority.json',OUT/'weather_context.json']
     if any(p.exists() for p in phase3_files):
         if not all(p.exists() for p in phase3_files):
             raise ValueError('Run both build_weather.py and spatial_priority.py before building phase 3.')
-        from phase3_report import load_results, panel, STYLE
+        from phase3_report import load_results, panel
         a={**a,'phase3':load_results()}
-        marker='<section class="panel"><h2>保护区内道路'
-        template=template.replace(marker,panel(a['phase3'])+'\n'+marker)
-        template=template.replace('</style>',STYLE+'</style>')
-        template=template.replace('</body>','<script>\n'+(ROOT/'phase3_ui.js').read_text()+'\n</script></body>')
-    replacements={'__MAP__':svg_map(),'__MEASURED_ROWS__':measured,'__OWNER_ROWS__':ownership,'__SOURCES__':sources,'__ANALYSIS_JSON__':json.dumps(a,ensure_ascii=False).replace('</','<\\/'),'__SOLVER_JS__':(ROOT/'simulation.js').read_text()}
+        panels=panel(a['phase3'])
+        template=template.replace('__WEATHER_PANEL__',panels['weather']).replace('__SPATIAL_PANEL__',panels['spatial'])
+    else:
+        raise ValueError('Build weather and spatial outputs before creating the workspace.')
+    maximum=max(s['within_watershed_centerline_km'] for s in a['summary'])
+    town_cards=''.join(f'<div class="town-detail"><div class="town-name"><span>{s["town"].title()}</span><span>{num(s["within_watershed_centerline_km"])} <em>km</em></span></div><div class="town-strip"><span style="width:{s["within_watershed_centerline_km"]/maximum*100:.2f}%"></span></div><small>{num(s["eligible_municipal_paved_zone_a_km"])} km of eligible Zone A roads</small></div>' for s in a['summary'])
+    replacements={'__MAP__':svg_map(),'__MEASURED_ROWS__':measured,'__OWNER_ROWS__':ownership,'__SOURCES__':sources,'__ANALYSIS_JSON__':json.dumps(a,ensure_ascii=False).replace('</','<\\/'),'__SOLVER_JS__':(ROOT/'simulation.js').read_text(),
+                  '__WORKSPACE_CSS__':(ROOT/'workspace.css').read_text(),'__PLANNER_JS__':(ROOT/'phase2_ui.js').read_text(),'__SPATIAL_JS__':(ROOT/'phase3_ui.js').read_text(),'__WORKSPACE_JS__':(ROOT/'workspace.js').read_text(),
+                  '__TOWN_CARDS__':town_cards,'__TOTAL_ROADS__':num(sum(s['within_watershed_centerline_km'] for s in a['summary'])),'__ELIGIBLE_A__':num(sum(s['eligible_municipal_paved_zone_a_km'] for s in a['summary']))}
     for key,value in replacements.items():template=template.replace(key,value)
     (OUT/'SaltShield_Wachusett.html').write_text(template)
     print('Report created:',OUT/'SaltShield_Wachusett.html')

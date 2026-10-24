@@ -8,25 +8,25 @@ function niceTown(t) { return t.toLowerCase().replace(/\b\w/g, x => x.toUpperCas
 function escapeHtml(s) { return String(s).replace(/[&<>"']/g, x => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[x])); }
 function planRows(plan) {
   if (!plan) return '';
-  return '<table><thead><tr><th>城镇</th><th>选择</th><th>投入</th></tr></thead><tbody>' + towns.map(t => {
+  return '<table><thead><tr><th>Town</th><th>Package</th><th>Capital</th></tr></thead><tbody>' + towns.map(t => {
     const p = plan.selected.find(x => x.town === t);
-    return '<tr><td>' + escapeHtml(niceTown(t)) + '</td><td>' + (p ? escapeHtml(p.project_type) : '不投资') + '</td><td>' + money(p ? p.capital_cost_usd : 0) + '</td></tr>';
+    return '<tr><td>' + escapeHtml(niceTown(t)) + '</td><td>' + (p ? escapeHtml(p.project_type) : 'None') + '</td><td>' + money(p ? p.capital_cost_usd : 0) + '</td></tr>';
   }).join('') + '</tbody></table>';
 }
 function numericInput(input, label, max = Infinity) {
   const value = input.value.trim() === '' ? NaN : Number(input.value);
-  if (!Number.isFinite(value) || value < 0 || value > max) throw new Error(label + '需要填写范围内的有效数字。');
+  if (!Number.isFinite(value) || value < 0 || value > max) throw new Error(label + (Number.isFinite(max) ? ': enter a number between 0 and '+max+'.' : ': enter a nonnegative number.'));
   return value;
 }
 function inputs() {
-  const budget = numericInput(document.getElementById('budget'), '预算');
-  const intensity = numericInput(document.getElementById('intensity'), '基准强度');
+  const budget = numericInput(document.getElementById('budget'), 'Budget');
+  const intensity = numericInput(document.getElementById('intensity'), 'Baseline intensity');
   const effect = document.getElementById('effect').value;
   const projects = originalProjects.map(p => {
     const row = document.querySelector('[data-project="' + p.project_id + '"]');
     return { ...p,
-      capital_cost_usd: numericInput(row.querySelector('[data-field="cost"]'), niceTown(p.town) + '成本'),
-      coverage_fraction_assumed: numericInput(row.querySelector('[data-field="coverage"]'), niceTown(p.town) + '覆盖率', 100) / 100,
+      capital_cost_usd: numericInput(row.querySelector('[data-field="cost"]'), niceTown(p.town) + ' cost'),
+      coverage_fraction_assumed: numericInput(row.querySelector('[data-field="coverage"]'), niceTown(p.town) + ' coverage', 100) / 100,
       enabled: row.querySelector('[data-field="enabled"]').checked,
       input_basis: 'SIMULATED_OR_UNVERIFIED_USER_INPUT',
     };
@@ -40,21 +40,22 @@ function update() {
     current = SaltShield.compare(currentInputs.projects, currentInputs.budget, towns, currentInputs.effect, currentInputs.intensity);
     error.hidden = true; output.hidden = false; document.getElementById('export').disabled = false;
     const { independent: i, pooled: p, participation: f, equalSpend: e, equalSpendParticipation: ef } = current;
-    document.getElementById('caps').textContent = '独立模式每镇上限 ' + money(currentInputs.budget / towns.length) + '；共享总上限 ' + money(currentInputs.budget) + '。所有项目成本与覆盖率保持一致。';
+    document.getElementById('caps').textContent = 'Independent ceiling: ' + money(currentInputs.budget / towns.length) + ' per town. Pooled ceiling: ' + money(currentInputs.budget) + ' across all towns. Project assumptions are identical.';
     for (const [key, result] of [['ind', i], ['pool', p]]) {
       document.getElementById(key + '-benefit').textContent = tonnes(result.zoneA);
       document.getElementById(key + '-cost').textContent = money(result.cost);
       document.getElementById(key + '-projects').innerHTML = planRows(result);
       document.getElementById(key + '-bar').style.width = result.zoneA / Math.max(i.zoneA, p.zoneA, 1) * 100 + '%';
     }
-    document.getElementById('explanation').textContent = '共享模式多减少 ' + tonnes(p.zoneA - i.zoneA) + ' 的 Zone A 模拟施盐，同时多投入 ' + money(p.cost - i.cost) + '。独立／共享未用预算分别为 ' + money(i.unspent) + '／' + money(p.unspent) + '。';
-    document.getElementById('participation-summary').textContent = f ? money(f.cost) + ' 投入，' + tonnes(f.zoneA) + ' 模拟减少施盐，三个城镇均选中项目。' : '无可行方案：预算不足以覆盖每镇至少一个启用项目，或某镇没有启用项目。';
+    document.getElementById('explanation').textContent = 'Pooling increases modeled Zone A avoided application by ' + tonnes(p.zoneA - i.zoneA) + ', with ' + money(p.cost - i.cost) + ' more capital selected. Unused budget: ' + money(i.unspent) + ' independent / ' + money(p.unspent) + ' pooled.';
+    document.getElementById('participation-summary').textContent = f ? money(f.cost) + ' selected capital and ' + tonnes(f.zoneA) + ' modeled avoided application, with a project in every town.' : 'No feasible plan. The budget cannot fund an enabled project in every town, or a town has no enabled projects.';
     document.getElementById('participation-projects').innerHTML = planRows(f);
-    document.getElementById('equal-spend').textContent = '把共享上限限制为独立模式实际投入 ' + money(i.cost) + '：模拟减少 ' + tonnes(e.zoneA) + '；有 ' + e.townsSelected + ' 个城镇选中项目。';
-    document.getElementById('equal-spend-participation').textContent = ef ? '同样实际投入，并要求每镇至少一个项目：模拟减少 ' + tonnes(ef.zoneA) + '，选中 ' + ef.townsSelected + ' 个城镇。' : '同样实际投入下，“每镇至少一个项目”无可行方案。';
+    document.getElementById('equal-spend').textContent = 'At the independent plan\'s actual spending of ' + money(i.cost) + ', pooling models ' + tonnes(e.zoneA) + ' of avoided application with ' + e.townsSelected + ' towns funded.';
+    document.getElementById('equal-spend-participation').textContent = ef ? 'At the same spending, requiring a project in every town models ' + tonnes(ef.zoneA) + ', with ' + ef.townsSelected + ' towns funded.' : 'At the same spending, funding every town is infeasible.';
   } catch (err) {
     current = null; currentInputs = null; error.textContent = err.message; error.hidden = false; output.hidden = true; document.getElementById('export').disabled = true;
   }
+  globalThis.SaltShieldWorkspace?.refresh();
 }
 for (const id of ['budget', 'intensity']) document.getElementById(id).addEventListener('input', update);
 document.getElementById('effect').addEventListener('change', update);
@@ -82,17 +83,17 @@ document.getElementById('import-scenario').addEventListener('change', async even
   const status = document.getElementById('import-status');
   try {
     const file = event.target.files[0]; if (!file) return;
-    if (file.size > 2000000) throw new Error('情景文件超过 2 MB。');
+    if (file.size > 2000000) throw new Error('Scenario file exceeds 2 MB.');
     const data = JSON.parse(await file.text());
-    if (data.schema_version !== 2 || data.source_sha256 !== ANALYSIS.phase2.evidence.source.sha256) throw new Error('情景版本或证据快照不匹配。');
-    if (typeof data.inputs?.budget !== 'number' || typeof data.inputs?.intensity !== 'number' || !['low','central','high'].includes(data.inputs?.effect)) throw new Error('预算、强度或效果情景缺失。');
-    if (!Array.isArray(data.inputs?.projects) || data.inputs.projects.length !== originalProjects.length) throw new Error('项目数量不匹配。');
+    if (data.schema_version !== 2 || data.source_sha256 !== ANALYSIS.phase2.evidence.source.sha256) throw new Error('Scenario version or evidence snapshot does not match.');
+    if (typeof data.inputs?.budget !== 'number' || typeof data.inputs?.intensity !== 'number' || !['low','central','high'].includes(data.inputs?.effect)) throw new Error('Missing budget, intensity or reduction scenario.');
+    if (!Array.isArray(data.inputs?.projects) || data.inputs.projects.length !== originalProjects.length) throw new Error('Project count does not match.');
     const incoming = new Map(data.inputs.projects.map(p => [p.project_id, p]));
-    if (incoming.size !== originalProjects.length || originalProjects.some(p => !incoming.has(p.project_id))) throw new Error('项目编号不匹配。');
+    if (incoming.size !== originalProjects.length || originalProjects.some(p => !incoming.has(p.project_id))) throw new Error('Project IDs do not match.');
     // Only operational controls are imported; geometry and official evidence stay immutable.
     const normalized = originalProjects.map(p => {
       const q = incoming.get(p.project_id);
-      if (typeof q.enabled !== 'boolean' || typeof q.coverage_fraction_assumed !== 'number' || typeof q.capital_cost_usd !== 'number') throw new Error('项目输入字段不完整。');
+      if (typeof q.enabled !== 'boolean' || typeof q.coverage_fraction_assumed !== 'number' || typeof q.capital_cost_usd !== 'number') throw new Error('Project input fields are incomplete.');
       return { ...p, capital_cost_usd: q.capital_cost_usd, coverage_fraction_assumed: q.coverage_fraction_assumed, enabled: q.enabled };
     });
     SaltShield.compare(normalized, data.inputs.budget, towns, data.inputs.effect, data.inputs.intensity);
@@ -103,8 +104,8 @@ document.getElementById('import-scenario').addEventListener('change', async even
       row.querySelector('[data-field="enabled"]').checked = p.enabled;
     }
     document.getElementById('budget').value = data.inputs.budget; document.getElementById('intensity').value = data.inputs.intensity; document.getElementById('effect').value = data.inputs.effect;
-    update(); status.textContent = '情景已导入；数值仍为未核验规划输入。';
-  } catch (err) { status.textContent = '导入失败：' + err.message; }
+    update(); status.textContent = 'Scenario imported. Values remain unverified planning inputs.';
+  } catch (err) { status.textContent = 'Import failed: ' + err.message; }
   event.target.value = '';
 });
 update();
