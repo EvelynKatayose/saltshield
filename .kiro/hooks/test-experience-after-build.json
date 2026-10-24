@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Run experience tests after build",
+      "trigger": "PostFileSave",
+      "matcher": "results/SaltShield_Wachusett\\.html$",
+      "action": {
+        "type": "command",
+        "command": "node test_experience.cjs",
+        "timeout": 120
+      }
+    }
+  ]
+}

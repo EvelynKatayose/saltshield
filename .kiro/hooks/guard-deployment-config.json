@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Protect deployment domain config",
+      "trigger": "PreToolUse",
+      "matcher": "fs_write|str_replace",
+      "action": {
+        "type": "command",
+        "command": "python3 -c \"import sys,json; d=json.load(sys.stdin); p=(d.get('tool_input') or d.get('toolInput') or {}).get('path','') or (d.get('tool_input') or d.get('toolInput') or {}).get('targetFile',''); sys.exit(0) if 'deployment/site.json' not in str(p) else (sys.stderr.write('deployment/site.json controls the public GitHub Pages domain (https://evelynkatayose.github.io/saltshield/). Confirm with the user before editing it.\\n') or print(json.dumps({'hookSpecificOutput':{'permissionDecision':'ask','permissionDecisionReason':'Editing deployment/site.json changes the public domain/base path.'}})))\"",
+        "timeout": 30
+      }
+    }
+  ]
+}

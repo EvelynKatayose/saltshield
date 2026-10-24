@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Rebuild report on source save",
+      "trigger": "PostFileSave",
+      "matcher": "(experience\\.(html|css|js)|experience_live\\.css|winter_scene\\.js|workspace\\.(css|js)|report_template\\.html)$",
+      "action": {
+        "type": "agent",
+        "prompt": "A presentation-layer source file changed. Remember to rebuild the self-contained report with `python build_report.py` and then stage the public site with `python build_site.py` before running the Node tests, since the tests load results/SaltShield_Wachusett.html. Do not hand-edit generated files under results/ or docs/."
+      }
+    }
+  ]
+}
