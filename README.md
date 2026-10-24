@@ -1,5 +1,15 @@
 # SaltShield Wachusett pilot
 
+Public website: https://saltshield-wachusett.fun-badge-4372.chatgpt.site
+
+Repeatable demo: https://saltshield-wachusett.fun-badge-4372.chatgpt.site/?demo=1#experience
+
+Presenter walkthrough: https://saltshield-wachusett.fun-badge-4372.chatgpt.site/demo
+
+The website is publicly accessible without login. The GitHub repository's access
+settings are unchanged. [DEMO.md](DEMO.md) contains the seven-step, three-minute
+walkthrough, exact expected numbers, English talking points and recovery steps.
+
 This package contains official public GIS extracts, reproducible road-length
 analysis, six explicitly simulated investment alternatives, exact budget
 comparisons, five winters of regional weather context, spatial coverage
@@ -29,6 +39,7 @@ node test_joint.cjs  # linked equipment/cell numerical parity
 node build_joint_brief.cjs  # optional: saved-input standalone English brief
 node test_joint_brief.cjs
 node test_experience.cjs
+node test_demo.cjs
 ```
 
 Open `results/SaltShield_Wachusett.html`. For a fresh source snapshot, run
@@ -524,3 +535,28 @@ then use `node build_joint_brief.cjs` if refreshing the saved brief as well.
 checks two-way model updates, exact assigned-cell membership, comparison drag,
 keyboard highlighting, illustration isolation, reset, pause, visibility,
 reduced-motion and no-Canvas behavior, and bounded deterministic particle state.
+
+## Hosting and repeatable demos
+
+`?demo=1` starts from the saved canonical assumptions without reading or
+overwriting the normal browser planning/reach drafts. Budget, project and reach
+edits stay in the current demo tab; **Restart demo** returns to the $75,000
+opening case. The $75,000 and $45,000 preset buttons appear only in demo mode.
+The experience navigation remains visible while scrolling. Normal mode retains
+the original validated local-draft behavior and JSON import/export.
+
+`demo_steps.json` is the presenter source. `python build_site.py` generates
+`DEMO.md` and stages a self-contained `index.html`, bilingual `demo.html` and
+hash manifest in the sibling hosting checkout's `dist/` directory. Use
+`--output /absolute/path` for another staging location. Rebuild the main report
+first. Hosting identity and the current publication receipt are recorded in
+`deployment/site.json`; retain that exact project ID for updates. Website
+audience changes are handled by the hosting service, separately from source
+repository visibility.
+
+The shipped demo path is tested at both budget presets, including the every-town
+constraint, reach check, brief-export availability, restart and preservation of
+saved ordinary-mode work. Anonymous requests verified 200 responses for the
+public application and presenter guide. The deployed application scripts and
+styles exactly match the tested report; the host adds its platform bootstrap.
+The host canonicalizes `/demo.html` to `/demo`.

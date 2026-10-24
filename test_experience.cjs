@@ -1,9 +1,9 @@
 /* Test the shipped experience, quantitative integration and animation lifecycle. */
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
 const read=file=>fs.readFileSync(path.join(__dirname,file),'utf8');
-function harness({reduced=false,canvas=true}={}){
+function harness({reduced=false,canvas=true,search='',stored={}}={}){
   const report=read('results/SaltShield_Wachusett.html'),data=JSON.parse(read('results/joint_planning.json')),planning=JSON.parse(read('results/planning_v1.json')),spatial=JSON.parse(read('results/spatial_priority.json'));
-  const elements=new Map(),frames=new Map(),listeners={},storage=new Map();let nextFrame=0,drawCalls=0;
+  const elements=new Map(),frames=new Map(),listeners={},storage=new Map(Object.entries(stored));let nextFrame=0,drawCalls=0;
   const ctx=new Proxy({createLinearGradient(){return {addColorStop(){}};}},{get(target,key){return target[key]??((...args)=>{for(const value of args)if(typeof value==='number')assert.ok(Number.isFinite(value),'Canvas argument must be finite: '+key);drawCalls++;});},set(target,key,value){target[key]=value;return true;}});
   function element(){const classes=new Set();let value='';return {get value(){return value;},set value(v){value=String(v);},dataset:{},style:{setProperty(k,v){this[k]=v;}},hidden:false,disabled:false,checked:true,innerHTML:'',textContent:'',attributes:{},listeners:{},classList:{add(k){classes.add(k);},toggle(k,on){on?classes.add(k):classes.delete(k);},contains(k){return classes.has(k);}},setAttribute(k,v){this.attributes[k]=v;},removeAttribute(k){delete this.attributes[k];},addEventListener(k,fn){this.listeners[k]=fn;},dispatchEvent(e){this.listeners[e.type]?.(e);},getBoundingClientRect(){return {left:0,top:0,width:1000,height:550};},getContext(){return canvas?ctx:null;},focus(){this.focused=true;},scrollIntoView(){this.scrolled=true;},setPointerCapture(){}};}
   for(const match of report.matchAll(/\bid="([^"]+)"/g))if(!elements.has(match[1]))elements.set(match[1],element());
@@ -17,10 +17,10 @@ function harness({reduced=false,canvas=true}={}){
   for(const r of data.capacities)get('joint-reach-'+r.project_id).value=r.max_road_km_per_winter;
   const media={matches:reduced,addEventListener(k,fn){this.listener=fn;}};
   const document={hidden:false,getElementById:get,documentElement:{dataset:{}},listeners:{},addEventListener(k,fn){this.listeners[k]=fn;},querySelector(s){return s.startsWith('[data-view=')?navigation.find(n=>n.dataset.view===s.match(/data-view="([^"]+)"/)[1]):projectRows.get(s.match(/data-project="([^"]+)"/)[1]);},querySelectorAll(s){if(s==='[data-view]')return navigation;if(s==='[data-go]')return goButtons;if(s==='[data-x-scroll]')return scrollButtons;if(s==='[data-x-town]')return townButtons;if(s==='.experience-cell')return [...maps.independent,...maps.pooled];if(s.startsWith('.experience-cell-'))return maps[s.slice('.experience-cell-'.length)];return [];},createElement(){return {click(){}};}};
-  const context={document,Event,Blob,URL:{createObjectURL(){return 'blob:test';},revokeObjectURL(){}},localStorage:{getItem(k){return storage.get(k);},setItem(k,v){storage.set(k,v);}},matchMedia(query){return query.includes('reduced-motion')?media:{matches:false,addEventListener(){}};},addEventListener(k,fn){listeners[k]=fn;},location:{hash:''},history:{replaceState(){}},scrollTo(){},requestAnimationFrame(fn){const id=++nextFrame;frames.set(id,fn);return id;},cancelAnimationFrame(id){frames.delete(id);}};
+  const context={document,Event,Blob,URL:{createObjectURL(){return 'blob:test';},revokeObjectURL(){}},localStorage:{getItem(k){return storage.get(k);},setItem(k,v){storage.set(k,v);}},matchMedia(query){return query.includes('reduced-motion')?media:{matches:false,addEventListener(){}};},addEventListener(k,fn){listeners[k]=fn;},location:{hash:'',search,reload(){this.reloaded=true;}},history:{replaceState(a,b,url){this.lastUrl=url;}},scrollTo(){},requestAnimationFrame(fn){const id=++nextFrame;frames.set(id,fn);return id;},cancelAnimationFrame(id){frames.delete(id);}};
   vm.createContext(context);const scripts=[...report.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m=>m[1]);assert.equal(scripts.length,4);vm.runInContext(scripts.join('\n'),context);
   function flush(time){const callbacks=[...frames.values()];frames.clear();callbacks.forEach(fn=>fn(time));}
-  return {context,get,frames,document,flush,media,maps,townButtons,scrollButtons,goButtons,data,drawCalls:()=>drawCalls};
+  return {context,get,frames,document,flush,media,maps,townButtons,scrollButtons,goButtons,data,storage,drawCalls:()=>drawCalls};
 }
 function run(){
   const h=harness(),{context:c,get,frames}=h,checks=[];
@@ -45,4 +45,4 @@ function run(){
   const a=W.create({seed:9}),b=W.create({seed:9}),flake=a.snow[0];W.interact(a,flake.x+.01,flake.y,'gust');W.step(a,.04);W.step(b,.04);assert.notEqual(a.snow[0].vx,b.snow[0].vx);checks.push('cursor_gust_changes_local_snow_motion');
   return {status:'PASS',checks,shipped_report_bytes:Buffer.byteLength(read('results/SaltShield_Wachusett.html'))};
 }
-module.exports={run};if(require.main===module)try{console.log(JSON.stringify(run(),null,2));}catch(error){console.error(error);process.exitCode=1;}
+module.exports={run,harness};if(require.main===module)try{console.log(JSON.stringify(run(),null,2));}catch(error){console.error(error);process.exitCode=1;}

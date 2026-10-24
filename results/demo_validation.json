@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "report_sha256": "e13214613a4dbe66854ed007b31ec280088b76892490c57169c0d608d2592cc6",
+  "demo_entry": "https://saltshield-wachusett.fun-badge-4372.chatgpt.site/?demo=1#experience",
+  "walkthrough_url": "https://saltshield-wachusett.fun-badge-4372.chatgpt.site/demo",
+  "deployment_status": "succeeded",
+  "audience": "public",
+  "checks": [
+    "demo ignores saved budget and reach and starts at 75000",
+    "restart controls are visible in experience and workspace",
+    "45000 preset reproduces shared 34.35 t and independent 20.15 t",
+    "every-town constraint at 45000 produces 20.15 t",
+    "reach check and brief export work in the demo session",
+    "demo edits leave existing local drafts unchanged",
+    "restart returns to demo entry",
+    "ordinary mode restores the original saved work"
+  ],
+  "static_index_matches_report": true,
+  "access_mode_verified": "public",
+  "access_revision": 2,
+  "anonymous_home_status": 200,
+  "anonymous_home_requires_login": false,
+  "anonymous_guide_status": 200,
+  "published_application_scripts_match": true,
+  "published_styles_match": true,
+  "host_adds_platform_bootstrap": true
+}

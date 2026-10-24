@@ -5,7 +5,7 @@
   let currentJoint=null,reference=null,reachAssessment=null,revision=0;
   const km=v=>v.toFixed(2)+' km';
   function readReach(){return Object.fromEntries(originalProjects.map(p=>[p.project_id,numericInput(reachInput(p),niceTown(p.town)+' service reach')]));}
-  function saveReach(capacities){try{localStorage.setItem(key,JSON.stringify({source_sha256:data.source_sha256,capacities}));$('joint-draft-status').textContent='Reach saved on this device.';}catch{$('joint-draft-status').textContent='Reach is available for this session. Export to keep a copy.';}}
+  function saveReach(capacities){if(globalThis.SaltShieldDemo?.active){$('joint-draft-status').textContent='Demo reach · saved settings unchanged.';return;}try{localStorage.setItem(key,JSON.stringify({source_sha256:data.source_sha256,capacities}));$('joint-draft-status').textContent='Reach saved on this device.';}catch{$('joint-draft-status').textContent='Reach is available for this session. Export to keep a copy.';}}
   function clearMap(){for(const cell of document.querySelectorAll('.joint-cell'))cell.style.fill='#e1e6e2';}
   function renderReach(){
     $('joint-reach-review').setAttribute('aria-busy','false');$('joint-reach-run').disabled=!currentJoint;
@@ -87,7 +87,7 @@
     const quote=v=>'"'+String(v).replace(/"/g,'""')+'"';download([fields,...rows].map(row=>row.map(quote).join(',')).join('\n'),'text/csv','saltshield-assigned-cells.csv');
   });
   try{
-    const draft=JSON.parse(localStorage.getItem(key)??'null');
+    const draft=globalThis.SaltShieldDemo?.active?null:JSON.parse(localStorage.getItem(key)??'null');
     if(draft&&SaltShieldJoint.matches(draft.source_sha256,data.source_sha256)&&draft.capacities&&Object.keys(draft.capacities).length===originalProjects.length&&originalProjects.every(p=>typeof draft.capacities[p.project_id]==='number'&&Number.isFinite(draft.capacities[p.project_id])&&draft.capacities[p.project_id]>=0))originalProjects.forEach(p=>reachInput(p).value=draft.capacities[p.project_id]);
   }catch{/* Fresh saved assumptions remain in place. */}
   globalThis.SaltShieldJointUI={update:updateJoint,getState:()=>currentJoint};updateJoint();

@@ -1,5 +1,11 @@
 SaltShield — Wachusett Planning Workspace
 
+Public website: https://saltshield-wachusett.fun-badge-4372.chatgpt.site
+Demo entry: https://saltshield-wachusett.fun-badge-4372.chatgpt.site/?demo=1#experience
+Step-by-step presenter guide: https://saltshield-wachusett.fun-badge-4372.chatgpt.site/demo
+No login is required. DEMO.md also contains the full three-minute walkthrough.
+Demo mode starts with $75,000, preserves ordinary saved work, provides two budget presets, and includes Restart demo in both interfaces.
+
 Open results/SaltShield_Wachusett.html in a browser. Everything needed to run the app is embedded in that file; no account or network connection is required.
 The default entry is an immersive winter experience: brush the snow with the cursor, follow Snow / Salt / Water, scatter illustrated salt and create ripples. Pause motion is available, and reduced-motion preferences are respected. The landscape and particles are illustrative artwork, not a water-quality simulation.
 Scroll to the live budget and coverage comparison. Moving its budget slider updates the planning workspace. Switch Independent / Shared, drag the map divider and hover or focus a town. Existing cost, objective, effect and reach edits still apply. Open planner enters the detailed Road Coverage workspace; the SaltShield brand returns to the experience.
@@ -42,6 +48,7 @@ node test_joint.cjs
 node build_joint_brief.cjs
 node test_joint_brief.cjs
 node test_experience.cjs
+node test_demo.cjs
 
 Editable saved inputs: data/parameters/operations_baseline.csv, project_options.csv, scenario_config.json, and project_capacity.csv. The initializers retain existing edits. After changing the first three tables, rerun planning_v1.py, joint_planning.py and build_report.py. For capacity-only edits, rerun joint_planning.py and build_report.py. Per-lane rates, application counts and operating-cost changes remain blank because they are not verified or modeled. Parameter fingerprints prevent stale report builds and mismatched scenario imports.
 

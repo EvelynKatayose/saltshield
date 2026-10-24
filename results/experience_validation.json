@@ -19,13 +19,14 @@
     "cursor_gust_changes_local_snow_motion"
   ],
   "shipped_report_bytes": 4213904,
-  "report_sha256": "fd7048d4f2ffeda8ce41aa5a7a0122b5a0b43887e676b8947fa73aa576220fa2",
+  "report_sha256": "e13214613a4dbe66854ed007b31ec280088b76892490c57169c0d608d2592cc6",
   "source_sha256": {
-    "experience.html": "452ac4a7b8042d2956a69447cfc6219368d315493419c4fe663e783be1abbbd1",
-    "experience.css": "28822b2076d7c63bde12b719fe54bc53310d13f7f714be6119523cbf386448eb",
+    "experience.html": "23ec384e42aeacc241d0c93bb0f315427f251b13be4a88e4e99ff6d409c8c4bc",
+    "experience.css": "1241b4847ff04c60d384f1555334595b743d13dcc764ab157f5c47cbb408ff01",
     "experience.js": "f64ca31de372a854bf1a194510ef59872ae91448453ac559f2908036e23aa9b7",
     "winter_scene.js": "6ee4d4d5d53e7d079ebb06bb2ea4acf657269a01fe292da9996b224f0c906e8d",
-    "assets/winter-reservoir.jpg": "837398dc46de26ef4102c3e5c88d96aef776b32fdd5f45b137b8a7ecb902e743"
+    "assets/winter-reservoir.jpg": "837398dc46de26ef4102c3e5c88d96aef776b32fdd5f45b137b8a7ecb902e743",
+    "demo_mode.js": "44c2d3b3e9efe716a6d68d727e6e38bbe75ebf6a1bee207261eaa7600932a7d0"
   },
   "test_kind": "Shipped scripts with mock DOM and recording Canvas; deterministic particle tests",
   "browser_checks": [

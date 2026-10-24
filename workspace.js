@@ -8,6 +8,7 @@
   let briefHtml='';
   let restorationNotice='';
   function saveDraft() {
+    if(globalThis.SaltShieldDemo?.active){get('draft-status').textContent='Demo session · saved drafts unchanged';return;}
     if(!current||!currentInputs){get('draft-status').textContent='Check investment inputs';return;}
     try{
       const draft={schema_version:2,evidence_sha256:ANALYSIS.phase2.evidence.source.sha256,parameter_fingerprint:ANALYSIS.planning.parameter_fingerprint,inputs:{budget:currentInputs.budget,intensity:currentInputs.intensity,effect:currentInputs.effect,objective:currentInputs.objective,projects:currentInputs.projects.map(p=>({project_id:p.project_id,capital_cost_usd:p.capital_cost_usd,coverage_fraction_assumed:p.coverage_fraction_assumed,enabled:p.enabled}))},coverage:{fraction:String(Number(get('spatial-fraction').value)),method:get('spatial-method').value},brief_policy:get('brief-policy').value};
@@ -87,7 +88,7 @@
   // Validate the entire saved draft before applying any field. Only operational
   // inputs are restored; measured geometry, evidence and effects are immutable.
   try{
-    const raw=globalThis.localStorage?.getItem('saltshield-draft');
+    const raw=globalThis.SaltShieldDemo?.active?null:globalThis.localStorage?.getItem('saltshield-draft');
     if(raw){
       if(raw.length>2000000)throw Error('Oversized draft');
       const draft=JSON.parse(raw), input=draft.inputs;

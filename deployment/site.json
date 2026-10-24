@@ -1,0 +1,11 @@
+{
+  "project_id": "appgprj_6add1ce410808191a5c126dfe8f45af0",
+  "expected_url": "https://saltshield-wachusett.fun-badge-4372.chatgpt.site",
+  "audience": "public",
+  "status": "published",
+  "live_url": "https://saltshield-wachusett.fun-badge-4372.chatgpt.site",
+  "hosting_commit_sha": "1ebf01e09e75c264ee8112ba7731b41e62315d88",
+  "deployment_id": "appgdep_6add1ed3f9dc8191bb1a8f45561dc269",
+  "version_id": "appgprj_6add1ce410808191a5c126dfe8f45af0~appgver_a34452f6a6e481918a5afa9f342455a4",
+  "access_revision": 2
+}
