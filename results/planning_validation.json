@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "python_tests": 42,
+  "python_tests": 46,
   "parity": {
     "status": "PASS",
     "matched_cases": 152,
@@ -55,10 +55,19 @@
     "invalid_investments_clear_joint_outputs",
     "uncertified_objective_stays_available_without_optimality_claim",
     "reach_restores_from_valid_device_draft",
-    "linked_panel_has_no_unresolved_placeholders"
+    "linked_panel_has_no_unresolved_placeholders",
+    "saved_nine_case_reach_check_renders",
+    "linked_brief_contains_map_inputs_reach_cases_and_sources",
+    "changed_reach_clears_stale_stability_in_ui_and_brief",
+    "manual_reach_check_tracks_edited_inputs",
+    "reach_csv_matches_selected_policy_and_input_snapshot",
+    "invalid_reach_disables_brief_and_sensitivity_exports",
+    "input_change_cancels_pending_reach_check",
+    "infeasible_participation_has_no_brief_or_false_stability",
+    "linked_zero_investment_brief_is_valid"
   ],
   "parameter_fingerprint": "a20be0c85fe29462b20d0ef9c9f4735a70940e22893473e6e5297a9b24c8b368",
-  "report_sha256": "4c74f97b77656f186e4b615abadeac0cd6488d896da6d71323964613c644c45c",
+  "report_sha256": "cedd5f17027e5eaa4d7fc88912eff0b9e97d7841b05e6835a5fe8bd8339241ea",
   "unit_basis": "CENTERLINE_KM_PER_WINTER",
   "real_browser_checks": [
     "Chrome: offline file loads and restores the saved draft",

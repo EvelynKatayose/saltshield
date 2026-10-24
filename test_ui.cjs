@@ -23,6 +23,7 @@ async function run() {
   get('objective').value='zoneA';get('decision-policy').value='pooled';
   for(const id of ['joint-policy','joint-json','joint-csv','joint-reset','joint-draft-status','joint-capacity-editor','joint-error','joint-output','joint-benefit-label','joint-cost','joint-unspent','joint-length','joint-capacity','joint-benefit','joint-summary','joint-assignments','joint-uniform','joint-benchmark','joint-comparison'])elements.set(id,element());
   get('joint-policy').value='pooled';
+  for(const id of ['joint-brief','joint-map','joint-reach-review','joint-reach-run','joint-reach-csv','joint-reach-status','joint-reach-output','joint-reach-table','joint-reach-selection'])elements.set(id,element());
   for(const r of analysis.joint.capacities)elements.set('joint-reach-'+r.project_id,element(r.max_road_km_per_winter));
   const viewNames=['overview','investments','coverage','evidence'];
   for(const id of ['view-title','brief-policy','brief-content','download-brief','print-brief','appearance','draft-status',...viewNames.map(v=>v+'-view'),...viewNames.map(v=>v+'-heading')])elements.set(id,element());
@@ -55,6 +56,7 @@ async function run() {
   vm.createContext(context);
   // Execute the shipped report, so integration/embedding failures are caught too.
   const report = fs.readFileSync(path.join(root, 'results/SaltShield_Wachusett.html'), 'utf8');
+  get('joint-map').innerHTML=report.match(/id="joint-map">([\s\S]*?)<\/div>/)[1];
   const scripts = [...report.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]);
   assert.equal(scripts.length, 4);
   vm.runInContext(scripts.join('\n'), context);
@@ -181,6 +183,17 @@ async function run() {
   if(!analysis.joint.benchmarks.all.exact_plans)assert.match(get('joint-benchmark').textContent,/not certified/);checks.push('uncertified_objective_stays_available_without_optimality_claim');
   get('reset-scenario').listeners.click();get('joint-reach-HOLDEN_BRINE').value='19';get('joint-capacity-editor').listeners.input();const jointDraft=JSON.parse(storage.get('saltshield-joint-reach'));assert.equal(jointDraft.capacities.HOLDEN_BRINE,19);get('joint-reach-HOLDEN_BRINE').value='50';reload(JSON.parse(storage.get('saltshield-draft')));assert.equal(get('joint-reach-HOLDEN_BRINE').value,'19');checks.push('reach_restores_from_valid_device_draft');
   assert.ok(!/__JOINT_MAP__|__CAPACITY_ROWS__/.test(report));checks.push('linked_panel_has_no_unresolved_placeholders');
+  get('reset-scenario').listeners.click();get('joint-reset').listeners.click();get('joint-policy').value='pooled';get('joint-policy').listeners.change();
+  assert.match(get('joint-reach-status').textContent,/9 assumed cases/);assert.equal((get('joint-reach-table').innerHTML.match(/<tr>/g)||[]).length,10);assert.equal(get('joint-reach-csv').disabled,false);checks.push('saved_nine_case_reach_check_renders');
+  get('joint-brief').listeners.click();const linkedBrief=await exported.text();assert.ok(linkedBrief.startsWith('<!doctype html>'));assert.ok(linkedBrief.includes('60.68 t'));assert.ok(linkedBrief.includes('<svg'));assert.ok(linkedBrief.includes('Nine assumed cases'));assert.ok(linkedBrief.includes(analysis.joint.source_sha256['data/processed/planning_cells.geojson']));assert.ok(!linkedBrief.includes('<script>'));checks.push('linked_brief_contains_map_inputs_reach_cases_and_sources');
+  get('joint-reach-HOLDEN_BRINE').value='18';get('joint-capacity-editor').listeners.input();assert.equal(get('joint-reach-csv').disabled,true);assert.equal(get('joint-reach-table').innerHTML,'');
+  get('joint-brief').listeners.click();assert.ok((await exported.text()).includes('No stability claim'));checks.push('changed_reach_clears_stale_stability_in_ui_and_brief');
+  await get('joint-reach-run').listeners.click();assert.match(get('joint-reach-status').textContent,/9 assumed cases/);get('joint-json').listeners.click();const checkedJSON=JSON.parse(await exported.text());assert.equal(checkedJSON.reach_sensitivity.case_count,9);assert.equal(checkedJSON.reach_sensitivity.input_snapshot.projects.find(p=>p.project_id==='HOLDEN_BRINE').max_road_km_per_winter,18);checks.push('manual_reach_check_tracks_edited_inputs');
+  get('joint-policy').value='independent';get('joint-policy').listeners.change();get('joint-reach-csv').listeners.click();const reachCSV=await exported.text();assert.equal(reachCSV.trim().split('\n').length,10);assert.ok(reachCSV.includes('"independent"'));assert.ok(!reachCSV.includes('"pooled"'));assert.ok(reachCSV.includes('base_input_snapshot_json'));checks.push('reach_csv_matches_selected_policy_and_input_snapshot');
+  get('joint-reach-HOLDEN_BRINE').value='';get('joint-capacity-editor').listeners.input();assert.equal(get('joint-brief').disabled,true);assert.equal(get('joint-reach-csv').disabled,true);checks.push('invalid_reach_disables_brief_and_sensitivity_exports');
+  get('joint-reset').listeners.click();get('budget').value='60000';get('budget').listeners.input();const pending=get('joint-reach-run').listeners.click();get('budget').value='45000';get('budget').listeners.input();await pending;assert.equal(get('joint-reach-csv').disabled,true);assert.match(get('joint-reach-status').textContent,/needs an update/);checks.push('input_change_cancels_pending_reach_check');
+  get('reset-scenario').listeners.click();for(const r of analysis.joint.capacities)get('joint-reach-'+r.project_id).value='0';get('joint-policy').value='participation';get('joint-capacity-editor').listeners.input();await get('joint-reach-run').listeners.click();assert.match(get('joint-reach-status').textContent,/0 feasible/);assert.equal(get('joint-brief').disabled,true);checks.push('infeasible_participation_has_no_brief_or_false_stability');
+  get('joint-reset').listeners.click();get('joint-policy').value='statusQuo';get('joint-policy').listeners.change();get('joint-brief').listeners.click();assert.ok((await exported.text()).includes('No equipment selected'));checks.push('linked_zero_investment_brief_is_valid');
   return { status: 'PASS', checks };
 }
 

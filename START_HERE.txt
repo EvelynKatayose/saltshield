@@ -6,6 +6,7 @@ Overview: watershed map, town inventory and the live decision brief.
 Investments: edit budget, salt baseline, project costs, coverage and enablement; compare independent and shared funding.
 Investments also compares no new investment, independent optimization, benefit/cost ordering and the pooled optimum. Choose Zone A or all A/B/C roads as the objective. Inspect each project's selection reason and its selection across 27 assumed cases; export comparison and sensitivity CSVs.
 Road Coverage: link equipment purchases to whole road cells under a simulated service-reach limit. Edit six reach assumptions, compare funding rules, inspect assignments and export linked JSON or cell CSV. The standalone four-method capacity experiment remains below it.
+Road Coverage also checks nine CAL/BRINE capacity cases. Changed inputs clear old checks; Run reach check recalculates them. Download decision brief exports the current feasible linked plan with its map, assumptions, funding comparison, valid reach check and source hashes. A saved default brief is available at results/SaltShield_Linked_Brief.html.
 Evidence: DCR historical grants, five winters of regional weather and GIS measurement rules.
 
 Download brief creates a standalone English HTML summary of the selected funding rule and current coverage case. Print brief prints only that summary. Valid settings are saved on this browser/device when local storage is available. JSON scenario import/export remains available in Investments.
@@ -36,6 +37,8 @@ python -m unittest test_phase2 test_phase3 test_planning_v1 test_joint_planning 
 node test_ui.cjs
 node test_planning.cjs
 node test_joint.cjs
+node build_joint_brief.cjs
+node test_joint_brief.cjs
 
 Editable saved inputs: data/parameters/operations_baseline.csv, project_options.csv, scenario_config.json, and project_capacity.csv. The initializers retain existing edits. After changing the first three tables, rerun planning_v1.py, joint_planning.py and build_report.py. For capacity-only edits, rerun joint_planning.py and build_report.py. Per-lane rates, application counts and operating-cost changes remain blank because they are not verified or modeled. Parameter fingerprints prevent stale report builds and mismatched scenario imports.
 

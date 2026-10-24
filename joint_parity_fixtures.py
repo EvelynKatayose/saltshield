@@ -1,7 +1,7 @@
 """Emit linked cases for the JavaScript implementation, including edge cases."""
 import copy
 import json
-from joint_planning import ROOT, load_capacities, solve_joint
+from joint_planning import ROOT, load_capacities, solve_joint, assess_reach
 from planning_v1 import load_inputs
 
 
@@ -26,7 +26,8 @@ def fixtures():
         if name=='unequal_baseline':rr={t:(i+1)*2.75 for i,t in enumerate(config['towns'])}
         if name=='unequal_caps':caps={t:v for t,v in zip(config['towns'],[15000,30000,30000])}
         result=solve_joint(pp,cells,reach,budget,config['towns'],effect,rr,objective,caps)
-        cases.append(dict(name=name,projects=pp,capacities=reach,budget=budget,towns=config['towns'],effect=effect,baseline=rr,objective=objective,local_caps=caps,expected=result))
+        sensitivity=assess_reach(pp,cells,reach,budget,config['towns'],effect,rr,objective,caps) if name in ['default','all','zero_reach','disabled_town','low_budget'] else None
+        cases.append(dict(name=name,projects=pp,capacities=reach,budget=budget,towns=config['towns'],effect=effect,baseline=rr,objective=objective,local_caps=caps,expected=result,expected_reach=sensitivity))
     return dict(cells=cells,cases=cases)
 
 

@@ -60,5 +60,26 @@
   }
   const stable=v=>Array.isArray(v)?v.map(stable):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,stable(v[k])])):v;
   const matches=(reference,input)=>JSON.stringify(stable(reference))===JSON.stringify(stable(input));
-  globalThis.SaltShieldJoint={allocate,solve,matches};
+  function assessReach(projects,cells,capacities,budget,towns,effect='central',baseline=5,objective='zoneA',localCaps=null){
+    if(projects.some(p=>!['CAL','BRINE'].includes(p.project_type)))throw Error('Reach checks support CAL and BRINE packages only');
+    const base=solve(projects,cells,capacities,budget,towns,effect,baseline,objective,localCaps),byId=new Map(cells.map(c=>[c.cell_id,c])),cases=[];
+    for(const cal of [.75,1,1.25])for(const brine of [.75,1,1.25]){
+      const reach=Object.fromEntries(projects.map(p=>[p.project_id,capacities[p.project_id]*(p.project_type==='CAL'?cal:brine)]));
+      const result=cal===1&&brine===1?base:solve(projects,cells,reach,budget,towns,effect,baseline,objective,localCaps),plans={};
+      for(const [policy,r] of Object.entries(result.plans)){
+        const original=base.plans[policy];if(r===null){plans[policy]=null;continue;}
+        const originalIds=new Set(original?.selected_cell_ids??[]),retained=r.selected_cell_ids.filter(cid=>originalIds.has(cid)).reduce((s,cid)=>s+byId.get(cid).eligible_km,0),ids=r.selected.map(p=>p.project_id).sort();
+        plans[policy]={...Object.fromEntries(['cost','zoneA','all','eligible','covered_road_km','townsSelected','selected_cell_ids'].map(k=>[k,r[k]])),selected_ids:ids,same_equipment_as_current:original?matches(ids,original.selected.map(p=>p.project_id).sort()):null,retained_base_road_km:retained,retained_base_road_fraction:original?.covered_road_km>0?retained/original.covered_road_km:null};
+      }
+      cases.push({case_id:'CAL'+String(Math.round(cal*100)).padStart(3,'0')+'_BRINE'+String(Math.round(brine*100)).padStart(3,'0'),cal_multiplier:cal,brine_multiplier:brine,capacities:reach,plans});
+    }
+    const summaries={},selection=[];
+    for(const policy of Object.keys(base.plans)){
+      const feasible=cases.map(c=>c.plans[policy]).filter(r=>r!==null),retention=feasible.map(r=>r.retained_base_road_fraction).filter(v=>v!==null);
+      summaries[policy]={feasible_cases:feasible.length,matching_equipment_cases:feasible.filter(r=>r.same_equipment_as_current===true).length,objective_t_low:feasible.length?Math.min(...feasible.map(r=>r[objective])):null,objective_t_high:feasible.length?Math.max(...feasible.map(r=>r[objective])):null,retained_road_fraction_low:retention.length?Math.min(...retention):null,retained_road_fraction_high:retention.length?Math.max(...retention):null};
+      for(const p of projects)selection.push({policy,project_id:p.project_id,selected_cases:feasible.filter(r=>r.selected_ids.includes(p.project_id)).length,feasible_cases:feasible.length});
+    }
+    return {input_snapshot:base.input_snapshot,case_count:cases.length,cases,summaries,selection,interpretation:'Nine deterministic reach cases, not probabilities or confidence intervals. CAL and BRINE service reach each vary independently by -25%, 0%, +25%. Budget, prices, effects, baseline and coverage ceilings stay fixed. Equipment and whole cells are re-optimized in each case. Retention is measured baseline assigned road length that remains assigned, regardless of package. No unrounded optimality claim is made.'};
+  }
+  globalThis.SaltShieldJoint={allocate,solve,matches,assessReach};
 })();

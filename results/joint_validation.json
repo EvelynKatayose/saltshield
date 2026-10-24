@@ -3,8 +3,10 @@
   "cases": 14,
   "policy_checks": 88,
   "profile_checks": 84,
-  "max_browser_engine_ms": 182,
-  "method": "Conservative 10 m whole-cell DP, checked against Python; saved-input unrounded SciPy comparisons are separate",
+  "reach_policy_checks": 261,
+  "max_browser_engine_ms": 90,
+  "max_reach_check_ms": 785,
+  "method": "Conservative 10 m whole-cell DP and nine-case reach checks, checked against Python; saved-input unrounded SciPy comparisons are separate",
   "source_sha256": {
     "results/planning_v1.json": "57302a0ac7db1441e50ca7c5fa3d899dc7fc1e18923a6384419dc065b1bdaaf9",
     "results/spatial_priority.json": "bb36790ed4e3600f6c68eccc0c81c3d81aec7e9a4f5a902be96879f74d18daa0",

@@ -26,6 +26,8 @@ python -m unittest test_phase2 test_phase3 test_planning_v1 test_joint_planning 
 node test_ui.cjs  # optional Node.js verification of embedded report scripts
 node test_planning.cjs  # Python/JavaScript numerical parity; needs python3
 node test_joint.cjs  # linked equipment/cell numerical parity
+node build_joint_brief.cjs  # optional: saved-input standalone English brief
+node test_joint_brief.cjs
 ```
 
 Open `results/SaltShield_Wachusett.html`. For a fresh source snapshot, run
@@ -433,3 +435,47 @@ retains existing edits. Validation includes rounded DP against brute force,
 capacity and uniqueness checks, no double application of coverage, zero reach,
 participation infeasibility, Python/JavaScript parity on measured cells and
 UI checks for stale certificates and exports.
+
+## Reach checks and a linked decision brief
+
+The capacity-linked model includes nine reach cases. CAL reach and BRINE reach
+vary independently by 75%, 100% and 125% of their current values. Capital costs,
+effects, town baseline profiles, coverage ceilings and funding rules stay fixed.
+Each case re-optimizes equipment and whole road cells. This is a sensitivity
+check of assumed capacity, not a robust optimization or a probability model.
+The seven rules produce 63 saved case/policy rows in
+`results/joint_reach_sensitivity.csv`; full inputs, assignments, project counts
+and summaries are embedded in `results/joint_planning.json`.
+
+For the saved $75,000 Zone A case, the current pooled equipment portfolio
+remains selected in 5 of 9 cases. West Boylston BRINE is selected in all nine;
+Holden and Sterling trade CAL and BRINE in some cases. Modeled Zone A avoided
+application ranges from 50.85 to 69.12 t across these illustrative cases.
+The minimum retained original road length is 72.4%. Retention counts measured
+road length still assigned, regardless of equipment package. With no original
+assignment, retention is undefined and displayed as a dash, not 0% or 100%.
+
+Road Coverage shows the saved check immediately. Changed inputs clear its
+results; **Run reach check** evaluates the current scenario. Changing inputs
+while a run is pending cancels that run. Changing the displayed funding rule
+reuses the same valid cases. CSV export contains the nine cases for that rule,
+including the base input snapshot, each case's capacities and source hashes.
+Linked JSON includes the current valid check or `null` when no current check
+exists. Counts are scenario frequencies and do not imply confidence levels.
+
+**Download decision brief** creates a self-contained English HTML document
+for the current feasible linked plan. It includes the assigned-cell map,
+equipment and capacity table, all seven funding comparisons, current reach
+check when available, assumptions, benchmark status and complete source hashes.
+It can be opened offline and printed from the browser. A changed input snapshot
+cannot reuse saved sensitivity or benchmark claims. An infeasible policy cannot
+export a brief; the no-new-investment policy can export a valid empty plan.
+The Overview brief remains the separate uniform-coverage model.
+
+`node build_joint_brief.cjs` uses the same renderer to save the default pooled
+case as `results/SaltShield_Linked_Brief.html`, and refuses a stale workspace.
+Rebuild the workspace first. `node test_joint_brief.cjs` checks its map cells,
+metrics, provenance, changed-budget behavior and text escaping. Cross-language
+validation also compares reach cases for both objectives, low budgets, disabled
+towns and zero reach. Narrow-screen and print pagination require visual review
+before using the brief as a final publication.

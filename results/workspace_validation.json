@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "language": "en",
-  "python_tests": 42,
+  "python_tests": 46,
   "embedded_ui_checks": [
     "default_results",
     "coverage_updates_results",
@@ -48,9 +48,18 @@
     "invalid_investments_clear_joint_outputs",
     "uncertified_objective_stays_available_without_optimality_claim",
     "reach_restores_from_valid_device_draft",
-    "linked_panel_has_no_unresolved_placeholders"
+    "linked_panel_has_no_unresolved_placeholders",
+    "saved_nine_case_reach_check_renders",
+    "linked_brief_contains_map_inputs_reach_cases_and_sources",
+    "changed_reach_clears_stale_stability_in_ui_and_brief",
+    "manual_reach_check_tracks_edited_inputs",
+    "reach_csv_matches_selected_policy_and_input_snapshot",
+    "invalid_reach_disables_brief_and_sensitivity_exports",
+    "input_change_cancels_pending_reach_check",
+    "infeasible_participation_has_no_brief_or_false_stability",
+    "linked_zero_investment_brief_is_valid"
   ],
-  "report_sha256": "4c74f97b77656f186e4b615abadeac0cd6488d896da6d71323964613c644c45c",
+  "report_sha256": "cedd5f17027e5eaa4d7fc88912eff0b9e97d7841b05e6835a5fe8bd8339241ea",
   "real_browser_checks": [
     "Chrome: English Overview, Investments and Road Coverage sections render with default results",
     "Chrome: light and dark appearance visually inspected",
@@ -81,8 +90,10 @@
     "cases": 14,
     "policy_checks": 88,
     "profile_checks": 84,
-    "max_browser_engine_ms": 182,
-    "method": "Conservative 10 m whole-cell DP, checked against Python; saved-input unrounded SciPy comparisons are separate",
+    "reach_policy_checks": 261,
+    "max_browser_engine_ms": 90,
+    "max_reach_check_ms": 785,
+    "method": "Conservative 10 m whole-cell DP and nine-case reach checks, checked against Python; saved-input unrounded SciPy comparisons are separate",
     "source_sha256": {
       "results/planning_v1.json": "57302a0ac7db1441e50ca7c5fa3d899dc7fc1e18923a6384419dc065b1bdaaf9",
       "results/spatial_priority.json": "bb36790ed4e3600f6c68eccc0c81c3d81aec7e9a4f5a902be96879f74d18daa0",
@@ -92,5 +103,24 @@
       "data/parameters/project_options.csv": "b8764b50fce68adfb3dbcbc37ca699ad777b3f1271c959ebce916bc0a9226479",
       "data/parameters/scenario_config.json": "a3f4a8226893df8379f425703aeb036834e08941e5367d5102a71ba47c7090d6"
     }
-  }
+  },
+  "linked_brief": {
+    "status": "PASS",
+    "checks": [
+      "standalone_english_artifact_without_external_assets_or_scripts",
+      "all_map_cells_match_saved_pooled_assignment",
+      "saved_metrics_stability_and_full_source_hashes_present",
+      "changed_budget_cannot_reuse_saved_stability_or_certificate",
+      "zero_investment_has_valid_empty_assignment_and_undefined_retention",
+      "infeasible_policy_cannot_create_brief",
+      "text_is_escaped_and_unsafe_source_link_is_filtered"
+    ],
+    "brief_bytes": 200996,
+    "sha256": "95b8275a799a21fa7cc63b0812c7343d35377120b8f14970d1ece1406dfb2e1d"
+  },
+  "capacity_review_browser_checks": [
+    "Chrome: nine saved reach cases show 5 of 9 equipment matches and 50.85–69.12 simulated Zone A tonnes",
+    "Chrome: reach table and controls visually inspected in the existing macOS-style workspace",
+    "Chrome: standalone English brief opens offline with the correct metrics, assignment table, source hashes and reach summary"
+  ]
 }

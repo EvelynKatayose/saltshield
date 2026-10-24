@@ -187,6 +187,46 @@ def solve_joint(projects,cells,capacities,budget,towns,effect='central',baseline
             'quantum_km':QUANTUM_KM,'participation_definition':'At least one enabled package with nonempty eligible road-cell coverage in every town'}
 
 
+def assess_reach(projects,cells,capacities,budget,towns,effect='central',baseline=5,objective='zoneA',local_caps=None):
+    """Nine deterministic reach cases; re-optimize both equipment and cells.
+
+    CAL and BRINE multipliers vary independently. Prices, effects, baseline and
+    funding ceilings stay fixed. Counts are not probabilities.
+    """
+    if any(p['project_type'] not in ('CAL','BRINE') for p in projects):
+        raise ValueError('Reach checks support CAL and BRINE packages only')
+    base=solve_joint(projects,cells,capacities,budget,towns,effect,baseline,objective,local_caps)
+    by_id={c['cell_id']:c for c in cells};cases=[]
+    for cal in [.75,1.,1.25]:
+        for brine in [.75,1.,1.25]:
+            reach={p['project_id']:capacities[p['project_id']]*(cal if p['project_type']=='CAL' else brine) for p in projects}
+            result=base if cal==brine==1 else solve_joint(projects,cells,reach,budget,towns,effect,baseline,objective,local_caps)
+            plans={}
+            for policy,r in result['plans'].items():
+                original=base['plans'][policy]
+                if r is None:
+                    plans[policy]=None;continue
+                original_ids=set(original['selected_cell_ids']) if original else set()
+                retained=sum(by_id[cid]['eligible_km'] for cid in r['selected_cell_ids'] if cid in original_ids)
+                ids=sorted(p['project_id'] for p in r['selected'])
+                plans[policy]={k:r[k] for k in ['cost','zoneA','all','eligible','covered_road_km','townsSelected','selected_cell_ids']}
+                plans[policy].update(selected_ids=ids,same_equipment_as_current=(ids==sorted(p['project_id'] for p in original['selected'])) if original else None,
+                                     retained_base_road_km=retained,retained_base_road_fraction=retained/original['covered_road_km'] if original and original['covered_road_km']>0 else None)
+            cases.append({'case_id':f'CAL{round(cal*100):03d}_BRINE{round(brine*100):03d}',
+                          'cal_multiplier':cal,'brine_multiplier':brine,'capacities':reach,'plans':plans})
+    summaries={};selection=[]
+    for policy in POLICIES:
+        feasible=[c['plans'][policy] for c in cases if c['plans'][policy] is not None]
+        retention=[r['retained_base_road_fraction'] for r in feasible if r['retained_base_road_fraction'] is not None]
+        summaries[policy]={'feasible_cases':len(feasible),'matching_equipment_cases':sum(r['same_equipment_as_current'] is True for r in feasible),
+                           'objective_t_low':min((r[objective] for r in feasible),default=None),'objective_t_high':max((r[objective] for r in feasible),default=None),
+                           'retained_road_fraction_low':min(retention,default=None),'retained_road_fraction_high':max(retention,default=None)}
+        for p in projects:
+            selection.append({'policy':policy,'project_id':p['project_id'],'selected_cases':sum(p['project_id'] in r['selected_ids'] for r in feasible),'feasible_cases':len(feasible)})
+    return {'input_snapshot':base['input_snapshot'],'case_count':len(cases),'cases':cases,'summaries':summaries,'selection':selection,
+            'interpretation':'Nine deterministic reach cases, not probabilities or confidence intervals. CAL and BRINE service reach each vary independently by -25%, 0%, +25%. Budget, prices, effects, baseline and coverage ceilings stay fixed. Equipment and whole cells are re-optimized in each case. Retention is measured baseline assigned road length that remains assigned, regardless of package. No unrounded optimality claim is made.'}
+
+
 def source_hashes():
     names=['results/planning_v1.json','results/spatial_priority.json','data/processed/planning_cells.geojson','data/parameters/project_capacity.csv',
            'data/parameters/operations_baseline.csv','data/parameters/project_options.csv','data/parameters/scenario_config.json']
@@ -213,7 +253,8 @@ def build():
                            'comparison_scope':'Equal total ceiling' if not policy.startswith('equalSpend') else 'Each model uses its own independent actual spending'})
         references[objective]={'input_snapshot':conservative['input_snapshot'],'exact_plans':exact['plans'] if exact else None,'conservative_plans':conservative['plans'],'status':status,'note':reason}
     default=solve_joint(projects,cells,capacities,config['total_budget_usd'],config['towns'],config['effect'],rates,config['objective'],config['local_budget_usd'])
-    output={'schema_version':1,'source_sha256':source_hashes(),'capacities':rows,'cells':cells,'default':default,'benchmarks':references,
+    reach_check=assess_reach(projects,cells,capacities,config['total_budget_usd'],config['towns'],config['effect'],rates,config['objective'],config['local_budget_usd'])
+    output={'schema_version':1,'source_sha256':source_hashes(),'capacities':rows,'cells':cells,'default':default,'benchmarks':references,'reach_sensitivity':reach_check,
             'interpretation':'Illustrative service reach, not measured fleet capacity. Whole cells use conservative 10 m capacity accounting. Budget portfolios are enumerated exactly over these conservative project profiles. Saved-input SciPy benchmarks optimize the unrounded primary objective only. No dispatch, concurrent storm, staffing, travel-time, safety or hydrologic model is implied.'}
     (ROOT/'results/joint_planning.json').write_text(json.dumps(output,indent=2,allow_nan=False))
     policy_rows=[];allocations=[]
@@ -231,6 +272,14 @@ def build():
     with (ROOT/'results/joint_cell_allocations.csv').open('w',encoding='utf-8-sig',newline='') as handle:
         writer=csv.DictWriter(handle,fieldnames=['policy','project_id','town','cell_id','eligible_km','zone_a_km','protected_km'],lineterminator='\n');writer.writeheader();writer.writerows(allocations)
     write_rows(ROOT/'results/joint_exact_benchmarks.csv',checks)
+    reach_rows=[]
+    for case in reach_check['cases']:
+        for policy,r in case['plans'].items():
+            reach_rows.append({'case_id':case['case_id'],'cal_multiplier':case['cal_multiplier'],'brine_multiplier':case['brine_multiplier'],'policy':policy,
+                               'feasible':r is not None,'capital_usd':r['cost'] if r else None,'objective_t_simulated':r[config['objective']] if r else None,
+                               'road_km':r['covered_road_km'] if r else None,'selected_ids':';'.join(r['selected_ids']) if r else '',
+                               'retained_base_road_fraction':r['retained_base_road_fraction'] if r else None})
+    write_rows(ROOT/'results/joint_reach_sensitivity.csv',reach_rows)
     p=default['plans']['pooled'];certified=references[config['objective']]['exact_plans'];reference=certified['pooled'] if certified else None
     print(json.dumps({'pooled_capital':p['cost'],'pooled_road_km':p['covered_road_km'],'pooled_zone_a_t':p['zoneA'],
                       'unrounded_zone_a_t_benchmark':reference['zoneA'] if reference else None,'selected_projects':[p['project_id'] for p in p['selected']]},indent=2))

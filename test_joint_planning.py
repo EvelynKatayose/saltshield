@@ -7,7 +7,7 @@ import random
 import unittest
 
 from joint_planning import (ROOT, POLICIES, allocate_conservative, allocate_exact,
-                            load_capacities, solve_joint, source_hashes)
+                            load_capacities, solve_joint, source_hashes, assess_reach)
 from planning_v1 import load_inputs
 
 
@@ -94,6 +94,45 @@ class JointPlanningTests(unittest.TestCase):
         with self.assertRaises(ValueError):self.solve(cells=self.cells+[self.cells[0]])
         cells=copy.deepcopy(self.cells);cells[0]['eligible_km']+=1
         with self.assertRaises(ValueError):self.solve(cells=cells)
+
+    def test_reach_grid_central_case_and_retention(self):
+        check=self.saved['reach_sensitivity'];base=self.saved['default']
+        self.assertEqual(check['case_count'],9);self.assertEqual(len(check['cases']),9)
+        self.assertEqual(len(check['selection']),42)
+        central=next(c for c in check['cases'] if c['cal_multiplier']==c['brine_multiplier']==1)
+        for policy,r in central['plans'].items():
+            if r is None:continue
+            self.assertEqual(r['selected_ids'],sorted(p['project_id'] for p in base['plans'][policy]['selected']))
+            self.assertTrue(r['same_equipment_as_current'])
+            if r['covered_road_km']>0:self.assertAlmostEqual(r['retained_base_road_fraction'],1.)
+        for c in check['cases']:
+            for p in self.projects:self.assertAlmostEqual(c['capacities'][p['project_id']],self.capacities[p['project_id']]*(c['cal_multiplier'] if p['project_type']=='CAL' else c['brine_multiplier']))
+            for r in c['plans'].values():
+                if r is not None and r['retained_base_road_fraction'] is not None:self.assertTrue(0<=r['retained_base_road_fraction']<=1+1e-8)
+
+    def test_reach_expansion_cannot_lower_optimal_primary_benefit(self):
+        cases=self.saved['reach_sensitivity']['cases']
+        for a in cases:
+            for b in cases:
+                if a['cal_multiplier']<=b['cal_multiplier'] and a['brine_multiplier']<=b['brine_multiplier']:
+                    for policy in ['pooled','independent','participation']:
+                        x=a['plans'][policy];y=b['plans'][policy]
+                        if x is not None:self.assertIsNotNone(y);self.assertLessEqual(x['zoneA'],y['zoneA']+1e-6)
+
+    def test_no_reach_has_no_participation_or_undefined_retention(self):
+        check=assess_reach(self.projects,self.cells,{pid:0 for pid in self.capacities},75000,self.config['towns'],baseline=self.rates)
+        self.assertEqual(check['summaries']['participation']['feasible_cases'],0)
+        self.assertIsNone(check['summaries']['participation']['objective_t_low'])
+        for case in check['cases']:
+            self.assertIsNone(case['plans']['participation']);self.assertIsNone(case['plans']['pooled']['retained_base_road_fraction'])
+        self.assertTrue(all(r['selected_cases']==0 for r in check['selection']))
+
+    def test_reach_check_does_not_modify_inputs(self):
+        projects=copy.deepcopy(self.projects);reach=dict(self.capacities)
+        assess_reach(projects,self.cells,reach,45000,self.config['towns'],baseline=self.rates)
+        self.assertEqual(projects,self.projects);self.assertEqual(reach,self.capacities)
+        projects[0]['project_type']='UNKNOWN'
+        with self.assertRaises(ValueError):assess_reach(projects,self.cells,reach,45000,self.config['towns'])
 
 
 if __name__=='__main__':unittest.main()
