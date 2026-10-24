@@ -166,7 +166,7 @@
       "Chrome: native UI state reflects live changes to snowfall intensity, funding mode, map split and budget"
     ],
     "verification_limits": [
-      "Embedded Codex preview and local HTTP server were unavailable; desktop Chrome file:// preview was used.",
+      "A local HTTP server was unavailable; desktop Chrome file:// preview was used.",
       "Particle paths and generated landscape are illustrations, not measured routes, salt mass or water-quality predictions.",
       "Phone dimensions were tested in browser emulation; physical touch hardware was not tested."
     ],

@@ -14,7 +14,8 @@ def build(output):
     config=json.loads((ROOT/'deployment/site.json').read_text())
     home=config['expected_url'].rstrip('/')+'/'
     url=home+'?demo=1'
-    if any(word in url.lower() for word in ['codex','chatgpt','openai']) or not url.startswith('https://'):raise ValueError('The demo requires a brand-neutral HTTPS URL')
+    host=urlsplit(home).hostname or ''
+    if not url.startswith('https://') or not host.endswith('github.io'):raise ValueError('The demo requires the published GitHub Pages HTTPS URL')
     base=urlsplit(home).path
     if base!=config['base_path']:raise ValueError('Hosting URL and routing base must agree')
     guide=json.loads((ROOT/'demo_steps.json').read_text());esc=html.escape

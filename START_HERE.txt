@@ -1,8 +1,8 @@
 SaltShield — Wachusett Planning Workspace
 
-Public website: https://saltshield-wachusett.fun-badge-4372.chatgpt.site
-Demo entry: https://saltshield-wachusett.fun-badge-4372.chatgpt.site/?demo=1#experience
-Step-by-step presenter guide: https://saltshield-wachusett.fun-badge-4372.chatgpt.site/demo
+Public website: https://evelynkatayose.github.io/saltshield/
+Demo entry: https://evelynkatayose.github.io/saltshield/?demo=1
+Step-by-step presenter guide: https://evelynkatayose.github.io/saltshield/demo/
 No login is required. DEMO.md also contains the full three-minute walkthrough.
 Demo mode starts with $75,000, preserves ordinary saved work, provides two budget presets, and includes Restart demo in both interfaces.
 
