@@ -2,8 +2,7 @@ SaltShield — Wachusett Planning Workspace
 
 Public website: https://evelynkatayose.github.io/saltshield/
 Demo entry: https://evelynkatayose.github.io/saltshield/?demo=1
-Step-by-step presenter guide: https://evelynkatayose.github.io/saltshield/demo/
-No login is required. DEMO.md also contains the full three-minute walkthrough.
+No login is required.
 Demo mode starts with $75,000, preserves ordinary saved work, provides two budget presets, and includes Restart demo in both interfaces.
 
 Open results/SaltShield_Wachusett.html in a browser. Everything needed to run the app is embedded in that file; no account or network connection is required.

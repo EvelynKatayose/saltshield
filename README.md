@@ -4,11 +4,8 @@ Public website: https://evelynkatayose.github.io/saltshield/
 
 Repeatable demo: https://evelynkatayose.github.io/saltshield/?demo=1
 
-Presenter walkthrough: https://evelynkatayose.github.io/saltshield/demo/
-
 The website is publicly accessible without login. The GitHub repository's access
-settings are unchanged. [DEMO.md](DEMO.md) contains the seven-step, three-minute
-walkthrough, exact expected numbers, English talking points and recovery steps.
+settings are unchanged.
 
 This package contains official public GIS extracts, reproducible road-length
 analysis, six explicitly simulated investment alternatives, exact budget
@@ -547,18 +544,15 @@ opening case. The $75,000 and $45,000 preset buttons appear only in demo mode.
 The experience navigation remains visible while scrolling. Normal mode retains
 the original validated local-draft behavior and JSON import/export.
 
-`demo_steps.json` is the presenter source. `python build_site.py` generates
-`DEMO.md` and stages a self-contained `index.html`, bilingual `demo.html` and
-hash manifest in the sibling hosting checkout's `dist/` directory. Use
-`--output /absolute/path` for another staging location. Rebuild the main report
-first. Hosting identity and the current publication receipt are recorded in
-`deployment/site.json`; retain that exact project ID for updates. Website
-audience changes are handled by the hosting service, separately from source
-repository visibility.
+`python build_site.py` stages a self-contained `index.html` and hash manifest
+in the `docs/` directory. Use `--output /absolute/path` for another staging
+location. Rebuild the main report first. Hosting identity and the current
+publication receipt are recorded in `deployment/site.json`; retain that exact
+project ID for updates. Website audience changes are handled by the hosting
+service, separately from source repository visibility.
 
 The shipped demo path is tested at both budget presets, including the every-town
 constraint, reach check, brief-export availability, restart and preservation of
 saved ordinary-mode work. Anonymous requests verified 200 responses for the
-public application and presenter guide. The deployed application scripts and
-styles exactly match the tested report; the host adds its platform bootstrap.
-The host canonicalizes `/demo.html` to `/demo`.
+public application. The deployed application scripts and styles exactly match the
+tested report; the host adds its platform bootstrap.

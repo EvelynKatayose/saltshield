@@ -5,12 +5,10 @@
   "base_path": "/saltshield/",
   "files": [
     "index.html",
-    "demo.html",
     ".nojekyll",
     "overview/index.html",
     "investments/index.html",
     "coverage/index.html",
-    "evidence/index.html",
-    "demo/index.html"
+    "evidence/index.html"
   ]
 }
