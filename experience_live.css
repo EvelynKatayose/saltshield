@@ -1,0 +1,86 @@
+/* Keep the map, budget and current result together in the available viewport. */
+.experience .x-live{padding-top:30px;padding-bottom:42px;scroll-margin-top:92px}
+.x-live .x-live-heading{align-items:center;gap:28px;margin-bottom:20px}
+.x-live .x-live-heading .x-kicker{font-size:8px;letter-spacing:1.7px;margin-bottom:9px}
+.x-live .x-live-heading h2{font-size:clamp(26px,2.8vw,38px);line-height:1.12;letter-spacing:-.045em}
+.x-live .x-live-description{font-size:11px;max-width:285px;margin:0}
+.x-live-workbench{scroll-margin-top:100px;display:grid;grid-template-columns:minmax(0,1fr) 340px;align-items:start;gap:20px}
+.x-live .x-compare-map{position:sticky;top:100px;aspect-ratio:auto;height:clamp(340px,calc(100svh - 220px),600px);min-width:0;border-radius:14px}
+.x-live .x-map-base,.x-live .x-map-shared{inset:43px 0 100px}
+.x-live .x-map-divider{top:43px;bottom:100px}
+.x-live .x-map-labels{top:20px;font-size:9px}
+.x-live .x-map-scrubber{bottom:48px;gap:11px}
+.x-live .x-map-caption{font-size:9px}
+.x-control-panel{background:#fff;border:1px solid #d8e5e1;border-radius:14px;padding:20px;box-shadow:0 8px 30px #103c3b05;min-width:0}
+.x-live .x-live-toolbar{display:block;border:0;padding:0}
+.x-live .x-budget-label{max-width:none;gap:11px;font-size:11px}
+.x-live .x-budget-label strong{font-size:27px}
+.x-live .x-budget-label input{min-height:18px}
+.x-live .x-budget-label>span{font-size:9px}
+.x-live .x-demo-presets{padding-top:12px;gap:7px;font-size:10px}
+.x-live .x-demo-presets button{font-size:11px;padding:7px 10px}
+.x-live .x-funding-control{margin-top:16px;gap:3px;width:100%;padding:4px;box-sizing:border-box}
+.x-live .x-funding-control button{flex:1;min-width:0;min-height:36px;font-size:10px;padding:8px 9px;white-space:nowrap}
+.x-live .x-plan-metrics{display:block;margin:16px 0 0}
+.x-live .x-plan-metrics>div{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;row-gap:3px;align-items:center;padding:10px 0;border:0;border-top:1px solid #e0eae7}
+.x-live .x-plan-metrics span{font-size:10px;line-height:1.4}
+.x-live .x-plan-metrics strong{font-size:26px;letter-spacing:-1px;line-height:1.05;margin:0}
+.x-live .x-plan-metrics small{grid-column:1/-1;font-size:9px}
+.x-live .x-result-comparison{font-size:10px;line-height:1.6;margin:12px 0}
+.x-plan-details{border-top:1px solid #dce8e3;margin-top:12px}
+.x-plan-details>summary{display:flex;justify-content:space-between;align-items:center;cursor:pointer;list-style:none;font-size:11px;font-weight:500;padding:13px 0;color:#315e56}
+.x-plan-details>summary::-webkit-details-marker{display:none}
+.x-plan-details>summary:focus-visible{outline:3px solid #36c5ac;outline-offset:3px}
+.x-plan-details>summary span{font-size:17px;transition:transform .2s}
+.x-plan-details[open]>summary span{transform:rotate(45deg)}
+.x-live .x-town-plans{padding:0}
+.x-live .x-town-plans>.x-kicker{font-size:8px;margin:4px 0}
+.x-live .x-town-row{padding:12px 0}
+.x-live .x-town-top{font-size:12px}
+.x-live .x-town-top strong{font-size:12px}
+.x-live .x-town-detail{font-size:9px;margin:7px 0}
+.x-live .x-town-plans .x-fine{font-size:9px;margin:12px 0}
+.x-live .x-efficiency{display:block;border:0;margin:12px 0;padding:0}
+.x-live .x-efficiency .x-kicker{font-size:8px;margin-bottom:6px}
+.x-live .x-efficiency>p:not(.x-kicker){font-size:10px;line-height:1.6}
+.x-live .x-inspect-plan{width:100%;min-height:36px;padding:10px 12px;font-size:10px;justify-content:space-between}
+.x-live .x-live-footnote{font-size:9px;margin:14px 0 0;max-width:800px}
+@media(min-width:721px) and (max-width:1000px){
+  .x-live-workbench{scroll-margin-top:78px;grid-template-columns:minmax(0,1fr) 300px;gap:14px}
+  .x-live .x-live-heading{display:flex;align-items:center}
+  .x-live .x-live-description{max-width:220px;font-size:10px}
+  .x-control-panel{padding:16px}
+}
+@media(max-width:720px){
+  .experience .x-live{padding:18px 5% 30px;scroll-margin-top:78px}
+  .x-live .x-live-heading{display:block;margin-bottom:14px}
+  .x-live .x-live-heading h2{font-size:26px}
+  .x-live .x-live-heading .x-kicker{font-size:7px;margin-bottom:8px}
+  .x-live .x-live-description{font-size:10px;max-width:none;margin-top:10px}
+  .x-live-workbench{scroll-margin-top:78px;grid-template-columns:minmax(0,1fr);grid-template-areas:"controls" "map" "results";gap:12px}
+  .x-control-panel{display:contents}
+  .x-control-inputs{grid-area:controls;position:sticky;top:70px;z-index:6;background:#f8fbfa;border:1px solid #d5e4df;border-radius:11px;padding:12px;box-shadow:0 5px 15px #133f3310;display:grid;grid-template-columns:1fr auto;column-gap:8px;row-gap:10px;align-items:center}
+  .x-live .x-live-toolbar{grid-column:1/-1}
+  .x-live .x-budget-label{font-size:10px;gap:7px}
+  .x-live .x-budget-label strong{font-size:22px}
+  .x-live .x-budget-label>span{font-size:8px}
+  .x-live .x-demo-presets{padding:0;gap:5px;flex-wrap:wrap}
+  .x-live .x-demo-presets>span{display:none}
+  .x-live .x-demo-presets button{font-size:9px;padding:7px 8px;border-radius:5px}
+  .x-live .x-funding-control{margin:0;width:auto;padding:3px}
+  .x-live .x-funding-control button{font-size:9px;min-height:29px;padding:6px 8px}
+  .x-live .x-error{grid-column:1/-1;margin:0}
+  .x-live .x-compare-map{grid-area:map;position:relative;top:auto;height:clamp(235px,calc(100svh - 350px),360px);border-radius:11px}
+  .x-live .x-map-base,.x-live .x-map-shared{inset:35px 0 80px}
+  .x-live .x-map-divider{top:35px;bottom:80px}
+  .x-live .x-map-labels{top:16px;left:16px;right:16px;font-size:8px}
+  .x-live .x-map-scrubber{bottom:38px;left:16px;right:16px;font-size:8px}
+  .x-live .x-map-caption{left:16px;bottom:13px;font-size:8px}
+  .x-live #x-model-output{grid-area:results;min-width:0}
+  .x-live .x-plan-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0}
+  .x-live .x-plan-metrics>div{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:10px 0}
+  .x-live .x-plan-metrics span{font-size:8px;min-height:22px}
+  .x-live .x-plan-metrics strong{font-size:23px;letter-spacing:-.9px}
+  .x-live .x-plan-metrics small{font-size:8px;line-height:1.5}
+  .x-live .x-result-comparison{margin:8px 0 14px}
+}

@@ -25,7 +25,7 @@
     {
       "time": "1:15–1:45",
       "title": "核心演示：相同实际支出",
-      "action": "在预算滑块正下方找到 Demo budgets，点 $45,000 快捷按钮。切换 Independent 和 Shared budget。拖动地图对比滑块，再把鼠标放到一个城镇上。",
+      "action": "在地图右侧的预算滑块下面找到 Demo budgets，点 $45,000 快捷按钮。切换 Independent 和 Shared budget。拖动地图对比滑块，再展开 Town allocation & spending，把鼠标放到一个城镇上。",
       "expect": "两种规则都花 $45,000。Independent：20.15 t、3 镇；Shared：34.35 t、2 镇。地图显示真实被分配的道路片区。",
       "say": "At the same forty-five-thousand-dollar spending, the simulated pooled plan avoids more Zone A application, but funds only two towns."
     },

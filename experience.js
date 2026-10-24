@@ -32,7 +32,7 @@
   $('x-ripple').addEventListener('click',()=>{setStage('water');winter.interact(lab.model,.66,.8,'ripple');winter.draw(lab.ctx,lab.model,lab.width,lab.height);});
   $('x-clear').addEventListener('click',()=>{lab.model.grains=[];lab.model.ripples=[];lab.model.emitted=0;setStage('snow');});
   $('x-snowfall').addEventListener('input',()=>{const value=Number($('x-snowfall').value)/100;if(Number.isFinite(value)&&value>=0&&value<=1){for(const s of scenes){s.model.snowfall=value;winter.draw(s.ctx,s.model,s.width,s.height);}}});
-  for(const button of document.querySelectorAll('[data-x-scroll]'))button.addEventListener('click',()=>$(button.dataset.xScroll)?.scrollIntoView?.({behavior:paused?'auto':'smooth',block:'start'}));
+  for(const button of document.querySelectorAll('[data-x-scroll]'))button.addEventListener('click',()=>$(button.dataset.xScroll==='x-live'?'x-live-workbench':button.dataset.xScroll)?.scrollIntoView?.({behavior:paused?'auto':'smooth',block:'start'}));
   if(globalThis.IntersectionObserver){
     root.classList.add('x-enhanced');const reveal=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('is-revealed');reveal.unobserve(e.target);}},{threshold:.12});for(const el of document.querySelectorAll('.x-reveal'))reveal.observe(el);
     const visible=new IntersectionObserver(entries=>{for(const e of entries){const s=scenes.find(s=>s.canvas===e.target);if(s)s.visible=e.isIntersecting;}animate();},{rootMargin:'100px'});for(const s of scenes)visible.observe(s.canvas);

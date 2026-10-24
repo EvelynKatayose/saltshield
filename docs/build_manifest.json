@@ -1,6 +1,6 @@
 {
-  "source_report_sha256": "1dc2325a0a0c5465ccbb9a35822520746577c996df68af21b4f23a8dcec9cf31",
-  "published_index_sha256": "99bc34f80dc34039c55f11420cb5148ab352c6a47b7d37b44643d8a2413da4d4",
+  "source_report_sha256": "ed041856e9b70d5aa8da3aeb5d6656fc97ddf381aea24bc06984cf3141842ca3",
+  "published_index_sha256": "b87d8904c92b12256017fa009f2ec7f07f7c1622064a98f57b1c2ad74a6b2d58",
   "demo_entry": "https://evelynkatayose.github.io/saltshield/?demo=1",
   "base_path": "/saltshield/",
   "files": [
