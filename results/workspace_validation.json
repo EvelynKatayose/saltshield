@@ -119,7 +119,7 @@
     "sha256": "95b8275a799a21fa7cc63b0812c7343d35377120b8f14970d1ece1406dfb2e1d"
   },
   "capacity_review_browser_checks": [
-    "Chrome: nine saved reach cases show 5 of 9 equipment matches and 50.85\u201369.12 simulated Zone A tonnes",
+    "Chrome: nine saved reach cases show 5 of 9 equipment matches and 50.85–69.12 simulated Zone A tonnes",
     "Chrome: reach table and controls visually inspected in the existing macOS-style workspace",
     "Chrome: standalone English brief opens offline with the correct metrics, assignment table, source hashes and reach summary"
   ],
@@ -163,19 +163,21 @@
       "Chrome: native UI state reflects live changes to snowfall intensity, funding mode, map split and budget"
     ],
     "verification_limits": [
-      "Narrow-screen layout and real mobile/touch hardware were not visually reverified.",
       "Embedded Codex preview and local HTTP server were unavailable; desktop Chrome file:// preview was used.",
-      "Particle paths and generated landscape are illustrations, not measured routes, salt mass or water-quality predictions."
+      "Particle paths and generated landscape are illustrations, not measured routes, salt mass or water-quality predictions.",
+      "Phone dimensions were tested in browser emulation; physical touch hardware was not tested."
     ],
     "layout_checks": [
-      "Chrome desktop file preview: map and budget controls share a compact two-column layout",
-      "Live navigation targets the workbench below the fixed header",
-      "Town allocation and spending details are expandable"
+      "Public desktop viewport 1265 x 720: complete map, budget slider, presets and modeled results visible together",
+      "Explore the map aligns the workbench below the fixed header",
+      "Phone viewport 375 x 844: complete map and budget controls visible together; no horizontal document overflow",
+      "Phone budget preset and Independent toggle reproduce 20.15 t at 45000",
+      "Temporary viewport override reset"
     ]
   },
   "demo": {
     "status": "PASS",
-    "report_sha256": "1dc2325a0a0c5465ccbb9a35822520746577c996df68af21b4f23a8dcec9cf31",
+    "report_sha256": "ed041856e9b70d5aa8da3aeb5d6656fc97ddf381aea24bc06984cf3141842ca3",
     "demo_entry": "https://evelynkatayose.github.io/saltshield/?demo=1",
     "walkthrough_url": "https://evelynkatayose.github.io/saltshield/demo/",
     "deployment_status": "succeeded",
@@ -208,9 +210,9 @@
   "deployment": {
     "provider": "github-pages",
     "status": "succeeded",
-    "workflow_run_id": 40134281202,
-    "source_commit": "f737150cda0725dc57726e3fd3cd7db74fc3202b",
-    "verified_at": "2026-10-24T21:29:17.388Z",
+    "workflow_run_id": 40134872853,
+    "source_commit": "0cf90fb7fe5b09dbb790b340953344aecf3c5481",
+    "verified_at": "2026-10-24T21:37:26.263Z",
     "routes": [
       {
         "route": "home",
@@ -218,15 +220,7 @@
         "url": "https://evelynkatayose.github.io/saltshield/",
         "exact_file_match": true,
         "provider_branding": false,
-        "sha256": "99bc34f80dc34039c55f11420cb5148ab352c6a47b7d37b44643d8a2413da4d4"
-      },
-      {
-        "route": "?demo=1",
-        "status": 200,
-        "url": "https://evelynkatayose.github.io/saltshield/?demo=1",
-        "exact_file_match": true,
-        "provider_branding": false,
-        "sha256": "99bc34f80dc34039c55f11420cb5148ab352c6a47b7d37b44643d8a2413da4d4"
+        "sha256": "b87d8904c92b12256017fa009f2ec7f07f7c1622064a98f57b1c2ad74a6b2d58"
       },
       {
         "route": "coverage/",
@@ -234,31 +228,7 @@
         "url": "https://evelynkatayose.github.io/saltshield/coverage/",
         "exact_file_match": true,
         "provider_branding": false,
-        "sha256": "99bc34f80dc34039c55f11420cb5148ab352c6a47b7d37b44643d8a2413da4d4"
-      },
-      {
-        "route": "overview/",
-        "status": 200,
-        "url": "https://evelynkatayose.github.io/saltshield/overview/",
-        "exact_file_match": true,
-        "provider_branding": false,
-        "sha256": "99bc34f80dc34039c55f11420cb5148ab352c6a47b7d37b44643d8a2413da4d4"
-      },
-      {
-        "route": "investments/",
-        "status": 200,
-        "url": "https://evelynkatayose.github.io/saltshield/investments/",
-        "exact_file_match": true,
-        "provider_branding": false,
-        "sha256": "99bc34f80dc34039c55f11420cb5148ab352c6a47b7d37b44643d8a2413da4d4"
-      },
-      {
-        "route": "evidence/",
-        "status": 200,
-        "url": "https://evelynkatayose.github.io/saltshield/evidence/",
-        "exact_file_match": true,
-        "provider_branding": false,
-        "sha256": "99bc34f80dc34039c55f11420cb5148ab352c6a47b7d37b44643d8a2413da4d4"
+        "sha256": "b87d8904c92b12256017fa009f2ec7f07f7c1622064a98f57b1c2ad74a6b2d58"
       },
       {
         "route": "demo/",
@@ -266,16 +236,19 @@
         "url": "https://evelynkatayose.github.io/saltshield/demo/",
         "exact_file_match": true,
         "provider_branding": false,
-        "sha256": "053d8d4058d3f53e0e13c544fb104306a81b0355f503c61674b2b7ec2e393a4c"
+        "sha256": "8ec54a33f7d12df68e410a4e86f1484096135e5ccba10b1b38f48dd8a1ee4613"
       }
     ],
     "application_scripts_unchanged_by_host": true,
     "host_adds_platform_bootstrap": false,
     "browser_checks": [
-      "Chrome public demo opens with a clean address and no platform toolbar",
-      "Explore the map scrolls to the live budget section",
-      "Demo budgets buttons are visible directly below the slider"
+      "Public desktop viewport 1265 x 720: complete map, budget slider, presets and modeled results visible together",
+      "Explore the map aligns the workbench below the fixed header",
+      "Phone viewport 375 x 844: complete map and budget controls visible together; no horizontal document overflow",
+      "Phone budget preset and Independent toggle reproduce 20.15 t at 45000",
+      "Temporary viewport override reset"
     ],
-    "repository_private": true
+    "repository_private": true,
+    "layout_proof": "results/live_layout.png"
   }
 }

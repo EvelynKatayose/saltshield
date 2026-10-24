@@ -38,13 +38,15 @@
     "Chrome: native UI state reflects live changes to snowfall intensity, funding mode, map split and budget"
   ],
   "verification_limits": [
-    "Narrow-screen layout and real mobile/touch hardware were not visually reverified.",
     "Embedded Codex preview and local HTTP server were unavailable; desktop Chrome file:// preview was used.",
-    "Particle paths and generated landscape are illustrations, not measured routes, salt mass or water-quality predictions."
+    "Particle paths and generated landscape are illustrations, not measured routes, salt mass or water-quality predictions.",
+    "Phone dimensions were tested in browser emulation; physical touch hardware was not tested."
   ],
   "layout_checks": [
-    "Chrome desktop file preview: map and budget controls share a compact two-column layout",
-    "Live navigation targets the workbench below the fixed header",
-    "Town allocation and spending details are expandable"
+    "Public desktop viewport 1265 x 720: complete map, budget slider, presets and modeled results visible together",
+    "Explore the map aligns the workbench below the fixed header",
+    "Phone viewport 375 x 844: complete map and budget controls visible together; no horizontal document overflow",
+    "Phone budget preset and Independent toggle reproduce 20.15 t at 45000",
+    "Temporary viewport override reset"
   ]
 }
