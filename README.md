@@ -1,8 +1,9 @@
 # SaltShield Wachusett pilot
 
 This package contains official public GIS extracts, reproducible road-length
-analysis, six explicitly simulated investment alternatives, an exact budget
-comparison, figures, and a standalone interactive HTML results report.
+analysis, six explicitly simulated investment alternatives, exact budget
+comparisons, five winters of regional weather context, spatial coverage
+allocation, figures, and a standalone interactive HTML results report.
 
 ## Run
 
@@ -15,8 +16,11 @@ pip install -r requirements.txt
 python run_analysis.py
 python build_evidence.py
 python phase2_model.py
+python build_weather.py
+python spatial_priority.py
 python build_report.py
-python -m unittest test_phase2 -v
+python -m unittest test_phase2 test_phase3 -v
+node test_ui.cjs  # optional Node.js verification of embedded report scripts
 ```
 
 Open `results/SaltShield_Wachusett.html`. For a fresh source snapshot, run
@@ -73,6 +77,79 @@ is recorded separately in `results/phase2_validation.json` after verification.
 With Node.js installed, run `node test_ui.cjs` for offline UI-state validation
 and scenario import/export round-trip tests. These are unit tests, not a
 substitute for visual browser inspection.
+
+## Phase 3 regional context and spatial coverage
+
+Five complete winters, 2021–2022 through 2025–2026, have been retrieved from
+Open-Meteo's Historical Weather API with `models=era5`. Each season is November
+1 through March 31 in America/New_York time. The snapshot contains 18,144 hours
+across 756 local calendar days, with no missing values in the four requested
+variables: 2 m air temperature (C), precipitation (mm), snowfall (cm), and 10 m
+wind speed (m/s). UTC epochs preserve both occurrences of a repeated daylight
+saving time hour. Missing values, if present in a future snapshot, remain
+missing and suppress affected totals; they are not filled with zero.
+
+The requested reference is the projected watershed centroid, approximately
+42.404817 N, 71.811495 W. The returned ERA5 grid coordinate is 42.5 N,
+71.75 W. ERA5 is a coarse 0.25-degree regional reanalysis, not local road-sensor
+observations. Default API elevation adjustment is retained and the response
+elevation is recorded. This reference cannot resolve local pavement conditions.
+Precipitation includes rain and snow water equivalent; snowfall depth is a
+separate model variable and must not be added to precipitation.
+
+The descriptive "cold-wet" count uses air temperature <= 2 C and preceding-hour
+precipitation >= 0.1 mm. It is not a road icing diagnosis or calibrated salt
+demand estimate. Weather is context only and does not change the phase 2 salt
+baseline, investment effects, or spatial objective. Attribution: ERA5 /
+Copernicus Climate Change Service via Open-Meteo; Open-Meteo data CC BY 4.0.
+Documentation: https://open-meteo.com/en/docs/historical-weather-api
+
+`data/weather` holds five raw responses, exact request URLs, retrieval dates,
+response coordinates/units, SHA-256 checksums, and hourly/daily CSVs. Refresh
+online with `python download_weather.py`; then run `python build_weather.py`.
+Cached analysis is fully offline. Keep all weather snapshots and their manifest
+together; the report rejects a changed manifest or mismatched raw snapshot.
+
+The spatial module partitions eligible municipal paved roads into 173 occupied
+1 km planning cells in EPSG:26986. Cell footprints are clipped to the study
+town/watershed masks. Each source road piece is assigned only once at grid
+boundaries, and per-town eligible, protected, and Zone A lengths are conserved.
+The original source-record overlap described below remains in summed lengths.
+`data/processed/planning_cells.geojson` contains the cell polygons and metrics.
+
+Each town is assigned an illustrative coverage capacity of 25%, 50%, 75%, or
+100% of its eligible centerline length. Four methods share that same per-town
+capacity: uniform fractional coverage, a Zone-A-ratio greedy whole-cell choice,
+an exact binary knapsack solved with SciPy/HiGHS, and a fractional-knapsack
+upper bound. Integer solves require a certified optimal result with zero
+relative gap. Grid size is a modeling choice, and no grid-size robustness claim
+is made. Zero-benefit cells can be omitted; full-capacity scenarios cover all
+cells. Unused capacity is displayed rather than assumed spent.
+
+At 25% capacity, the three towns have 73.81 km of aggregate capacity. The whole
+cell optimum covers 73.70 km of roads including 39.56 km in Zone A; the uniform
+fractional baseline covers 20.77 km in Zone A. This is a spatial-targeting
+comparison, not a measured salt saving. The greedy whole-cell heuristic is
+already close to the optimum; the larger difference against uniform coverage
+must not be attributed solely to using an integer solver. Uniform and upper
+bound cases allow partial cells and are not executable whole-cell plans.
+
+The spatial planner is separate from the equipment budget editor. It does not
+convert geometry coverage into new avoided-application tonnes, equipment costs,
+route schedules or measured fleet capacity. Grid cells are not validated snow
+maintenance routes. Travel links, concurrent weather response, staffing,
+storage, safety service requirements and equipment sharing logistics remain
+unmodeled. The report provides a case selector, a shaded map, side-by-side
+method comparisons, and downloadable cell allocations.
+
+Rebuild with `python spatial_priority.py`. The 12 town/capacity cases and 48
+method rows are in `results/spatial_priority.json` and
+`results/spatial_policy_comparison.csv`; all case allocations are in
+`results/spatial_cell_allocations.csv`. The report checks both source geometry
+and planning-cell checksums. Tests compare a small integer problem against
+exhaustive enumeration, verify real-data capacity/length bounds, preserve DST
+hours, reject weather corruption and execute the embedded HTML scripts.
+Validation summary: `results/phase3_validation.json`.
 
 ## Real data and geographic scope
 

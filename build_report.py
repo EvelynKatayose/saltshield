@@ -163,6 +163,16 @@ def report(a):
         template=template.replace('本轮设备项目','默认模拟项目参数').replace('假设覆盖其在本汇水区内所有可纳入的市镇铺装道路。','初始覆盖率为 100%，可在第二阶段编辑器中调整。')
         extra_style='\n#project-editor input[type=number]{width:130px}#planner-error{color:#9a3628;background:#fff0eb;padding:12px}button:disabled{opacity:.5;cursor:default}details{margin-top:14px}summary{padding:8px 0}#evidence-panel table td{vertical-align:middle} [hidden]{display:none!important}\n'
         template=template.replace('</style>',extra_style+'</style>')
+    phase3_files=[OUT/'spatial_priority.json',OUT/'weather_context.json']
+    if any(p.exists() for p in phase3_files):
+        if not all(p.exists() for p in phase3_files):
+            raise ValueError('Run both build_weather.py and spatial_priority.py before building phase 3.')
+        from phase3_report import load_results, panel, STYLE
+        a={**a,'phase3':load_results()}
+        marker='<section class="panel"><h2>保护区内道路'
+        template=template.replace(marker,panel(a['phase3'])+'\n'+marker)
+        template=template.replace('</style>',STYLE+'</style>')
+        template=template.replace('</body>','<script>\n'+(ROOT/'phase3_ui.js').read_text()+'\n</script></body>')
     replacements={'__MAP__':svg_map(),'__MEASURED_ROWS__':measured,'__OWNER_ROWS__':ownership,'__SOURCES__':sources,'__ANALYSIS_JSON__':json.dumps(a,ensure_ascii=False).replace('</','<\\/'),'__SOLVER_JS__':(ROOT/'simulation.js').read_text()}
     for key,value in replacements.items():template=template.replace(key,value)
     (OUT/'SaltShield_Wachusett.html').write_text(template)

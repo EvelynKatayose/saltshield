@@ -8,6 +8,7 @@ async function run() {
   const root = __dirname;
   const analysis = JSON.parse(fs.readFileSync(path.join(root, 'results/analysis.json'), 'utf8'));
   analysis.phase2 = JSON.parse(fs.readFileSync(path.join(root, 'results/phase2_analysis.json'), 'utf8'));
+  const spatial = JSON.parse(fs.readFileSync(path.join(root, 'results/spatial_priority.json'), 'utf8'));
   const elements = new Map();
   function element(value = '') {
     let inputValue = String(value);
@@ -16,6 +17,9 @@ async function run() {
   for (const id of ['budget','intensity','effect','planner-error','result-output','export','caps','ind-benefit','ind-cost','ind-projects','ind-bar','pool-benefit','pool-cost','pool-projects','pool-bar','explanation','participation-summary','participation-projects','equal-spend','equal-spend-participation','project-editor','reset-scenario','import-status','import-scenario']) elements.set(id, element());
   const get = id => elements.get(id);
   get('budget').value = '75000'; get('intensity').value = '5'; get('effect').value = 'central';
+  for (const id of ['spatial-fraction','spatial-method','spatial-export','spatial-summary','spatial-table']) elements.set(id, element());
+  get('spatial-fraction').value = '.25'; get('spatial-method').value = 'integer';
+  const mapCells = spatial.cells.map(c => ({dataset:{cell:c.cell_id},style:{}}));
   const rows = new Map(analysis.phase2.projects.map(p => {
     const fields = new Map([['cost', element(String(p.capital_cost_usd))], ['coverage', element('100')], ['enabled', element()]]);
     return [p.project_id, { fields, querySelector(selector) { return fields.get(selector.match(/data-field="([^"]+)"/)[1]); } }];
@@ -25,14 +29,18 @@ async function run() {
     document: {
       getElementById: get,
       querySelector(selector) { return rows.get(selector.match(/data-project="([^"]+)"/)[1]); },
-      querySelectorAll() { return []; },
+      querySelectorAll(selector) { return selector === '.priority-cell' ? mapCells : []; },
       createElement() { return { click() {} }; },
     },
     Blob,
     URL: { createObjectURL(blob) { exported = blob; return 'blob:test'; }, revokeObjectURL() {} },
   };
   vm.createContext(context);
-  vm.runInContext('const ANALYSIS = ' + JSON.stringify(analysis) + ';\n' + fs.readFileSync(path.join(root, 'simulation.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'phase2_ui.js'), 'utf8'), context);
+  // Execute the shipped report, so integration/embedding failures are caught too.
+  const report = fs.readFileSync(path.join(root, 'results/SaltShield_Wachusett.html'), 'utf8');
+  const scripts = [...report.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]);
+  assert.equal(scripts.length, 3);
+  vm.runInContext(scripts.join('\n'), context);
   assert.equal(get('pool-benefit').textContent, '84.84 t');
   const checks = ['default_results'];
 
@@ -76,6 +84,23 @@ async function run() {
 
   const missing = JSON.parse(JSON.stringify(payload)); delete missing.inputs.projects[0].enabled;
   await load(missing); assert.match(get('import-status').textContent, /导入失败/); checks.push('incomplete_project_import_rejected');
+
+  assert.match(get('spatial-summary').textContent, /39\.56 km/);
+  assert.match(get('spatial-summary').textContent, /20\.77 km/);
+  assert.ok(mapCells.some(c => c.style.fill === '#176d63')); checks.push('spatial_default_and_map_render');
+
+  get('spatial-fraction').value = '1'; get('spatial-fraction').listeners.change();
+  assert.match(get('spatial-summary').textContent, /83\.07 km/);
+  assert.ok(mapCells.every(c => c.style.fill === '#176d63')); checks.push('spatial_full_capacity_covers_all');
+
+  get('spatial-fraction').value = '.25'; get('spatial-method').value = 'uniform'; get('spatial-method').listeners.change();
+  assert.ok(mapCells.every(c => Math.abs(Number(c.style.fillOpacity)-(.18+.82*.25))<1e-10));
+  assert.match(get('spatial-summary').textContent, /均匀覆盖/); checks.push('uniform_map_uses_fractional_shading');
+
+  get('spatial-method').value = 'integer'; get('spatial-method').listeners.change(); get('spatial-export').listeners.click();
+  const csv = await exported.text();
+  assert.ok(csv.includes('road_source_sha256'));assert.ok(csv.includes(spatial.source_sha256['road_segments.geojson']));
+  assert.ok(csv.includes('"integer"'));assert.ok(!csv.includes('"uniform"'));checks.push('spatial_csv_matches_active_case');
   return { status: 'PASS', checks };
 }
 

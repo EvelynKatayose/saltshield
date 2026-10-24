@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "python_tests": 23,
+  "ui_state_checks": [
+    "default_results",
+    "coverage_updates_results",
+    "invalid_input_hides_stale_results",
+    "reset_restores_defaults",
+    "disabled_town_infeasibility_visible",
+    "participation_tradeoff_visible",
+    "export_contains_evidence_and_inputs",
+    "import_roundtrip_ignores_geometry_tampering",
+    "wrong_evidence_snapshot_rejected",
+    "incomplete_project_import_rejected",
+    "spatial_default_and_map_render",
+    "spatial_full_capacity_covers_all",
+    "uniform_map_uses_fractional_shading",
+    "spatial_csv_matches_active_case"
+  ],
+  "ui_execution": "Embedded scripts from the shipped offline HTML, in a mock DOM; real browser inspected separately.",
+  "spatial_cases": 12,
+  "spatial_policy_rows": 48,
+  "weather_hours": 18144,
+  "real_browser_checks": [
+    "Chrome: default 25% case renders weather table and selected-cell map",
+    "Chrome: switching to 50% updates Zone A result to 63.62 km and uniform baseline to 41.54 km"
+  ]
+}

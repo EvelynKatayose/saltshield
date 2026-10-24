@@ -1,5 +1,11 @@
 SaltShield 已完成首轮真实数据与模拟投资分析。
 
+第三阶段已完成：加入2021–2022至2025–2026五个完整冬季、18144小时的ERA5区域天气再分析数据；新增173个1公里规划片区，比较均匀覆盖、比例贪心、整片区最优和允许切分的理论上界。可在结果页切换25%/50%/75%/100%示例覆盖容量，查看地图并导出片区清单。
+
+25%容量示例：三镇总道路容量上限73.81公里。整片区最优覆盖73.70公里道路，其中Zone A为39.56公里；均匀覆盖基线为20.77公里Zone A。容量为模拟，片区不是核验路线，结果不是实测减盐量。天气只提供区域背景，不校准设备收益，也不代表路面温度。
+
+第三阶段离线重跑：python build_weather.py；python spatial_priority.py；python build_report.py。验证：python -m unittest test_phase2 test_phase3 -v；node test_ui.cjs。联网更新天气：python download_weather.py，再按上述顺序重建。
+
 第二阶段已完成：结果页新增13条DCR官方历史资助记录（FY2021至FY2026，合计188251美元），可以编辑设备模拟成本、覆盖率和启用状态，比较“每镇至少一个项目”的参与约束，并导入导出情景。历史资助不是设备当前报价或已安装证明。
 
 第二阶段重跑顺序：python build_evidence.py；python phase2_model.py；python build_report.py。验证：python -m unittest test_phase2 -v；如有Node.js，再运行node test_ui.cjs。

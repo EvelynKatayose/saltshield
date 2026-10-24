@@ -7,3 +7,4 @@
 *.png binary
 # Preserve the exact bytes used by the evidence checksum.
 data/evidence/*_source.html -text -diff
+data/weather/era5_*.json -text -diff

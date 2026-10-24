@@ -1,0 +1,155 @@
+{
+  "requested_reference_latitude": 42.404817,
+  "requested_reference_longitude": -71.811495,
+  "model": "ERA5",
+  "spatial_resolution_degrees": 0.25,
+  "variables": [
+    "temperature_2m",
+    "precipitation",
+    "snowfall",
+    "wind_speed_10m"
+  ],
+  "documentation": "https://open-meteo.com/en/docs/historical-weather-api",
+  "attribution": "ERA5 / Copernicus Climate Change Service via Open-Meteo; Open-Meteo data CC BY 4.0 attribution required.",
+  "data_kind": "HISTORICAL_GRIDDED_REANALYSIS_NOT_ROAD_SENSOR_OBSERVATIONS",
+  "requests": [
+    {
+      "season": "2021-2022",
+      "file": "era5_2021_2022.json",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=42.404817&longitude=-71.811495&start_date=2021-11-01&end_date=2022-04-01&hourly=temperature_2m%2Cprecipitation%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=UTC&timeformat=unixtime&wind_speed_unit=ms",
+      "local_start": "2021-11-01",
+      "local_end_exclusive": "2022-04-01"
+    },
+    {
+      "season": "2022-2023",
+      "file": "era5_2022_2023.json",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=42.404817&longitude=-71.811495&start_date=2022-11-01&end_date=2023-04-01&hourly=temperature_2m%2Cprecipitation%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=UTC&timeformat=unixtime&wind_speed_unit=ms",
+      "local_start": "2022-11-01",
+      "local_end_exclusive": "2023-04-01"
+    },
+    {
+      "season": "2023-2024",
+      "file": "era5_2023_2024.json",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=42.404817&longitude=-71.811495&start_date=2023-11-01&end_date=2024-04-01&hourly=temperature_2m%2Cprecipitation%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=UTC&timeformat=unixtime&wind_speed_unit=ms",
+      "local_start": "2023-11-01",
+      "local_end_exclusive": "2024-04-01"
+    },
+    {
+      "season": "2024-2025",
+      "file": "era5_2024_2025.json",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=42.404817&longitude=-71.811495&start_date=2024-11-01&end_date=2025-04-01&hourly=temperature_2m%2Cprecipitation%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=UTC&timeformat=unixtime&wind_speed_unit=ms",
+      "local_start": "2024-11-01",
+      "local_end_exclusive": "2025-04-01"
+    },
+    {
+      "season": "2025-2026",
+      "file": "era5_2025_2026.json",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=42.404817&longitude=-71.811495&start_date=2025-11-01&end_date=2026-04-01&hourly=temperature_2m%2Cprecipitation%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=UTC&timeformat=unixtime&wind_speed_unit=ms",
+      "local_start": "2025-11-01",
+      "local_end_exclusive": "2026-04-01"
+    }
+  ],
+  "responses": [
+    {
+      "season": "2021-2022",
+      "file": "era5_2021_2022.json",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=42.404817&longitude=-71.811495&start_date=2021-11-01&end_date=2022-04-01&hourly=temperature_2m%2Cprecipitation%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=UTC&timeformat=unixtime&wind_speed_unit=ms",
+      "local_start": "2021-11-01",
+      "local_end_exclusive": "2022-04-01",
+      "sha256": "97594354760e331be0fd0319051f3308e8728ff201c854af4f356e5ddaa77222",
+      "retrieved_at": "2026-10-24T19:14:13.433Z",
+      "grid_latitude": 42.5,
+      "grid_longitude": -71.75,
+      "elevation_m": 188,
+      "raw_hour_count": 3648,
+      "units": {
+        "time": "unixtime",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "season": "2022-2023",
+      "file": "era5_2022_2023.json",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=42.404817&longitude=-71.811495&start_date=2022-11-01&end_date=2023-04-01&hourly=temperature_2m%2Cprecipitation%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=UTC&timeformat=unixtime&wind_speed_unit=ms",
+      "local_start": "2022-11-01",
+      "local_end_exclusive": "2023-04-01",
+      "sha256": "21a5b5d442bd2dfe878ed61fe7bf3b2f226aaf7ff1432e8243f1aede82f8ea48",
+      "retrieved_at": "2026-10-24T19:14:13.578Z",
+      "grid_latitude": 42.5,
+      "grid_longitude": -71.75,
+      "elevation_m": 188,
+      "raw_hour_count": 3648,
+      "units": {
+        "time": "unixtime",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "season": "2023-2024",
+      "file": "era5_2023_2024.json",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=42.404817&longitude=-71.811495&start_date=2023-11-01&end_date=2024-04-01&hourly=temperature_2m%2Cprecipitation%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=UTC&timeformat=unixtime&wind_speed_unit=ms",
+      "local_start": "2023-11-01",
+      "local_end_exclusive": "2024-04-01",
+      "sha256": "fe6cf155c87fe5e5956c26797d027e4e2be90101d89617a29b0bea0c05039d4b",
+      "retrieved_at": "2026-10-24T19:14:13.717Z",
+      "grid_latitude": 42.5,
+      "grid_longitude": -71.75,
+      "elevation_m": 188,
+      "raw_hour_count": 3672,
+      "units": {
+        "time": "unixtime",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "season": "2024-2025",
+      "file": "era5_2024_2025.json",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=42.404817&longitude=-71.811495&start_date=2024-11-01&end_date=2025-04-01&hourly=temperature_2m%2Cprecipitation%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=UTC&timeformat=unixtime&wind_speed_unit=ms",
+      "local_start": "2024-11-01",
+      "local_end_exclusive": "2025-04-01",
+      "sha256": "59ae824b1bb47043595793cd832b851e632a5b0ca9283c7181366f8b27c7ca81",
+      "retrieved_at": "2026-10-24T19:14:13.894Z",
+      "grid_latitude": 42.5,
+      "grid_longitude": -71.75,
+      "elevation_m": 188,
+      "raw_hour_count": 3648,
+      "units": {
+        "time": "unixtime",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "season": "2025-2026",
+      "file": "era5_2025_2026.json",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=42.404817&longitude=-71.811495&start_date=2025-11-01&end_date=2026-04-01&hourly=temperature_2m%2Cprecipitation%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=UTC&timeformat=unixtime&wind_speed_unit=ms",
+      "local_start": "2025-11-01",
+      "local_end_exclusive": "2026-04-01",
+      "sha256": "6d4b8615d1378612014dccfd02c1464291d8518e2b300a2107ec9f351b21abc1",
+      "retrieved_at": "2026-10-24T19:14:14.043Z",
+      "grid_latitude": 42.5,
+      "grid_longitude": -71.75,
+      "elevation_m": 188,
+      "raw_hour_count": 3648,
+      "units": {
+        "time": "unixtime",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    }
+  ],
+  "limitation": "One coarse regional reference grid. No local road temperatures, treatment rates, accident probabilities or causal salt-use estimates are inferred."
+}
