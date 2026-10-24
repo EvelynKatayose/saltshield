@@ -27,7 +27,7 @@
       if(active)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current');
     }
     get('view-title').textContent=titles[view];
-    try{globalThis.history?.replaceState(null,'','#'+view);}catch{}
+    try{globalThis.history?.replaceState(null,'',globalThis.SaltShieldRouter?.url(view)??'#'+view);}catch{}
     globalThis.scrollTo?.({top:0,behavior:'auto'});
     if(focus){const heading=get(view+'-heading');if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true});}}
   }
@@ -42,9 +42,11 @@
       document.querySelector('[data-view="'+views[index]+'"]').focus();
     });
   }
-  for(const button of document.querySelectorAll('[data-go]'))button.addEventListener('click',()=>showView(button.dataset.go,true));
-  globalThis.addEventListener?.('hashchange',()=>showView(globalThis.location.hash.slice(1)));
-  showView(globalThis.location?.hash.slice(1)||'experience');
+  for(const button of document.querySelectorAll('[data-go]'))button.addEventListener('click',event=>{event?.preventDefault?.();showView(button.dataset.go,true);});
+  const showLocation=()=>showView((globalThis.SaltShieldRouter?.view()??globalThis.location?.hash.slice(1))||'experience');
+  globalThis.addEventListener?.('hashchange',showLocation);
+  globalThis.addEventListener?.('popstate',showLocation);
+  showLocation();
 
   let appearance='light', followsSystem=true;
   const media=globalThis.matchMedia?.('(prefers-color-scheme: dark)');

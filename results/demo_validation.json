@@ -1,9 +1,9 @@
 {
   "status": "PASS",
-  "report_sha256": "e13214613a4dbe66854ed007b31ec280088b76892490c57169c0d608d2592cc6",
-  "demo_entry": "https://saltshield-wachusett.fun-badge-4372.chatgpt.site/?demo=1#experience",
-  "walkthrough_url": "https://saltshield-wachusett.fun-badge-4372.chatgpt.site/demo",
-  "deployment_status": "succeeded",
+  "report_sha256": "1dc2325a0a0c5465ccbb9a35822520746577c996df68af21b4f23a8dcec9cf31",
+  "demo_entry": "https://evelynkatayose.github.io/saltshield/?demo=1",
+  "walkthrough_url": "https://evelynkatayose.github.io/saltshield/demo/",
+  "deployment_status": "preparing",
   "audience": "public",
   "checks": [
     "demo ignores saved budget and reach and starts at 75000",
@@ -15,13 +15,13 @@
     "restart returns to demo entry",
     "ordinary mode restores the original saved work"
   ],
-  "static_index_matches_report": true,
-  "access_mode_verified": "public",
-  "access_revision": 2,
-  "anonymous_home_status": 200,
-  "anonymous_home_requires_login": false,
-  "anonymous_guide_status": 200,
-  "published_application_scripts_match": true,
-  "published_styles_match": true,
-  "host_adds_platform_bootstrap": true
+  "budget_shortcuts_available_without_demo": true,
+  "routing_checks": [
+    "public home has no hash",
+    "workspace navigation and direct reload use clean paths",
+    "demo restart preserves subpath and removes hash",
+    "legacy bookmarks normalize to clean paths",
+    "ordinary mode budget shortcuts work",
+    "offline navigation remains compatible"
+  ]
 }

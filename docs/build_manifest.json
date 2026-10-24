@@ -1,0 +1,16 @@
+{
+  "source_report_sha256": "1dc2325a0a0c5465ccbb9a35822520746577c996df68af21b4f23a8dcec9cf31",
+  "published_index_sha256": "99bc34f80dc34039c55f11420cb5148ab352c6a47b7d37b44643d8a2413da4d4",
+  "demo_entry": "https://evelynkatayose.github.io/saltshield/?demo=1",
+  "base_path": "/saltshield/",
+  "files": [
+    "index.html",
+    "demo.html",
+    ".nojekyll",
+    "overview/index.html",
+    "investments/index.html",
+    "coverage/index.html",
+    "evidence/index.html",
+    "demo/index.html"
+  ]
+}

@@ -7,4 +7,4 @@
 /* Persistent navigation keeps the story, planner and restart within reach. */
 .experience .x-nav{position:fixed;background:rgba(7,28,38,.68);backdrop-filter:blur(18px);border-bottom:1px solid #ffffff0c}#x-story,#x-live{scroll-margin-top:95px}.x-demo-launch,.x-demo-reset{font-size:10px;color:#cbe6e1;background:transparent;text-decoration:none;white-space:nowrap}.x-demo-reset{padding:8px 0}[data-demo="true"] .x-demo-launch{display:none}@media(max-width:720px){.x-demo-reset-text{display:none}.x-demo-reset{font-size:17px;padding:8px}.x-demo-launch{margin-right:12px}.x-nav-actions{gap:8px}}
 
-.x-demo-presets{display:flex;align-items:center;gap:9px;padding-top:17px;font-size:9px;color:#6d898d}.x-demo-presets button{background:#e5efeb;border:1px solid #cbded7;color:#246756;border-radius:5px;font-size:10px;padding:5px 10px}
+.x-demo-presets{display:flex;align-items:center;gap:9px;padding-top:17px;font-size:12px;color:#527174}.x-demo-presets button{background:#e5efeb;border:1px solid #cbded7;color:#246756;border-radius:7px;font-size:12px;padding:9px 14px}

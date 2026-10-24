@@ -1,10 +1,10 @@
 # SaltShield Wachusett pilot
 
-Public website: https://saltshield-wachusett.fun-badge-4372.chatgpt.site
+Public website: https://evelynkatayose.github.io/saltshield/
 
-Repeatable demo: https://saltshield-wachusett.fun-badge-4372.chatgpt.site/?demo=1#experience
+Repeatable demo: https://evelynkatayose.github.io/saltshield/?demo=1
 
-Presenter walkthrough: https://saltshield-wachusett.fun-badge-4372.chatgpt.site/demo
+Presenter walkthrough: https://evelynkatayose.github.io/saltshield/demo/
 
 The website is publicly accessible without login. The GitHub repository's access
 settings are unchanged. [DEMO.md](DEMO.md) contains the seven-step, three-minute
@@ -40,6 +40,8 @@ node build_joint_brief.cjs  # optional: saved-input standalone English brief
 node test_joint_brief.cjs
 node test_experience.cjs
 node test_demo.cjs
+node test_routing.cjs
+python build_site.py  # stage the public website in docs/
 ```
 
 Open `results/SaltShield_Wachusett.html`. For a fresh source snapshot, run

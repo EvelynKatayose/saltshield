@@ -1,6 +1,6 @@
 # SaltShield：三分钟 Demo
 
-演示入口：https://saltshield-wachusett.fun-badge-4372.chatgpt.site/?demo=1#experience
+演示入口：https://evelynkatayose.github.io/saltshield/?demo=1
 
 演示模式不读取或覆盖普通模式保存的预算、项目和容量。每次重新加载或点 Restart demo 都从默认情景开始。
 
@@ -30,7 +30,7 @@
 
 ## 4. 核心演示：相同实际支出（1:15–1:45）
 
-**怎么点：** 点 Demo budgets 下的 $45,000 快捷按钮。切换 Independent 和 Shared budget。拖动地图对比滑块，再把鼠标放到一个城镇上。
+**怎么点：** 在预算滑块正下方找到 Demo budgets，点 $45,000 快捷按钮。切换 Independent 和 Shared budget。拖动地图对比滑块，再把鼠标放到一个城镇上。
 
 **应当看到：** 两种规则都花 $45,000。Independent：20.15 t、3 镇；Shared：34.35 t、2 镇。地图显示真实被分配的道路片区。
 
