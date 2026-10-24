@@ -524,10 +524,3 @@ then use `node build_joint_brief.cjs` if refreshing the saved brief as well.
 checks two-way model updates, exact assigned-cell membership, comparison drag,
 keyboard highlighting, illustration isolation, reset, pause, visibility,
 reduced-motion and no-Canvas behavior, and bounded deterministic particle state.
-
-Design research used the public [Apple Environment](https://www.apple.com/environment/)
-page (large environmental imagery and staged explanations),
-[Tesla Megapack](https://www.tesla.com/megapack) (full-screen product framing and
-clear next actions), and [Passage of Water](https://experiments.withgoogle.com/passage-of-water)
-(an interactive water-resource narrative). References were reviewed on
-2026-10-24. No reference-site images, code or branding were copied into the app.
